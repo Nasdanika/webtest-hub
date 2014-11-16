@@ -7,7 +7,9 @@ import org.nasdanika.webtest.Title;
 
 @RunWith(NasdanikaWebTestSuite.class)
 @Title("WebTest Hub test report")
-@SuiteClasses({WebTestHubTest.class, WebTestHubRouteTest.class})
+@SuiteClasses({
+	Register.class, 
+	LogIn.class})
 public class WebTestHubTests {
 	
 }

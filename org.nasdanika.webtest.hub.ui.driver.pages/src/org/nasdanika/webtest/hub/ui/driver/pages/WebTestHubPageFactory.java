@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 
 public interface WebTestHubPageFactory {
 	
-	WebTestHubPage createWebTestHubPage(WebDriver webDriver);
+	GuestHome createGuestHome(WebDriver webDriver);
+
+	UserHome createUserHome(WebDriver webDriver);
 	
 }

@@ -341,7 +341,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 
 		String objectPath = context.getObjectPath(this);
 		Navbar navBar = htmlFactory.navbar(htmlFactory.span(StringEscapeUtils.escapeHtml4("TODO - User name"/*getName()*/)).id("banner"), objectPath+".html"); // Profile for authenticated user?		
-		navBar.item(htmlFactory.link(objectPath+"/signout", "Sign out&nbsp;", htmlFactory.glyphicon(Glyphicon.log_out)).on(Event.click, "return confirm('Are you sure you want to sign out?');"), false, true);
+		navBar.item(htmlFactory.link(objectPath+"/logout", "Log out&nbsp;", htmlFactory.glyphicon(Glyphicon.log_out)).on(Event.click, "return confirm('Are you sure you want to log out?');"), false, true);
 
 		//Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs();
 		//for (TraceEntry te: context.getPathTrace()) {
@@ -370,7 +370,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 	}
 		
 	@RouteMethod()
-	public void signout(final HttpContext context) throws Exception {
+	public void logout(final HttpContext context) throws Exception {
 		context.getRequest().getSession().invalidate();
 		context.getResponse().sendRedirect(context.getObjectPath(eContainer())+".html");
 	}	
