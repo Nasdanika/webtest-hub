@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.nasdanika.webtest.hub.tests
+Bundle-SymbolicName: org.nasdanika.webtest.hub.tests; singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Fragment-Host: org.nasdanika.webtest.hub.app;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.nasdanika.webtest.hub.ui.driver.actors.impl,
+ org.nasdanika.webtest.hub.ui.driver.actors,
+ org.nasdanika.webtest.hub.ui.driver.pages.impl

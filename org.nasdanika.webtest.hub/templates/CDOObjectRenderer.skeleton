@@ -1,0 +1,7 @@
+public class CLASS {
+
+
+public String generate(org.eclipse.emf.cdo.CDOObject target, Object... args) throws Exception {
+     return "";
+   }
+ }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="Credit Cards">
+   <implementation class="org.nasdanika.cdo.CDOSessionProviderServerComponent"/>
+   <reference 
+   		bind="addRepository" 
+   		cardinality="1..1" 
+   		interface="org.nasdanika.cdo.RepositoryProvider" 
+   		name="RepositoryProvider" 
+   		policy="static" 
+   		target="(component.name=webtest-hub-repository)" 
+   		unbind="removeRepository"/>
+   <property name=".acceptors" type="String" value="jvm:webtest-hub"/>
+   <property name=".repositoryName" type="String" value="webtest-hub"/>
+   <property name=".connector" type="String" value="jvm:webtest-hub"/>
+   <service>
+      <provide interface="org.eclipse.emf.cdo.session.CDOSessionProvider"/>
+   </service>
+   <property name="alias" type="String" value="webtest-hub"/>
+   <reference 
+   		bind="addSessionInitializer" 
+   		cardinality="1..1" 
+   		interface="org.nasdanika.cdo.CDOSessionInitializer" 
+   		name="CDOSessionInitializer" 
+   		policy="static" 
+   		target="(component.name=webtest-hub-session-initializer)" 
+   		unbind="removeSessionInitializer"/>
+   		
+</scr:component>

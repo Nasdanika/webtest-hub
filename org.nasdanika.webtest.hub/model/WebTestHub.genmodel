@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.nasdanika.webtest.hub/src" modelPluginID="org.nasdanika.webtest.hub"
+    modelName="WebTestHub" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
+    reflectiveDelegation="true" importerID="org.eclipse.emf.importer.cdo" featureDelegation="Reflective"
+    complianceLevel="7.0" copyrightFields="false" providerRootExtendsClass="org.eclipse.emf.cdo.edit.CDOItemProviderAdapter"
+    usedGenPackages="../../org.nasdanika.cdo.security/model/security.genmodel#//security"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>WebTestHub.ecore</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <genPackages prefix="Hub" basePackage="org.nasdanika.webtest" disposableProviderFactory="true"
+      ecorePackage="WebTestHub.ecore#/">
+    <genClasses ecoreClass="WebTestHub.ecore#//Hub">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//Hub/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//Hub/guest"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//Hub/users"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="WebTestHub.ecore#//ApplicationOwner"/>
+    <genClasses ecoreClass="WebTestHub.ecore#//Guest"/>
+    <genClasses ecoreClass="WebTestHub.ecore#//User"/>
+  </genPackages>
+</genmodel:GenModel>

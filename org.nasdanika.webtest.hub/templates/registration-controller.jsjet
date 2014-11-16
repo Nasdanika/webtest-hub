@@ -1,0 +1,22 @@
+<%@ jet package="org.nasdanika.webtest.hub.impl" class="RegistrationControllerRenderer" skeleton="CDOObjectRenderer.skeleton" %>
+
+angular.module('guestApp').controller('registrationController', function($scope, $http) {
+
+	$scope.registrationData = {};
+	
+	$scope.errorData = {};
+
+	$scope.register = function() {
+		$http.post('<%=args[0]%>', $scope.registrationData).success(function(data) {
+			if (data.target) {
+           		window.location = data.target;
+           	} else {
+				$scope.errorData = data;       
+				console.dir(data);    		
+           	}
+        }).error(function(data, status, headers, config) {
+			alert("Login failed: "+status);
+		});
+	};
+
+});

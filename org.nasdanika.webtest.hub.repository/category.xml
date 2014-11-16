@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.nasdanika.webtest.hub.feature_0.1.0.qualifier.jar" id="org.nasdanika.webtest.hub.feature" version="0.1.0.qualifier">
+      <category name="org.nasdanika.webtest.hub.category"/>
+   </feature>
+   <category-def name="org.nasdanika.webtest.hub.category" label="WebTest Hub">
+      <description>
+         org.nasdanika.webtest.hub.
+      </description>
+   </category-def>
+</site>
