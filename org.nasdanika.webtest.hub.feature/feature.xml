@@ -32,10 +32,6 @@
          id="org.nasdanika.server.jetty.feature"
          version="0.0.0"/>
 
-   <includes
-         id="org.nasdanika.webtest.feature"
-         version="0.0.0"/>
-
    <plugin
          id="org.nasdanika.webtest.hub"
          download-size="0"
@@ -44,36 +40,6 @@
 
    <plugin
          id="org.nasdanika.webtest.hub.app"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.nasdanika.webtest.hub.tests"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.nasdanika.webtest.hub.ui.driver.actors"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.nasdanika.webtest.hub.ui.driver.pages"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.nasdanika.webtest.hub.ui.driver.actors.impl"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.nasdanika.webtest.hub.ui.driver.pages.impl"
          download-size="0"
          install-size="0"
          version="0.0.0"/>

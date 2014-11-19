@@ -32,7 +32,7 @@ public class GuestHomeImpl implements GuestHome {
 	private WebElement password;
 	private WebElement loginButton;
 	
-	private WebElement registrationMenuItem;
+	private WebElement registerMenuItem;
 	
 	@FindBy(css = "body > div.panel.panel-info > div.panel-body > nav > div > div.navbar-header > button")
 	private WebElement navBarToggleButton;
@@ -93,11 +93,11 @@ public class GuestHomeImpl implements GuestHome {
 
 	@Override
 	public RegistrationDialog clickRegister() {
-		if (!registrationMenuItem.isDisplayed() && navBarToggleButton.isDisplayed()) {
+		if (!registerMenuItem.isDisplayed() && navBarToggleButton.isDisplayed()) {
 			navBarToggleButton.click();
-			webDriverWait.until(ExpectedConditions.visibilityOf(registrationMenuItem));
+			webDriverWait.until(ExpectedConditions.visibilityOf(registerMenuItem));
 		}
-		registrationMenuItem.click();
+		registerMenuItem.click();
 		return WebTestUtil.initElements(webDriver, RegistrationDialogImpl.class);
 	}
 

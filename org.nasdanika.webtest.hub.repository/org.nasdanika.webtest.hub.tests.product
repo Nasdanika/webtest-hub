@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="WebTest Hub" uid="org.nasdanika.webtest.hub.product" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="WebTest Hub Tests" uid="org.nasdanika.webtest.hub.tests.product" application="org.nasdanika.webtest.hub.app.TestRunner" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
-      <programArgs>-consoleLog -console
+      <programArgs>-consoleLog
       </programArgs>
-      <vmArgs>-Declipse.ignoreApp=true -Dosgi.noShutdown=true -Dorg.osgi.service.http.port=8080
+      <vmArgs>-Dorg.osgi.service.http.port=8080
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -30,7 +30,7 @@
    </plugins>
 
    <features>
-      <feature id="org.nasdanika.webtest.hub.feature" version="0.1.0.qualifier"/>
+      <feature id="org.nasdanika.webtest.hub.tests.feature" version="0.1.0.qualifier"/>
    </features>
 
    <configurations>
@@ -41,6 +41,8 @@
       <plugin id="org.eclipse.equinox.http.registry" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.osgi" autoStart="true" startLevel="-1" />
       <plugin id="org.nasdanika.webtest.hub.app" autoStart="true" startLevel="0" />
+      <plugin id="org.nasdanika.webtest.hub.ui.driver.actors.impl" autoStart="true" startLevel="0" />
+      <plugin id="org.nasdanika.webtest.hub.ui.driver.pages.impl" autoStart="true" startLevel="0" />
    </configurations>
 
 </product>

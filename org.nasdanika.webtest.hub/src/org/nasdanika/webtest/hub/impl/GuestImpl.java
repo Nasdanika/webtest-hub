@@ -241,7 +241,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.id("authentication-failed-modal")
 				.small()
 				.title("Authentication failed")
-				.body("Invalid Online ID/Password combination");
+				.body("Invalid Login/Password combination");
 		
 		return htmlFactory.bootstrapRouterApplication(
 				Theme.Default,
@@ -265,7 +265,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 		
 		registrationForm.content(htmlFactory.div("").style("color", "red").id("registrationErrorMessage"));
 		
-		Input rId = htmlFactory.input(InputType.text)
+		Input rLogin = htmlFactory.input(InputType.text)
 				.name("rLogin")
 				.id("rLogin")
 				.placeholder("Login")
@@ -273,8 +273,12 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.required()
 				.ngModel("registrationData.login");
 		
-		Tag loginErrorMessage = htmlFactory.span().ngBind("errorData.login").ngShow("errorData.login").style("color", "red");
-		registrationForm.formGroup("Login", "rLogin", rId, loginErrorMessage).ngClass("{ 'has-error' : errorData.login }");
+		Tag loginErrorMessage = htmlFactory.span()
+				.ngBind("errorData.login")
+				.ngShow("errorData.login")
+				.style("color", "red")
+				.id("rLoginErrorMessage");
+		registrationForm.formGroup("Login", "rLogin", rLogin, loginErrorMessage).ngClass("{ 'has-error' : errorData.login }");
 		registrationForm.content(" ");
 		
 		Input rEMail = htmlFactory.input(InputType.email)
@@ -284,7 +288,11 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.required()
 				.ngModel("registrationData.eMail");
 		
-		Tag eMailErrorMessage = htmlFactory.span().ngBind("errorData.eMail").ngShow("errorData.eMail").style("color", "red");
+		Tag eMailErrorMessage = htmlFactory.span()
+				.ngBind("errorData.eMail")
+				.ngShow("errorData.eMail")
+				.style("color", "red")
+				.id("rEMailErrorMessage");
 		registrationForm.formGroup("E-Mail", "rEMail", rEMail, eMailErrorMessage).ngClass("{ 'has-error' : errorData.eMail }");
 		registrationForm.content(" ");
 		
@@ -295,7 +303,11 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.required()
 				.ngModel("registrationData.password");
 		
-		Tag passwordErrorMessage = htmlFactory.span().ngBind("errorData.password").ngShow("errorData.password").style("color", "red");
+		Tag passwordErrorMessage = htmlFactory.span()
+				.ngBind("errorData.password")
+				.ngShow("errorData.password")
+				.style("color", "red")
+				.id("rPasswordErrorMessage");
 		registrationForm.formGroup("Password", "rPassword", rPassword, passwordErrorMessage).ngClass("{ 'has-error' : errorData.password }");
 		registrationForm.content(" ");
 		
@@ -306,7 +318,11 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.required()
 				.ngModel("registrationData.passwordConfirm");
 		
-		Tag passwordConfirmErrorMessage = htmlFactory.span().ngBind("errorData.passwordConfirm").ngShow("errorData.passwordConfirm").style("color", "red");
+		Tag passwordConfirmErrorMessage = htmlFactory.span()
+				.ngBind("errorData.passwordConfirm")
+				.ngShow("errorData.passwordConfirm")
+				.style("color", "red")
+				.id("rPasswordConfirmErrorMessage");
 		registrationForm.formGroup("Confirm password", "rPasswordConfirm", rPasswordConfirm, passwordConfirmErrorMessage).ngClass("{ 'has-error' : errorData.passwordConfirm }");
 		registrationForm.content(" ");
 		
@@ -458,7 +474,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 					return Action.NOP;
 				}
 				
-				registrationResults.put("target", context.getObjectPath(hub)+".html"); // +"/operation/getUser/"+onlineId+"/home.html";
+				registrationResults.put("target", context.getObjectPath(hub)+".html"); 
 				return new JSONObject(registrationResults).toString();
 			} finally {
 				writeLock.unlock();

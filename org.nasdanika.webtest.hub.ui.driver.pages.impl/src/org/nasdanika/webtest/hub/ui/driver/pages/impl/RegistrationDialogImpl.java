@@ -33,7 +33,7 @@ public class RegistrationDialogImpl implements RegistrationDialog {
 	private WebElement rLoginErrorMessage;
 	private WebElement rEMailErrorMessage;
 	private WebElement rPasswordErrorMessage;
-	private WebElement rPasswordConfirmationErrorMessage;
+	private WebElement rPasswordConfirmErrorMessage;
 
 	@Override
 	public RegistrationDialog enterLogin(String login) {
@@ -115,7 +115,7 @@ public class RegistrationDialogImpl implements RegistrationDialog {
 
 	@Override
 	public String getPasswordConfirmationErrorMessage() {
-		return rPasswordConfirmationErrorMessage.isDisplayed() ? rPasswordConfirmationErrorMessage.getText() : null;
+		return rPasswordConfirmErrorMessage.isDisplayed() ? rPasswordConfirmErrorMessage.getText() : null;
 	}
 
 }
