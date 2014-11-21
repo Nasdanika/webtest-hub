@@ -34,8 +34,12 @@ import org.nasdanika.core.Context;
 import org.nasdanika.html.ApplicationPanel;
 import org.nasdanika.html.ApplicationPanel.ContentPanel;
 import org.nasdanika.html.Button.Type;
+import org.nasdanika.html.FontAwesome.Flip;
+import org.nasdanika.html.FontAwesome.Rotate;
+import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.Form;
 import org.nasdanika.html.Form.Method;
+import org.nasdanika.html.FormInputGroup;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.HTMLFactory.InputType;
@@ -278,7 +282,9 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.ngShow("errorData.login")
 				.style("color", "red")
 				.id("rLoginErrorMessage");
-		registrationForm.formGroup("Login", "rLogin", rLogin, loginErrorMessage).ngClass("{ 'has-error' : errorData.login }");
+		registrationForm.formInputGroup("Login", "rLogin", rLogin, loginErrorMessage)
+			.ngClass("{ 'has-error' : errorData.login }")
+			.leftAddOn(htmlFactory.fontAwesome().webApplication(WebApplication.user).fixedWidth());
 		registrationForm.content(" ");
 		
 		Input rEMail = htmlFactory.input(InputType.email)
@@ -293,7 +299,9 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.ngShow("errorData.eMail")
 				.style("color", "red")
 				.id("rEMailErrorMessage");
-		registrationForm.formGroup("E-Mail", "rEMail", rEMail, eMailErrorMessage).ngClass("{ 'has-error' : errorData.eMail }");
+		FormInputGroup eMailFormInputGroup = registrationForm.formInputGroup("E-Mail", "rEMail", rEMail, eMailErrorMessage).ngClass("{ 'has-error' : errorData.eMail }");			
+		eMailFormInputGroup.leftAddOn(htmlFactory.fontAwesome().webApplication(WebApplication.envelope).fixedWidth()); 		
+		
 		registrationForm.content(" ");
 		
 		Input rPassword = htmlFactory.input(InputType.password)
@@ -308,7 +316,9 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.ngShow("errorData.password")
 				.style("color", "red")
 				.id("rPasswordErrorMessage");
-		registrationForm.formGroup("Password", "rPassword", rPassword, passwordErrorMessage).ngClass("{ 'has-error' : errorData.password }");
+		registrationForm.formInputGroup("Password", "rPassword", rPassword, passwordErrorMessage)
+			.ngClass("{ 'has-error' : errorData.password }")
+			.leftAddOn(htmlFactory.fontAwesome().webApplication(WebApplication.key).fixedWidth());
 		registrationForm.content(" ");
 		
 		Input rPasswordConfirm = htmlFactory.input(InputType.password)
@@ -323,7 +333,9 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.ngShow("errorData.passwordConfirm")
 				.style("color", "red")
 				.id("rPasswordConfirmErrorMessage");
-		registrationForm.formGroup("Confirm password", "rPasswordConfirm", rPasswordConfirm, passwordConfirmErrorMessage).ngClass("{ 'has-error' : errorData.passwordConfirm }");
+		registrationForm.formInputGroup("Confirm password", "rPasswordConfirm", rPasswordConfirm, passwordConfirmErrorMessage)
+			.ngClass("{ 'has-error' : errorData.passwordConfirm }")
+			.leftAddOn(htmlFactory.fontAwesome().webApplication(WebApplication.key).fixedWidth().flip(Flip.horizontal));
 		registrationForm.content(" ");
 		
 		registrationForm.button("Register").type(Type.SUBMIT).style(Style.PRIMARY).id("registrationSubmitButton");
