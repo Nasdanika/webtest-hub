@@ -335,7 +335,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.id("rPasswordConfirmErrorMessage");
 		registrationForm.formInputGroup("Confirm password", "rPasswordConfirm", rPasswordConfirm, passwordConfirmErrorMessage)
 			.ngClass("{ 'has-error' : errorData.passwordConfirm }")
-			.leftAddOn(htmlFactory.fontAwesome().webApplication(WebApplication.key).fixedWidth().flip(Flip.horizontal));
+			.leftAddOn(htmlFactory.fontAwesome().webApplication(WebApplication.key).fixedWidth().rotate(Rotate.R90));
 		registrationForm.content(" ");
 		
 		registrationForm.button("Register").type(Type.SUBMIT).style(Style.PRIMARY).id("registrationSubmitButton");
