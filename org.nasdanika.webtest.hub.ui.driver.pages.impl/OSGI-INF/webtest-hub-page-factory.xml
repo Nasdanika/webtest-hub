@@ -4,5 +4,5 @@
    <service>
       <provide interface="org.nasdanika.webtest.hub.ui.driver.pages.WebTestHubPageFactory"/>
    </service>
-   <property name="base-url" type="String" value="http://localhost:8080"/>
+   <property name="base-url" type="String" value="http://localhost:18080"/>
 </scr:component>

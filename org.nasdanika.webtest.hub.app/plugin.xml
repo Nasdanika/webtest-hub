@@ -19,7 +19,7 @@
    <extension point="org.nasdanika.web.route">
       <root_route
             class="org.nasdanika.webtest.hub.app.WebTestHubRoute"
-            method="GET"
+            method="*"
             pattern="webtest-hub.html">
       </root_route>
       <object_route

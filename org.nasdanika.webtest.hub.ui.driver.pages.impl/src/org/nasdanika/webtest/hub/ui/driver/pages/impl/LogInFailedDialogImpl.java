@@ -1,5 +1,6 @@
 package org.nasdanika.webtest.hub.ui.driver.pages.impl;
 
+import org.nasdanika.webtest.ReflectivePageBase;
 import org.nasdanika.webtest.Wait;
 import org.nasdanika.webtest.hub.ui.driver.pages.LogInFailedDialog;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 @Wait(id="authentication-failed-modal")
-public class LogInFailedDialogImpl implements LogInFailedDialog {
+public class LogInFailedDialogImpl extends ReflectivePageBase<WebDriver> implements LogInFailedDialog {
 	
 	private WebDriver driver;
 

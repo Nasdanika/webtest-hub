@@ -16,5 +16,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.nasdanika.cdo.security;visibility:=reexport,
  org.nasdanika.web,
  org.nasdanika.cdo,
- org.nasdanika.thirdparty;bundle-version="1.0.0"
+ org.apache.commons.lang;bundle-version="3.3.2"
 Bundle-ActivationPolicy: lazy

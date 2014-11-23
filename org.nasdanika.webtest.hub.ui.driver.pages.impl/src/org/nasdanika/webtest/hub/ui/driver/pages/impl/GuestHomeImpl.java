@@ -1,6 +1,7 @@
 package org.nasdanika.webtest.hub.ui.driver.pages.impl;
 
 import org.nasdanika.webtest.Page;
+import org.nasdanika.webtest.ReflectivePageBase;
 import org.nasdanika.webtest.Screenshot;
 import org.nasdanika.webtest.WebTestUtil;
 import org.nasdanika.webtest.hub.ui.driver.pages.GuestHome;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class GuestHomeImpl implements GuestHome {
+public class GuestHomeImpl extends ReflectivePageBase<WebDriver> implements GuestHome {
 		
 	private WebTestHubPageFactoryImpl factory;
 	private WebDriver webDriver;	
