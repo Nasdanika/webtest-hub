@@ -6,10 +6,8 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.nasdanika.cdo.security.SecurityPackage;
 
 /**
@@ -500,10 +498,10 @@ public interface HubPackage extends EPackage {
 	int APPLICATION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.webtest.hub.JSONLoader <em>JSON Loader</em>}' class.
+	 * The meta object id for the '{@link org.nasdanika.core.JSONLoader <em>JSON Loader</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.webtest.hub.JSONLoader
+	 * @see org.nasdanika.core.JSONLoader
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONLoader()
 	 * @generated
 	 */
@@ -519,22 +517,13 @@ public interface HubPackage extends EPackage {
 	int JSON_LOADER_FEATURE_COUNT = 0;
 
 	/**
-	 * The operation id for the '<em>Load JSON</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JSON_LOADER___LOAD_JSON__JSONOBJECT = 0;
-
-	/**
 	 * The number of operations of the '<em>JSON Loader</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JSON_LOADER_OPERATION_COUNT = 1;
+	int JSON_LOADER_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.DescriptorImpl <em>Descriptor</em>}' class.
@@ -581,15 +570,6 @@ public interface HubPackage extends EPackage {
 	 * @ordered
 	 */
 	int DESCRIPTOR_FEATURE_COUNT = JSON_LOADER_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Load JSON</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DESCRIPTOR___LOAD_JSON__JSONOBJECT = JSON_LOADER___LOAD_JSON__JSONOBJECT;
 
 	/**
 	 * The number of operations of the '<em>Descriptor</em>' class.
@@ -645,15 +625,6 @@ public interface HubPackage extends EPackage {
 	 * @ordered
 	 */
 	int DESCRIPTION_FEATURE_COUNT = JSON_LOADER_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Load JSON</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DESCRIPTION___LOAD_JSON__JSONOBJECT = JSON_LOADER___LOAD_JSON__JSONOBJECT;
 
 	/**
 	 * The number of operations of the '<em>Description</em>' class.
@@ -729,15 +700,6 @@ public interface HubPackage extends EPackage {
 	int TEST_SESSION_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Load JSON</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST_SESSION___LOAD_JSON__JSONOBJECT = DESCRIPTOR___LOAD_JSON__JSONOBJECT;
-
-	/**
 	 * The number of operations of the '<em>Test Session</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -809,15 +771,6 @@ public interface HubPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEST_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Load JSON</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST_RESULT___LOAD_JSON__JSONOBJECT = DESCRIPTOR___LOAD_JSON__JSONOBJECT;
 
 	/**
 	 * The number of operations of the '<em>Test Result</em>' class.
@@ -892,15 +845,6 @@ public interface HubPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEST_CLASS_RESULT_FEATURE_COUNT = TEST_RESULT_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Load JSON</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST_CLASS_RESULT___LOAD_JSON__JSONOBJECT = TEST_RESULT___LOAD_JSON__JSONOBJECT;
 
 	/**
 	 * The number of operations of the '<em>Test Class Result</em>' class.
@@ -985,15 +929,6 @@ public interface HubPackage extends EPackage {
 	int TEST_SUITE_RESULT_FEATURE_COUNT = TEST_RESULT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Load JSON</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST_SUITE_RESULT___LOAD_JSON__JSONOBJECT = TEST_RESULT___LOAD_JSON__JSONOBJECT;
-
-	/**
 	 * The number of operations of the '<em>Test Suite Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1074,15 +1009,6 @@ public interface HubPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETERIZED_TEST_RESULT_FEATURE_COUNT = TEST_SUITE_RESULT_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Load JSON</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETERIZED_TEST_RESULT___LOAD_JSON__JSONOBJECT = TEST_SUITE_RESULT___LOAD_JSON__JSONOBJECT;
 
 	/**
 	 * The number of operations of the '<em>Parameterized Test Result</em>' class.
@@ -1231,15 +1157,6 @@ public interface HubPackage extends EPackage {
 	int OPERATION_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Load JSON</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION_RESULT___LOAD_JSON__JSONOBJECT = DESCRIPTOR___LOAD_JSON__JSONOBJECT;
-
-	/**
 	 * The number of operations of the '<em>Operation Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1304,15 +1221,6 @@ public interface HubPackage extends EPackage {
 	int ACTOR_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Load JSON</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_RESULT___LOAD_JSON__JSONOBJECT = DESCRIPTOR___LOAD_JSON__JSONOBJECT;
-
-	/**
 	 * The number of operations of the '<em>Actor Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1375,15 +1283,6 @@ public interface HubPackage extends EPackage {
 	 * @ordered
 	 */
 	int PAGE_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Load JSON</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PAGE_RESULT___LOAD_JSON__JSONOBJECT = DESCRIPTOR___LOAD_JSON__JSONOBJECT;
 
 	/**
 	 * The number of operations of the '<em>Page Result</em>' class.
@@ -1872,24 +1771,15 @@ public interface HubPackage extends EPackage {
 	EReference getPageResult_Results();
 
 	/**
-	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.JSONLoader <em>JSON Loader</em>}'.
+	 * Returns the meta object for class '{@link org.nasdanika.core.JSONLoader <em>JSON Loader</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>JSON Loader</em>'.
-	 * @see org.nasdanika.webtest.hub.JSONLoader
+	 * @see org.nasdanika.core.JSONLoader
+	 * @model instanceClass="org.nasdanika.core.JSONLoader"
 	 * @generated
 	 */
 	EClass getJSONLoader();
-
-	/**
-	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.JSONLoader#loadJSON(org.json.JSONObject) <em>Load JSON</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Load JSON</em>' operation.
-	 * @see org.nasdanika.webtest.hub.JSONLoader#loadJSON(org.json.JSONObject)
-	 * @generated
-	 */
-	EOperation getJSONLoader__LoadJSON__JSONObject();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.webtest.hub.TestStatus <em>Test Status</em>}'.
@@ -2315,22 +2205,14 @@ public interface HubPackage extends EPackage {
 		EReference PAGE_RESULT__RESULTS = eINSTANCE.getPageResult_Results();
 
 		/**
-		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.JSONLoader <em>JSON Loader</em>}' class.
+		 * The meta object literal for the '{@link org.nasdanika.core.JSONLoader <em>JSON Loader</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.webtest.hub.JSONLoader
+		 * @see org.nasdanika.core.JSONLoader
 		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONLoader()
 		 * @generated
 		 */
 		EClass JSON_LOADER = eINSTANCE.getJSONLoader();
-
-		/**
-		 * The meta object literal for the '<em><b>Load JSON</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation JSON_LOADER___LOAD_JSON__JSONOBJECT = eINSTANCE.getJSONLoader__LoadJSON__JSONObject();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.TestStatus <em>Test Status</em>}' enum.

@@ -85,21 +85,21 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 			switch (json.getString("type")) {
 			case "class": {
 				TestResult result = HubFactory.eINSTANCE.createTestClassResult();
-				result.loadJSON(json);
+				result.loadJSON(json, context);
 				getResults().add(result);
 				HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
 				break;
 			}
 			case "suite": {
 				TestResult result = HubFactory.eINSTANCE.createTestSuiteResult();
-				result.loadJSON(json);
+				result.loadJSON(json, context);
 				getResults().add(result);
 				HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
 				break;
 			}
 			case "parameterized": {
 				TestResult result = HubFactory.eINSTANCE.createParameterizedTestResult();
-				result.loadJSON(json);
+				result.loadJSON(json, context);
 				getResults().add(result);
 				HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
 				break;

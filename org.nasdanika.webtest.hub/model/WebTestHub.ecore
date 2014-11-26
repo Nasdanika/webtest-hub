@@ -76,10 +76,7 @@
         eType="#//OperationResult"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="JSONObject" instanceClassName="org.json.JSONObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="JSONLoader" abstract="true" interface="true">
-    <eOperations name="loadJSON" eExceptions="#//Exception">
-      <eParameters name="json" eType="#//JSONObject"/>
-    </eOperations>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JSONLoader" instanceClassName="org.nasdanika.core.JSONLoader"
+      abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
 </ecore:EPackage>

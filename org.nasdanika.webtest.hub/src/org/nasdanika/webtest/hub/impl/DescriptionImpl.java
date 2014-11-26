@@ -2,14 +2,11 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
-
 import org.json.JSONObject;
+import org.nasdanika.core.ConverterContext;
 import org.nasdanika.webtest.hub.Description;
 import org.nasdanika.webtest.hub.HubPackage;
 
@@ -104,35 +101,9 @@ public class DescriptionImpl extends CDOObjectImpl implements Description {
 		eSet(HubPackage.Literals.DESCRIPTION__HTML, newHtml);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void loadJSON(JSONObject json) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case HubPackage.DESCRIPTION___LOAD_JSON__JSONOBJECT:
-				try {
-					loadJSON((JSONObject)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-		}
-		return super.eInvoke(operationID, arguments);
+	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+		throw new UnsupportedOperationException();		
 	}
 
 } //DescriptionImpl

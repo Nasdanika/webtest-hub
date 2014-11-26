@@ -6,15 +6,11 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.json.JSONObject;
 import org.nasdanika.cdo.security.SecurityPackage;
-
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
@@ -23,7 +19,6 @@ import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
-import org.nasdanika.webtest.hub.JSONLoader;
 import org.nasdanika.webtest.hub.OperationResult;
 import org.nasdanika.webtest.hub.PageResult;
 import org.nasdanika.webtest.hub.ParameterizedTestResult;
@@ -638,15 +633,6 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJSONLoader__LoadJSON__JSONObject() {
-		return jsonLoaderEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getTestStatus() {
 		return testStatusEEnum;
 	}
@@ -756,7 +742,6 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(pageResultEClass, PAGE_RESULT__RESULTS);
 
 		jsonLoaderEClass = createEClass(JSON_LOADER);
-		createEOperation(jsonLoaderEClass, JSON_LOADER___LOAD_JSON__JSONOBJECT);
 
 		// Create enums
 		testStatusEEnum = createEEnum(TEST_STATUS);
@@ -872,11 +857,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEClass(pageResultEClass, PageResult.class, "PageResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPageResult_Results(), this.getOperationResult(), null, "results", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(jsonLoaderEClass, JSONLoader.class, "JSONLoader", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		EOperation op = initEOperation(getJSONLoader__LoadJSON__JSONObject(), null, "loadJSON", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getJSONObject(), "json", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getException());
+		initEClass(jsonLoaderEClass, org.nasdanika.core.JSONLoader.class, "JSONLoader", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(testStatusEEnum, TestStatus.class, "TestStatus");

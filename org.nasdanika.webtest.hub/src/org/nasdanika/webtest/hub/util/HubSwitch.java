@@ -12,6 +12,7 @@ import org.nasdanika.cdo.security.LoginPasswordProtectionDomain;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.ProtectionDomain;
 
+import org.nasdanika.core.JSONLoader;
 import org.nasdanika.webtest.hub.*;
 
 /**

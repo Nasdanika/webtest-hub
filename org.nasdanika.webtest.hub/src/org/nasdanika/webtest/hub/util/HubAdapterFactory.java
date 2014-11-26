@@ -14,6 +14,7 @@ import org.nasdanika.cdo.security.LoginPasswordProtectionDomain;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.ProtectionDomain;
 
+import org.nasdanika.core.JSONLoader;
 import org.nasdanika.webtest.hub.*;
 
 /**
@@ -405,13 +406,13 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.JSONLoader <em>JSON Loader</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.core.JSONLoader <em>JSON Loader</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.nasdanika.webtest.hub.JSONLoader
+	 * @see org.nasdanika.core.JSONLoader
 	 * @generated
 	 */
 	public Adapter createJSONLoaderAdapter() {

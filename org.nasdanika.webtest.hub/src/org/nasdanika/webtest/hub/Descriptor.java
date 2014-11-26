@@ -2,6 +2,9 @@
  */
 package org.nasdanika.webtest.hub;
 
+import org.eclipse.emf.cdo.CDOObject;
+import org.nasdanika.core.JSONLoader;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -18,10 +21,11 @@ package org.nasdanika.webtest.hub;
  * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getDescriptor()
- * @model
+ * @model superTypes="org.nasdanika.webtest.hub.JSONLoader"
+ * @extends CDOObject
  * @generated
  */
-public interface Descriptor extends JSONLoader {
+public interface Descriptor extends CDOObject, JSONLoader {
 	/**
 	 * Returns the value of the '<em><b>Qualified Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

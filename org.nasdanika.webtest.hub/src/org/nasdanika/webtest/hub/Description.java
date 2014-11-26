@@ -2,7 +2,9 @@
  */
 package org.nasdanika.webtest.hub;
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.core.JSONLoader;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,10 +21,11 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getDescription()
- * @model
+ * @model superTypes="org.nasdanika.webtest.hub.JSONLoader"
+ * @extends CDOObject
  * @generated
  */
-public interface Description extends JSONLoader {
+public interface Description extends CDOObject, JSONLoader {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->
