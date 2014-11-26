@@ -6,9 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.cdo.view.CDOView;
@@ -34,7 +32,6 @@ import org.nasdanika.core.Context;
 import org.nasdanika.html.ApplicationPanel;
 import org.nasdanika.html.ApplicationPanel.ContentPanel;
 import org.nasdanika.html.Button.Type;
-import org.nasdanika.html.FontAwesome.Flip;
 import org.nasdanika.html.FontAwesome.Rotate;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.Form;

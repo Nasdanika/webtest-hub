@@ -31,6 +31,7 @@ import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RouteMethod;
+import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.User;
 
@@ -41,6 +42,7 @@ import org.nasdanika.webtest.hub.User;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getApplications <em>Applications</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getMemberOf <em>Member Of</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getPermissions <em>Permissions</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getProtectionDomain <em>Protection Domain</em>}</li>
@@ -80,6 +82,16 @@ public class UserImpl extends CDOObjectImpl implements User {
 	@Override
 	protected int eStaticFeatureCount() {
 		return 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<Application> getApplications() {
+		return (EList<Application>)eGet(HubPackage.Literals.APPLICATION_OWNER__APPLICATIONS, true);
 	}
 
 	/**

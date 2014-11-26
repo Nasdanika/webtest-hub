@@ -75,6 +75,7 @@ public class HubSwitch<T> extends Switch<T> {
 				Hub hub = (Hub)theEObject;
 				T result = caseHub(hub);
 				if (result == null) result = caseLoginPasswordProtectionDomain(hub);
+				if (result == null) result = caseApplicationOwner(hub);
 				if (result == null) result = caseProtectionDomain(hub);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -100,6 +101,106 @@ public class HubSwitch<T> extends Switch<T> {
 				if (result == null) result = caseLoginPasswordHashUser(user);
 				if (result == null) result = caseSecurity_User(user);
 				if (result == null) result = casePrincipal(user);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.APPLICATION: {
+				Application application = (Application)theEObject;
+				T result = caseApplication(application);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.DESCRIPTOR: {
+				Descriptor descriptor = (Descriptor)theEObject;
+				T result = caseDescriptor(descriptor);
+				if (result == null) result = caseJSONLoader(descriptor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.DESCRIPTION: {
+				Description description = (Description)theEObject;
+				T result = caseDescription(description);
+				if (result == null) result = caseJSONLoader(description);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.TEST_SESSION: {
+				TestSession testSession = (TestSession)theEObject;
+				T result = caseTestSession(testSession);
+				if (result == null) result = caseDescriptor(testSession);
+				if (result == null) result = caseJSONLoader(testSession);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.TEST_RESULT: {
+				TestResult testResult = (TestResult)theEObject;
+				T result = caseTestResult(testResult);
+				if (result == null) result = caseDescriptor(testResult);
+				if (result == null) result = caseJSONLoader(testResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.TEST_CLASS_RESULT: {
+				TestClassResult testClassResult = (TestClassResult)theEObject;
+				T result = caseTestClassResult(testClassResult);
+				if (result == null) result = caseTestResult(testClassResult);
+				if (result == null) result = caseDescriptor(testClassResult);
+				if (result == null) result = caseJSONLoader(testClassResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.TEST_SUITE_RESULT: {
+				TestSuiteResult testSuiteResult = (TestSuiteResult)theEObject;
+				T result = caseTestSuiteResult(testSuiteResult);
+				if (result == null) result = caseTestResult(testSuiteResult);
+				if (result == null) result = caseDescriptor(testSuiteResult);
+				if (result == null) result = caseJSONLoader(testSuiteResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.PARAMETERIZED_TEST_RESULT: {
+				ParameterizedTestResult parameterizedTestResult = (ParameterizedTestResult)theEObject;
+				T result = caseParameterizedTestResult(parameterizedTestResult);
+				if (result == null) result = caseTestSuiteResult(parameterizedTestResult);
+				if (result == null) result = caseTestResult(parameterizedTestResult);
+				if (result == null) result = caseDescriptor(parameterizedTestResult);
+				if (result == null) result = caseJSONLoader(parameterizedTestResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.SCREENSHOT: {
+				Screenshot screenshot = (Screenshot)theEObject;
+				T result = caseScreenshot(screenshot);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.OPERATION_RESULT: {
+				OperationResult operationResult = (OperationResult)theEObject;
+				T result = caseOperationResult(operationResult);
+				if (result == null) result = caseDescriptor(operationResult);
+				if (result == null) result = caseJSONLoader(operationResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.ACTOR_RESULT: {
+				ActorResult actorResult = (ActorResult)theEObject;
+				T result = caseActorResult(actorResult);
+				if (result == null) result = caseDescriptor(actorResult);
+				if (result == null) result = caseJSONLoader(actorResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.PAGE_RESULT: {
+				PageResult pageResult = (PageResult)theEObject;
+				T result = casePageResult(pageResult);
+				if (result == null) result = caseDescriptor(pageResult);
+				if (result == null) result = caseJSONLoader(pageResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.JSON_LOADER: {
+				JSONLoader jsonLoader = (JSONLoader)theEObject;
+				T result = caseJSONLoader(jsonLoader);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -164,6 +265,201 @@ public class HubSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUser(User object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Application</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseApplication(Application object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Descriptor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Descriptor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDescriptor(Descriptor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDescription(Description object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Test Session</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Test Session</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTestSession(TestSession object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Test Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Test Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTestResult(TestResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Test Class Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Test Class Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTestClassResult(TestClassResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Test Suite Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Test Suite Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTestSuiteResult(TestSuiteResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameterized Test Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameterized Test Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterizedTestResult(ParameterizedTestResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Screenshot</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Screenshot</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseScreenshot(Screenshot object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperationResult(OperationResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Actor Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Actor Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActorResult(ActorResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Page Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Page Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePageResult(PageResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>JSON Loader</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>JSON Loader</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJSONLoader(JSONLoader object) {
 		return null;
 	}
 

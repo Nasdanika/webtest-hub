@@ -24,7 +24,7 @@ import org.nasdanika.cdo.security.LoginPasswordProtectionDomain;
  * @model
  * @generated
  */
-public interface Hub extends LoginPasswordProtectionDomain {
+public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

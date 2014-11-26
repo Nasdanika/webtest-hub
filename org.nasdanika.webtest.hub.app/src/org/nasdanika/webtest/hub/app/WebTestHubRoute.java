@@ -41,7 +41,7 @@ public class WebTestHubRoute implements Route {
 	@Override
 	public Action execute(WebContext context) throws Exception {
 		
-		
+		System.out.println(((HttpContext) context).getRequest().getHeader("Authorization"));
 		
 		final HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		

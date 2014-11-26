@@ -49,6 +49,114 @@ public interface HubFactory extends EFactory {
 	User createUser();
 
 	/**
+	 * Returns a new object of class '<em>Application</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Application</em>'.
+	 * @generated
+	 */
+	Application createApplication();
+
+	/**
+	 * Returns a new object of class '<em>Descriptor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Descriptor</em>'.
+	 * @generated
+	 */
+	Descriptor createDescriptor();
+
+	/**
+	 * Returns a new object of class '<em>Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Description</em>'.
+	 * @generated
+	 */
+	Description createDescription();
+
+	/**
+	 * Returns a new object of class '<em>Test Session</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test Session</em>'.
+	 * @generated
+	 */
+	TestSession createTestSession();
+
+	/**
+	 * Returns a new object of class '<em>Test Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test Result</em>'.
+	 * @generated
+	 */
+	TestResult createTestResult();
+
+	/**
+	 * Returns a new object of class '<em>Test Class Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test Class Result</em>'.
+	 * @generated
+	 */
+	TestClassResult createTestClassResult();
+
+	/**
+	 * Returns a new object of class '<em>Test Suite Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test Suite Result</em>'.
+	 * @generated
+	 */
+	TestSuiteResult createTestSuiteResult();
+
+	/**
+	 * Returns a new object of class '<em>Parameterized Test Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameterized Test Result</em>'.
+	 * @generated
+	 */
+	ParameterizedTestResult createParameterizedTestResult();
+
+	/**
+	 * Returns a new object of class '<em>Screenshot</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Screenshot</em>'.
+	 * @generated
+	 */
+	Screenshot createScreenshot();
+
+	/**
+	 * Returns a new object of class '<em>Operation Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operation Result</em>'.
+	 * @generated
+	 */
+	OperationResult createOperationResult();
+
+	/**
+	 * Returns a new object of class '<em>Actor Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Actor Result</em>'.
+	 * @generated
+	 */
+	ActorResult createActorResult();
+
+	/**
+	 * Returns a new object of class '<em>Page Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Page Result</em>'.
+	 * @generated
+	 */
+	PageResult createPageResult();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

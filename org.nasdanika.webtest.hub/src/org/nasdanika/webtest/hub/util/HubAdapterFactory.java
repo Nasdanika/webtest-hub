@@ -89,6 +89,58 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 				return createUserAdapter();
 			}
 			@Override
+			public Adapter caseApplication(Application object) {
+				return createApplicationAdapter();
+			}
+			@Override
+			public Adapter caseDescriptor(Descriptor object) {
+				return createDescriptorAdapter();
+			}
+			@Override
+			public Adapter caseDescription(Description object) {
+				return createDescriptionAdapter();
+			}
+			@Override
+			public Adapter caseTestSession(TestSession object) {
+				return createTestSessionAdapter();
+			}
+			@Override
+			public Adapter caseTestResult(TestResult object) {
+				return createTestResultAdapter();
+			}
+			@Override
+			public Adapter caseTestClassResult(TestClassResult object) {
+				return createTestClassResultAdapter();
+			}
+			@Override
+			public Adapter caseTestSuiteResult(TestSuiteResult object) {
+				return createTestSuiteResultAdapter();
+			}
+			@Override
+			public Adapter caseParameterizedTestResult(ParameterizedTestResult object) {
+				return createParameterizedTestResultAdapter();
+			}
+			@Override
+			public Adapter caseScreenshot(Screenshot object) {
+				return createScreenshotAdapter();
+			}
+			@Override
+			public Adapter caseOperationResult(OperationResult object) {
+				return createOperationResultAdapter();
+			}
+			@Override
+			public Adapter caseActorResult(ActorResult object) {
+				return createActorResultAdapter();
+			}
+			@Override
+			public Adapter casePageResult(PageResult object) {
+				return createPageResultAdapter();
+			}
+			@Override
+			public Adapter caseJSONLoader(JSONLoader object) {
+				return createJSONLoaderAdapter();
+			}
+			@Override
 			public <CR> Adapter caseProtectionDomain(ProtectionDomain<CR> object) {
 				return createProtectionDomainAdapter();
 			}
@@ -181,6 +233,188 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUserAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.Application <em>Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.Application
+	 * @generated
+	 */
+	public Adapter createApplicationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.Descriptor <em>Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.Descriptor
+	 * @generated
+	 */
+	public Adapter createDescriptorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.Description <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.Description
+	 * @generated
+	 */
+	public Adapter createDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.TestSession <em>Test Session</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.TestSession
+	 * @generated
+	 */
+	public Adapter createTestSessionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.TestResult <em>Test Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.TestResult
+	 * @generated
+	 */
+	public Adapter createTestResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.TestClassResult <em>Test Class Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.TestClassResult
+	 * @generated
+	 */
+	public Adapter createTestClassResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.TestSuiteResult <em>Test Suite Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.TestSuiteResult
+	 * @generated
+	 */
+	public Adapter createTestSuiteResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.ParameterizedTestResult <em>Parameterized Test Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.ParameterizedTestResult
+	 * @generated
+	 */
+	public Adapter createParameterizedTestResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.Screenshot <em>Screenshot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.Screenshot
+	 * @generated
+	 */
+	public Adapter createScreenshotAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.OperationResult <em>Operation Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.OperationResult
+	 * @generated
+	 */
+	public Adapter createOperationResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.ActorResult <em>Actor Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.ActorResult
+	 * @generated
+	 */
+	public Adapter createActorResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.PageResult <em>Page Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.PageResult
+	 * @generated
+	 */
+	public Adapter createPageResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.JSONLoader <em>JSON Loader</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.JSONLoader
+	 * @generated
+	 */
+	public Adapter createJSONLoaderAdapter() {
 		return null;
 	}
 
