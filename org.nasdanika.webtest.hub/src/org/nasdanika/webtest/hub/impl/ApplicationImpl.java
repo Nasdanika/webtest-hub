@@ -2,8 +2,11 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+
 import javax.servlet.http.HttpServletResponse;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
@@ -93,8 +96,10 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 	public void createTestSession(final HttpContext context) throws Exception {
 		if (authorize(context)) {
 			final TestSession testSession = HubFactory.eINSTANCE.createTestSession();
-			testSession.loadJSON(new JSONObject(new JSONTokener(context.getRequest().getReader())), context);
 			getTestSessions().add(testSession);
+			try (BufferedReader reader = context.getRequest().getReader()) {
+				testSession.loadJSON(new JSONObject(new JSONTokener(reader)), context);
+			}
 			HubUtil.respondWithLocationAndObjectIdOnCommit(context, testSession);
 		}
 	}

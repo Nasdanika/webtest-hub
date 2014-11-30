@@ -2,12 +2,16 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.io.BufferedReader;
+import java.util.Collection;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.nasdanika.core.ConverterContext;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
@@ -25,6 +29,8 @@ import org.nasdanika.webtest.hub.TestSession;
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getResults <em>Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#isPublished <em>Published</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getSize <em>Size</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getProgress <em>Progress</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,44 +84,96 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		eSet(HubPackage.Literals.TEST_SESSION__PUBLISHED, newPublished);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getSize() {
+		return (Integer)eGet(HubPackage.Literals.TEST_SESSION__SIZE, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSize(int newSize) {
+		eSet(HubPackage.Literals.TEST_SESSION__SIZE, newSize);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getProgress() {
+		return (Integer)eGet(HubPackage.Literals.TEST_SESSION__PROGRESS, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProgress(int newProgress) {
+		eSet(HubPackage.Literals.TEST_SESSION__PROGRESS, newProgress);
+	}
+	
+	@Override
+	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+		super.loadJSON(json, context);
+		setSize(json.getInt("size"));
+		setProgress(1);
+	}
+
 	@RouteMethod(pattern="L[\\d]+/results", value=RequestMethod.POST)
 	public void createTestResult(final HttpContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
-			JSONObject json = new JSONObject(new JSONTokener(context.getRequest().getReader()));
-			switch (json.getString("type")) {
-			case "class": {
-				TestResult result = HubFactory.eINSTANCE.createTestClassResult();
-				result.loadJSON(json, context);
-				getResults().add(result);
-				HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
-				break;
-			}
-			case "suite": {
-				TestResult result = HubFactory.eINSTANCE.createTestSuiteResult();
-				result.loadJSON(json, context);
-				getResults().add(result);
-				HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
-				break;
-			}
-			case "parameterized": {
-				TestResult result = HubFactory.eINSTANCE.createParameterizedTestResult();
-				result.loadJSON(json, context);
-				getResults().add(result);
-				HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
-				break;
-			}
-			default:
-				context.getResponse().sendError(HttpServletResponse.SC_BAD_REQUEST, "Unexpected type: "+json.getString("type"));
+			try (BufferedReader reader = context.getRequest().getReader()) {
+				JSONObject json = new JSONObject(new JSONTokener(reader));
+				switch (json.getString("type")) {
+				case "class": {
+					TestResult result = HubFactory.eINSTANCE.createTestClassResult();
+					getResults().add(result);
+					result.loadJSON(json, context);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
+					break;
+				}
+				case "suite": {
+					TestResult result = HubFactory.eINSTANCE.createTestSuiteResult();
+					getResults().add(result);
+					result.loadJSON(json, context);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
+					break;
+				}
+				case "parameterized": {
+					TestResult result = HubFactory.eINSTANCE.createParameterizedTestResult();
+					getResults().add(result);
+					result.loadJSON(json, context);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
+					break;
+				}
+				default:
+					context.getResponse().sendError(HttpServletResponse.SC_BAD_REQUEST, "Unexpected type: "+json.getString("type"));
+				}
 			}
 		}
 	}	
 	
-	@RouteMethod(pattern="L[\\d]", value=RequestMethod.PUT)
+	@RouteMethod(pattern="L[\\d]+", value=RequestMethod.PUT)
 	public void uploadFinished(final HttpContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			setPublished(true);
+//			eResource().save(System.out, null);
 		}
 	}	
 	
+	@RouteMethod(pattern="L[\\d]+", value=RequestMethod.DELETE)
+	public void uploadFailed(final HttpContext context) throws Exception {
+		if (HubUtil.authorize(context, this)) {
+			((Collection<?>) eContainer().eGet(eContainingFeature())).remove(this);
+		}
+	}	
 	
 } //TestSessionImpl

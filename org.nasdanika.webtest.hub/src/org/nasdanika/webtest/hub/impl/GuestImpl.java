@@ -2,11 +2,14 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.io.BufferedReader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.cdo.view.CDOView;
@@ -385,119 +388,123 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 	
 	@RouteMethod(value=RequestMethod.POST)
 	public Object login(final HttpContext context) throws Exception {
-		final JSONObject body = new JSONObject(new JSONTokener(context.getRequest().getReader()));
-		@SuppressWarnings("unchecked")
-		Principal authenticatedPrincipal = ((CDOViewContext<?,LoginPasswordCredentials>) context).authenticate(new LoginPasswordCredentials() {
+		try (BufferedReader reader = context.getRequest().getReader()) {
+			final JSONObject body = new JSONObject(new JSONTokener(reader));
+			@SuppressWarnings("unchecked")
+			Principal authenticatedPrincipal = ((CDOViewContext<?,LoginPasswordCredentials>) context).authenticate(new LoginPasswordCredentials() {
+				
+				@Override
+				public String getPassword() throws Exception {
+					return body.getString("password");
+				}
+				
+				@Override
+				public String getLogin() throws Exception {
+					return body.getString("login");
+				}
+			});
 			
-			@Override
-			public String getPassword() throws Exception {
-				return body.getString("password");
+			if (authenticatedPrincipal==null) {
+				return Action.UNAUTHORIZED;
 			}
-			
-			@Override
-			public String getLogin() throws Exception {
-				return body.getString("login");
-			}
-		});
-		
-		if (authenticatedPrincipal==null) {
-			return Action.UNAUTHORIZED;
+			return context.getObjectPath(authenticatedPrincipal)+".html";
 		}
-		return context.getObjectPath(authenticatedPrincipal)+".html";
 	}	
 	
 	@SuppressWarnings("unchecked")
 	@RouteMethod(value=RequestMethod.POST)
 	public Object register(final HttpContext context) throws Exception {
-		final JSONObject body = new JSONObject(new JSONTokener(context.getRequest().getReader()));
-		
-		Map<String, String> registrationResults = new HashMap<>();
-		// Server-side validation
-		final String login = body.getString("login");
-		if (login==null || login.trim().length()==0) {
-			registrationResults.put("login", "Login is blank");
-		}
-		
-		final String eMail = body.getString("eMail");
-		if (eMail==null || eMail.trim().length()==0) {
-			registrationResults.put("eMail", "E-Mail is blank");
-		}
-		
-		final String password = body.getString("password");
-		if (password==null || password.trim().length()==0) {
-			registrationResults.put("password", "Password is blank");
-		}
-		
-		String passwordConfirm = body.getString("passwordConfirm");
-		if (passwordConfirm==null || passwordConfirm.trim().length()==0) {
-			registrationResults.put("passwordConfirm", "Password confirm is blank");
-		} else if (password!=null && !password.equals(passwordConfirm)) {
-			registrationResults.put("passwordConfirm", "Passwords don't match");
-		}
-		
-		if (!registrationResults.isEmpty()) {
-			return new JSONObject(registrationResults).toString();
-		}
-		
-		// TODO - min length, strength checks.
-		
-		Hub hub = (Hub) eContainer();
-		CDOLock writeLock = hub.cdoWriteLock();
-		if (writeLock.tryLock(2, TimeUnit.SECONDS)) {
-			try {
-				for (User u: hub.getAllUsers()) {
-					if (u instanceof LoginPasswordHashUser) {
-						LoginPasswordHashUser lphUser = (LoginPasswordHashUser) u;
-						if (lphUser.getLogin()!=null && lphUser.getLogin().equalsIgnoreCase(login)) {
-							registrationResults.put("login", "Login already exists");							
-							return new JSONObject(registrationResults).toString();
+		try (BufferedReader reader = context.getRequest().getReader()) {
+			final JSONObject body = new JSONObject(new JSONTokener(reader));
+			
+			Map<String, String> registrationResults = new HashMap<>();
+			// Server-side validation
+			final String login = body.getString("login");
+			if (login==null || login.trim().length()==0) {
+				registrationResults.put("login", "Login is blank");
+			}
+			
+			final String eMail = body.getString("eMail");
+			if (eMail==null || eMail.trim().length()==0) {
+				registrationResults.put("eMail", "E-Mail is blank");
+			}
+			
+			final String password = body.getString("password");
+			if (password==null || password.trim().length()==0) {
+				registrationResults.put("password", "Password is blank");
+			}
+			
+			String passwordConfirm = body.getString("passwordConfirm");
+			if (passwordConfirm==null || passwordConfirm.trim().length()==0) {
+				registrationResults.put("passwordConfirm", "Password confirm is blank");
+			} else if (password!=null && !password.equals(passwordConfirm)) {
+				registrationResults.put("passwordConfirm", "Passwords don't match");
+			}
+			
+			if (!registrationResults.isEmpty()) {
+				return new JSONObject(registrationResults).toString();
+			}
+			
+			// TODO - min length, strength checks.
+			
+			Hub hub = (Hub) eContainer();
+			CDOLock writeLock = hub.cdoWriteLock();
+			if (writeLock.tryLock(2, TimeUnit.SECONDS)) {
+				try {
+					for (User u: hub.getAllUsers()) {
+						if (u instanceof LoginPasswordHashUser) {
+							LoginPasswordHashUser lphUser = (LoginPasswordHashUser) u;
+							if (lphUser.getLogin()!=null && lphUser.getLogin().equalsIgnoreCase(login)) {
+								registrationResults.put("login", "Login already exists");							
+								return new JSONObject(registrationResults).toString();
+							}
 						}
 					}
-				}
-				org.nasdanika.webtest.hub.User newUser = HubFactory.eINSTANCE.createUser();
-				newUser.setLogin(login);
-				//newUser.setName(name); - later
-				hub.setPasswordHash(newUser, password);
-				hub.getUsers().add(newUser);
-				
-				// Permission				
-				Permission permission = SecurityFactory.eINSTANCE.createPermission();
-				permission.setTarget(newUser); // self-target
-				permission.setAllow(true);
-				permission.setName("*");
-				permission.setTargetClass("User");
-				permission.setTargetNamespaceURI("urn:org.nasdanika.cdo.security");
-				newUser.getPermissions().add(permission);				
-				
-				//((UserImpl) newUser).init();
-				
-				Principal authenticatedUser = ((CDOViewContext<CDOView, LoginPasswordCredentials>) context).authenticate(new LoginPasswordCredentials() {
+					org.nasdanika.webtest.hub.User newUser = HubFactory.eINSTANCE.createUser();
+					newUser.setLogin(login);
+					//newUser.setName(name); - later
+					hub.setPasswordHash(newUser, password);
+					hub.getUsers().add(newUser);
 					
-					@Override
-					public String getPassword() {
-						return password;
+					// Permission				
+					Permission permission = SecurityFactory.eINSTANCE.createPermission();
+					permission.setTarget(newUser); // self-target
+					permission.setAllow(true);
+					permission.setName("*");
+					permission.setTargetClass("User");
+					permission.setTargetNamespaceURI("urn:org.nasdanika.cdo.security");
+					newUser.getPermissions().add(permission);				
+					
+					//((UserImpl) newUser).init();
+					
+					Principal authenticatedUser = ((CDOViewContext<CDOView, LoginPasswordCredentials>) context).authenticate(new LoginPasswordCredentials() {
+						
+						@Override
+						public String getPassword() {
+							return password;
+						}
+						
+						@Override
+						public String getLogin() {
+							return login;
+						}
+					});
+					
+					if (newUser!=authenticatedUser) {
+						context.getResponse().sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Registration failed - server error");
+						return Action.NOP;
 					}
 					
-					@Override
-					public String getLogin() {
-						return login;
-					}
-				});
-				
-				if (newUser!=authenticatedUser) {
-					context.getResponse().sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Registration failed - server error");
-					return Action.NOP;
+					registrationResults.put("target", context.getObjectPath(hub)+".html"); 
+					return new JSONObject(registrationResults).toString();
+				} finally {
+					writeLock.unlock();
 				}
-				
-				registrationResults.put("target", context.getObjectPath(hub)+".html"); 
-				return new JSONObject(registrationResults).toString();
-			} finally {
-				writeLock.unlock();
-			}
-		} 
-		
-		context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire write lock");
-		return Action.NOP;			
+			} 
+			
+			context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire write lock");
+			return Action.NOP;
+		}
 	}	
 	
 

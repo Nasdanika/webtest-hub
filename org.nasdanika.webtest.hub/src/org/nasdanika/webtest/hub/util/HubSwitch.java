@@ -2,18 +2,38 @@
  */
 package org.nasdanika.webtest.hub.util;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.nasdanika.cdo.security.LoginPasswordHashUser;
 import org.nasdanika.cdo.security.LoginPasswordProtectionDomain;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.ProtectionDomain;
-
 import org.nasdanika.core.JSONLoader;
-import org.nasdanika.webtest.hub.*;
+import org.nasdanika.webtest.hub.ActorMethodResult;
+import org.nasdanika.webtest.hub.ActorResult;
+import org.nasdanika.webtest.hub.Application;
+import org.nasdanika.webtest.hub.ApplicationOwner;
+import org.nasdanika.webtest.hub.Description;
+import org.nasdanika.webtest.hub.Descriptor;
+import org.nasdanika.webtest.hub.Guest;
+import org.nasdanika.webtest.hub.Hub;
+import org.nasdanika.webtest.hub.HubPackage;
+import org.nasdanika.webtest.hub.InitializationResult;
+import org.nasdanika.webtest.hub.MethodResult;
+import org.nasdanika.webtest.hub.OperationResult;
+import org.nasdanika.webtest.hub.PageMethodResult;
+import org.nasdanika.webtest.hub.PageResult;
+import org.nasdanika.webtest.hub.ParameterizedTestResult;
+import org.nasdanika.webtest.hub.Screenshot;
+import org.nasdanika.webtest.hub.StackTraceEntry;
+import org.nasdanika.webtest.hub.TestClassResult;
+import org.nasdanika.webtest.hub.TestMethodResult;
+import org.nasdanika.webtest.hub.TestResult;
+import org.nasdanika.webtest.hub.TestSession;
+import org.nasdanika.webtest.hub.TestSuiteResult;
+import org.nasdanika.webtest.hub.User;
 
 /**
  * <!-- begin-user-doc -->
@@ -150,6 +170,12 @@ public class HubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case HubPackage.STATS_ENTRY: {
+				@SuppressWarnings("unchecked") Map.Entry<String, Integer> statsEntry = (Map.Entry<String, Integer>)theEObject;
+				T result = caseStatsEntry(statsEntry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case HubPackage.TEST_SUITE_RESULT: {
 				TestSuiteResult testSuiteResult = (TestSuiteResult)theEObject;
 				T result = caseTestSuiteResult(testSuiteResult);
@@ -180,6 +206,73 @@ public class HubSwitch<T> extends Switch<T> {
 				T result = caseOperationResult(operationResult);
 				if (result == null) result = caseDescriptor(operationResult);
 				if (result == null) result = caseJSONLoader(operationResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.THROWABLE: {
+				org.nasdanika.webtest.hub.Throwable throwable = (org.nasdanika.webtest.hub.Throwable)theEObject;
+				T result = caseThrowable(throwable);
+				if (result == null) result = caseJSONLoader(throwable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.STACK_TRACE_ENTRY: {
+				StackTraceEntry stackTraceEntry = (StackTraceEntry)theEObject;
+				T result = caseStackTraceEntry(stackTraceEntry);
+				if (result == null) result = caseJSONLoader(stackTraceEntry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.INITIALIZATION_RESULT: {
+				InitializationResult initializationResult = (InitializationResult)theEObject;
+				T result = caseInitializationResult(initializationResult);
+				if (result == null) result = caseOperationResult(initializationResult);
+				if (result == null) result = caseDescriptor(initializationResult);
+				if (result == null) result = caseJSONLoader(initializationResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.METHOD_RESULT: {
+				MethodResult methodResult = (MethodResult)theEObject;
+				T result = caseMethodResult(methodResult);
+				if (result == null) result = caseOperationResult(methodResult);
+				if (result == null) result = caseDescriptor(methodResult);
+				if (result == null) result = caseJSONLoader(methodResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.ACTOR_METHOD_RESULT: {
+				ActorMethodResult actorMethodResult = (ActorMethodResult)theEObject;
+				T result = caseActorMethodResult(actorMethodResult);
+				if (result == null) result = caseMethodResult(actorMethodResult);
+				if (result == null) result = caseOperationResult(actorMethodResult);
+				if (result == null) result = caseDescriptor(actorMethodResult);
+				if (result == null) result = caseJSONLoader(actorMethodResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.PAGE_METHOD_RESULT: {
+				PageMethodResult pageMethodResult = (PageMethodResult)theEObject;
+				T result = casePageMethodResult(pageMethodResult);
+				if (result == null) result = caseMethodResult(pageMethodResult);
+				if (result == null) result = caseOperationResult(pageMethodResult);
+				if (result == null) result = caseDescriptor(pageMethodResult);
+				if (result == null) result = caseJSONLoader(pageMethodResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.TEST_METHOD_RESULT: {
+				TestMethodResult testMethodResult = (TestMethodResult)theEObject;
+				T result = caseTestMethodResult(testMethodResult);
+				if (result == null) result = caseOperationResult(testMethodResult);
+				if (result == null) result = caseDescriptor(testMethodResult);
+				if (result == null) result = caseJSONLoader(testMethodResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.COVERAGE_ENTRY: {
+				@SuppressWarnings("unchecked") Map.Entry<String, Integer> coverageEntry = (Map.Entry<String, Integer>)theEObject;
+				T result = caseCoverageEntry(coverageEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -360,6 +453,21 @@ public class HubSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stats Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stats Entry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStatsEntry(Map.Entry<String, Integer> object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Test Suite Result</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -416,6 +524,126 @@ public class HubSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOperationResult(OperationResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Throwable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Throwable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseThrowable(org.nasdanika.webtest.hub.Throwable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stack Trace Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stack Trace Entry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStackTraceEntry(StackTraceEntry object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Initialization Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Initialization Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInitializationResult(InitializationResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Method Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Method Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMethodResult(MethodResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Actor Method Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Actor Method Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActorMethodResult(ActorMethodResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Page Method Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Page Method Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePageMethodResult(PageMethodResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Test Method Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Test Method Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTestMethodResult(TestMethodResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Coverage Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Coverage Entry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCoverageEntry(Map.Entry<String, Integer> object) {
 		return null;
 	}
 

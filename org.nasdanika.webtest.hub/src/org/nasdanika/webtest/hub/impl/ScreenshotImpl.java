@@ -20,6 +20,7 @@ import org.nasdanika.webtest.hub.Screenshot;
  *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getHeight <em>Height</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getWidth <em>Width</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getContentType <em>Content Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -125,6 +126,24 @@ public class ScreenshotImpl extends CDOObjectImpl implements Screenshot {
 	 */
 	public void setWidth(int newWidth) {
 		eSet(HubPackage.Literals.SCREENSHOT__WIDTH, newWidth);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getContentType() {
+		return (String)eGet(HubPackage.Literals.SCREENSHOT__CONTENT_TYPE, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContentType(String newContentType) {
+		eSet(HubPackage.Literals.SCREENSHOT__CONTENT_TYPE, newContentType);
 	}
 
 } //ScreenshotImpl

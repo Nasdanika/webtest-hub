@@ -10,6 +10,7 @@ import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.transaction.CDOTransactionHandler2;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.web.HttpContext;
+import org.nasdanika.webtest.hub.TestSession;
 
 class HubUtil {
 	
@@ -25,6 +26,14 @@ class HubUtil {
 			return false;
 		}
 		return authorize(context, obj.eContainer());
+	}
+
+	static void sessionProgress(EObject obj) throws IOException {
+		if (obj instanceof TestSession) {
+			((TestSession) obj).setProgress(((TestSession) obj).getProgress()+1);
+		} else if (obj!=null) {
+			sessionProgress(obj.eContainer());
+		}
 	}
 	
 	static void respondWithLocationAndObjectIdOnCommit(final HttpContext context, final CDOObject obj) {

@@ -2,6 +2,7 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -11,6 +12,8 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.json.JSONObject;
 import org.nasdanika.cdo.security.SecurityPackage;
+import org.nasdanika.core.JSONLoader;
+import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
@@ -19,16 +22,22 @@ import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
+import org.nasdanika.webtest.hub.InitializationResult;
+import org.nasdanika.webtest.hub.MethodResult;
 import org.nasdanika.webtest.hub.OperationResult;
+import org.nasdanika.webtest.hub.PageMethodResult;
 import org.nasdanika.webtest.hub.PageResult;
 import org.nasdanika.webtest.hub.ParameterizedTestResult;
 import org.nasdanika.webtest.hub.Screenshot;
+import org.nasdanika.webtest.hub.StackTraceEntry;
 import org.nasdanika.webtest.hub.TestClassResult;
+import org.nasdanika.webtest.hub.TestMethodResult;
 import org.nasdanika.webtest.hub.TestResult;
 import org.nasdanika.webtest.hub.TestSession;
 import org.nasdanika.webtest.hub.TestStatus;
 import org.nasdanika.webtest.hub.TestSuiteResult;
 import org.nasdanika.webtest.hub.User;
+import org.nasdanika.webtest.performance.PerformancePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -112,6 +121,13 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass statsEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass testSuiteResultEClass = null;
 
 	/**
@@ -134,6 +150,62 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * @generated
 	 */
 	private EClass operationResultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass throwableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stackTraceEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass initializationResultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass methodResultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actorMethodResultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pageMethodResultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass testMethodResultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass coverageEntryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,6 +296,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
+		PerformancePackage.eINSTANCE.eClass();
 		SecurityPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -444,6 +517,24 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTestSession_Size() {
+		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTestSession_Progress() {
+		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTestResult() {
 		return testResultEClass;
 	}
@@ -473,6 +564,51 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 */
 	public EClass getTestClassResult() {
 		return testClassResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTestClassResult_MethodResults() {
+		return (EReference)testClassResultEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTestClassResult_Stats() {
+		return (EReference)testClassResultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStatsEntry() {
+		return statsEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStatsEntry_Key() {
+		return (EAttribute)statsEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStatsEntry_Value() {
+		return (EAttribute)statsEntryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -552,6 +688,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getScreenshot_ContentType() {
+		return (EAttribute)screenshotEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOperationResult() {
 		return operationResultEClass;
 	}
@@ -588,6 +733,276 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getOperationResult_Arguments() {
+		return (EAttribute)operationResultEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperationResult_BeforeTiming() {
+		return (EReference)operationResultEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperationResult_BeforeScreenshot() {
+		return (EReference)operationResultEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperationResult_AfterTiming() {
+		return (EReference)operationResultEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperationResult_AfterScreenshot() {
+		return (EReference)operationResultEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperationResult_Failure() {
+		return (EReference)operationResultEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperationResult_Error() {
+		return (EReference)operationResultEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperationResult_Start() {
+		return (EAttribute)operationResultEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperationResult_Finish() {
+		return (EAttribute)operationResultEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperationResult_Pending() {
+		return (EAttribute)operationResultEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getThrowable() {
+		return throwableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getThrowable_Type() {
+		return (EAttribute)throwableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getThrowable_Message() {
+		return (EAttribute)throwableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThrowable_StackTrace() {
+		return (EReference)throwableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStackTraceEntry() {
+		return stackTraceEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStackTraceEntry_ClassName() {
+		return (EAttribute)stackTraceEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStackTraceEntry_FileName() {
+		return (EAttribute)stackTraceEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStackTraceEntry_MethodName() {
+		return (EAttribute)stackTraceEntryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStackTraceEntry_LineNumber() {
+		return (EAttribute)stackTraceEntryEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStackTraceEntry_Native() {
+		return (EAttribute)stackTraceEntryEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInitializationResult() {
+		return initializationResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMethodResult() {
+		return methodResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getActorMethodResult() {
+		return actorMethodResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPageMethodResult() {
+		return pageMethodResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTestMethodResult() {
+		return testMethodResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTestMethodResult_Parameters() {
+		return (EAttribute)testMethodResultEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTestMethodResult_NavigationTiming() {
+		return (EReference)testMethodResultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCoverageEntry() {
+		return coverageEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCoverageEntry_Key() {
+		return (EAttribute)coverageEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCoverageEntry_Value() {
+		return (EAttribute)coverageEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getActorResult() {
 		return actorResultEClass;
 	}
@@ -606,6 +1021,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getActorResult_Coverage() {
+		return (EReference)actorResultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPageResult() {
 		return pageResultEClass;
 	}
@@ -617,6 +1041,24 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 */
 	public EReference getPageResult_Results() {
 		return (EReference)pageResultEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPageResult_Size() {
+		return (EAttribute)pageResultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPageResult_Coverage() {
+		return (EReference)pageResultEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -712,12 +1154,20 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		testSessionEClass = createEClass(TEST_SESSION);
 		createEReference(testSessionEClass, TEST_SESSION__RESULTS);
 		createEAttribute(testSessionEClass, TEST_SESSION__PUBLISHED);
+		createEAttribute(testSessionEClass, TEST_SESSION__SIZE);
+		createEAttribute(testSessionEClass, TEST_SESSION__PROGRESS);
 
 		testResultEClass = createEClass(TEST_RESULT);
 		createEReference(testResultEClass, TEST_RESULT__PAGE_RESULTS);
 		createEReference(testResultEClass, TEST_RESULT__ACTOR_RESULTS);
 
 		testClassResultEClass = createEClass(TEST_CLASS_RESULT);
+		createEReference(testClassResultEClass, TEST_CLASS_RESULT__METHOD_RESULTS);
+		createEReference(testClassResultEClass, TEST_CLASS_RESULT__STATS);
+
+		statsEntryEClass = createEClass(STATS_ENTRY);
+		createEAttribute(statsEntryEClass, STATS_ENTRY__KEY);
+		createEAttribute(statsEntryEClass, STATS_ENTRY__VALUE);
 
 		testSuiteResultEClass = createEClass(TEST_SUITE_RESULT);
 		createEReference(testSuiteResultEClass, TEST_SUITE_RESULT__CHILDREN);
@@ -729,17 +1179,59 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEAttribute(screenshotEClass, SCREENSHOT__TIMESTAMP);
 		createEAttribute(screenshotEClass, SCREENSHOT__HEIGHT);
 		createEAttribute(screenshotEClass, SCREENSHOT__WIDTH);
+		createEAttribute(screenshotEClass, SCREENSHOT__CONTENT_TYPE);
 
 		operationResultEClass = createEClass(OPERATION_RESULT);
 		createEReference(operationResultEClass, OPERATION_RESULT__SCREENSHOTS);
 		createEReference(operationResultEClass, OPERATION_RESULT__CHILDREN);
 		createEAttribute(operationResultEClass, OPERATION_RESULT__OPERATION_NAME);
+		createEAttribute(operationResultEClass, OPERATION_RESULT__ARGUMENTS);
+		createEReference(operationResultEClass, OPERATION_RESULT__BEFORE_TIMING);
+		createEReference(operationResultEClass, OPERATION_RESULT__BEFORE_SCREENSHOT);
+		createEReference(operationResultEClass, OPERATION_RESULT__AFTER_TIMING);
+		createEReference(operationResultEClass, OPERATION_RESULT__AFTER_SCREENSHOT);
+		createEReference(operationResultEClass, OPERATION_RESULT__FAILURE);
+		createEReference(operationResultEClass, OPERATION_RESULT__ERROR);
+		createEAttribute(operationResultEClass, OPERATION_RESULT__START);
+		createEAttribute(operationResultEClass, OPERATION_RESULT__FINISH);
+		createEAttribute(operationResultEClass, OPERATION_RESULT__PENDING);
+
+		throwableEClass = createEClass(THROWABLE);
+		createEAttribute(throwableEClass, THROWABLE__TYPE);
+		createEAttribute(throwableEClass, THROWABLE__MESSAGE);
+		createEReference(throwableEClass, THROWABLE__STACK_TRACE);
+
+		stackTraceEntryEClass = createEClass(STACK_TRACE_ENTRY);
+		createEAttribute(stackTraceEntryEClass, STACK_TRACE_ENTRY__CLASS_NAME);
+		createEAttribute(stackTraceEntryEClass, STACK_TRACE_ENTRY__FILE_NAME);
+		createEAttribute(stackTraceEntryEClass, STACK_TRACE_ENTRY__METHOD_NAME);
+		createEAttribute(stackTraceEntryEClass, STACK_TRACE_ENTRY__LINE_NUMBER);
+		createEAttribute(stackTraceEntryEClass, STACK_TRACE_ENTRY__NATIVE);
+
+		initializationResultEClass = createEClass(INITIALIZATION_RESULT);
+
+		methodResultEClass = createEClass(METHOD_RESULT);
+
+		actorMethodResultEClass = createEClass(ACTOR_METHOD_RESULT);
+
+		pageMethodResultEClass = createEClass(PAGE_METHOD_RESULT);
+
+		testMethodResultEClass = createEClass(TEST_METHOD_RESULT);
+		createEAttribute(testMethodResultEClass, TEST_METHOD_RESULT__PARAMETERS);
+		createEReference(testMethodResultEClass, TEST_METHOD_RESULT__NAVIGATION_TIMING);
+
+		coverageEntryEClass = createEClass(COVERAGE_ENTRY);
+		createEAttribute(coverageEntryEClass, COVERAGE_ENTRY__KEY);
+		createEAttribute(coverageEntryEClass, COVERAGE_ENTRY__VALUE);
 
 		actorResultEClass = createEClass(ACTOR_RESULT);
 		createEReference(actorResultEClass, ACTOR_RESULT__RESULTS);
+		createEReference(actorResultEClass, ACTOR_RESULT__COVERAGE);
 
 		pageResultEClass = createEClass(PAGE_RESULT);
 		createEReference(pageResultEClass, PAGE_RESULT__RESULTS);
+		createEAttribute(pageResultEClass, PAGE_RESULT__SIZE);
+		createEReference(pageResultEClass, PAGE_RESULT__COVERAGE);
 
 		jsonLoaderEClass = createEClass(JSON_LOADER);
 
@@ -776,6 +1268,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 
 		// Obtain other dependent packages
 		SecurityPackage theSecurityPackage = (SecurityPackage)EPackage.Registry.INSTANCE.getEPackage(SecurityPackage.eNS_URI);
+		PerformancePackage thePerformancePackage = (PerformancePackage)EPackage.Registry.INSTANCE.getEPackage(PerformancePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -795,6 +1288,13 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		testSuiteResultEClass.getESuperTypes().add(this.getTestResult());
 		parameterizedTestResultEClass.getESuperTypes().add(this.getTestSuiteResult());
 		operationResultEClass.getESuperTypes().add(this.getDescriptor());
+		throwableEClass.getESuperTypes().add(this.getJSONLoader());
+		stackTraceEntryEClass.getESuperTypes().add(this.getJSONLoader());
+		initializationResultEClass.getESuperTypes().add(this.getOperationResult());
+		methodResultEClass.getESuperTypes().add(this.getOperationResult());
+		actorMethodResultEClass.getESuperTypes().add(this.getMethodResult());
+		pageMethodResultEClass.getESuperTypes().add(this.getMethodResult());
+		testMethodResultEClass.getESuperTypes().add(this.getOperationResult());
 		actorResultEClass.getESuperTypes().add(this.getDescriptor());
 		pageResultEClass.getESuperTypes().add(this.getDescriptor());
 
@@ -828,12 +1328,20 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEClass(testSessionEClass, TestSession.class, "TestSession", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTestSession_Results(), this.getTestResult(), null, "results", null, 0, -1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestSession_Published(), ecorePackage.getEBoolean(), "published", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTestSession_Size(), ecorePackage.getEInt(), "size", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTestSession_Progress(), ecorePackage.getEInt(), "progress", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(testResultEClass, TestResult.class, "TestResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTestResult_PageResults(), this.getPageResult(), null, "pageResults", null, 0, -1, TestResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTestResult_ActorResults(), this.getActorResult(), null, "actorResults", null, 0, -1, TestResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(testClassResultEClass, TestClassResult.class, "TestClassResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTestClassResult_MethodResults(), this.getTestMethodResult(), null, "methodResults", null, 0, -1, TestClassResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTestClassResult_Stats(), this.getStatsEntry(), null, "stats", null, 0, -1, TestClassResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(statsEntryEClass, Map.Entry.class, "StatsEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStatsEntry_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStatsEntry_Value(), ecorePackage.getEIntegerObject(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(testSuiteResultEClass, TestSuiteResult.class, "TestSuiteResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTestSuiteResult_Children(), this.getTestResult(), null, "children", null, 0, -1, TestSuiteResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -845,19 +1353,61 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getScreenshot_Timestamp(), ecorePackage.getELong(), "timestamp", null, 0, 1, Screenshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScreenshot_Height(), ecorePackage.getEInt(), "height", null, 0, 1, Screenshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScreenshot_Width(), ecorePackage.getEInt(), "width", null, 0, 1, Screenshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScreenshot_ContentType(), ecorePackage.getEString(), "contentType", null, 0, 1, Screenshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationResultEClass, OperationResult.class, "OperationResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperationResult_Screenshots(), this.getScreenshot(), null, "screenshots", null, 0, -1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperationResult_Children(), this.getOperationResult(), null, "children", null, 0, -1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperationResult_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperationResult_Arguments(), ecorePackage.getEString(), "arguments", null, 0, -1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationResult_BeforeTiming(), thePerformancePackage.getTimingBase(), null, "beforeTiming", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationResult_BeforeScreenshot(), this.getScreenshot(), null, "beforeScreenshot", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationResult_AfterTiming(), thePerformancePackage.getTimingBase(), null, "afterTiming", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationResult_AfterScreenshot(), this.getScreenshot(), null, "afterScreenshot", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationResult_Failure(), this.getThrowable(), null, "failure", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationResult_Error(), this.getThrowable(), null, "error", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperationResult_Start(), ecorePackage.getELong(), "start", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperationResult_Finish(), ecorePackage.getELong(), "finish", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperationResult_Pending(), ecorePackage.getEBoolean(), "pending", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(throwableEClass, org.nasdanika.webtest.hub.Throwable.class, "Throwable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getThrowable_Type(), ecorePackage.getEString(), "type", null, 0, 1, org.nasdanika.webtest.hub.Throwable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getThrowable_Message(), ecorePackage.getEString(), "message", null, 0, 1, org.nasdanika.webtest.hub.Throwable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getThrowable_StackTrace(), this.getStackTraceEntry(), null, "stackTrace", null, 0, -1, org.nasdanika.webtest.hub.Throwable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stackTraceEntryEClass, StackTraceEntry.class, "StackTraceEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStackTraceEntry_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, StackTraceEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStackTraceEntry_FileName(), ecorePackage.getEString(), "fileName", null, 0, 1, StackTraceEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStackTraceEntry_MethodName(), ecorePackage.getEString(), "methodName", null, 0, 1, StackTraceEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStackTraceEntry_LineNumber(), ecorePackage.getEInt(), "lineNumber", null, 0, 1, StackTraceEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStackTraceEntry_Native(), ecorePackage.getEBoolean(), "native", null, 0, 1, StackTraceEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(initializationResultEClass, InitializationResult.class, "InitializationResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(methodResultEClass, MethodResult.class, "MethodResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(actorMethodResultEClass, ActorMethodResult.class, "ActorMethodResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(pageMethodResultEClass, PageMethodResult.class, "PageMethodResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(testMethodResultEClass, TestMethodResult.class, "TestMethodResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTestMethodResult_Parameters(), ecorePackage.getEString(), "parameters", null, 0, -1, TestMethodResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTestMethodResult_NavigationTiming(), thePerformancePackage.getNavigationTiming(), null, "navigationTiming", null, 0, 1, TestMethodResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(coverageEntryEClass, Map.Entry.class, "CoverageEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCoverageEntry_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCoverageEntry_Value(), ecorePackage.getEIntegerObject(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actorResultEClass, ActorResult.class, "ActorResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActorResult_Results(), this.getOperationResult(), null, "results", null, 0, -1, ActorResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActorResult_Coverage(), this.getCoverageEntry(), null, "coverage", null, 0, -1, ActorResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pageResultEClass, PageResult.class, "PageResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPageResult_Results(), this.getOperationResult(), null, "results", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPageResult_Size(), ecorePackage.getEInt(), "size", null, 0, 1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPageResult_Coverage(), this.getCoverageEntry(), null, "coverage", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(jsonLoaderEClass, org.nasdanika.core.JSONLoader.class, "JSONLoader", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEClass(jsonLoaderEClass, JSONLoader.class, "JSONLoader", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(testStatusEEnum, TestStatus.class, "TestStatus");

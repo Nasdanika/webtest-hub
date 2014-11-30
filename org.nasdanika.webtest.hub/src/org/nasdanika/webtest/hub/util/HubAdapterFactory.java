@@ -2,20 +2,39 @@
  */
 package org.nasdanika.webtest.hub.util;
 
+import java.util.Map;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.nasdanika.cdo.security.LoginPasswordHashUser;
 import org.nasdanika.cdo.security.LoginPasswordProtectionDomain;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.ProtectionDomain;
-
 import org.nasdanika.core.JSONLoader;
-import org.nasdanika.webtest.hub.*;
+import org.nasdanika.webtest.hub.ActorMethodResult;
+import org.nasdanika.webtest.hub.ActorResult;
+import org.nasdanika.webtest.hub.Application;
+import org.nasdanika.webtest.hub.ApplicationOwner;
+import org.nasdanika.webtest.hub.Description;
+import org.nasdanika.webtest.hub.Descriptor;
+import org.nasdanika.webtest.hub.Guest;
+import org.nasdanika.webtest.hub.Hub;
+import org.nasdanika.webtest.hub.HubPackage;
+import org.nasdanika.webtest.hub.InitializationResult;
+import org.nasdanika.webtest.hub.MethodResult;
+import org.nasdanika.webtest.hub.OperationResult;
+import org.nasdanika.webtest.hub.PageMethodResult;
+import org.nasdanika.webtest.hub.PageResult;
+import org.nasdanika.webtest.hub.ParameterizedTestResult;
+import org.nasdanika.webtest.hub.Screenshot;
+import org.nasdanika.webtest.hub.StackTraceEntry;
+import org.nasdanika.webtest.hub.TestClassResult;
+import org.nasdanika.webtest.hub.TestMethodResult;
+import org.nasdanika.webtest.hub.TestResult;
+import org.nasdanika.webtest.hub.TestSession;
+import org.nasdanika.webtest.hub.TestSuiteResult;
+import org.nasdanika.webtest.hub.User;
 
 /**
  * <!-- begin-user-doc -->
@@ -114,6 +133,10 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 				return createTestClassResultAdapter();
 			}
 			@Override
+			public Adapter caseStatsEntry(Map.Entry<String, Integer> object) {
+				return createStatsEntryAdapter();
+			}
+			@Override
 			public Adapter caseTestSuiteResult(TestSuiteResult object) {
 				return createTestSuiteResultAdapter();
 			}
@@ -128,6 +151,38 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseOperationResult(OperationResult object) {
 				return createOperationResultAdapter();
+			}
+			@Override
+			public Adapter caseThrowable(org.nasdanika.webtest.hub.Throwable object) {
+				return createThrowableAdapter();
+			}
+			@Override
+			public Adapter caseStackTraceEntry(StackTraceEntry object) {
+				return createStackTraceEntryAdapter();
+			}
+			@Override
+			public Adapter caseInitializationResult(InitializationResult object) {
+				return createInitializationResultAdapter();
+			}
+			@Override
+			public Adapter caseMethodResult(MethodResult object) {
+				return createMethodResultAdapter();
+			}
+			@Override
+			public Adapter caseActorMethodResult(ActorMethodResult object) {
+				return createActorMethodResultAdapter();
+			}
+			@Override
+			public Adapter casePageMethodResult(PageMethodResult object) {
+				return createPageMethodResultAdapter();
+			}
+			@Override
+			public Adapter caseTestMethodResult(TestMethodResult object) {
+				return createTestMethodResultAdapter();
+			}
+			@Override
+			public Adapter caseCoverageEntry(Map.Entry<String, Integer> object) {
+				return createCoverageEntryAdapter();
 			}
 			@Override
 			public Adapter caseActorResult(ActorResult object) {
@@ -322,6 +377,20 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Stats Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.Map.Entry
+	 * @generated
+	 */
+	public Adapter createStatsEntryAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.TestSuiteResult <em>Test Suite Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -374,6 +443,118 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOperationResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.Throwable <em>Throwable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.Throwable
+	 * @generated
+	 */
+	public Adapter createThrowableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.StackTraceEntry <em>Stack Trace Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.StackTraceEntry
+	 * @generated
+	 */
+	public Adapter createStackTraceEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.InitializationResult <em>Initialization Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.InitializationResult
+	 * @generated
+	 */
+	public Adapter createInitializationResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.MethodResult <em>Method Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.MethodResult
+	 * @generated
+	 */
+	public Adapter createMethodResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.ActorMethodResult <em>Actor Method Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.ActorMethodResult
+	 * @generated
+	 */
+	public Adapter createActorMethodResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.PageMethodResult <em>Page Method Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.PageMethodResult
+	 * @generated
+	 */
+	public Adapter createPageMethodResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.TestMethodResult <em>Test Method Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.TestMethodResult
+	 * @generated
+	 */
+	public Adapter createTestMethodResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Coverage Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.Map.Entry
+	 * @generated
+	 */
+	public Adapter createCoverageEntryAdapter() {
 		return null;
 	}
 

@@ -2,17 +2,38 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.json.JSONObject;
-import org.nasdanika.webtest.hub.*;
+import org.nasdanika.webtest.hub.ActorMethodResult;
+import org.nasdanika.webtest.hub.ActorResult;
+import org.nasdanika.webtest.hub.Application;
+import org.nasdanika.webtest.hub.Description;
+import org.nasdanika.webtest.hub.Descriptor;
+import org.nasdanika.webtest.hub.Guest;
+import org.nasdanika.webtest.hub.Hub;
+import org.nasdanika.webtest.hub.HubFactory;
+import org.nasdanika.webtest.hub.HubPackage;
+import org.nasdanika.webtest.hub.InitializationResult;
+import org.nasdanika.webtest.hub.MethodResult;
+import org.nasdanika.webtest.hub.OperationResult;
+import org.nasdanika.webtest.hub.PageMethodResult;
+import org.nasdanika.webtest.hub.PageResult;
+import org.nasdanika.webtest.hub.ParameterizedTestResult;
+import org.nasdanika.webtest.hub.Screenshot;
+import org.nasdanika.webtest.hub.StackTraceEntry;
+import org.nasdanika.webtest.hub.TestClassResult;
+import org.nasdanika.webtest.hub.TestMethodResult;
+import org.nasdanika.webtest.hub.TestResult;
+import org.nasdanika.webtest.hub.TestSession;
+import org.nasdanika.webtest.hub.TestStatus;
+import org.nasdanika.webtest.hub.TestSuiteResult;
+import org.nasdanika.webtest.hub.User;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,10 +88,19 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 			case HubPackage.TEST_SESSION: return (EObject)createTestSession();
 			case HubPackage.TEST_RESULT: return (EObject)createTestResult();
 			case HubPackage.TEST_CLASS_RESULT: return (EObject)createTestClassResult();
+			case HubPackage.STATS_ENTRY: return (EObject)createStatsEntry();
 			case HubPackage.TEST_SUITE_RESULT: return (EObject)createTestSuiteResult();
 			case HubPackage.PARAMETERIZED_TEST_RESULT: return (EObject)createParameterizedTestResult();
 			case HubPackage.SCREENSHOT: return (EObject)createScreenshot();
 			case HubPackage.OPERATION_RESULT: return (EObject)createOperationResult();
+			case HubPackage.THROWABLE: return (EObject)createThrowable();
+			case HubPackage.STACK_TRACE_ENTRY: return (EObject)createStackTraceEntry();
+			case HubPackage.INITIALIZATION_RESULT: return (EObject)createInitializationResult();
+			case HubPackage.METHOD_RESULT: return (EObject)createMethodResult();
+			case HubPackage.ACTOR_METHOD_RESULT: return (EObject)createActorMethodResult();
+			case HubPackage.PAGE_METHOD_RESULT: return (EObject)createPageMethodResult();
+			case HubPackage.TEST_METHOD_RESULT: return (EObject)createTestMethodResult();
+			case HubPackage.COVERAGE_ENTRY: return (EObject)createCoverageEntry();
 			case HubPackage.ACTOR_RESULT: return (EObject)createActorResult();
 			case HubPackage.PAGE_RESULT: return (EObject)createPageResult();
 			default:
@@ -211,6 +241,16 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Map.Entry<String, Integer> createStatsEntry() {
+		StatsEntryImpl statsEntry = new StatsEntryImpl();
+		return statsEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TestSuiteResult createTestSuiteResult() {
 		TestSuiteResultImpl testSuiteResult = new TestSuiteResultImpl();
 		return testSuiteResult;
@@ -244,6 +284,86 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	public OperationResult createOperationResult() {
 		OperationResultImpl operationResult = new OperationResultImpl();
 		return operationResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.nasdanika.webtest.hub.Throwable createThrowable() {
+		ThrowableImpl throwable = new ThrowableImpl();
+		return throwable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StackTraceEntry createStackTraceEntry() {
+		StackTraceEntryImpl stackTraceEntry = new StackTraceEntryImpl();
+		return stackTraceEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InitializationResult createInitializationResult() {
+		InitializationResultImpl initializationResult = new InitializationResultImpl();
+		return initializationResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MethodResult createMethodResult() {
+		MethodResultImpl methodResult = new MethodResultImpl();
+		return methodResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActorMethodResult createActorMethodResult() {
+		ActorMethodResultImpl actorMethodResult = new ActorMethodResultImpl();
+		return actorMethodResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PageMethodResult createPageMethodResult() {
+		PageMethodResultImpl pageMethodResult = new PageMethodResultImpl();
+		return pageMethodResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TestMethodResult createTestMethodResult() {
+		TestMethodResultImpl testMethodResult = new TestMethodResultImpl();
+		return testMethodResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<String, Integer> createCoverageEntry() {
+		CoverageEntryImpl coverageEntry = new CoverageEntryImpl();
+		return coverageEntry;
 	}
 
 	/**

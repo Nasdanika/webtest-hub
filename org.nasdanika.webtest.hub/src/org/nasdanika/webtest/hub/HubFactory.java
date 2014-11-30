@@ -139,6 +139,69 @@ public interface HubFactory extends EFactory {
 	OperationResult createOperationResult();
 
 	/**
+	 * Returns a new object of class '<em>Throwable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Throwable</em>'.
+	 * @generated
+	 */
+	Throwable createThrowable();
+
+	/**
+	 * Returns a new object of class '<em>Stack Trace Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stack Trace Entry</em>'.
+	 * @generated
+	 */
+	StackTraceEntry createStackTraceEntry();
+
+	/**
+	 * Returns a new object of class '<em>Initialization Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Initialization Result</em>'.
+	 * @generated
+	 */
+	InitializationResult createInitializationResult();
+
+	/**
+	 * Returns a new object of class '<em>Method Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Method Result</em>'.
+	 * @generated
+	 */
+	MethodResult createMethodResult();
+
+	/**
+	 * Returns a new object of class '<em>Actor Method Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Actor Method Result</em>'.
+	 * @generated
+	 */
+	ActorMethodResult createActorMethodResult();
+
+	/**
+	 * Returns a new object of class '<em>Page Method Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Page Method Result</em>'.
+	 * @generated
+	 */
+	PageMethodResult createPageMethodResult();
+
+	/**
+	 * Returns a new object of class '<em>Test Method Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test Method Result</em>'.
+	 * @generated
+	 */
+	TestMethodResult createTestMethodResult();
+
+	/**
 	 * Returns a new object of class '<em>Actor Result</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

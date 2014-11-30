@@ -505,7 +505,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONLoader()
 	 * @generated
 	 */
-	int JSON_LOADER = 16;
+	int JSON_LOADER = 25;
 
 	/**
 	 * The number of structural features of the '<em>JSON Loader</em>' class.
@@ -691,13 +691,31 @@ public interface HubPackage extends EPackage {
 	int TEST_SESSION__PUBLISHED = DESCRIPTOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_SESSION__SIZE = DESCRIPTOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_SESSION__PROGRESS = DESCRIPTOR_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Test Session</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_SESSION_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 2;
+	int TEST_SESSION_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Test Session</em>' class.
@@ -838,13 +856,31 @@ public interface HubPackage extends EPackage {
 	int TEST_CLASS_RESULT__ACTOR_RESULTS = TEST_RESULT__ACTOR_RESULTS;
 
 	/**
+	 * The feature id for the '<em><b>Method Results</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_CLASS_RESULT__METHOD_RESULTS = TEST_RESULT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Stats</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_CLASS_RESULT__STATS = TEST_RESULT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Test Class Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_CLASS_RESULT_FEATURE_COUNT = TEST_RESULT_FEATURE_COUNT + 0;
+	int TEST_CLASS_RESULT_FEATURE_COUNT = TEST_RESULT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Test Class Result</em>' class.
@@ -856,6 +892,52 @@ public interface HubPackage extends EPackage {
 	int TEST_CLASS_RESULT_OPERATION_COUNT = TEST_RESULT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.StatsEntryImpl <em>Stats Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.impl.StatsEntryImpl
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getStatsEntry()
+	 * @generated
+	 */
+	int STATS_ENTRY = 10;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATS_ENTRY__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATS_ENTRY__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Stats Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATS_ENTRY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Stats Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATS_ENTRY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.TestSuiteResultImpl <em>Test Suite Result</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -863,7 +945,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getTestSuiteResult()
 	 * @generated
 	 */
-	int TEST_SUITE_RESULT = 10;
+	int TEST_SUITE_RESULT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
@@ -945,7 +1027,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getParameterizedTestResult()
 	 * @generated
 	 */
-	int PARAMETERIZED_TEST_RESULT = 11;
+	int PARAMETERIZED_TEST_RESULT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
@@ -1027,7 +1109,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getScreenshot()
 	 * @generated
 	 */
-	int SCREENSHOT = 12;
+	int SCREENSHOT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -1066,13 +1148,22 @@ public interface HubPackage extends EPackage {
 	int SCREENSHOT__WIDTH = 3;
 
 	/**
+	 * The feature id for the '<em><b>Content Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCREENSHOT__CONTENT_TYPE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Screenshot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCREENSHOT_FEATURE_COUNT = 4;
+	int SCREENSHOT_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Screenshot</em>' class.
@@ -1091,7 +1182,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getOperationResult()
 	 * @generated
 	 */
-	int OPERATION_RESULT = 13;
+	int OPERATION_RESULT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
@@ -1148,13 +1239,103 @@ public interface HubPackage extends EPackage {
 	int OPERATION_RESULT__OPERATION_NAME = DESCRIPTOR_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_RESULT__ARGUMENTS = DESCRIPTOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Before Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_RESULT__BEFORE_TIMING = DESCRIPTOR_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Before Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_RESULT__BEFORE_SCREENSHOT = DESCRIPTOR_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>After Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_RESULT__AFTER_TIMING = DESCRIPTOR_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>After Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_RESULT__AFTER_SCREENSHOT = DESCRIPTOR_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Failure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_RESULT__FAILURE = DESCRIPTOR_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_RESULT__ERROR = DESCRIPTOR_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_RESULT__START = DESCRIPTOR_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Finish</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_RESULT__FINISH = DESCRIPTOR_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Pending</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_RESULT__PENDING = DESCRIPTOR_FEATURE_COUNT + 12;
+
+	/**
 	 * The number of structural features of the '<em>Operation Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 3;
+	int OPERATION_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of operations of the '<em>Operation Result</em>' class.
@@ -1166,6 +1347,1058 @@ public interface HubPackage extends EPackage {
 	int OPERATION_RESULT_OPERATION_COUNT = DESCRIPTOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.ThrowableImpl <em>Throwable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.impl.ThrowableImpl
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getThrowable()
+	 * @generated
+	 */
+	int THROWABLE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROWABLE__TYPE = JSON_LOADER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROWABLE__MESSAGE = JSON_LOADER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Stack Trace</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROWABLE__STACK_TRACE = JSON_LOADER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Throwable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROWABLE_FEATURE_COUNT = JSON_LOADER_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Throwable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROWABLE_OPERATION_COUNT = JSON_LOADER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.StackTraceEntryImpl <em>Stack Trace Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.impl.StackTraceEntryImpl
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getStackTraceEntry()
+	 * @generated
+	 */
+	int STACK_TRACE_ENTRY = 16;
+
+	/**
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_TRACE_ENTRY__CLASS_NAME = JSON_LOADER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>File Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_TRACE_ENTRY__FILE_NAME = JSON_LOADER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Method Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_TRACE_ENTRY__METHOD_NAME = JSON_LOADER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_TRACE_ENTRY__LINE_NUMBER = JSON_LOADER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Native</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_TRACE_ENTRY__NATIVE = JSON_LOADER_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Stack Trace Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_TRACE_ENTRY_FEATURE_COUNT = JSON_LOADER_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Stack Trace Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STACK_TRACE_ENTRY_OPERATION_COUNT = JSON_LOADER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.InitializationResultImpl <em>Initialization Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.impl.InitializationResultImpl
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getInitializationResult()
+	 * @generated
+	 */
+	int INITIALIZATION_RESULT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__QUALIFIED_NAME = OPERATION_RESULT__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__TITLE = OPERATION_RESULT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__DESCRIPTION = OPERATION_RESULT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__SCREENSHOTS = OPERATION_RESULT__SCREENSHOTS;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__CHILDREN = OPERATION_RESULT__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__OPERATION_NAME = OPERATION_RESULT__OPERATION_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__ARGUMENTS = OPERATION_RESULT__ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Before Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__BEFORE_TIMING = OPERATION_RESULT__BEFORE_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>Before Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__BEFORE_SCREENSHOT = OPERATION_RESULT__BEFORE_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>After Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__AFTER_TIMING = OPERATION_RESULT__AFTER_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>After Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__AFTER_SCREENSHOT = OPERATION_RESULT__AFTER_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>Failure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__FAILURE = OPERATION_RESULT__FAILURE;
+
+	/**
+	 * The feature id for the '<em><b>Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__ERROR = OPERATION_RESULT__ERROR;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__START = OPERATION_RESULT__START;
+
+	/**
+	 * The feature id for the '<em><b>Finish</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__FINISH = OPERATION_RESULT__FINISH;
+
+	/**
+	 * The feature id for the '<em><b>Pending</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__PENDING = OPERATION_RESULT__PENDING;
+
+	/**
+	 * The number of structural features of the '<em>Initialization Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT_FEATURE_COUNT = OPERATION_RESULT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Initialization Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT_OPERATION_COUNT = OPERATION_RESULT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.MethodResultImpl <em>Method Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.impl.MethodResultImpl
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getMethodResult()
+	 * @generated
+	 */
+	int METHOD_RESULT = 18;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__QUALIFIED_NAME = OPERATION_RESULT__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__TITLE = OPERATION_RESULT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__DESCRIPTION = OPERATION_RESULT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__SCREENSHOTS = OPERATION_RESULT__SCREENSHOTS;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__CHILDREN = OPERATION_RESULT__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__OPERATION_NAME = OPERATION_RESULT__OPERATION_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__ARGUMENTS = OPERATION_RESULT__ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Before Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__BEFORE_TIMING = OPERATION_RESULT__BEFORE_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>Before Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__BEFORE_SCREENSHOT = OPERATION_RESULT__BEFORE_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>After Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__AFTER_TIMING = OPERATION_RESULT__AFTER_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>After Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__AFTER_SCREENSHOT = OPERATION_RESULT__AFTER_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>Failure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__FAILURE = OPERATION_RESULT__FAILURE;
+
+	/**
+	 * The feature id for the '<em><b>Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__ERROR = OPERATION_RESULT__ERROR;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__START = OPERATION_RESULT__START;
+
+	/**
+	 * The feature id for the '<em><b>Finish</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__FINISH = OPERATION_RESULT__FINISH;
+
+	/**
+	 * The feature id for the '<em><b>Pending</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT__PENDING = OPERATION_RESULT__PENDING;
+
+	/**
+	 * The number of structural features of the '<em>Method Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT_FEATURE_COUNT = OPERATION_RESULT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Method Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_RESULT_OPERATION_COUNT = OPERATION_RESULT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.ActorMethodResultImpl <em>Actor Method Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.impl.ActorMethodResultImpl
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getActorMethodResult()
+	 * @generated
+	 */
+	int ACTOR_METHOD_RESULT = 19;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__QUALIFIED_NAME = METHOD_RESULT__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__TITLE = METHOD_RESULT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__DESCRIPTION = METHOD_RESULT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__SCREENSHOTS = METHOD_RESULT__SCREENSHOTS;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__CHILDREN = METHOD_RESULT__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__OPERATION_NAME = METHOD_RESULT__OPERATION_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__ARGUMENTS = METHOD_RESULT__ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Before Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__BEFORE_TIMING = METHOD_RESULT__BEFORE_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>Before Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__BEFORE_SCREENSHOT = METHOD_RESULT__BEFORE_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>After Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__AFTER_TIMING = METHOD_RESULT__AFTER_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>After Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__AFTER_SCREENSHOT = METHOD_RESULT__AFTER_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>Failure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__FAILURE = METHOD_RESULT__FAILURE;
+
+	/**
+	 * The feature id for the '<em><b>Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__ERROR = METHOD_RESULT__ERROR;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__START = METHOD_RESULT__START;
+
+	/**
+	 * The feature id for the '<em><b>Finish</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__FINISH = METHOD_RESULT__FINISH;
+
+	/**
+	 * The feature id for the '<em><b>Pending</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__PENDING = METHOD_RESULT__PENDING;
+
+	/**
+	 * The number of structural features of the '<em>Actor Method Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT_FEATURE_COUNT = METHOD_RESULT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Actor Method Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT_OPERATION_COUNT = METHOD_RESULT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.PageMethodResultImpl <em>Page Method Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.impl.PageMethodResultImpl
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getPageMethodResult()
+	 * @generated
+	 */
+	int PAGE_METHOD_RESULT = 20;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__QUALIFIED_NAME = METHOD_RESULT__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__TITLE = METHOD_RESULT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__DESCRIPTION = METHOD_RESULT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__SCREENSHOTS = METHOD_RESULT__SCREENSHOTS;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__CHILDREN = METHOD_RESULT__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__OPERATION_NAME = METHOD_RESULT__OPERATION_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__ARGUMENTS = METHOD_RESULT__ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Before Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__BEFORE_TIMING = METHOD_RESULT__BEFORE_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>Before Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__BEFORE_SCREENSHOT = METHOD_RESULT__BEFORE_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>After Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__AFTER_TIMING = METHOD_RESULT__AFTER_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>After Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__AFTER_SCREENSHOT = METHOD_RESULT__AFTER_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>Failure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__FAILURE = METHOD_RESULT__FAILURE;
+
+	/**
+	 * The feature id for the '<em><b>Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__ERROR = METHOD_RESULT__ERROR;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__START = METHOD_RESULT__START;
+
+	/**
+	 * The feature id for the '<em><b>Finish</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__FINISH = METHOD_RESULT__FINISH;
+
+	/**
+	 * The feature id for the '<em><b>Pending</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__PENDING = METHOD_RESULT__PENDING;
+
+	/**
+	 * The number of structural features of the '<em>Page Method Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT_FEATURE_COUNT = METHOD_RESULT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Page Method Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT_OPERATION_COUNT = METHOD_RESULT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.TestMethodResultImpl <em>Test Method Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.impl.TestMethodResultImpl
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getTestMethodResult()
+	 * @generated
+	 */
+	int TEST_METHOD_RESULT = 21;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__QUALIFIED_NAME = OPERATION_RESULT__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__TITLE = OPERATION_RESULT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__DESCRIPTION = OPERATION_RESULT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__SCREENSHOTS = OPERATION_RESULT__SCREENSHOTS;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__CHILDREN = OPERATION_RESULT__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__OPERATION_NAME = OPERATION_RESULT__OPERATION_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__ARGUMENTS = OPERATION_RESULT__ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Before Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__BEFORE_TIMING = OPERATION_RESULT__BEFORE_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>Before Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__BEFORE_SCREENSHOT = OPERATION_RESULT__BEFORE_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>After Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__AFTER_TIMING = OPERATION_RESULT__AFTER_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>After Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__AFTER_SCREENSHOT = OPERATION_RESULT__AFTER_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>Failure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__FAILURE = OPERATION_RESULT__FAILURE;
+
+	/**
+	 * The feature id for the '<em><b>Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__ERROR = OPERATION_RESULT__ERROR;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__START = OPERATION_RESULT__START;
+
+	/**
+	 * The feature id for the '<em><b>Finish</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__FINISH = OPERATION_RESULT__FINISH;
+
+	/**
+	 * The feature id for the '<em><b>Pending</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__PENDING = OPERATION_RESULT__PENDING;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__PARAMETERS = OPERATION_RESULT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Navigation Timing</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT__NAVIGATION_TIMING = OPERATION_RESULT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Test Method Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT_FEATURE_COUNT = OPERATION_RESULT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Test Method Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT_OPERATION_COUNT = OPERATION_RESULT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.CoverageEntryImpl <em>Coverage Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.impl.CoverageEntryImpl
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCoverageEntry()
+	 * @generated
+	 */
+	int COVERAGE_ENTRY = 22;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVERAGE_ENTRY__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVERAGE_ENTRY__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Coverage Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVERAGE_ENTRY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Coverage Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVERAGE_ENTRY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.ActorResultImpl <em>Actor Result</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1173,7 +2406,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getActorResult()
 	 * @generated
 	 */
-	int ACTOR_RESULT = 14;
+	int ACTOR_RESULT = 23;
 
 	/**
 	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
@@ -1212,13 +2445,22 @@ public interface HubPackage extends EPackage {
 	int ACTOR_RESULT__RESULTS = DESCRIPTOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Coverage</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_RESULT__COVERAGE = DESCRIPTOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Actor Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 1;
+	int ACTOR_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Actor Result</em>' class.
@@ -1237,7 +2479,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getPageResult()
 	 * @generated
 	 */
-	int PAGE_RESULT = 15;
+	int PAGE_RESULT = 24;
 
 	/**
 	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
@@ -1276,13 +2518,31 @@ public interface HubPackage extends EPackage {
 	int PAGE_RESULT__RESULTS = DESCRIPTOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_RESULT__SIZE = DESCRIPTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Coverage</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_RESULT__COVERAGE = DESCRIPTOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Page Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 1;
+	int PAGE_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Page Result</em>' class.
@@ -1301,7 +2561,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getTestStatus()
 	 * @generated
 	 */
-	int TEST_STATUS = 17;
+	int TEST_STATUS = 26;
 
 	/**
 	 * The meta object id for the '<em>JSON Object</em>' data type.
@@ -1311,7 +2571,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONObject()
 	 * @generated
 	 */
-	int JSON_OBJECT = 18;
+	int JSON_OBJECT = 27;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -1321,7 +2581,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 19;
+	int EXCEPTION = 28;
 
 
 	/**
@@ -1559,6 +2819,28 @@ public interface HubPackage extends EPackage {
 	EAttribute getTestSession_Published();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.TestSession#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see org.nasdanika.webtest.hub.TestSession#getSize()
+	 * @see #getTestSession()
+	 * @generated
+	 */
+	EAttribute getTestSession_Size();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.TestSession#getProgress <em>Progress</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Progress</em>'.
+	 * @see org.nasdanika.webtest.hub.TestSession#getProgress()
+	 * @see #getTestSession()
+	 * @generated
+	 */
+	EAttribute getTestSession_Progress();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.TestResult <em>Test Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1599,6 +2881,62 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTestClassResult();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.TestClassResult#getMethodResults <em>Method Results</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Method Results</em>'.
+	 * @see org.nasdanika.webtest.hub.TestClassResult#getMethodResults()
+	 * @see #getTestClassResult()
+	 * @generated
+	 */
+	EReference getTestClassResult_MethodResults();
+
+	/**
+	 * Returns the meta object for the map '{@link org.nasdanika.webtest.hub.TestClassResult#getStats <em>Stats</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Stats</em>'.
+	 * @see org.nasdanika.webtest.hub.TestClassResult#getStats()
+	 * @see #getTestClassResult()
+	 * @generated
+	 */
+	EReference getTestClassResult_Stats();
+
+	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Stats Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stats Entry</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyDataType="org.eclipse.emf.ecore.EString"
+	 *        valueDataType="org.eclipse.emf.ecore.EIntegerObject"
+	 * @generated
+	 */
+	EClass getStatsEntry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getStatsEntry()
+	 * @generated
+	 */
+	EAttribute getStatsEntry_Key();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getStatsEntry()
+	 * @generated
+	 */
+	EAttribute getStatsEntry_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.TestSuiteResult <em>Test Suite Result</em>}'.
@@ -1686,6 +3024,17 @@ public interface HubPackage extends EPackage {
 	EAttribute getScreenshot_Width();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.Screenshot#getContentType <em>Content Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content Type</em>'.
+	 * @see org.nasdanika.webtest.hub.Screenshot#getContentType()
+	 * @see #getScreenshot()
+	 * @generated
+	 */
+	EAttribute getScreenshot_ContentType();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.OperationResult <em>Operation Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1729,6 +3078,330 @@ public interface HubPackage extends EPackage {
 	EAttribute getOperationResult_OperationName();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.webtest.hub.OperationResult#getArguments <em>Arguments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Arguments</em>'.
+	 * @see org.nasdanika.webtest.hub.OperationResult#getArguments()
+	 * @see #getOperationResult()
+	 * @generated
+	 */
+	EAttribute getOperationResult_Arguments();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.webtest.hub.OperationResult#getBeforeTiming <em>Before Timing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Before Timing</em>'.
+	 * @see org.nasdanika.webtest.hub.OperationResult#getBeforeTiming()
+	 * @see #getOperationResult()
+	 * @generated
+	 */
+	EReference getOperationResult_BeforeTiming();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.webtest.hub.OperationResult#getBeforeScreenshot <em>Before Screenshot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Before Screenshot</em>'.
+	 * @see org.nasdanika.webtest.hub.OperationResult#getBeforeScreenshot()
+	 * @see #getOperationResult()
+	 * @generated
+	 */
+	EReference getOperationResult_BeforeScreenshot();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.webtest.hub.OperationResult#getAfterTiming <em>After Timing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>After Timing</em>'.
+	 * @see org.nasdanika.webtest.hub.OperationResult#getAfterTiming()
+	 * @see #getOperationResult()
+	 * @generated
+	 */
+	EReference getOperationResult_AfterTiming();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.webtest.hub.OperationResult#getAfterScreenshot <em>After Screenshot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>After Screenshot</em>'.
+	 * @see org.nasdanika.webtest.hub.OperationResult#getAfterScreenshot()
+	 * @see #getOperationResult()
+	 * @generated
+	 */
+	EReference getOperationResult_AfterScreenshot();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.webtest.hub.OperationResult#getFailure <em>Failure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Failure</em>'.
+	 * @see org.nasdanika.webtest.hub.OperationResult#getFailure()
+	 * @see #getOperationResult()
+	 * @generated
+	 */
+	EReference getOperationResult_Failure();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.webtest.hub.OperationResult#getError <em>Error</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Error</em>'.
+	 * @see org.nasdanika.webtest.hub.OperationResult#getError()
+	 * @see #getOperationResult()
+	 * @generated
+	 */
+	EReference getOperationResult_Error();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.OperationResult#getStart <em>Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Start</em>'.
+	 * @see org.nasdanika.webtest.hub.OperationResult#getStart()
+	 * @see #getOperationResult()
+	 * @generated
+	 */
+	EAttribute getOperationResult_Start();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.OperationResult#getFinish <em>Finish</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Finish</em>'.
+	 * @see org.nasdanika.webtest.hub.OperationResult#getFinish()
+	 * @see #getOperationResult()
+	 * @generated
+	 */
+	EAttribute getOperationResult_Finish();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.OperationResult#isPending <em>Pending</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pending</em>'.
+	 * @see org.nasdanika.webtest.hub.OperationResult#isPending()
+	 * @see #getOperationResult()
+	 * @generated
+	 */
+	EAttribute getOperationResult_Pending();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.Throwable <em>Throwable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Throwable</em>'.
+	 * @see org.nasdanika.webtest.hub.Throwable
+	 * @generated
+	 */
+	EClass getThrowable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.Throwable#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.nasdanika.webtest.hub.Throwable#getType()
+	 * @see #getThrowable()
+	 * @generated
+	 */
+	EAttribute getThrowable_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.Throwable#getMessage <em>Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Message</em>'.
+	 * @see org.nasdanika.webtest.hub.Throwable#getMessage()
+	 * @see #getThrowable()
+	 * @generated
+	 */
+	EAttribute getThrowable_Message();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.Throwable#getStackTrace <em>Stack Trace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Stack Trace</em>'.
+	 * @see org.nasdanika.webtest.hub.Throwable#getStackTrace()
+	 * @see #getThrowable()
+	 * @generated
+	 */
+	EReference getThrowable_StackTrace();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.StackTraceEntry <em>Stack Trace Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stack Trace Entry</em>'.
+	 * @see org.nasdanika.webtest.hub.StackTraceEntry
+	 * @generated
+	 */
+	EClass getStackTraceEntry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.StackTraceEntry#getClassName <em>Class Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Class Name</em>'.
+	 * @see org.nasdanika.webtest.hub.StackTraceEntry#getClassName()
+	 * @see #getStackTraceEntry()
+	 * @generated
+	 */
+	EAttribute getStackTraceEntry_ClassName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.StackTraceEntry#getFileName <em>File Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>File Name</em>'.
+	 * @see org.nasdanika.webtest.hub.StackTraceEntry#getFileName()
+	 * @see #getStackTraceEntry()
+	 * @generated
+	 */
+	EAttribute getStackTraceEntry_FileName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.StackTraceEntry#getMethodName <em>Method Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Method Name</em>'.
+	 * @see org.nasdanika.webtest.hub.StackTraceEntry#getMethodName()
+	 * @see #getStackTraceEntry()
+	 * @generated
+	 */
+	EAttribute getStackTraceEntry_MethodName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.StackTraceEntry#getLineNumber <em>Line Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Line Number</em>'.
+	 * @see org.nasdanika.webtest.hub.StackTraceEntry#getLineNumber()
+	 * @see #getStackTraceEntry()
+	 * @generated
+	 */
+	EAttribute getStackTraceEntry_LineNumber();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.StackTraceEntry#isNative <em>Native</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Native</em>'.
+	 * @see org.nasdanika.webtest.hub.StackTraceEntry#isNative()
+	 * @see #getStackTraceEntry()
+	 * @generated
+	 */
+	EAttribute getStackTraceEntry_Native();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.InitializationResult <em>Initialization Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Initialization Result</em>'.
+	 * @see org.nasdanika.webtest.hub.InitializationResult
+	 * @generated
+	 */
+	EClass getInitializationResult();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.MethodResult <em>Method Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Method Result</em>'.
+	 * @see org.nasdanika.webtest.hub.MethodResult
+	 * @generated
+	 */
+	EClass getMethodResult();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.ActorMethodResult <em>Actor Method Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Actor Method Result</em>'.
+	 * @see org.nasdanika.webtest.hub.ActorMethodResult
+	 * @generated
+	 */
+	EClass getActorMethodResult();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.PageMethodResult <em>Page Method Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Page Method Result</em>'.
+	 * @see org.nasdanika.webtest.hub.PageMethodResult
+	 * @generated
+	 */
+	EClass getPageMethodResult();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.TestMethodResult <em>Test Method Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Test Method Result</em>'.
+	 * @see org.nasdanika.webtest.hub.TestMethodResult
+	 * @generated
+	 */
+	EClass getTestMethodResult();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.webtest.hub.TestMethodResult#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Parameters</em>'.
+	 * @see org.nasdanika.webtest.hub.TestMethodResult#getParameters()
+	 * @see #getTestMethodResult()
+	 * @generated
+	 */
+	EAttribute getTestMethodResult_Parameters();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.webtest.hub.TestMethodResult#getNavigationTiming <em>Navigation Timing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Navigation Timing</em>'.
+	 * @see org.nasdanika.webtest.hub.TestMethodResult#getNavigationTiming()
+	 * @see #getTestMethodResult()
+	 * @generated
+	 */
+	EReference getTestMethodResult_NavigationTiming();
+
+	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Coverage Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Coverage Entry</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyDataType="org.eclipse.emf.ecore.EString"
+	 *        valueDataType="org.eclipse.emf.ecore.EIntegerObject"
+	 * @generated
+	 */
+	EClass getCoverageEntry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getCoverageEntry()
+	 * @generated
+	 */
+	EAttribute getCoverageEntry_Key();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getCoverageEntry()
+	 * @generated
+	 */
+	EAttribute getCoverageEntry_Value();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.ActorResult <em>Actor Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1750,6 +3423,17 @@ public interface HubPackage extends EPackage {
 	EReference getActorResult_Results();
 
 	/**
+	 * Returns the meta object for the map '{@link org.nasdanika.webtest.hub.ActorResult#getCoverage <em>Coverage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Coverage</em>'.
+	 * @see org.nasdanika.webtest.hub.ActorResult#getCoverage()
+	 * @see #getActorResult()
+	 * @generated
+	 */
+	EReference getActorResult_Coverage();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.PageResult <em>Page Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1769,6 +3453,28 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPageResult_Results();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.PageResult#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see org.nasdanika.webtest.hub.PageResult#getSize()
+	 * @see #getPageResult()
+	 * @generated
+	 */
+	EAttribute getPageResult_Size();
+
+	/**
+	 * Returns the meta object for the map '{@link org.nasdanika.webtest.hub.PageResult#getCoverage <em>Coverage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Coverage</em>'.
+	 * @see org.nasdanika.webtest.hub.PageResult#getCoverage()
+	 * @see #getPageResult()
+	 * @generated
+	 */
+	EReference getPageResult_Coverage();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.core.JSONLoader <em>JSON Loader</em>}'.
@@ -2029,6 +3735,22 @@ public interface HubPackage extends EPackage {
 		EAttribute TEST_SESSION__PUBLISHED = eINSTANCE.getTestSession_Published();
 
 		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEST_SESSION__SIZE = eINSTANCE.getTestSession_Size();
+
+		/**
+		 * The meta object literal for the '<em><b>Progress</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEST_SESSION__PROGRESS = eINSTANCE.getTestSession_Progress();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.TestResultImpl <em>Test Result</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2063,6 +3785,48 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TEST_CLASS_RESULT = eINSTANCE.getTestClassResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Method Results</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEST_CLASS_RESULT__METHOD_RESULTS = eINSTANCE.getTestClassResult_MethodResults();
+
+		/**
+		 * The meta object literal for the '<em><b>Stats</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEST_CLASS_RESULT__STATS = eINSTANCE.getTestClassResult_Stats();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.StatsEntryImpl <em>Stats Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.impl.StatsEntryImpl
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getStatsEntry()
+		 * @generated
+		 */
+		EClass STATS_ENTRY = eINSTANCE.getStatsEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATS_ENTRY__KEY = eINSTANCE.getStatsEntry_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATS_ENTRY__VALUE = eINSTANCE.getStatsEntry_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.TestSuiteResultImpl <em>Test Suite Result</em>}' class.
@@ -2135,6 +3899,14 @@ public interface HubPackage extends EPackage {
 		EAttribute SCREENSHOT__WIDTH = eINSTANCE.getScreenshot_Width();
 
 		/**
+		 * The meta object literal for the '<em><b>Content Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCREENSHOT__CONTENT_TYPE = eINSTANCE.getScreenshot_ContentType();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.OperationResultImpl <em>Operation Result</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2169,6 +3941,262 @@ public interface HubPackage extends EPackage {
 		EAttribute OPERATION_RESULT__OPERATION_NAME = eINSTANCE.getOperationResult_OperationName();
 
 		/**
+		 * The meta object literal for the '<em><b>Arguments</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION_RESULT__ARGUMENTS = eINSTANCE.getOperationResult_Arguments();
+
+		/**
+		 * The meta object literal for the '<em><b>Before Timing</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION_RESULT__BEFORE_TIMING = eINSTANCE.getOperationResult_BeforeTiming();
+
+		/**
+		 * The meta object literal for the '<em><b>Before Screenshot</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION_RESULT__BEFORE_SCREENSHOT = eINSTANCE.getOperationResult_BeforeScreenshot();
+
+		/**
+		 * The meta object literal for the '<em><b>After Timing</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION_RESULT__AFTER_TIMING = eINSTANCE.getOperationResult_AfterTiming();
+
+		/**
+		 * The meta object literal for the '<em><b>After Screenshot</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION_RESULT__AFTER_SCREENSHOT = eINSTANCE.getOperationResult_AfterScreenshot();
+
+		/**
+		 * The meta object literal for the '<em><b>Failure</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION_RESULT__FAILURE = eINSTANCE.getOperationResult_Failure();
+
+		/**
+		 * The meta object literal for the '<em><b>Error</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION_RESULT__ERROR = eINSTANCE.getOperationResult_Error();
+
+		/**
+		 * The meta object literal for the '<em><b>Start</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION_RESULT__START = eINSTANCE.getOperationResult_Start();
+
+		/**
+		 * The meta object literal for the '<em><b>Finish</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION_RESULT__FINISH = eINSTANCE.getOperationResult_Finish();
+
+		/**
+		 * The meta object literal for the '<em><b>Pending</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION_RESULT__PENDING = eINSTANCE.getOperationResult_Pending();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.ThrowableImpl <em>Throwable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.impl.ThrowableImpl
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getThrowable()
+		 * @generated
+		 */
+		EClass THROWABLE = eINSTANCE.getThrowable();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THROWABLE__TYPE = eINSTANCE.getThrowable_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THROWABLE__MESSAGE = eINSTANCE.getThrowable_Message();
+
+		/**
+		 * The meta object literal for the '<em><b>Stack Trace</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference THROWABLE__STACK_TRACE = eINSTANCE.getThrowable_StackTrace();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.StackTraceEntryImpl <em>Stack Trace Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.impl.StackTraceEntryImpl
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getStackTraceEntry()
+		 * @generated
+		 */
+		EClass STACK_TRACE_ENTRY = eINSTANCE.getStackTraceEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STACK_TRACE_ENTRY__CLASS_NAME = eINSTANCE.getStackTraceEntry_ClassName();
+
+		/**
+		 * The meta object literal for the '<em><b>File Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STACK_TRACE_ENTRY__FILE_NAME = eINSTANCE.getStackTraceEntry_FileName();
+
+		/**
+		 * The meta object literal for the '<em><b>Method Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STACK_TRACE_ENTRY__METHOD_NAME = eINSTANCE.getStackTraceEntry_MethodName();
+
+		/**
+		 * The meta object literal for the '<em><b>Line Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STACK_TRACE_ENTRY__LINE_NUMBER = eINSTANCE.getStackTraceEntry_LineNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>Native</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STACK_TRACE_ENTRY__NATIVE = eINSTANCE.getStackTraceEntry_Native();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.InitializationResultImpl <em>Initialization Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.impl.InitializationResultImpl
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getInitializationResult()
+		 * @generated
+		 */
+		EClass INITIALIZATION_RESULT = eINSTANCE.getInitializationResult();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.MethodResultImpl <em>Method Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.impl.MethodResultImpl
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getMethodResult()
+		 * @generated
+		 */
+		EClass METHOD_RESULT = eINSTANCE.getMethodResult();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.ActorMethodResultImpl <em>Actor Method Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.impl.ActorMethodResultImpl
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getActorMethodResult()
+		 * @generated
+		 */
+		EClass ACTOR_METHOD_RESULT = eINSTANCE.getActorMethodResult();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.PageMethodResultImpl <em>Page Method Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.impl.PageMethodResultImpl
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getPageMethodResult()
+		 * @generated
+		 */
+		EClass PAGE_METHOD_RESULT = eINSTANCE.getPageMethodResult();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.TestMethodResultImpl <em>Test Method Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.impl.TestMethodResultImpl
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getTestMethodResult()
+		 * @generated
+		 */
+		EClass TEST_METHOD_RESULT = eINSTANCE.getTestMethodResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEST_METHOD_RESULT__PARAMETERS = eINSTANCE.getTestMethodResult_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Navigation Timing</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEST_METHOD_RESULT__NAVIGATION_TIMING = eINSTANCE.getTestMethodResult_NavigationTiming();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.CoverageEntryImpl <em>Coverage Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.impl.CoverageEntryImpl
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCoverageEntry()
+		 * @generated
+		 */
+		EClass COVERAGE_ENTRY = eINSTANCE.getCoverageEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COVERAGE_ENTRY__KEY = eINSTANCE.getCoverageEntry_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COVERAGE_ENTRY__VALUE = eINSTANCE.getCoverageEntry_Value();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.ActorResultImpl <em>Actor Result</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2187,6 +4215,14 @@ public interface HubPackage extends EPackage {
 		EReference ACTOR_RESULT__RESULTS = eINSTANCE.getActorResult_Results();
 
 		/**
+		 * The meta object literal for the '<em><b>Coverage</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR_RESULT__COVERAGE = eINSTANCE.getActorResult_Coverage();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.PageResultImpl <em>Page Result</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2203,6 +4239,22 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PAGE_RESULT__RESULTS = eINSTANCE.getPageResult_Results();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE_RESULT__SIZE = eINSTANCE.getPageResult_Size();
+
+		/**
+		 * The meta object literal for the '<em><b>Coverage</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAGE_RESULT__COVERAGE = eINSTANCE.getPageResult_Coverage();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.core.JSONLoader <em>JSON Loader</em>}' class.

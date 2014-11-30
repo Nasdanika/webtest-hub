@@ -2,10 +2,18 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.io.BufferedReader;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
+import org.json.JSONObject;
+import org.json.JSONTokener;
+import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.RequestMethod;
+import org.nasdanika.web.RouteMethod;
+import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.TestResult;
 import org.nasdanika.webtest.hub.TestSuiteResult;
@@ -52,5 +60,39 @@ public class TestSuiteResultImpl extends TestResultImpl implements TestSuiteResu
 	public EList<TestResult> getChildren() {
 		return (EList<TestResult>)eGet(HubPackage.Literals.TEST_SUITE_RESULT__CHILDREN, true);
 	}
+
+	@RouteMethod(pattern="L[\\d]+/children", value=RequestMethod.POST)
+	public void createTestResult(final HttpContext context) throws Exception {
+		if (HubUtil.authorize(context, this)) {
+			try (BufferedReader reader = context.getRequest().getReader()) {
+				JSONObject json = new JSONObject(new JSONTokener(reader));
+				switch (json.getString("type")) {
+				case "class": {
+					TestResult result = HubFactory.eINSTANCE.createTestClassResult();
+					getChildren().add(result);
+					result.loadJSON(json, context);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
+					break;
+				}
+				case "suite": {
+					TestResult result = HubFactory.eINSTANCE.createTestSuiteResult();
+					getChildren().add(result);
+					result.loadJSON(json, context);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
+					break;
+				}
+				case "parameterized": {
+					TestResult result = HubFactory.eINSTANCE.createParameterizedTestResult();
+					getChildren().add(result);
+					result.loadJSON(json, context);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
+					break;
+				}
+				default:
+					context.getResponse().sendError(HttpServletResponse.SC_BAD_REQUEST, "Unexpected type: "+json.getString("type"));
+				}
+			}
+		}
+	}	
 
 } //TestSuiteResultImpl

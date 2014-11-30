@@ -16,6 +16,7 @@ import org.eclipse.emf.cdo.CDOObject;
  *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getHeight <em>Height</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getWidth <em>Width</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getContentType <em>Content Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -128,5 +129,31 @@ public interface Screenshot extends CDOObject {
 	 * @generated
 	 */
 	void setWidth(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Content Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Content Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Content Type</em>' attribute.
+	 * @see #setContentType(String)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getScreenshot_ContentType()
+	 * @model
+	 * @generated
+	 */
+	String getContentType();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.Screenshot#getContentType <em>Content Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Content Type</em>' attribute.
+	 * @see #getContentType()
+	 * @generated
+	 */
+	void setContentType(String value);
 
 } // Screenshot

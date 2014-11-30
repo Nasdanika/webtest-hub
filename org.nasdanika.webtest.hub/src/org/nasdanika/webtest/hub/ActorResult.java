@@ -3,6 +3,7 @@
 package org.nasdanika.webtest.hub;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.ActorResult#getResults <em>Results</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.ActorResult#getCoverage <em>Coverage</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,5 +38,22 @@ public interface ActorResult extends Descriptor {
 	 * @generated
 	 */
 	EList<OperationResult> getResults();
+
+	/**
+	 * Returns the value of the '<em><b>Coverage</b></em>' map.
+	 * The key is of type {@link java.lang.String},
+	 * and the value is of type {@link java.lang.Integer},
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Coverage</em>' map isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Coverage</em>' map.
+	 * @see org.nasdanika.webtest.hub.HubPackage#getActorResult_Coverage()
+	 * @model mapType="org.nasdanika.webtest.hub.CoverageEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EIntegerObject>"
+	 * @generated
+	 */
+	EMap<String, Integer> getCoverage();
 
 } // ActorResult

@@ -5,6 +5,7 @@ package org.nasdanika.webtest.hub.impl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.nasdanika.core.ConverterContext;
 import org.nasdanika.webtest.hub.Description;
@@ -103,7 +104,16 @@ public class DescriptionImpl extends CDOObjectImpl implements Description {
 
 	@Override
 	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
-		throw new UnsupportedOperationException();		
+		if (json.has("url")) {
+			setUrl(json.getString("url"));
+		}
+		setHtml(json.optBoolean("html", false));
+		if (json.has("value")) {
+			JSONArray va = json.getJSONArray("value");
+			for (int i=0; i<va.length(); ++i) {
+				getValue().add(va.getString(i));
+			}
+		}
 	}
 
 } //DescriptionImpl

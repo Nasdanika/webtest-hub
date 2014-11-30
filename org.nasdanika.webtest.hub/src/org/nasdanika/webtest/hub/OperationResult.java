@@ -3,6 +3,7 @@
 package org.nasdanika.webtest.hub;
 
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.webtest.performance.TimingBase;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +16,16 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getScreenshots <em>Screenshots</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getChildren <em>Children</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getOperationName <em>Operation Name</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getArguments <em>Arguments</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getBeforeTiming <em>Before Timing</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getBeforeScreenshot <em>Before Screenshot</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getAfterTiming <em>After Timing</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getAfterScreenshot <em>After Screenshot</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getFailure <em>Failure</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getError <em>Error</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getStart <em>Start</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getFinish <em>Finish</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.OperationResult#isPending <em>Pending</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,5 +91,255 @@ public interface OperationResult extends Descriptor {
 	 * @generated
 	 */
 	void setOperationName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Arguments</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Arguments</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Arguments</em>' attribute list.
+	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_Arguments()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getArguments();
+
+	/**
+	 * Returns the value of the '<em><b>Before Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Before Timing</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Before Timing</em>' reference.
+	 * @see #setBeforeTiming(TimingBase)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_BeforeTiming()
+	 * @model
+	 * @generated
+	 */
+	TimingBase getBeforeTiming();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.OperationResult#getBeforeTiming <em>Before Timing</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Before Timing</em>' reference.
+	 * @see #getBeforeTiming()
+	 * @generated
+	 */
+	void setBeforeTiming(TimingBase value);
+
+	/**
+	 * Returns the value of the '<em><b>Before Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Before Screenshot</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Before Screenshot</em>' reference.
+	 * @see #setBeforeScreenshot(Screenshot)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_BeforeScreenshot()
+	 * @model
+	 * @generated
+	 */
+	Screenshot getBeforeScreenshot();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.OperationResult#getBeforeScreenshot <em>Before Screenshot</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Before Screenshot</em>' reference.
+	 * @see #getBeforeScreenshot()
+	 * @generated
+	 */
+	void setBeforeScreenshot(Screenshot value);
+
+	/**
+	 * Returns the value of the '<em><b>After Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>After Timing</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>After Timing</em>' reference.
+	 * @see #setAfterTiming(TimingBase)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_AfterTiming()
+	 * @model
+	 * @generated
+	 */
+	TimingBase getAfterTiming();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.OperationResult#getAfterTiming <em>After Timing</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>After Timing</em>' reference.
+	 * @see #getAfterTiming()
+	 * @generated
+	 */
+	void setAfterTiming(TimingBase value);
+
+	/**
+	 * Returns the value of the '<em><b>After Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>After Screenshot</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>After Screenshot</em>' reference.
+	 * @see #setAfterScreenshot(Screenshot)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_AfterScreenshot()
+	 * @model
+	 * @generated
+	 */
+	Screenshot getAfterScreenshot();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.OperationResult#getAfterScreenshot <em>After Screenshot</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>After Screenshot</em>' reference.
+	 * @see #getAfterScreenshot()
+	 * @generated
+	 */
+	void setAfterScreenshot(Screenshot value);
+
+	/**
+	 * Returns the value of the '<em><b>Failure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Failure</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Failure</em>' containment reference.
+	 * @see #setFailure(org.nasdanika.webtest.hub.Throwable)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_Failure()
+	 * @model containment="true"
+	 * @generated
+	 */
+	org.nasdanika.webtest.hub.Throwable getFailure();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.OperationResult#getFailure <em>Failure</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Failure</em>' containment reference.
+	 * @see #getFailure()
+	 * @generated
+	 */
+	void setFailure(org.nasdanika.webtest.hub.Throwable value);
+
+	/**
+	 * Returns the value of the '<em><b>Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Error</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Error</em>' containment reference.
+	 * @see #setError(org.nasdanika.webtest.hub.Throwable)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_Error()
+	 * @model containment="true"
+	 * @generated
+	 */
+	org.nasdanika.webtest.hub.Throwable getError();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.OperationResult#getError <em>Error</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Error</em>' containment reference.
+	 * @see #getError()
+	 * @generated
+	 */
+	void setError(org.nasdanika.webtest.hub.Throwable value);
+
+	/**
+	 * Returns the value of the '<em><b>Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Start</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Start</em>' attribute.
+	 * @see #setStart(long)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_Start()
+	 * @model
+	 * @generated
+	 */
+	long getStart();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.OperationResult#getStart <em>Start</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Start</em>' attribute.
+	 * @see #getStart()
+	 * @generated
+	 */
+	void setStart(long value);
+
+	/**
+	 * Returns the value of the '<em><b>Finish</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Finish</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Finish</em>' attribute.
+	 * @see #setFinish(long)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_Finish()
+	 * @model
+	 * @generated
+	 */
+	long getFinish();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.OperationResult#getFinish <em>Finish</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Finish</em>' attribute.
+	 * @see #getFinish()
+	 * @generated
+	 */
+	void setFinish(long value);
+
+	/**
+	 * Returns the value of the '<em><b>Pending</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Pending</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pending</em>' attribute.
+	 * @see #setPending(boolean)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_Pending()
+	 * @model
+	 * @generated
+	 */
+	boolean isPending();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.OperationResult#isPending <em>Pending</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pending</em>' attribute.
+	 * @see #isPending()
+	 * @generated
+	 */
+	void setPending(boolean value);
 
 } // OperationResult
