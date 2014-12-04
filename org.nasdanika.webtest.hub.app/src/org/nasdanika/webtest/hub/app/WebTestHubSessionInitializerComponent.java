@@ -6,14 +6,16 @@ import org.eclipse.emf.cdo.session.CDOSession;
 import org.eclipse.emf.cdo.transaction.CDOCommitContext;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.transaction.CDOTransactionHandler2;
-import org.eclipse.emf.cdo.transaction.CDOTransactionHandlerBase;
 import org.eclipse.emf.cdo.util.CommitException;
 import org.nasdanika.cdo.CDOSessionInitializer;
+import org.nasdanika.cdo.security.Group;
+import org.nasdanika.cdo.security.SecurityFactory;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
+import org.nasdanika.webtest.hub.User;
 
 public class WebTestHubSessionInitializerComponent implements CDOSessionInitializer {
 	
@@ -37,6 +39,17 @@ public class WebTestHubSessionInitializerComponent implements CDOSessionInitiali
 				Guest guest = HubFactory.eINSTANCE.createGuest();
 				hub.setGuest(guest);
 				hub.setUnauthenticatedPrincipal(guest);
+				
+				Group administrators = SecurityFactory.eINSTANCE.createGroup();
+				administrators.setName("Administrators");
+				hub.setAdministrators(administrators);
+				hub.setSuperUsersGroup(administrators);
+				
+				User admin = HubFactory.eINSTANCE.createUser();
+				admin.setLogin("admin");
+				hub.setPasswordHash(admin, "admin");
+				hub.getUsers().add(admin);
+				administrators.getMembers().add(admin);
 				
 				// For testing
 				final Application app = HubFactory.eINSTANCE.createApplication();

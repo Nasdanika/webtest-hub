@@ -4,6 +4,7 @@ package org.nasdanika.webtest.hub;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.nasdanika.cdo.security.Group;
 import org.nasdanika.cdo.security.LoginPasswordProtectionDomain;
 
 /**
@@ -17,6 +18,7 @@ import org.nasdanika.cdo.security.LoginPasswordProtectionDomain;
  *   <li>{@link org.nasdanika.webtest.hub.Hub#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Hub#getGuest <em>Guest</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Hub#getUsers <em>Users</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.Hub#getAdministrators <em>Administrators</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,5 +94,31 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner {
 	 * @generated
 	 */
 	EList<User> getUsers();
+
+	/**
+	 * Returns the value of the '<em><b>Administrators</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Administrators</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Administrators</em>' containment reference.
+	 * @see #setAdministrators(Group)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getHub_Administrators()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Group getAdministrators();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.Hub#getAdministrators <em>Administrators</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Administrators</em>' containment reference.
+	 * @see #getAdministrators()
+	 * @generated
+	 */
+	void setAdministrators(Group value);
 
 } // Hub

@@ -2,10 +2,12 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.io.OutputStream;
+
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
-
+import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.Screenshot;
 
@@ -145,5 +147,19 @@ public class ScreenshotImpl extends CDOObjectImpl implements Screenshot {
 	public void setContentType(String newContentType) {
 		eSet(HubPackage.Literals.SCREENSHOT__CONTENT_TYPE, newContentType);
 	}
+	
+	/**
+	 * Redirects to the principal home page.
+	 * @param context
+	 * @throws Exception
+	 */
+	@RouteMethod(pattern="L[\\d]+\\.png")
+	public void img(HttpContext context) throws Exception {
+		context.getResponse().setContentType(getContentType());
+		try (OutputStream out=context.getResponse().getOutputStream()) {
+			out.write(getContent());
+		}
+	}	
+	
 
 } //ScreenshotImpl

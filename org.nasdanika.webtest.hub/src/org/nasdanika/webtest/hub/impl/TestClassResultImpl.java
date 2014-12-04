@@ -4,8 +4,12 @@ package org.nasdanika.webtest.hub.impl;
 
 import java.io.InputStreamReader;
 import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
 import java.util.zip.GZIPInputStream;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
@@ -90,13 +94,20 @@ public class TestClassResultImpl extends TestResultImpl implements TestClassResu
 	@RouteMethod(pattern="L[\\d]+/methodResults", value=RequestMethod.POST)
 	public void createTestResult(final HttpContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
-			try (InputStreamReader reader = new InputStreamReader(new GZIPInputStream(context.getRequest().getInputStream()))) {
-				TestMethodResult result = HubFactory.eINSTANCE.createTestMethodResult();
-				getMethodResults().add(result);
-				JSONObject json = new JSONObject(new JSONTokener(reader));
-				result.loadJSON(json, context);
-				HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);
-			}
+			CDOLock writeLock = cdoWriteLock();
+			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+				try (InputStreamReader reader = new InputStreamReader(new GZIPInputStream(context.getRequest().getInputStream()))) {
+					TestMethodResult result = HubFactory.eINSTANCE.createTestMethodResult();
+					getMethodResults().add(result);
+					JSONObject json = new JSONObject(new JSONTokener(reader));
+					result.loadJSON(json, context);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);
+				} finally {
+					writeLock.unlock();
+				}
+			} else {			
+				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
+			}			
 		}
 	}	
 	

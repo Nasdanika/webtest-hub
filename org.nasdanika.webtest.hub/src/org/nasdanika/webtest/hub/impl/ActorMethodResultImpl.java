@@ -3,7 +3,6 @@
 package org.nasdanika.webtest.hub.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.HubPackage;
 

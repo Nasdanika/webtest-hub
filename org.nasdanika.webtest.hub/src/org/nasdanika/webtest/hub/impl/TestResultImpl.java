@@ -3,7 +3,11 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
+import java.util.concurrent.TimeUnit;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
@@ -75,26 +79,40 @@ public class TestResultImpl extends DescriptorImpl implements TestResult {
 	@RouteMethod(pattern="L[\\d]+/pageResults", value=RequestMethod.POST)
 	public void createPageResult(final HttpContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
-			try (BufferedReader reader = context.getRequest().getReader()) {
-				JSONObject json = new JSONObject(new JSONTokener(reader));
-				PageResult result = HubFactory.eINSTANCE.createPageResult();
-				getPageResults().add(result);
-				result.loadJSON(json, context);
-				HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);
-			}
+			CDOLock writeLock = cdoWriteLock();
+			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+				try (BufferedReader reader = context.getRequest().getReader()) {
+					JSONObject json = new JSONObject(new JSONTokener(reader));
+					PageResult result = HubFactory.eINSTANCE.createPageResult();
+					getPageResults().add(result);
+					result.loadJSON(json, context);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);
+				} finally {
+					writeLock.unlock();
+				}
+			} else {			
+				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
+			}			
 		}
 	}	
 		
 	@RouteMethod(pattern="L[\\d]+/actorResults", value=RequestMethod.POST)
 	public void createActorResult(final HttpContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
-			try (BufferedReader reader = context.getRequest().getReader()) {
-				JSONObject json = new JSONObject(new JSONTokener(reader));
-				ActorResult result = HubFactory.eINSTANCE.createActorResult();
-				getActorResults().add(result);
-				result.loadJSON(json, context);
-				HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);
-			}
+			CDOLock writeLock = cdoWriteLock();
+			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+				try (BufferedReader reader = context.getRequest().getReader()) {
+					JSONObject json = new JSONObject(new JSONTokener(reader));
+					ActorResult result = HubFactory.eINSTANCE.createActorResult();
+					getActorResults().add(result);
+					result.loadJSON(json, context);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);
+				} finally {
+					writeLock.unlock();
+				}
+			} else {			
+				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
+			}			
 		}
 	}	
 	

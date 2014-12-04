@@ -6,11 +6,16 @@ import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.concurrent.TimeUnit;
 import java.util.zip.GZIPInputStream;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -22,6 +27,7 @@ import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.OperationResult;
 import org.nasdanika.webtest.hub.Screenshot;
+import org.nasdanika.webtest.hub.TestMethodResult;
 import org.nasdanika.webtest.hub.Throwable;
 import org.nasdanika.webtest.performance.TimingBase;
 
@@ -279,6 +285,13 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 	public void setPending(boolean newPending) {
 		eSet(HubPackage.Literals.OPERATION_RESULT__PENDING, newPending);
 	}
+	
+	private static TestMethodResult getTestMethodResultContainer(EObject obj) {
+		if (obj instanceof TestMethodResult) {
+			return (TestMethodResult) obj;
+		}
+		return obj==null ? null : getTestMethodResultContainer(obj.eContainer());
+	}
 
 	@Override
 	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
@@ -292,11 +305,14 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 				getArguments().add(args.getString(i));
 			}
 		}
-		if (json.has("beforePerformance")) {
-			// TODO
-		}
-		if (json.has("afterPerformance")) {
-			// TODO
+		TestMethodResult tmrc = getTestMethodResultContainer(this);
+		if (tmrc!=null) {
+			if (json.has("beforePerformance")) {
+				setBeforeTiming(tmrc.loadTiming(json.getJSONObject("beforePerformance")));
+			}
+			if (json.has("afterPerformance")) {
+				setAfterTiming(tmrc.loadTiming(json.getJSONObject("afterPerformance")));
+			}
 		}
 		if (json.has("start")) {
 			setStart(json.getLong("start"));
@@ -330,29 +346,43 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 	@RouteMethod(pattern="L[\\d]+", value=RequestMethod.PUT)
 	public void update(final HttpContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
-			try (BufferedReader reader = context.getRequest().getReader()) {
-				JSONObject json = new JSONObject(new JSONTokener(reader));
-				if (json.has("beforeScreenshot")) {
-					setBeforeScreenshot((Screenshot) eResource().getEObject(json.getString("beforeScreenshot")));
+			CDOLock writeLock = cdoWriteLock();
+			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+				try (BufferedReader reader = context.getRequest().getReader()) {
+					JSONObject json = new JSONObject(new JSONTokener(reader));
+					if (json.has("beforeScreenshot")) {
+						setBeforeScreenshot((Screenshot) eResource().getEObject(json.getString("beforeScreenshot")));
+					}
+					if (json.has("afterScreenshot")) {
+						setAfterScreenshot((Screenshot) eResource().getEObject(json.getString("afterScreenshot")));
+					}				
+				} finally {
+					writeLock.unlock();
 				}
-				if (json.has("afterScreenshot")) {
-					setAfterScreenshot((Screenshot) eResource().getEObject(json.getString("afterScreenshot")));
-				}				
-			}
+			} else {			
+				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
+			}			
 		}
 	}	
 
 	@RouteMethod(pattern="L[\\d]+/children", value=RequestMethod.POST)
 	public void createChild(final HttpContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
-			try (InputStreamReader reader = new InputStreamReader(new GZIPInputStream(context.getRequest().getInputStream()))) {
-				JSONObject json = new JSONObject(new JSONTokener(reader));
-				EClassifier type = HubPackage.eINSTANCE.getEClassifier(json.getString("type"));
-				OperationResult child = (OperationResult) HubFactory.eINSTANCE.create((EClass) type);
-				getChildren().add(child);
-				child.loadJSON(json, context);
-				HubUtil.respondWithLocationAndObjectIdOnCommit(context, child);				
-			}
+			CDOLock writeLock = cdoWriteLock();
+			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+				try (InputStreamReader reader = new InputStreamReader(new GZIPInputStream(context.getRequest().getInputStream()))) {
+					JSONObject json = new JSONObject(new JSONTokener(reader));
+					EClassifier type = HubPackage.eINSTANCE.getEClassifier(json.getString("type"));
+					OperationResult child = (OperationResult) HubFactory.eINSTANCE.create((EClass) type);
+					getChildren().add(child);
+					child.loadJSON(json, context);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, child);				
+				} finally {
+					writeLock.unlock();
+				}
+			} else {			
+				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
+			}			
 		}
 	}	
 
@@ -371,9 +401,19 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 			}
 			baos.close();
 			screenshot.setContent(baos.toByteArray());
-			getScreenshots().add(screenshot);			
-			HubUtil.sessionProgress(screenshot);
-			HubUtil.respondWithLocationAndObjectIdOnCommit(context, screenshot);				
+			
+			CDOLock writeLock = cdoWriteLock();
+			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+				try {
+					getScreenshots().add(screenshot);			
+					HubUtil.sessionProgress(screenshot);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, screenshot);				
+				} finally {
+					writeLock.unlock();
+				}
+			} else {			
+				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
+			}			
 		}
 	}	
 

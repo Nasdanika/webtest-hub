@@ -4,9 +4,12 @@ package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
 import java.util.Collection;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.eclipse.emf.cdo.CDOLock;
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
@@ -130,49 +133,74 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	@RouteMethod(pattern="L[\\d]+/results", value=RequestMethod.POST)
 	public void createTestResult(final HttpContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
-			try (BufferedReader reader = context.getRequest().getReader()) {
-				JSONObject json = new JSONObject(new JSONTokener(reader));
-				switch (json.getString("type")) {
-				case "class": {
-					TestResult result = HubFactory.eINSTANCE.createTestClassResult();
-					getResults().add(result);
-					result.loadJSON(json, context);
-					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
-					break;
+			CDOLock writeLock = cdoWriteLock();
+			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+				try (BufferedReader reader = context.getRequest().getReader()) {
+					JSONObject json = new JSONObject(new JSONTokener(reader));
+					switch (json.getString("type")) {
+					case "class": {
+						TestResult result = HubFactory.eINSTANCE.createTestClassResult();
+						getResults().add(result);
+						result.loadJSON(json, context);
+						HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
+						break;
+					}
+					case "suite": {
+						TestResult result = HubFactory.eINSTANCE.createTestSuiteResult();
+						getResults().add(result);
+						result.loadJSON(json, context);
+						HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
+						break;
+					}
+					case "parameterized": {
+						TestResult result = HubFactory.eINSTANCE.createParameterizedTestResult();
+						getResults().add(result);
+						result.loadJSON(json, context);
+						HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
+						break;
+					}
+					default:
+						context.getResponse().sendError(HttpServletResponse.SC_BAD_REQUEST, "Unexpected type: "+json.getString("type"));
+					}
+				} finally {
+					writeLock.unlock();
 				}
-				case "suite": {
-					TestResult result = HubFactory.eINSTANCE.createTestSuiteResult();
-					getResults().add(result);
-					result.loadJSON(json, context);
-					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
-					break;
-				}
-				case "parameterized": {
-					TestResult result = HubFactory.eINSTANCE.createParameterizedTestResult();
-					getResults().add(result);
-					result.loadJSON(json, context);
-					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
-					break;
-				}
-				default:
-					context.getResponse().sendError(HttpServletResponse.SC_BAD_REQUEST, "Unexpected type: "+json.getString("type"));
-				}
-			}
+			} else {			
+				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
+			}			
 		}
 	}	
 	
 	@RouteMethod(pattern="L[\\d]+", value=RequestMethod.PUT)
 	public void uploadFinished(final HttpContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
-			setPublished(true);
-//			eResource().save(System.out, null);
+			CDOLock writeLock = cdoWriteLock();
+			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+				try {
+					setPublished(true);
+				} finally {
+					writeLock.unlock();
+				}
+			} else {			
+				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
+			}			
+			eResource().save(System.out, null);
 		}
 	}	
 	
 	@RouteMethod(pattern="L[\\d]+", value=RequestMethod.DELETE)
 	public void uploadFailed(final HttpContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
-			((Collection<?>) eContainer().eGet(eContainingFeature())).remove(this);
+			CDOLock writeLock = ((CDOObject) eContainer()).cdoWriteLock();
+			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+				try {
+					((Collection<?>) eContainer().eGet(eContainingFeature())).remove(this);
+				} finally {
+					writeLock.unlock();
+				}
+			} else {			
+				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
+			}			
 		}
 	}	
 	

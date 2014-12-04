@@ -7,6 +7,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
         eType="#//User" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="administrators" eType="ecore:EClass ../../org.nasdanika.cdo.security/model/security.ecore#//Group"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationOwner" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="applications" upperBound="-1"
@@ -110,9 +112,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="ActorMethodResult" eSuperTypes="#//MethodResult"/>
   <eClassifiers xsi:type="ecore:EClass" name="PageMethodResult" eSuperTypes="#//MethodResult"/>
   <eClassifiers xsi:type="ecore:EClass" name="TestMethodResult" eSuperTypes="#//OperationResult">
+    <eOperations name="loadTiming" eType="ecore:EClass ../../org.nasdanika.webtest.performance/model/performance.ecore#//TimingBase"
+        eExceptions="#//Exception">
+      <eParameters name="json" eType="#//JSONObject"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameters" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="navigationTiming" eType="ecore:EClass ../../org.nasdanika.webtest.performance/model/performance.ecore#//NavigationTiming"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="navigationTiming" upperBound="-1"
+        eType="ecore:EClass ../../org.nasdanika.webtest.performance/model/performance.ecore#//NavigationTiming"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CoverageEntry" instanceClassName="java.util.Map$Entry">

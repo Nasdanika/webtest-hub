@@ -3,7 +3,9 @@
 package org.nasdanika.webtest.hub;
 
 import org.eclipse.emf.common.util.EList;
+import org.json.JSONObject;
 import org.nasdanika.webtest.performance.NavigationTiming;
+import org.nasdanika.webtest.performance.TimingBase;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,29 +42,27 @@ public interface TestMethodResult extends OperationResult {
 	EList<String> getParameters();
 
 	/**
-	 * Returns the value of the '<em><b>Navigation Timing</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Navigation Timing</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.webtest.performance.NavigationTiming}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Navigation Timing</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Navigation Timing</em>' containment reference.
-	 * @see #setNavigationTiming(NavigationTiming)
+	 * @return the value of the '<em>Navigation Timing</em>' containment reference list.
 	 * @see org.nasdanika.webtest.hub.HubPackage#getTestMethodResult_NavigationTiming()
 	 * @model containment="true"
 	 * @generated
 	 */
-	NavigationTiming getNavigationTiming();
+	EList<NavigationTiming> getNavigationTiming();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.webtest.hub.TestMethodResult#getNavigationTiming <em>Navigation Timing</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Navigation Timing</em>' containment reference.
-	 * @see #getNavigationTiming()
+	 * @model exceptions="org.nasdanika.webtest.hub.Exception" jsonDataType="org.nasdanika.webtest.hub.JSONObject"
 	 * @generated
 	 */
-	void setNavigationTiming(NavigationTiming value);
+	TimingBase loadTiming(JSONObject json) throws Exception;
 
 } // TestMethodResult

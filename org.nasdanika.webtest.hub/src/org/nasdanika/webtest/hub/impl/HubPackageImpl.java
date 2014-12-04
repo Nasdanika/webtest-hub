@@ -3,10 +3,12 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.util.Map;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -348,6 +350,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 */
 	public EReference getHub_Users() {
 		return (EReference)hubEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getHub_Administrators() {
+		return (EReference)hubEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -976,6 +987,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getTestMethodResult__LoadTiming__JSONObject() {
+		return testMethodResultEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCoverageEntry() {
 		return coverageEntryEClass;
 	}
@@ -1129,6 +1149,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEAttribute(hubEClass, HUB__NAME);
 		createEReference(hubEClass, HUB__GUEST);
 		createEReference(hubEClass, HUB__USERS);
+		createEReference(hubEClass, HUB__ADMINISTRATORS);
 
 		applicationOwnerEClass = createEClass(APPLICATION_OWNER);
 		createEReference(applicationOwnerEClass, APPLICATION_OWNER__APPLICATIONS);
@@ -1219,6 +1240,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		testMethodResultEClass = createEClass(TEST_METHOD_RESULT);
 		createEAttribute(testMethodResultEClass, TEST_METHOD_RESULT__PARAMETERS);
 		createEReference(testMethodResultEClass, TEST_METHOD_RESULT__NAVIGATION_TIMING);
+		createEOperation(testMethodResultEClass, TEST_METHOD_RESULT___LOAD_TIMING__JSONOBJECT);
 
 		coverageEntryEClass = createEClass(COVERAGE_ENTRY);
 		createEAttribute(coverageEntryEClass, COVERAGE_ENTRY__KEY);
@@ -1303,6 +1325,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getHub_Name(), ecorePackage.getEString(), "name", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHub_Guest(), this.getGuest(), null, "guest", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHub_Users(), this.getUser(), null, "users", null, 0, -1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHub_Administrators(), theSecurityPackage.getGroup(), null, "administrators", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationOwnerEClass, ApplicationOwner.class, "ApplicationOwner", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApplicationOwner_Applications(), this.getApplication(), null, "applications", null, 0, -1, ApplicationOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1392,7 +1415,11 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 
 		initEClass(testMethodResultEClass, TestMethodResult.class, "TestMethodResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTestMethodResult_Parameters(), ecorePackage.getEString(), "parameters", null, 0, -1, TestMethodResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTestMethodResult_NavigationTiming(), thePerformancePackage.getNavigationTiming(), null, "navigationTiming", null, 0, 1, TestMethodResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTestMethodResult_NavigationTiming(), thePerformancePackage.getNavigationTiming(), null, "navigationTiming", null, 0, -1, TestMethodResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getTestMethodResult__LoadTiming__JSONObject(), thePerformancePackage.getTimingBase(), "loadTiming", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getJSONObject(), "json", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
 
 		initEClass(coverageEntryEClass, Map.Entry.class, "CoverageEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCoverageEntry_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

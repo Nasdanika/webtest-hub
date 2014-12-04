@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.cdo.CDOViewContext;
+import org.nasdanika.cdo.security.Group;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.impl.LoginPasswordProtectionDomainImpl;
 import org.nasdanika.web.HttpContext;
@@ -28,6 +29,7 @@ import org.nasdanika.webtest.hub.User;
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getGuest <em>Guest</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getUsers <em>Users</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getAdministrators <em>Administrators</em>}</li>
  * </ul>
  * </p>
  *
@@ -114,6 +116,24 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Group getAdministrators() {
+		return (Group)eGet(HubPackage.Literals.HUB__ADMINISTRATORS, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAdministrators(Group newAdministrators) {
+		eSet(HubPackage.Literals.HUB__ADMINISTRATORS, newAdministrators);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ApplicationOwner.class) {
@@ -158,7 +178,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * @param context
 	 * @throws Exception
 	 */
-	@RouteMethod(pattern="[^/]+\\.html")
+	@RouteMethod(pattern="L?[\\d]+\\.html")
 	public void home(HttpContext context) throws Exception {
 		Principal principal = ((CDOViewContext<?,?>) context).getPrincipal();
 		context.getResponse().sendRedirect(context.getObjectPath(principal)+".html");

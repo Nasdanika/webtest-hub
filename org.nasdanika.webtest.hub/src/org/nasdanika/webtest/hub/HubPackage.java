@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.nasdanika.cdo.security.SecurityPackage;
@@ -133,13 +134,22 @@ public interface HubPackage extends EPackage {
 	int HUB__USERS = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Administrators</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUB__ADMINISTRATORS = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Hub</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HUB_FEATURE_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_FEATURE_COUNT + 4;
+	int HUB_FEATURE_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Authenticate</em>' operation.
@@ -2326,7 +2336,7 @@ public interface HubPackage extends EPackage {
 	int TEST_METHOD_RESULT__PARAMETERS = OPERATION_RESULT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Navigation Timing</b></em>' containment reference.
+	 * The feature id for the '<em><b>Navigation Timing</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2344,13 +2354,22 @@ public interface HubPackage extends EPackage {
 	int TEST_METHOD_RESULT_FEATURE_COUNT = OPERATION_RESULT_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Load Timing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_METHOD_RESULT___LOAD_TIMING__JSONOBJECT = OPERATION_RESULT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Test Method Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_METHOD_RESULT_OPERATION_COUNT = OPERATION_RESULT_OPERATION_COUNT + 0;
+	int TEST_METHOD_RESULT_OPERATION_COUNT = OPERATION_RESULT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.CoverageEntryImpl <em>Coverage Entry</em>}' class.
@@ -2626,6 +2645,17 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getHub_Users();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.webtest.hub.Hub#getAdministrators <em>Administrators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Administrators</em>'.
+	 * @see org.nasdanika.webtest.hub.Hub#getAdministrators()
+	 * @see #getHub()
+	 * @generated
+	 */
+	EReference getHub_Administrators();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}'.
@@ -3357,15 +3387,25 @@ public interface HubPackage extends EPackage {
 	EAttribute getTestMethodResult_Parameters();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.nasdanika.webtest.hub.TestMethodResult#getNavigationTiming <em>Navigation Timing</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.TestMethodResult#getNavigationTiming <em>Navigation Timing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Navigation Timing</em>'.
+	 * @return the meta object for the containment reference list '<em>Navigation Timing</em>'.
 	 * @see org.nasdanika.webtest.hub.TestMethodResult#getNavigationTiming()
 	 * @see #getTestMethodResult()
 	 * @generated
 	 */
 	EReference getTestMethodResult_NavigationTiming();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.TestMethodResult#loadTiming(org.json.JSONObject) <em>Load Timing</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Load Timing</em>' operation.
+	 * @see org.nasdanika.webtest.hub.TestMethodResult#loadTiming(org.json.JSONObject)
+	 * @generated
+	 */
+	EOperation getTestMethodResult__LoadTiming__JSONObject();
 
 	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Coverage Entry</em>}'.
@@ -3575,6 +3615,14 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EReference HUB__USERS = eINSTANCE.getHub_Users();
+
+		/**
+		 * The meta object literal for the '<em><b>Administrators</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference HUB__ADMINISTRATORS = eINSTANCE.getHub_Administrators();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}' class.
@@ -4163,12 +4211,20 @@ public interface HubPackage extends EPackage {
 		EAttribute TEST_METHOD_RESULT__PARAMETERS = eINSTANCE.getTestMethodResult_Parameters();
 
 		/**
-		 * The meta object literal for the '<em><b>Navigation Timing</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Navigation Timing</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference TEST_METHOD_RESULT__NAVIGATION_TIMING = eINSTANCE.getTestMethodResult_NavigationTiming();
+
+		/**
+		 * The meta object literal for the '<em><b>Load Timing</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEST_METHOD_RESULT___LOAD_TIMING__JSONOBJECT = eINSTANCE.getTestMethodResult__LoadTiming__JSONObject();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.CoverageEntryImpl <em>Coverage Entry</em>}' class.

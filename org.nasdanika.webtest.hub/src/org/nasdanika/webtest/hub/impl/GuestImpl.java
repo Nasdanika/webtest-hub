@@ -449,7 +449,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 			
 			Hub hub = (Hub) eContainer();
 			CDOLock writeLock = hub.cdoWriteLock();
-			if (writeLock.tryLock(2, TimeUnit.SECONDS)) {
+			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
 				try {
 					for (User u: hub.getAllUsers()) {
 						if (u instanceof LoginPasswordHashUser) {
