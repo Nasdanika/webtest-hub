@@ -2,24 +2,17 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
-import java.io.BufferedReader;
 import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.TimeUnit;
-
-import javax.servlet.http.HttpServletResponse;
-
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 import org.nasdanika.core.ConverterContext;
-import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.TestMethodResult;
-import org.nasdanika.webtest.hub.TestResult;
 import org.nasdanika.webtest.performance.NavigationTiming;
 import org.nasdanika.webtest.performance.PerformanceFactory;
 import org.nasdanika.webtest.performance.TimingBase;

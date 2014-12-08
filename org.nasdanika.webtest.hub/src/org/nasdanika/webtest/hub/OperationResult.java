@@ -35,7 +35,7 @@ import org.nasdanika.webtest.performance.TimingBase;
  */
 public interface OperationResult extends Descriptor {
 	/**
-	 * Returns the value of the '<em><b>Screenshots</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Screenshots</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.webtest.hub.Screenshot}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -43,9 +43,9 @@ public interface OperationResult extends Descriptor {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Screenshots</em>' containment reference list.
+	 * @return the value of the '<em>Screenshots</em>' reference list.
 	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_Screenshots()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<Screenshot> getScreenshots();
@@ -136,6 +136,7 @@ public interface OperationResult extends Descriptor {
 
 	/**
 	 * Returns the value of the '<em><b>Before Screenshot</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.webtest.hub.Screenshot#getBeforeOperations <em>Before Operations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Before Screenshot</em>' reference isn't clear,
@@ -145,7 +146,8 @@ public interface OperationResult extends Descriptor {
 	 * @return the value of the '<em>Before Screenshot</em>' reference.
 	 * @see #setBeforeScreenshot(Screenshot)
 	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_BeforeScreenshot()
-	 * @model
+	 * @see org.nasdanika.webtest.hub.Screenshot#getBeforeOperations
+	 * @model opposite="beforeOperations"
 	 * @generated
 	 */
 	Screenshot getBeforeScreenshot();
@@ -188,6 +190,7 @@ public interface OperationResult extends Descriptor {
 
 	/**
 	 * Returns the value of the '<em><b>After Screenshot</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.webtest.hub.Screenshot#getAfterOperations <em>After Operations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>After Screenshot</em>' reference isn't clear,
@@ -197,7 +200,8 @@ public interface OperationResult extends Descriptor {
 	 * @return the value of the '<em>After Screenshot</em>' reference.
 	 * @see #setAfterScreenshot(Screenshot)
 	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_AfterScreenshot()
-	 * @model
+	 * @see org.nasdanika.webtest.hub.Screenshot#getAfterOperations
+	 * @model opposite="afterOperations"
 	 * @generated
 	 */
 	Screenshot getAfterScreenshot();
@@ -341,5 +345,7 @@ public interface OperationResult extends Descriptor {
 	 * @generated
 	 */
 	void setPending(boolean value);
+	
+//	Object routeLink(HTMLFactory htmlFactory, boolean doStyle);	
 
 } // OperationResult

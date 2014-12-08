@@ -9,6 +9,7 @@
         eType="#//User" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="administrators" eType="ecore:EClass ../../org.nasdanika.cdo.security/model/security.ecore#//Group"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slideWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationOwner" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="applications" upperBound="-1"
@@ -20,6 +21,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="testSessions" upperBound="-1"
         eType="#//TestSession" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="securityToken" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="screenshots" upperBound="-1"
+        eType="#//Screenshot" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Descriptor" eSuperTypes="#//JSONLoader">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -39,6 +44,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="published" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="progress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="node" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TestStatus">
     <eLiterals name="Pass"/>
@@ -73,19 +80,27 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="digest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beforeOperations" upperBound="-1"
+        eType="#//OperationResult" eOpposite="#//OperationResult/beforeScreenshot"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="afterOperations" upperBound="-1"
+        eType="#//OperationResult" eOpposite="#//OperationResult/afterScreenshot"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperationResult" eSuperTypes="#//Descriptor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="screenshots" upperBound="-1"
-        eType="#//Screenshot" containment="true"/>
+        eType="#//Screenshot"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//OperationResult" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="arguments" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="beforeTiming" eType="ecore:EClass ../../org.nasdanika.webtest.performance/model/performance.ecore#//TimingBase"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="beforeScreenshot" eType="#//Screenshot"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beforeScreenshot" eType="#//Screenshot"
+        eOpposite="#//Screenshot/beforeOperations"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="afterTiming" eType="ecore:EClass ../../org.nasdanika.webtest.performance/model/performance.ecore#//TimingBase"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="afterScreenshot" eType="#//Screenshot"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="afterScreenshot" eType="#//Screenshot"
+        eOpposite="#//Screenshot/afterOperations"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="failure" eType="#//Throwable"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="error" eType="#//Throwable"

@@ -2,6 +2,10 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -9,6 +13,13 @@ import org.nasdanika.cdo.CDOViewContext;
 import org.nasdanika.cdo.security.Group;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.impl.LoginPasswordProtectionDomainImpl;
+import org.nasdanika.html.FontAwesome.Directional;
+import org.nasdanika.html.FontAwesome.WebApplication;
+import org.nasdanika.html.HTMLFactory.Glyphicon;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.Table;
+import org.nasdanika.html.Table.Row;
+import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.Application;
@@ -30,6 +41,7 @@ import org.nasdanika.webtest.hub.User;
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getGuest <em>Guest</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getUsers <em>Users</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getAdministrators <em>Administrators</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getSlideWidth <em>Slide Width</em>}</li>
  * </ul>
  * </p>
  *
@@ -134,6 +146,24 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getSlideWidth() {
+		return (Integer)eGet(HubPackage.Literals.HUB__SLIDE_WIDTH, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSlideWidth(int newSlideWidth) {
+		eSet(HubPackage.Literals.HUB__SLIDE_WIDTH, newSlideWidth);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ApplicationOwner.class) {
@@ -183,5 +213,54 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		Principal principal = ((CDOViewContext<?,?>) context).getPrincipal();
 		context.getResponse().sendRedirect(context.getObjectPath(principal)+".html");
 	}	
+	
+	@RouteMethod
+	public String summary(HttpContext context) throws Exception {
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+		if (!context.authorize(this, "read", null, null)) {
+			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
+		}		
+		Table applicationsTable = htmlFactory.table().bordered();
+		Row hRow = applicationsTable.row().style(Style.INFO);
+		hRow.header("Name").rowspan(2).style("text-align", "center").attribute("nowrap", "true");
+//		hRow.header(htmlFactory.glyphicon(Glyphicon.file), "&nbsp;Description").rowspan(2).style("text-align", "center").attribute("nowrap", "true"); 
+		hRow.header(htmlFactory.fontAwesome().webApplication(WebApplication.flask),"&nbsp;Tests").colspan(4).style("text-align", "center").attribute("nowrap", "true");
+		hRow.header(htmlFactory.glyphicon(Glyphicon.user), "&nbsp;Actors").colspan(3).style("text-align", "center").attribute("nowrap", "true");
+		hRow.header(htmlFactory.glyphicon(Glyphicon.list_alt), "&nbsp;Pages").colspan(4).style("text-align", "center").attribute("nowrap", "true");
+		
+		Row hRow2 = applicationsTable.row().style(Style.INFO);
+		hRow2.header(htmlFactory.glyphicon(Glyphicon.ok), "&nbsp;Pass").style("text-align", "center").attribute("nowrap", "true").style("color", "green");
+		hRow2.header(htmlFactory.glyphicon(Glyphicon.remove), "&nbsp;Fail").style("text-align", "center").attribute("nowrap", "true").style("color", "red");
+		hRow2.header(htmlFactory.glyphicon(Glyphicon.warning_sign), "&nbsp;Error").style("text-align", "center").attribute("nowrap", "true").style("color", "orange");
+		hRow2.header(htmlFactory.glyphicon(Glyphicon.time), "&nbsp;Pending").style("text-align", "center").attribute("nowrap", "true").style("color", "gray");
+
+		hRow2.header("Classes").style("text-align", "center").attribute("nowrap", "true");
+		hRow2.header("Methods").style("text-align", "center").attribute("nowrap", "true");
+		hRow2.header("Coverage").style("text-align", "center").attribute("nowrap", "true");
+		
+		hRow2.header("Classes").style("text-align", "center").attribute("nowrap", "true");
+		hRow2.header("Methods").style("text-align", "center").attribute("nowrap", "true");
+		hRow2.header("Elements").style("text-align", "center").attribute("nowrap", "true");
+		hRow2.header("Coverage").style("text-align", "center").attribute("nowrap", "true");
+		
+		CDOLock readLock = cdoReadLock();
+		if (readLock.tryLock(5, TimeUnit.SECONDS)) {
+			try {
+				for (Application a: getApplications()) {
+					a.summaryRow(context, applicationsTable.row());
+				}
+				return htmlFactory.panel(
+						Style.INFO, 
+						"Applications", 
+						applicationsTable, 
+						null).toString()+htmlFactory.title(getName());
+			} finally {
+				readLock.unlock();
+			}
+		} else {
+			return htmlFactory.alert(Style.WARNING, false, "The system is overloaded, please try again later.").toString(); 			
+		}
+	}
+	
 
 } //HubImpl

@@ -7,9 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.cdo.view.CDOView;
@@ -48,7 +46,6 @@ import org.nasdanika.html.Modal;
 import org.nasdanika.html.Navbar;
 import org.nasdanika.html.Tag;
 import org.nasdanika.html.Theme;
-import org.nasdanika.html.UIElement.DeviceSize;
 import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.Action;
@@ -213,15 +210,11 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 		ApplicationPanel appPanel = htmlFactory.applicationPanel()
 				.style(Style.INFO) // Guest INFO, Authenticated user - primary.
 				.header(StringEscapeUtils.escapeHtml4(((Hub) eContainer()).getName()))
-				.width(1000)
+				.width(HubUtil.width(this))
 				.minHeight(600)
 				.headerLink("/index.html")
 				.id("guestAppPanel")
-				.footer(
-						htmlFactory.link("#", "Contact us"), 
-						"&nbsp;&middot;&nbsp;", 
-						htmlFactory.link("#", "Privacy Policy"));
-		
+				.footer(htmlFactory.link("#", "Documentation"));		
 				
 		Navbar navBar = htmlFactory.navbar("Welcome!", objectPath+".html"); 
 		
@@ -234,12 +227,12 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				htmlFactory.tag("script", new LoginControllerRenderer().generate(this, objectPath+"/login")));		
 		
 		ContentPanel mainPanel = appPanel.contentPanel()
-			.id("main")
-			.width(DeviceSize.SMALL, 9)
-			.width(DeviceSize.MEDIUM, 10)
-			.width(DeviceSize.LARGE, 11);
+			.id("main");
+//			.width(DeviceSize.SMALL, 9)
+//			.width(DeviceSize.MEDIUM, 10)
+//			.width(DeviceSize.LARGE, 11);
 		
-		mainPanel.content(htmlFactory.alert(Style.SUCCESS, false, "TODO - Dashboards"));
+		mainPanel.content(HubUtil.getContainer(this, HubImpl.class).summary(context));
 				
 		Modal authenticationFailedModal = htmlFactory.modal()
 				.id("authentication-failed-modal")
@@ -249,8 +242,8 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 		
 		return htmlFactory.bootstrapRouterApplication(
 				Theme.Default,
-				"Nasdanika Bank", 
-				null, 
+				StringEscapeUtils.escapeHtml4(((Hub) eContainer()).getName()), 
+				null, //"main/"+context.getObjectPath(eContainer())+"/summary", 
 				null, 
 				appPanel, 
 				createRegistrationFormModal(htmlFactory, objectPath), 

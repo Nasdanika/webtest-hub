@@ -35,6 +35,8 @@ public class WebTestHubSessionInitializerComponent implements CDOSessionInitiali
 				// Create initial content
 				Hub hub = HubFactory.eINSTANCE.createHub();
 				cRes.getContents().add(hub);
+				hub.setName("Nasdanika Web Tests");
+				hub.setSlideWidth(1024);
 				
 				Guest guest = HubFactory.eINSTANCE.createGuest();
 				hub.setGuest(guest);
@@ -54,6 +56,8 @@ public class WebTestHubSessionInitializerComponent implements CDOSessionInitiali
 				// For testing
 				final Application app = HubFactory.eINSTANCE.createApplication();
 				app.setSecurityToken("secret");
+				app.setName("Nasdanika Bank Examples");
+				app.setDescription("A sample NFS application for demonstration and testing");
 				hub.getApplications().add(app);
 				
 				transaction.addTransactionHandler(new CDOTransactionHandler2() {

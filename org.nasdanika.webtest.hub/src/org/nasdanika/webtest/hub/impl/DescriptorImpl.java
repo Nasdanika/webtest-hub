@@ -117,11 +117,11 @@ public class DescriptorImpl extends CDOObjectImpl implements Descriptor {
 		if (json.has("title")) {
 			setTitle(json.getString("title"));
 		}
+		Description d = HubFactory.eINSTANCE.createDescription();
 		if (json.has("description")) {
-			Description d = HubFactory.eINSTANCE.createDescription();
 			d.loadJSON(json.getJSONObject("description"), context);
-			setDescription(d);
-		}
+		}		
+		setDescription(d);
 	}
 
 } //DescriptorImpl

@@ -366,6 +366,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getHub_SlideWidth() {
+		return (EAttribute)hubEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getApplicationOwner() {
 		return applicationOwnerEClass;
 	}
@@ -422,6 +431,33 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 */
 	public EAttribute getApplication_SecurityToken() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getApplication_Screenshots() {
+		return (EReference)applicationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplication_Name() {
+		return (EAttribute)applicationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApplication_Description() {
+		return (EAttribute)applicationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -539,6 +575,24 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 */
 	public EAttribute getTestSession_Progress() {
 		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTestSession_Timestamp() {
+		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTestSession_Node() {
+		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -701,6 +755,42 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 */
 	public EAttribute getScreenshot_ContentType() {
 		return (EAttribute)screenshotEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getScreenshot_Length() {
+		return (EAttribute)screenshotEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getScreenshot_Digest() {
+		return (EAttribute)screenshotEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getScreenshot_BeforeOperations() {
+		return (EReference)screenshotEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getScreenshot_AfterOperations() {
+		return (EReference)screenshotEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1150,6 +1240,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(hubEClass, HUB__GUEST);
 		createEReference(hubEClass, HUB__USERS);
 		createEReference(hubEClass, HUB__ADMINISTRATORS);
+		createEAttribute(hubEClass, HUB__SLIDE_WIDTH);
 
 		applicationOwnerEClass = createEClass(APPLICATION_OWNER);
 		createEReference(applicationOwnerEClass, APPLICATION_OWNER__APPLICATIONS);
@@ -1161,6 +1252,9 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		applicationEClass = createEClass(APPLICATION);
 		createEReference(applicationEClass, APPLICATION__TEST_SESSIONS);
 		createEAttribute(applicationEClass, APPLICATION__SECURITY_TOKEN);
+		createEReference(applicationEClass, APPLICATION__SCREENSHOTS);
+		createEAttribute(applicationEClass, APPLICATION__NAME);
+		createEAttribute(applicationEClass, APPLICATION__DESCRIPTION);
 
 		descriptorEClass = createEClass(DESCRIPTOR);
 		createEAttribute(descriptorEClass, DESCRIPTOR__QUALIFIED_NAME);
@@ -1177,6 +1271,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEAttribute(testSessionEClass, TEST_SESSION__PUBLISHED);
 		createEAttribute(testSessionEClass, TEST_SESSION__SIZE);
 		createEAttribute(testSessionEClass, TEST_SESSION__PROGRESS);
+		createEAttribute(testSessionEClass, TEST_SESSION__TIMESTAMP);
+		createEAttribute(testSessionEClass, TEST_SESSION__NODE);
 
 		testResultEClass = createEClass(TEST_RESULT);
 		createEReference(testResultEClass, TEST_RESULT__PAGE_RESULTS);
@@ -1201,6 +1297,10 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEAttribute(screenshotEClass, SCREENSHOT__HEIGHT);
 		createEAttribute(screenshotEClass, SCREENSHOT__WIDTH);
 		createEAttribute(screenshotEClass, SCREENSHOT__CONTENT_TYPE);
+		createEAttribute(screenshotEClass, SCREENSHOT__LENGTH);
+		createEAttribute(screenshotEClass, SCREENSHOT__DIGEST);
+		createEReference(screenshotEClass, SCREENSHOT__BEFORE_OPERATIONS);
+		createEReference(screenshotEClass, SCREENSHOT__AFTER_OPERATIONS);
 
 		operationResultEClass = createEClass(OPERATION_RESULT);
 		createEReference(operationResultEClass, OPERATION_RESULT__SCREENSHOTS);
@@ -1326,6 +1426,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEReference(getHub_Guest(), this.getGuest(), null, "guest", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHub_Users(), this.getUser(), null, "users", null, 0, -1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHub_Administrators(), theSecurityPackage.getGroup(), null, "administrators", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHub_SlideWidth(), ecorePackage.getEInt(), "slideWidth", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationOwnerEClass, ApplicationOwner.class, "ApplicationOwner", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApplicationOwner_Applications(), this.getApplication(), null, "applications", null, 0, -1, ApplicationOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1337,6 +1438,9 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApplication_TestSessions(), this.getTestSession(), null, "testSessions", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_SecurityToken(), ecorePackage.getEString(), "securityToken", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApplication_Screenshots(), this.getScreenshot(), null, "screenshots", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_Name(), ecorePackage.getEString(), "name", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApplication_Description(), ecorePackage.getEString(), "description", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(descriptorEClass, org.nasdanika.webtest.hub.Descriptor.class, "Descriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDescriptor_QualifiedName(), ecorePackage.getEString(), "qualifiedName", null, 0, 1, org.nasdanika.webtest.hub.Descriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1353,6 +1457,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getTestSession_Published(), ecorePackage.getEBoolean(), "published", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestSession_Size(), ecorePackage.getEInt(), "size", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestSession_Progress(), ecorePackage.getEInt(), "progress", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTestSession_Timestamp(), ecorePackage.getELong(), "timestamp", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTestSession_Node(), ecorePackage.getEString(), "node", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(testResultEClass, TestResult.class, "TestResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTestResult_PageResults(), this.getPageResult(), null, "pageResults", null, 0, -1, TestResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1377,16 +1483,20 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getScreenshot_Height(), ecorePackage.getEInt(), "height", null, 0, 1, Screenshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScreenshot_Width(), ecorePackage.getEInt(), "width", null, 0, 1, Screenshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScreenshot_ContentType(), ecorePackage.getEString(), "contentType", null, 0, 1, Screenshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScreenshot_Length(), ecorePackage.getEInt(), "length", null, 0, 1, Screenshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScreenshot_Digest(), ecorePackage.getEByteArray(), "digest", null, 0, 1, Screenshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScreenshot_BeforeOperations(), this.getOperationResult(), this.getOperationResult_BeforeScreenshot(), "beforeOperations", null, 0, -1, Screenshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScreenshot_AfterOperations(), this.getOperationResult(), this.getOperationResult_AfterScreenshot(), "afterOperations", null, 0, -1, Screenshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationResultEClass, OperationResult.class, "OperationResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOperationResult_Screenshots(), this.getScreenshot(), null, "screenshots", null, 0, -1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationResult_Screenshots(), this.getScreenshot(), null, "screenshots", null, 0, -1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperationResult_Children(), this.getOperationResult(), null, "children", null, 0, -1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperationResult_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperationResult_Arguments(), ecorePackage.getEString(), "arguments", null, 0, -1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperationResult_BeforeTiming(), thePerformancePackage.getTimingBase(), null, "beforeTiming", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperationResult_BeforeScreenshot(), this.getScreenshot(), null, "beforeScreenshot", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationResult_BeforeScreenshot(), this.getScreenshot(), this.getScreenshot_BeforeOperations(), "beforeScreenshot", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperationResult_AfterTiming(), thePerformancePackage.getTimingBase(), null, "afterTiming", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperationResult_AfterScreenshot(), this.getScreenshot(), null, "afterScreenshot", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationResult_AfterScreenshot(), this.getScreenshot(), this.getScreenshot_AfterOperations(), "afterScreenshot", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperationResult_Failure(), this.getThrowable(), null, "failure", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperationResult_Error(), this.getThrowable(), null, "error", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperationResult_Start(), ecorePackage.getELong(), "start", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

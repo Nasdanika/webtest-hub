@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.security.MessageDigest;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.GZIPInputStream;
 
@@ -23,6 +25,7 @@ import org.nasdanika.core.ConverterContext;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
+import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.OperationResult;
@@ -384,8 +387,20 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
 			}			
 		}
-	}	
-
+	}
+	
+	private static Screenshot addScreenshot(Application app, Screenshot screenshot) {
+		for (Screenshot s: app.getScreenshots()) {
+			if (s.getLength()==screenshot.getLength() 
+					&& Arrays.equals(s.getDigest(), screenshot.getDigest())
+					&& Arrays.equals(s.getContent(), screenshot.getContent())) {
+				return s;
+			}
+		}
+		app.getScreenshots().add(screenshot);
+		return screenshot;
+	}
+	
 	@RouteMethod(pattern="L[\\d]+/screenshots", value=RequestMethod.POST)
 	public void createScreenshot(final HttpContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
@@ -396,15 +411,21 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			try (InputStream in = context.getRequest().getInputStream()) {
 				for (int data = in.read(); data!=-1; data = in.read()) {
-					baos.write(data);
+					baos.write(data);					
 				}
 			}
 			baos.close();
-			screenshot.setContent(baos.toByteArray());
+			byte[] imageBytes = baos.toByteArray();
+			screenshot.setContent(imageBytes);
+			screenshot.setDigest(MessageDigest.getInstance("SHA").digest(imageBytes));
+			screenshot.setLength(imageBytes.length);
+			screenshot.setTimestamp(System.currentTimeMillis());
 			
-			CDOLock writeLock = cdoWriteLock();
-			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+			Application app = HubUtil.getContainer(this, Application.class);
+			CDOLock writeLock = app.cdoWriteLock();
+			if (writeLock.tryLock(10, TimeUnit.SECONDS)) {
 				try {
+					screenshot = addScreenshot(app, screenshot);
 					getScreenshots().add(screenshot);			
 					HubUtil.sessionProgress(screenshot);
 					HubUtil.respondWithLocationAndObjectIdOnCommit(context, screenshot);				
@@ -416,5 +437,61 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 			}			
 		}
 	}	
+		
+//	protected String format(String str) {
+//		if (str==null || getArguments().isEmpty()) {
+//			return str;
+//		}
+//		return MessageFormat.format(str, getArguments().toArray());
+//	}	
+//	
+//	@Override
+//	public Object routeLink(HTMLFactory htmlFactory, boolean doStyle) {
+//		String name = "";		
+//		if (getTitle() == null) {
+//			name = HubUtil.title(getOperationName());
+//		} else {
+//			name = format(getTitle());
+//		}
+//		
+//		String methodDetailsLocation = "content/operation_"	+ id + ".html";
+//		if (failure==null) {
+//			if (isPending()) { // Only the first screenshot or no calls to actor/page methods.
+//				Tag routeLink = htmlFactory.span(
+//						htmlFactory.glyphicon(Glyphicon.time), 
+//						"&nbsp;", 
+//						name);				
+//				return doStyle ? routeLink.style("color", Color.GRAY.code) : routeLink;
+//				
+//			}
+//			
+//			Tag routeLink = htmlFactory.routeLink(
+//					"main", 
+//					methodDetailsLocation, 
+//					htmlFactory.glyphicon(Glyphicon.ok), 
+//					"&nbsp;", 
+//					name);
+//			return doStyle ? routeLink.style("color", Color.SUCCESS.code) : routeLink;
+//		}
+//		
+//		if (isFailure()) {
+//			Tag routeLink = htmlFactory.routeLink(
+//					"main", 
+//					methodDetailsLocation, 
+//					htmlFactory.glyphicon(Glyphicon.remove), 
+//					"&nbsp;", 
+//					name);
+//			
+//			return doStyle ? routeLink.style("color", Color.DANGER.code) : routeLink;
+//		}
+//		
+//		Tag routeLink = htmlFactory.routeLink(
+//					"main", 
+//					methodDetailsLocation, 
+//					htmlFactory.glyphicon(Glyphicon.warning_sign), 
+//					"&nbsp;", 
+//					name);
+//		return doStyle ? routeLink.style("color", Color.WARNING.code) : routeLink;
+//	}
 
 } //OperationResultImpl

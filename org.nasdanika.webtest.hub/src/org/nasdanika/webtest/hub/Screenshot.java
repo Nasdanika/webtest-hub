@@ -3,6 +3,7 @@
 package org.nasdanika.webtest.hub;
 
 import org.eclipse.emf.cdo.CDOObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +18,10 @@ import org.eclipse.emf.cdo.CDOObject;
  *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getHeight <em>Height</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getWidth <em>Width</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getContentType <em>Content Type</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getLength <em>Length</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getDigest <em>Digest</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getBeforeOperations <em>Before Operations</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getAfterOperations <em>After Operations</em>}</li>
  * </ul>
  * </p>
  *
@@ -155,5 +160,93 @@ public interface Screenshot extends CDOObject {
 	 * @generated
 	 */
 	void setContentType(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Length</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Length</em>' attribute.
+	 * @see #setLength(int)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getScreenshot_Length()
+	 * @model
+	 * @generated
+	 */
+	int getLength();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.Screenshot#getLength <em>Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Length</em>' attribute.
+	 * @see #getLength()
+	 * @generated
+	 */
+	void setLength(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Digest</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Digest</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Digest</em>' attribute.
+	 * @see #setDigest(byte[])
+	 * @see org.nasdanika.webtest.hub.HubPackage#getScreenshot_Digest()
+	 * @model
+	 * @generated
+	 */
+	byte[] getDigest();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.Screenshot#getDigest <em>Digest</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Digest</em>' attribute.
+	 * @see #getDigest()
+	 * @generated
+	 */
+	void setDigest(byte[] value);
+
+	/**
+	 * Returns the value of the '<em><b>Before Operations</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.webtest.hub.OperationResult}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.webtest.hub.OperationResult#getBeforeScreenshot <em>Before Screenshot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Before Operations</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Before Operations</em>' reference list.
+	 * @see org.nasdanika.webtest.hub.HubPackage#getScreenshot_BeforeOperations()
+	 * @see org.nasdanika.webtest.hub.OperationResult#getBeforeScreenshot
+	 * @model opposite="beforeScreenshot"
+	 * @generated
+	 */
+	EList<OperationResult> getBeforeOperations();
+
+	/**
+	 * Returns the value of the '<em><b>After Operations</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.webtest.hub.OperationResult}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.webtest.hub.OperationResult#getAfterScreenshot <em>After Screenshot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>After Operations</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>After Operations</em>' reference list.
+	 * @see org.nasdanika.webtest.hub.HubPackage#getScreenshot_AfterOperations()
+	 * @see org.nasdanika.webtest.hub.OperationResult#getAfterScreenshot
+	 * @model opposite="afterScreenshot"
+	 * @generated
+	 */
+	EList<OperationResult> getAfterOperations();
 
 } // Screenshot

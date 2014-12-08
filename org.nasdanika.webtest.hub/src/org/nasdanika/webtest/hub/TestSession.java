@@ -3,6 +3,8 @@
 package org.nasdanika.webtest.hub;
 
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.html.Table.Row;
+import org.nasdanika.web.HttpContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,6 +18,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.webtest.hub.TestSession#isPublished <em>Published</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.TestSession#getSize <em>Size</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.TestSession#getProgress <em>Progress</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.TestSession#getTimestamp <em>Timestamp</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.TestSession#getNode <em>Node</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,5 +121,77 @@ public interface TestSession extends Descriptor {
 	 * @generated
 	 */
 	void setProgress(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Timestamp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Timestamp</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Timestamp</em>' attribute.
+	 * @see #setTimestamp(long)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getTestSession_Timestamp()
+	 * @model
+	 * @generated
+	 */
+	long getTimestamp();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.TestSession#getTimestamp <em>Timestamp</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Timestamp</em>' attribute.
+	 * @see #getTimestamp()
+	 * @generated
+	 */
+	void setTimestamp(long value);
+
+	/**
+	 * Returns the value of the '<em><b>Node</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Node</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Node</em>' attribute.
+	 * @see #setNode(String)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getTestSession_Node()
+	 * @model
+	 * @generated
+	 */
+	String getNode();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.TestSession#getNode <em>Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Node</em>' attribute.
+	 * @see #getNode()
+	 * @generated
+	 */
+	void setNode(String value);
+
+	void summaryRow(HttpContext context, Row row) throws Exception;
+	
+	interface Totals {
+		int getPass();
+		int getFail();
+		int getError();
+		int getPending();
+		
+		int getActorClasses();
+		int getActorMethods();
+		int getActorCoverage();
+		
+		int getPageClasses();
+		int getPageMethods();
+		int getPageCoverage();
+		int getPageElements();
+	}
+	
+	Totals getTotals();
 
 } // TestSession

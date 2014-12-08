@@ -143,13 +143,22 @@ public interface HubPackage extends EPackage {
 	int HUB__ADMINISTRATORS = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Slide Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUB__SLIDE_WIDTH = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Hub</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HUB_FEATURE_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_FEATURE_COUNT + 5;
+	int HUB_FEATURE_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Authenticate</em>' operation.
@@ -490,13 +499,40 @@ public interface HubPackage extends EPackage {
 	int APPLICATION__SECURITY_TOKEN = 1;
 
 	/**
+	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__SCREENSHOTS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__NAME = 3;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__DESCRIPTION = 4;
+
+	/**
 	 * The number of structural features of the '<em>Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = 2;
+	int APPLICATION_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Application</em>' class.
@@ -719,13 +755,31 @@ public interface HubPackage extends EPackage {
 	int TEST_SESSION__PROGRESS = DESCRIPTOR_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_SESSION__TIMESTAMP = DESCRIPTOR_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Node</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_SESSION__NODE = DESCRIPTOR_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Test Session</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_SESSION_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 4;
+	int TEST_SESSION_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Test Session</em>' class.
@@ -1167,13 +1221,49 @@ public interface HubPackage extends EPackage {
 	int SCREENSHOT__CONTENT_TYPE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCREENSHOT__LENGTH = 5;
+
+	/**
+	 * The feature id for the '<em><b>Digest</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCREENSHOT__DIGEST = 6;
+
+	/**
+	 * The feature id for the '<em><b>Before Operations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCREENSHOT__BEFORE_OPERATIONS = 7;
+
+	/**
+	 * The feature id for the '<em><b>After Operations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCREENSHOT__AFTER_OPERATIONS = 8;
+
+	/**
 	 * The number of structural features of the '<em>Screenshot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCREENSHOT_FEATURE_COUNT = 5;
+	int SCREENSHOT_FEATURE_COUNT = 9;
 
 	/**
 	 * The number of operations of the '<em>Screenshot</em>' class.
@@ -1222,7 +1312,7 @@ public interface HubPackage extends EPackage {
 	int OPERATION_RESULT__DESCRIPTION = DESCRIPTOR__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Screenshots</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1522,7 +1612,7 @@ public interface HubPackage extends EPackage {
 	int INITIALIZATION_RESULT__DESCRIPTION = OPERATION_RESULT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Screenshots</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1694,7 +1784,7 @@ public interface HubPackage extends EPackage {
 	int METHOD_RESULT__DESCRIPTION = OPERATION_RESULT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Screenshots</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1866,7 +1956,7 @@ public interface HubPackage extends EPackage {
 	int ACTOR_METHOD_RESULT__DESCRIPTION = METHOD_RESULT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Screenshots</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2038,7 +2128,7 @@ public interface HubPackage extends EPackage {
 	int PAGE_METHOD_RESULT__DESCRIPTION = METHOD_RESULT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Screenshots</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2210,7 +2300,7 @@ public interface HubPackage extends EPackage {
 	int TEST_METHOD_RESULT__DESCRIPTION = OPERATION_RESULT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Screenshots</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2658,6 +2748,17 @@ public interface HubPackage extends EPackage {
 	EReference getHub_Administrators();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.Hub#getSlideWidth <em>Slide Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Slide Width</em>'.
+	 * @see org.nasdanika.webtest.hub.Hub#getSlideWidth()
+	 * @see #getHub()
+	 * @generated
+	 */
+	EAttribute getHub_SlideWidth();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2729,6 +2830,39 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getApplication_SecurityToken();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.Application#getScreenshots <em>Screenshots</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Screenshots</em>'.
+	 * @see org.nasdanika.webtest.hub.Application#getScreenshots()
+	 * @see #getApplication()
+	 * @generated
+	 */
+	EReference getApplication_Screenshots();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.Application#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.webtest.hub.Application#getName()
+	 * @see #getApplication()
+	 * @generated
+	 */
+	EAttribute getApplication_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.Application#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.webtest.hub.Application#getDescription()
+	 * @see #getApplication()
+	 * @generated
+	 */
+	EAttribute getApplication_Description();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.Descriptor <em>Descriptor</em>}'.
@@ -2869,6 +3003,28 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTestSession_Progress();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.TestSession#getTimestamp <em>Timestamp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Timestamp</em>'.
+	 * @see org.nasdanika.webtest.hub.TestSession#getTimestamp()
+	 * @see #getTestSession()
+	 * @generated
+	 */
+	EAttribute getTestSession_Timestamp();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.TestSession#getNode <em>Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Node</em>'.
+	 * @see org.nasdanika.webtest.hub.TestSession#getNode()
+	 * @see #getTestSession()
+	 * @generated
+	 */
+	EAttribute getTestSession_Node();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.TestResult <em>Test Result</em>}'.
@@ -3065,6 +3221,50 @@ public interface HubPackage extends EPackage {
 	EAttribute getScreenshot_ContentType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.Screenshot#getLength <em>Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Length</em>'.
+	 * @see org.nasdanika.webtest.hub.Screenshot#getLength()
+	 * @see #getScreenshot()
+	 * @generated
+	 */
+	EAttribute getScreenshot_Length();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.Screenshot#getDigest <em>Digest</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Digest</em>'.
+	 * @see org.nasdanika.webtest.hub.Screenshot#getDigest()
+	 * @see #getScreenshot()
+	 * @generated
+	 */
+	EAttribute getScreenshot_Digest();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.webtest.hub.Screenshot#getBeforeOperations <em>Before Operations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Before Operations</em>'.
+	 * @see org.nasdanika.webtest.hub.Screenshot#getBeforeOperations()
+	 * @see #getScreenshot()
+	 * @generated
+	 */
+	EReference getScreenshot_BeforeOperations();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.webtest.hub.Screenshot#getAfterOperations <em>After Operations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>After Operations</em>'.
+	 * @see org.nasdanika.webtest.hub.Screenshot#getAfterOperations()
+	 * @see #getScreenshot()
+	 * @generated
+	 */
+	EReference getScreenshot_AfterOperations();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.OperationResult <em>Operation Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3075,10 +3275,10 @@ public interface HubPackage extends EPackage {
 	EClass getOperationResult();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.OperationResult#getScreenshots <em>Screenshots</em>}'.
+	 * Returns the meta object for the reference list '{@link org.nasdanika.webtest.hub.OperationResult#getScreenshots <em>Screenshots</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Screenshots</em>'.
+	 * @return the meta object for the reference list '<em>Screenshots</em>'.
 	 * @see org.nasdanika.webtest.hub.OperationResult#getScreenshots()
 	 * @see #getOperationResult()
 	 * @generated
@@ -3625,6 +3825,14 @@ public interface HubPackage extends EPackage {
 		EReference HUB__ADMINISTRATORS = eINSTANCE.getHub_Administrators();
 
 		/**
+		 * The meta object literal for the '<em><b>Slide Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HUB__SLIDE_WIDTH = eINSTANCE.getHub_SlideWidth();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3687,6 +3895,30 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute APPLICATION__SECURITY_TOKEN = eINSTANCE.getApplication_SecurityToken();
+
+		/**
+		 * The meta object literal for the '<em><b>Screenshots</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference APPLICATION__SCREENSHOTS = eINSTANCE.getApplication_Screenshots();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPLICATION__NAME = eINSTANCE.getApplication_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPLICATION__DESCRIPTION = eINSTANCE.getApplication_Description();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.DescriptorImpl <em>Descriptor</em>}' class.
@@ -3797,6 +4029,22 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEST_SESSION__PROGRESS = eINSTANCE.getTestSession_Progress();
+
+		/**
+		 * The meta object literal for the '<em><b>Timestamp</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEST_SESSION__TIMESTAMP = eINSTANCE.getTestSession_Timestamp();
+
+		/**
+		 * The meta object literal for the '<em><b>Node</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEST_SESSION__NODE = eINSTANCE.getTestSession_Node();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.TestResultImpl <em>Test Result</em>}' class.
@@ -3955,6 +4203,38 @@ public interface HubPackage extends EPackage {
 		EAttribute SCREENSHOT__CONTENT_TYPE = eINSTANCE.getScreenshot_ContentType();
 
 		/**
+		 * The meta object literal for the '<em><b>Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCREENSHOT__LENGTH = eINSTANCE.getScreenshot_Length();
+
+		/**
+		 * The meta object literal for the '<em><b>Digest</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCREENSHOT__DIGEST = eINSTANCE.getScreenshot_Digest();
+
+		/**
+		 * The meta object literal for the '<em><b>Before Operations</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCREENSHOT__BEFORE_OPERATIONS = eINSTANCE.getScreenshot_BeforeOperations();
+
+		/**
+		 * The meta object literal for the '<em><b>After Operations</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCREENSHOT__AFTER_OPERATIONS = eINSTANCE.getScreenshot_AfterOperations();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.OperationResultImpl <em>Operation Result</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3965,7 +4245,7 @@ public interface HubPackage extends EPackage {
 		EClass OPERATION_RESULT = eINSTANCE.getOperationResult();
 
 		/**
-		 * The meta object literal for the '<em><b>Screenshots</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Screenshots</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

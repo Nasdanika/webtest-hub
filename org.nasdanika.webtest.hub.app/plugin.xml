@@ -12,7 +12,7 @@
          </init-param>
          <init-param
                name="default-access-decision"
-               value="deny">
+               value="allow">
          </init-param>
       </servlet>
    </extension>

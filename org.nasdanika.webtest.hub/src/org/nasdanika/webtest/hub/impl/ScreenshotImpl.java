@@ -4,11 +4,13 @@ package org.nasdanika.webtest.hub.impl;
 
 import java.io.OutputStream;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.HubPackage;
+import org.nasdanika.webtest.hub.OperationResult;
 import org.nasdanika.webtest.hub.Screenshot;
 
 /**
@@ -23,6 +25,10 @@ import org.nasdanika.webtest.hub.Screenshot;
  *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getHeight <em>Height</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getContentType <em>Content Type</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getLength <em>Length</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getDigest <em>Digest</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getBeforeOperations <em>Before Operations</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getAfterOperations <em>After Operations</em>}</li>
  * </ul>
  * </p>
  *
@@ -148,6 +154,62 @@ public class ScreenshotImpl extends CDOObjectImpl implements Screenshot {
 		eSet(HubPackage.Literals.SCREENSHOT__CONTENT_TYPE, newContentType);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getLength() {
+		return (Integer)eGet(HubPackage.Literals.SCREENSHOT__LENGTH, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLength(int newLength) {
+		eSet(HubPackage.Literals.SCREENSHOT__LENGTH, newLength);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public byte[] getDigest() {
+		return (byte[])eGet(HubPackage.Literals.SCREENSHOT__DIGEST, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDigest(byte[] newDigest) {
+		eSet(HubPackage.Literals.SCREENSHOT__DIGEST, newDigest);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<OperationResult> getBeforeOperations() {
+		return (EList<OperationResult>)eGet(HubPackage.Literals.SCREENSHOT__BEFORE_OPERATIONS, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<OperationResult> getAfterOperations() {
+		return (EList<OperationResult>)eGet(HubPackage.Literals.SCREENSHOT__AFTER_OPERATIONS, true);
+	}
+
 	/**
 	 * Redirects to the principal home page.
 	 * @param context

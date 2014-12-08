@@ -93,5 +93,7 @@ public interface Description extends CDOObject, JSONLoader {
 	 * @generated
 	 */
 	void setHtml(boolean value);
+	
+	String toHTML();
 
 } // Description

@@ -116,4 +116,22 @@ public class DescriptionImpl extends CDOObjectImpl implements Description {
 		}
 	}
 
+	@Override
+	public String toHTML() {
+		if (getUrl()!=null && getUrl().trim().length()>0) {
+			return "<a href='"+getUrl()+"'>Description</a>";
+		}
+		if (getValue().isEmpty()) {
+			return "";
+		}
+		StringBuilder descriptionBuilder = new StringBuilder();
+		for (String v: getValue()) {
+			if (descriptionBuilder.length()>0) {
+				descriptionBuilder.append(System.lineSeparator());
+			}
+			descriptionBuilder.append(v);
+		}
+		return isHtml() ? descriptionBuilder.toString() : "<PRE>"+descriptionBuilder+"</PRE>";
+	}
+
 } //DescriptionImpl

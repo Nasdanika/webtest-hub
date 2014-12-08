@@ -4,12 +4,14 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.cdo.transaction.CDOCommitContext;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.transaction.CDOTransactionHandler2;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.web.HttpContext;
+import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.TestSession;
 
 class HubUtil {
@@ -67,6 +69,39 @@ class HubUtil {
 			
 		});
 		
+	}
+	
+	@SuppressWarnings("unchecked")
+	static <T> T getContainer(EObject obj, Class<T> containerType) {
+		if (obj==null) {
+			return null;
+		}
+		if (containerType.isInstance(obj)) {
+			return (T) obj;
+		}
+		return getContainer(obj.eContainer(), containerType);
+	}
+	
+	static String title(String name) {
+		StringBuilder titleBuilder = new StringBuilder();
+		String[] scna = StringUtils.splitByCharacterTypeCamelCase(name);
+		for (int i=0; i<scna.length; ++i) {
+			if (i==0) {
+				titleBuilder.append(StringUtils.capitalize(scna[i]));
+			} else {
+				titleBuilder.append(" ");
+				if (scna[i].length()>1 && Character.isUpperCase(scna[i].charAt(1))) {
+					titleBuilder.append(scna[i]);
+				} else {
+					titleBuilder.append(StringUtils.uncapitalize(scna[i]));
+				}
+			}
+		}
+		return titleBuilder.toString();
+	}
+
+	static int width(EObject obj) {
+		return (int) ((getContainer(obj, Hub.class).getSlideWidth()+32)*12.0/9.0);	
 	}
 
 }
