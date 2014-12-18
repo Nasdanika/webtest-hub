@@ -1420,13 +1420,13 @@ public interface HubPackage extends EPackage {
 	int OPERATION_RESULT__FINISH = DESCRIPTOR_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Pending</b></em>' attribute.
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_RESULT__PENDING = DESCRIPTOR_FEATURE_COUNT + 12;
+	int OPERATION_RESULT__STATUS = DESCRIPTOR_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of structural features of the '<em>Operation Result</em>' class.
@@ -1720,13 +1720,13 @@ public interface HubPackage extends EPackage {
 	int INITIALIZATION_RESULT__FINISH = OPERATION_RESULT__FINISH;
 
 	/**
-	 * The feature id for the '<em><b>Pending</b></em>' attribute.
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INITIALIZATION_RESULT__PENDING = OPERATION_RESULT__PENDING;
+	int INITIALIZATION_RESULT__STATUS = OPERATION_RESULT__STATUS;
 
 	/**
 	 * The number of structural features of the '<em>Initialization Result</em>' class.
@@ -1892,13 +1892,13 @@ public interface HubPackage extends EPackage {
 	int METHOD_RESULT__FINISH = OPERATION_RESULT__FINISH;
 
 	/**
-	 * The feature id for the '<em><b>Pending</b></em>' attribute.
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_RESULT__PENDING = OPERATION_RESULT__PENDING;
+	int METHOD_RESULT__STATUS = OPERATION_RESULT__STATUS;
 
 	/**
 	 * The number of structural features of the '<em>Method Result</em>' class.
@@ -2064,13 +2064,13 @@ public interface HubPackage extends EPackage {
 	int ACTOR_METHOD_RESULT__FINISH = METHOD_RESULT__FINISH;
 
 	/**
-	 * The feature id for the '<em><b>Pending</b></em>' attribute.
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_METHOD_RESULT__PENDING = METHOD_RESULT__PENDING;
+	int ACTOR_METHOD_RESULT__STATUS = METHOD_RESULT__STATUS;
 
 	/**
 	 * The number of structural features of the '<em>Actor Method Result</em>' class.
@@ -2236,13 +2236,13 @@ public interface HubPackage extends EPackage {
 	int PAGE_METHOD_RESULT__FINISH = METHOD_RESULT__FINISH;
 
 	/**
-	 * The feature id for the '<em><b>Pending</b></em>' attribute.
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_METHOD_RESULT__PENDING = METHOD_RESULT__PENDING;
+	int PAGE_METHOD_RESULT__STATUS = METHOD_RESULT__STATUS;
 
 	/**
 	 * The number of structural features of the '<em>Page Method Result</em>' class.
@@ -2408,13 +2408,13 @@ public interface HubPackage extends EPackage {
 	int TEST_METHOD_RESULT__FINISH = OPERATION_RESULT__FINISH;
 
 	/**
-	 * The feature id for the '<em><b>Pending</b></em>' attribute.
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_METHOD_RESULT__PENDING = OPERATION_RESULT__PENDING;
+	int TEST_METHOD_RESULT__STATUS = OPERATION_RESULT__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' attribute list.
@@ -2663,14 +2663,14 @@ public interface HubPackage extends EPackage {
 	int PAGE_RESULT_OPERATION_COUNT = DESCRIPTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.webtest.hub.TestStatus <em>Test Status</em>}' enum.
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.webtest.hub.TestStatus
-	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getTestStatus()
+	 * @see org.nasdanika.webtest.hub.OperationStatus
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getOperationStatus()
 	 * @generated
 	 */
-	int TEST_STATUS = 26;
+	int OPERATION_STATUS = 26;
 
 	/**
 	 * The meta object id for the '<em>JSON Object</em>' data type.
@@ -3407,15 +3407,15 @@ public interface HubPackage extends EPackage {
 	EAttribute getOperationResult_Finish();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.OperationResult#isPending <em>Pending</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.OperationResult#getStatus <em>Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pending</em>'.
-	 * @see org.nasdanika.webtest.hub.OperationResult#isPending()
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see org.nasdanika.webtest.hub.OperationResult#getStatus()
 	 * @see #getOperationResult()
 	 * @generated
 	 */
-	EAttribute getOperationResult_Pending();
+	EAttribute getOperationResult_Status();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.Throwable <em>Throwable</em>}'.
@@ -3728,14 +3728,14 @@ public interface HubPackage extends EPackage {
 	EClass getJSONLoader();
 
 	/**
-	 * Returns the meta object for enum '{@link org.nasdanika.webtest.hub.TestStatus <em>Test Status</em>}'.
+	 * Returns the meta object for enum '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Test Status</em>'.
-	 * @see org.nasdanika.webtest.hub.TestStatus
+	 * @return the meta object for enum '<em>Operation Status</em>'.
+	 * @see org.nasdanika.webtest.hub.OperationStatus
 	 * @generated
 	 */
-	EEnum getTestStatus();
+	EEnum getOperationStatus();
 
 	/**
 	 * Returns the meta object for data type '{@link org.json.JSONObject <em>JSON Object</em>}'.
@@ -4341,12 +4341,12 @@ public interface HubPackage extends EPackage {
 		EAttribute OPERATION_RESULT__FINISH = eINSTANCE.getOperationResult_Finish();
 
 		/**
-		 * The meta object literal for the '<em><b>Pending</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OPERATION_RESULT__PENDING = eINSTANCE.getOperationResult_Pending();
+		EAttribute OPERATION_RESULT__STATUS = eINSTANCE.getOperationResult_Status();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.ThrowableImpl <em>Throwable</em>}' class.
@@ -4603,14 +4603,14 @@ public interface HubPackage extends EPackage {
 		EClass JSON_LOADER = eINSTANCE.getJSONLoader();
 
 		/**
-		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.TestStatus <em>Test Status</em>}' enum.
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.webtest.hub.TestStatus
-		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getTestStatus()
+		 * @see org.nasdanika.webtest.hub.OperationStatus
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getOperationStatus()
 		 * @generated
 		 */
-		EEnum TEST_STATUS = eINSTANCE.getTestStatus();
+		EEnum OPERATION_STATUS = eINSTANCE.getOperationStatus();
 
 		/**
 		 * The meta object literal for the '<em>JSON Object</em>' data type.

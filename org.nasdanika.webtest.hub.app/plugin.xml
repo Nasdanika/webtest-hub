@@ -57,8 +57,14 @@
             <script>
                /js/angular.min.js
             </script>
+            <script>
+               /js/lightbox.min.js
+            </script>
             <stylesheet>
                /font-awesome-4.2.0/css/font-awesome.min.css
+            </stylesheet>
+            <stylesheet>
+               /css/lightbox.css
             </stylesheet>
       </default_html_factory>
    </extension>

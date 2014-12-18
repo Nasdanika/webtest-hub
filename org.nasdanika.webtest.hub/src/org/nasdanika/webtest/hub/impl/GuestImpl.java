@@ -7,7 +7,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.cdo.view.CDOView;
@@ -34,6 +36,7 @@ import org.nasdanika.html.ApplicationPanel;
 import org.nasdanika.html.ApplicationPanel.ContentPanel;
 import org.nasdanika.html.Button.Type;
 import org.nasdanika.html.FontAwesome.Rotate;
+import org.nasdanika.html.FontAwesome.Spinner;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.Form;
 import org.nasdanika.html.Form.Method;
@@ -46,6 +49,7 @@ import org.nasdanika.html.Modal;
 import org.nasdanika.html.Navbar;
 import org.nasdanika.html.Tag;
 import org.nasdanika.html.Theme;
+import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.Action;
@@ -232,7 +236,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 //			.width(DeviceSize.MEDIUM, 10)
 //			.width(DeviceSize.LARGE, 11);
 		
-		mainPanel.content(HubUtil.getContainer(this, HubImpl.class).summary(context));
+		mainPanel.content(htmlFactory.fontAwesome().spinner(Spinner.spinner).spin()+"&nbsp;Loading summary");//HubUtil.getContainer(this, HubImpl.class).summary(context));
 				
 		Modal authenticationFailedModal = htmlFactory.modal()
 				.id("authentication-failed-modal")
@@ -243,7 +247,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 		return htmlFactory.bootstrapRouterApplication(
 				Theme.Default,
 				StringEscapeUtils.escapeHtml4(((Hub) eContainer()).getName()), 
-				null, //"main/"+context.getObjectPath(eContainer())+"/summary", 
+				"main/"+context.getObjectPath(eContainer())+"/summary", 
 				null, 
 				appPanel, 
 				createRegistrationFormModal(htmlFactory, objectPath), 
@@ -345,7 +349,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.id("registration-form-modal")
 				.small()
 				.title("Register")
-				.body(registrationForm, htmlFactory.tag("script", new RegistrationControllerRenderer().generate(this, objectPath+"/register")));
+				.body(registrationForm, htmlFactory.tag(TagName.script, new RegistrationControllerRenderer().generate(this, objectPath+"/register")));
 	}
 
 	private void createLoginForm(HTMLFactory htmlFactory, Navbar navBar) {

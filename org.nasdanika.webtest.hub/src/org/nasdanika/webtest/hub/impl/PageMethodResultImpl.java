@@ -3,6 +3,9 @@
 package org.nasdanika.webtest.hub.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.FontAwesome.WebApplication;
+import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.PageMethodResult;
 
@@ -33,6 +36,11 @@ public class PageMethodResultImpl extends MethodResultImpl implements PageMethod
 	@Override
 	protected EClass eStaticClass() {
 		return HubPackage.Literals.PAGE_METHOD_RESULT;
+	}
+
+	@Override
+	public Object getIcon(HTMLFactory htmlFactory) throws Exception {
+		return htmlFactory.glyphicon(Glyphicon.list_alt);
 	}
 
 } //PageMethodResultImpl

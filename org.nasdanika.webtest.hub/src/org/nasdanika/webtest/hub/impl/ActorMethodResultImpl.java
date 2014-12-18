@@ -3,6 +3,9 @@
 package org.nasdanika.webtest.hub.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.FontAwesome.WebApplication;
+import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.HubPackage;
 
@@ -33,6 +36,11 @@ public class ActorMethodResultImpl extends MethodResultImpl implements ActorMeth
 	@Override
 	protected EClass eStaticClass() {
 		return HubPackage.Literals.ACTOR_METHOD_RESULT;
+	}
+
+	@Override
+	public Object getIcon(HTMLFactory htmlFactory) throws Exception {
+		return htmlFactory.glyphicon(Glyphicon.user);
 	}
 
 } //ActorMethodResultImpl

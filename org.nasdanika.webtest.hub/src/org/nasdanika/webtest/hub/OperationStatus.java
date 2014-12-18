@@ -10,14 +10,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Test Status</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Operation Status</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.nasdanika.webtest.hub.HubPackage#getTestStatus()
+ * @see org.nasdanika.webtest.hub.HubPackage#getOperationStatus()
  * @model
  * @generated
  */
-public enum TestStatus implements Enumerator {
+public enum OperationStatus implements Enumerator {
 	/**
 	 * The '<em><b>Pass</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -119,13 +119,13 @@ public enum TestStatus implements Enumerator {
 	public static final int PENDING_VALUE = 3;
 
 	/**
-	 * An array of all the '<em><b>Test Status</b></em>' enumerators.
+	 * An array of all the '<em><b>Operation Status</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final TestStatus[] VALUES_ARRAY =
-		new TestStatus[] {
+	private static final OperationStatus[] VALUES_ARRAY =
+		new OperationStatus[] {
 			PASS,
 			FAIL,
 			ERROR,
@@ -133,22 +133,22 @@ public enum TestStatus implements Enumerator {
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Test Status</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Operation Status</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<TestStatus> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<OperationStatus> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Test Status</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Operation Status</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static TestStatus get(String literal) {
+	public static OperationStatus get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TestStatus result = VALUES_ARRAY[i];
+			OperationStatus result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -157,14 +157,14 @@ public enum TestStatus implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Test Status</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Operation Status</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static TestStatus getByName(String name) {
+	public static OperationStatus getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TestStatus result = VALUES_ARRAY[i];
+			OperationStatus result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -173,12 +173,12 @@ public enum TestStatus implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Test Status</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Operation Status</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static TestStatus get(int value) {
+	public static OperationStatus get(int value) {
 		switch (value) {
 			case PASS_VALUE: return PASS;
 			case FAIL_VALUE: return FAIL;
@@ -215,7 +215,7 @@ public enum TestStatus implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private TestStatus(int value, String name, String literal) {
+	private OperationStatus(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -259,4 +259,4 @@ public enum TestStatus implements Enumerator {
 		return literal;
 	}
 	
-} //TestStatus
+} //OperationStatus

@@ -4,6 +4,8 @@ package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpServletResponse;
@@ -15,12 +17,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.Table;
-import org.nasdanika.html.FontAwesome.Directional;
+import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.FontAwesome.WebApplication;
+import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
+import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
+import org.nasdanika.html.Table.Row.Cell;
+import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RequestMethod;
@@ -30,6 +34,7 @@ import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.Screenshot;
 import org.nasdanika.webtest.hub.TestSession;
+import org.nasdanika.webtest.hub.TestSession.Totals;
 
 /**
  * <!-- begin-user-doc -->
@@ -212,9 +217,9 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 		hRow.header(htmlFactory.glyphicon(Glyphicon.list_alt), "&nbsp;Pages").colspan(4).style("text-align", "center").attribute("nowrap", "true");
 		
 		Row hRow2 = testSessionsTable.row().style(Style.INFO);
-		hRow2.header(htmlFactory.glyphicon(Glyphicon.ok), "&nbsp;Pass").style("text-align", "center").attribute("nowrap", "true").style("color", "green");
-		hRow2.header(htmlFactory.glyphicon(Glyphicon.remove), "&nbsp;Fail").style("text-align", "center").attribute("nowrap", "true").style("color", "red");
-		hRow2.header(htmlFactory.glyphicon(Glyphicon.warning_sign), "&nbsp;Error").style("text-align", "center").attribute("nowrap", "true").style("color", "orange");
+		hRow2.header(htmlFactory.glyphicon(Glyphicon.ok), "&nbsp;Pass").style("text-align", "center").attribute("nowrap", "true").style("color", HTMLColor.Green);
+		hRow2.header(htmlFactory.glyphicon(Glyphicon.remove), "&nbsp;Fail").style("text-align", "center").attribute("nowrap", "true").style("color", HTMLColor.Red);
+		hRow2.header(htmlFactory.glyphicon(Glyphicon.warning_sign), "&nbsp;Error").style("text-align", "center").attribute("nowrap", "true").style("color", HTMLColor.DarkOrange);
 		hRow2.header(htmlFactory.glyphicon(Glyphicon.time), "&nbsp;Pending").style("text-align", "center").attribute("nowrap", "true").style("color", "gray");
 
 		hRow2.header("Classes").style("text-align", "center").attribute("nowrap", "true");
@@ -232,7 +237,12 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 				for (TestSession ts: getTestSessions()) {
 					ts.summaryRow(context, testSessionsTable.row());
 				}
-				return htmlFactory.tag("H3", getName()) +
+				Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs();
+				breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer()))+"/summary", "Home");
+				breadcrumbs.item(null, StringEscapeUtils.escapeHtml4(getName()));
+				
+				return	breadcrumbs.toString()+
+						htmlFactory.tag("H3", StringEscapeUtils.escapeHtml4(getName())) +
 						(getDescription()==null ? "" : getDescription()) +
 						htmlFactory.panel(Style.INFO, "Test sessions", testSessionsTable, null) +
 						htmlFactory.title(getName());
@@ -253,20 +263,37 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 				StringEscapeUtils.escapeHtml4(getName()))); 
 //		aRow.cell(getDescription());
 		
-		aRow.cell("TODO - pass").style("text-align", "center");
-		aRow.cell("TODO - fail").style("text-align", "center");
-		aRow.cell("TODO - error").style("text-align", "center");
-		aRow.cell("TODO - pending&nbsp",htmlFactory.fontAwesome().directional(Directional.long_arrow_up).getTarget().style("color", "green")).style("text-align", "center");
-		// TODO - .style(Style.WARNING)
-
-		aRow.cell("TODO - classes").style("text-align", "center");
-		aRow.cell("TODO - methods").style("text-align", "center");
-		aRow.cell("TODO - coverage").style("text-align", "center");
+		EList<TestSession> ts = getTestSessions();
+		TestSession lastTestSession = ts.isEmpty() ? null : ts.get(ts.size()-1);
+		Totals totals = lastTestSession == null ? null : lastTestSession.getTotals();
 		
-		aRow.cell("TODO - classes").style("text-align", "center");
-		aRow.cell("TODO - methods").style("text-align", "center");
-		aRow.cell("TODO - elements").style("text-align", "center");
-		aRow.cell("TODO - coverage").style("text-align", "center");					
+		aRow.cell(lastTestSession==null ? "" : new SimpleDateFormat(TestSessionImpl.DATE_PATTERN).format(new Date(lastTestSession.getTimestamp()))).style("text-align", "center");	
+		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getPass())).style("text-align", "center");
+		Cell failCell = aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getFail())).style("text-align", "center");
+		Cell errorCell = aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getError())).style("text-align", "center");
+		if (totals!=null && totals.getError()>0) {
+			errorCell.style("font-weight", "bold").style("color", HTMLColor.DarkOrange);
+		}
+		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getPending())).style("text-align", "center");
+		
+		if (totals!=null) {
+			if (totals.getFail()>0) {
+				failCell.style("font-weight", "bold").style("color", "red");
+				aRow.style(Style.DANGER);
+			} else if (totals.getError()>0) {
+				aRow.style(Style.WARNING);			
+			}
+		}
+
+		// TODO - trending arrows
+		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getActorClasses())).style("text-align", "center");
+		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getActorMethods())).style("text-align", "center");
+		aRow.cell(totals==null || totals.getActorMethods()==0 ? "" : totals.getActorCoverage()+" ("+(100*totals.getActorCoverage()/Math.max(1, totals.getActorMethods()))+"%)").style("text-align", "center");
+		
+		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getPageClasses())).style("text-align", "center");
+		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getPageMethods())).style("text-align", "center");
+		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getPageElements())).style("text-align", "center");					
+		aRow.cell(totals==null|| totals.getPageMethods()==0 ? "" : totals.getPageCoverage()+" ("+(100*totals.getPageCoverage()/Math.max(1, totals.getPageMethods()))+"%)").style("text-align", "center");
 	}
 	
 

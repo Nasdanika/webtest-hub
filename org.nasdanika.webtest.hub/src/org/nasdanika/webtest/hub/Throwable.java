@@ -3,9 +3,10 @@
 package org.nasdanika.webtest.hub;
 
 import org.eclipse.emf.cdo.CDOObject;
-
 import org.eclipse.emf.common.util.EList;
 import org.nasdanika.core.JSONLoader;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.UIElement.Style;
 
 /**
  * <!-- begin-user-doc -->
@@ -94,5 +95,7 @@ public interface Throwable extends CDOObject, JSONLoader {
 	 * @generated
 	 */
 	EList<StackTraceEntry> getStackTrace();
+	
+	Object toCollapsible(HTMLFactory htmlFactory, Style style);
 
 } // Throwable

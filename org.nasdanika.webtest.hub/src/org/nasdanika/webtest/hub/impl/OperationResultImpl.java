@@ -7,12 +7,15 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.MessageDigest;
+import java.text.MessageFormat;
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.GZIPInputStream;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -22,6 +25,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.core.ConverterContext;
+import org.nasdanika.html.Carousel;
+import org.nasdanika.html.Carousel.Slide;
+import org.nasdanika.html.FontAwesome.WebApplication;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.HTMLFactory.Glyphicon;
+import org.nasdanika.html.HTMLFactory.Placement;
+import org.nasdanika.html.Table;
+import org.nasdanika.html.Table.Row;
+import org.nasdanika.html.Table.Row.Cell;
+import org.nasdanika.html.Tag;
+import org.nasdanika.html.Tag.TagName;
+import org.nasdanika.html.UIElement.BootstrapColor;
+import org.nasdanika.html.UIElement.Event;
+import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
@@ -29,6 +46,7 @@ import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.OperationResult;
+import org.nasdanika.webtest.hub.OperationStatus;
 import org.nasdanika.webtest.hub.Screenshot;
 import org.nasdanika.webtest.hub.TestMethodResult;
 import org.nasdanika.webtest.hub.Throwable;
@@ -53,7 +71,7 @@ import org.nasdanika.webtest.performance.TimingBase;
  *   <li>{@link org.nasdanika.webtest.hub.impl.OperationResultImpl#getError <em>Error</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.OperationResultImpl#getStart <em>Start</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.OperationResultImpl#getFinish <em>Finish</em>}</li>
- *   <li>{@link org.nasdanika.webtest.hub.impl.OperationResultImpl#isPending <em>Pending</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.OperationResultImpl#getStatus <em>Status</em>}</li>
  * </ul>
  * </p>
  *
@@ -276,8 +294,8 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isPending() {
-		return (Boolean)eGet(HubPackage.Literals.OPERATION_RESULT__PENDING, true);
+	public OperationStatus getStatus() {
+		return (OperationStatus)eGet(HubPackage.Literals.OPERATION_RESULT__STATUS, true);
 	}
 
 	/**
@@ -285,10 +303,10 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPending(boolean newPending) {
-		eSet(HubPackage.Literals.OPERATION_RESULT__PENDING, newPending);
+	public void setStatus(OperationStatus newStatus) {
+		eSet(HubPackage.Literals.OPERATION_RESULT__STATUS, newStatus);
 	}
-	
+
 	private static TestMethodResult getTestMethodResultContainer(EObject obj) {
 		if (obj instanceof TestMethodResult) {
 			return (TestMethodResult) obj;
@@ -323,8 +341,8 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 		if (json.has("finish")) {
 			setFinish(json.getLong("finish"));
 		}
-		if (json.has("pending")) {
-			setPending(json.getBoolean("pending"));
+		if (json.has("status")) {
+			setStatus(OperationStatus.valueOf(json.getString("status")));
 		}
 		if (json.has("error")) {
 			Throwable err = HubFactory.eINSTANCE.createThrowable();
@@ -436,62 +454,207 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
 			}			
 		}
-	}	
+	}
+	
+	protected Object routeLink(HttpContext context, boolean doStyle) throws Exception {
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);		
+		String methodDetailsLocation = "/"+context.getObjectPath(this) + ".html";
+		if (OperationStatus.FAIL.equals(getStatus())) {
+			Tag routeLink = htmlFactory.routeLink(
+					"right-panel", 
+					methodDetailsLocation, 
+					htmlFactory.glyphicon(Glyphicon.remove), 
+					"&nbsp;", 
+					StringEscapeUtils.escapeHtml4(getTitle()));
+			
+			return doStyle ? routeLink.style("color", BootstrapColor.DANGER.code) : routeLink;
+		}
 		
+		if (OperationStatus.ERROR.equals(getStatus())) {
+			Tag routeLink = htmlFactory.routeLink(
+					"right-panel", 
+					methodDetailsLocation, 
+					htmlFactory.glyphicon(Glyphicon.warning_sign), 
+					"&nbsp;", 
+					StringEscapeUtils.escapeHtml4(getTitle()));
+			return doStyle ? routeLink.style("color", BootstrapColor.WARNING.code) : routeLink;
+		}		
+		
+		if (OperationStatus.PENDING.equals(getStatus())) { // Only the first screenshot or no calls to actor/page methods.
+			Tag routeLink = htmlFactory.span(
+					htmlFactory.glyphicon(Glyphicon.time), 
+					"&nbsp;", 
+					StringEscapeUtils.escapeHtml4(getTitle()));				
+			return doStyle ? routeLink.style("color", BootstrapColor.GRAY.code) : routeLink;
+			
+		}
+		
+		Tag routeLink = htmlFactory.routeLink(
+				"right-panel", 
+				methodDetailsLocation, 
+				htmlFactory.glyphicon(Glyphicon.ok), 
+				"&nbsp;", 
+				StringEscapeUtils.escapeHtml4(getTitle()));
+		return doStyle ? routeLink.style("color", BootstrapColor.SUCCESS.code) : routeLink;
+	}
+		
+	@Override
+	public void genRow(HttpContext context, Table methodTable) throws Exception {
+		Row row = methodTable.row();
+		switch (getStatus()) {
+		case ERROR:
+			row.style(Style.WARNING);
+			break;
+		case FAIL:
+			row.style(Style.DANGER);
+			break;
+		case PASS:
+			row.style(Style.SUCCESS);
+			break;
+		case PENDING:
+			row.style(Style.DEFAULT);
+			break;
+		default:
+			break;
+		
+		}
+		row.cell(routeLink(context, false));
+		genDescriptionAndDurationCells(context.adapt(HTMLFactory.class), row);
+	}
+	
+	@Override
+	public void genRows(HTMLFactory htmlFactory, Table methodTable, Object carouselId, List<Screenshot> screenshots, int indent) throws Exception {
+		Row row = methodTable.row();
+		if (OperationStatus.FAIL.equals(getStatus())) {
+			row.style(Style.DANGER);
+		} else if (OperationStatus.ERROR.equals(getStatus())) {
+			row.style(Style.WARNING);
+		}
+		
+		Object caption = getIcon(htmlFactory)+"&nbsp;"+StringEscapeUtils.escapeHtml4(getTitle());
+		int slideIdx = -1;
+		Screenshot beforeScreenshot = getBeforeScreenshot();
+		if (beforeScreenshot!=null) {
+			slideIdx = screenshots.indexOf(beforeScreenshot); 
+		}
+		Screenshot afterScreenshot = getAfterScreenshot();
+		if (slideIdx==-1 && afterScreenshot!=null) {
+			slideIdx = screenshots.indexOf(afterScreenshot);
+		}
+		if (slideIdx!=-1) {
+			caption = htmlFactory.link("#carousel_"+carouselId, caption).on(Event.click, "jQuery('#"+carouselId+"').carousel("+slideIdx+"); return true;");
+		}
+		row.cell(caption).style("padding-left", (indent*30+5)+"px");
+		
+		genDescriptionAndDurationCells(htmlFactory, row);
+		
+		for (OperationResult ch: getChildren()) {
+			ch.genRows(htmlFactory, methodTable, carouselId, screenshots, indent+1);
+		}
+	}
+	
+	private void genDescriptionAndDurationCells(HTMLFactory htmlFactory, Row row) {
+		Cell descriptionCell = row.cell();
+		descriptionCell.content(getDescription().toHTML());
+		if (getFailure()!=null) {
+			descriptionCell.content(getFailure().toCollapsible(htmlFactory, Style.DANGER));
+		} else if (getError()!=null) {
+			descriptionCell.content(getError().toCollapsible(htmlFactory, Style.WARNING));			
+		}
+		
+		long duration = getFinish() - getStart();
+		if (duration<1000) {
+			row.cell(duration, " ms").style("text-align", "right");
+		} else {
+			row.cell(MessageFormat.format("{0,number,#.###} sec", new Object[] {duration/1000.0})).style("text-align", "right");
+		}
+	}
+	
 //	protected String format(String str) {
 //		if (str==null || getArguments().isEmpty()) {
 //			return str;
 //		}
 //		return MessageFormat.format(str, getArguments().toArray());
 //	}	
-//	
-//	@Override
-//	public Object routeLink(HTMLFactory htmlFactory, boolean doStyle) {
-//		String name = "";		
-//		if (getTitle() == null) {
-//			name = HubUtil.title(getOperationName());
-//		} else {
-//			name = format(getTitle());
-//		}
-//		
-//		String methodDetailsLocation = "content/operation_"	+ id + ".html";
-//		if (failure==null) {
-//			if (isPending()) { // Only the first screenshot or no calls to actor/page methods.
-//				Tag routeLink = htmlFactory.span(
-//						htmlFactory.glyphicon(Glyphicon.time), 
-//						"&nbsp;", 
-//						name);				
-//				return doStyle ? routeLink.style("color", Color.GRAY.code) : routeLink;
-//				
-//			}
-//			
-//			Tag routeLink = htmlFactory.routeLink(
-//					"main", 
-//					methodDetailsLocation, 
-//					htmlFactory.glyphicon(Glyphicon.ok), 
-//					"&nbsp;", 
-//					name);
-//			return doStyle ? routeLink.style("color", Color.SUCCESS.code) : routeLink;
-//		}
-//		
-//		if (isFailure()) {
-//			Tag routeLink = htmlFactory.routeLink(
-//					"main", 
-//					methodDetailsLocation, 
-//					htmlFactory.glyphicon(Glyphicon.remove), 
-//					"&nbsp;", 
-//					name);
-//			
-//			return doStyle ? routeLink.style("color", Color.DANGER.code) : routeLink;
-//		}
-//		
-//		Tag routeLink = htmlFactory.routeLink(
-//					"main", 
-//					methodDetailsLocation, 
-//					htmlFactory.glyphicon(Glyphicon.warning_sign), 
-//					"&nbsp;", 
-//					name);
-//		return doStyle ? routeLink.style("color", Color.WARNING.code) : routeLink;
-//	}
+	
+	@RouteMethod(pattern="L?[\\d]+\\.html")
+	public String home(HttpContext context) throws Exception {
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+		if (!context.authorize(this, "read", null, null)) {
+			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
+		}	
+		CDOLock readLock = cdoReadLock();
+		if (readLock.tryLock(15, TimeUnit.SECONDS)) {
+			try {
+				
+				StringBuilder initScript = new StringBuilder();
+				Carousel screenshotCarousel = htmlFactory.carousel()
+						.ride(false)
+						.indicatorsBackground(BootstrapColor.GRAY)
+						.attribute("data-interval", "false")
+						.id(htmlFactory.nextId()+"_screenshotCarousel");
+				
+				String opId = HubUtil.cdoIDtoString(cdoID());
+				for (Screenshot se: getScreenshots()) {
+					String imageLocation = context.getObjectPath(se)+".png";
+					Tag imageTag = htmlFactory.tag(TagName.img).attribute("src", imageLocation).style("margin", "auto");
+					Tag link = htmlFactory.link(imageLocation, imageTag).attribute("data-lightbox", "test-"+opId);
+					Slide slide = screenshotCarousel.slide().content(link);
+					
+					EList<OperationResult> ao = se.getAfterOperations();
+					OperationResult firstOp = ao.isEmpty() ? null : ao.get(0);
+					if (firstOp == null) {
+						EList<OperationResult> bo = se.getBeforeOperations();
+						firstOp =bo.isEmpty() ? null : bo.get(0);
+					}
+					if (firstOp != null) {
+						String title = firstOp.getTitle();
+						if (title!=null) {
+							link.attribute("data-title", StringEscapeUtils.escapeHtml4(title));
+						}
+						StringBuilder captionBuilder = new StringBuilder();
+						captionBuilder.append(firstOp.getIcon(htmlFactory));
+						captionBuilder.append("&nbsp;");
+						captionBuilder.append(StringEscapeUtils.escapeHtml4(title));
+						String htmlDescr = firstOp.getDescription().toHTML();
+						if (htmlDescr!=null && htmlDescr.trim().length()>0) {
+							Tag comment = htmlFactory.glyphicon(Glyphicon.comment);
+							comment.id(htmlFactory.nextId()+"_slide_comment");
+							htmlFactory.tooltip(comment, Placement.TOP, htmlDescr);
+							initScript.append("jQuery('#"+comment.getId()+"').tooltip({html:true});");
+							captionBuilder.append("&nbsp;");
+							captionBuilder.append(comment);		
+						}
+						slide.caption(htmlFactory.label(Style.INFO, captionBuilder).style("opacity", "0.7"));
+					}
+				}
+				
+				Table methodTable = htmlFactory.table().bordered();
+				Row headerRow = methodTable.row().style(Style.INFO);
+				headerRow.header(htmlFactory.glyphicon(Glyphicon.cog), " Method");
+				headerRow.header(htmlFactory.glyphicon(Glyphicon.file), " Description");
+				headerRow.header(htmlFactory.glyphicon(Glyphicon.time), " Duration");
+				genRows(htmlFactory, methodTable, screenshotCarousel.getId(), getScreenshots(), 0);
+				
+				// TODO - parameters - method to override.
+				
+				return 	htmlFactory.tag(TagName.h3, getIcon(htmlFactory), "&nbsp;", StringEscapeUtils.escapeHtml4(getTitle())).toString() +
+						htmlFactory.tag(TagName.a).attribute("name", "carousel_"+screenshotCarousel.getId()) +
+						screenshotCarousel +
+						methodTable +
+						(initScript.length()>0 ? htmlFactory.tag(TagName.script, initScript) : "");
+
+			} finally {
+				readLock.unlock();
+			}
+		} else {			
+			return htmlFactory.alert(Style.DANGER, false, "System is overloaded, please try again later!").toString();
+		}			
+	}	
+
+	@Override
+	public Object getIcon(HTMLFactory htmlFactory) throws Exception {
+		return htmlFactory.fontAwesome().webApplication(WebApplication.cog);
+	}
 
 } //OperationResultImpl

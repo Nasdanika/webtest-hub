@@ -3,7 +3,6 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.util.Map;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -23,6 +22,7 @@ import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.InitializationResult;
 import org.nasdanika.webtest.hub.MethodResult;
 import org.nasdanika.webtest.hub.OperationResult;
+import org.nasdanika.webtest.hub.OperationStatus;
 import org.nasdanika.webtest.hub.PageMethodResult;
 import org.nasdanika.webtest.hub.PageResult;
 import org.nasdanika.webtest.hub.ParameterizedTestResult;
@@ -32,7 +32,6 @@ import org.nasdanika.webtest.hub.TestClassResult;
 import org.nasdanika.webtest.hub.TestMethodResult;
 import org.nasdanika.webtest.hub.TestResult;
 import org.nasdanika.webtest.hub.TestSession;
-import org.nasdanika.webtest.hub.TestStatus;
 import org.nasdanika.webtest.hub.TestSuiteResult;
 import org.nasdanika.webtest.hub.User;
 
@@ -117,8 +116,8 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case HubPackage.TEST_STATUS:
-				return createTestStatusFromString(eDataType, initialValue);
+			case HubPackage.OPERATION_STATUS:
+				return createOperationStatusFromString(eDataType, initialValue);
 			case HubPackage.JSON_OBJECT:
 				return createJSONObjectFromString(eDataType, initialValue);
 			case HubPackage.EXCEPTION:
@@ -136,8 +135,8 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case HubPackage.TEST_STATUS:
-				return convertTestStatusToString(eDataType, instanceValue);
+			case HubPackage.OPERATION_STATUS:
+				return convertOperationStatusToString(eDataType, instanceValue);
 			case HubPackage.JSON_OBJECT:
 				return convertJSONObjectToString(eDataType, instanceValue);
 			case HubPackage.EXCEPTION:
@@ -392,8 +391,8 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TestStatus createTestStatusFromString(EDataType eDataType, String initialValue) {
-		TestStatus result = TestStatus.get(initialValue);
+	public OperationStatus createOperationStatusFromString(EDataType eDataType, String initialValue) {
+		OperationStatus result = OperationStatus.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -403,7 +402,7 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertTestStatusToString(EDataType eDataType, Object instanceValue) {
+	public String convertOperationStatusToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

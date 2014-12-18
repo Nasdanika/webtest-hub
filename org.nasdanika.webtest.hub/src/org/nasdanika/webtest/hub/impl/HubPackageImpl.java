@@ -3,7 +3,6 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.util.Map;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -27,6 +26,7 @@ import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.InitializationResult;
 import org.nasdanika.webtest.hub.MethodResult;
 import org.nasdanika.webtest.hub.OperationResult;
+import org.nasdanika.webtest.hub.OperationStatus;
 import org.nasdanika.webtest.hub.PageMethodResult;
 import org.nasdanika.webtest.hub.PageResult;
 import org.nasdanika.webtest.hub.ParameterizedTestResult;
@@ -36,7 +36,6 @@ import org.nasdanika.webtest.hub.TestClassResult;
 import org.nasdanika.webtest.hub.TestMethodResult;
 import org.nasdanika.webtest.hub.TestResult;
 import org.nasdanika.webtest.hub.TestSession;
-import org.nasdanika.webtest.hub.TestStatus;
 import org.nasdanika.webtest.hub.TestSuiteResult;
 import org.nasdanika.webtest.hub.User;
 import org.nasdanika.webtest.performance.PerformancePackage;
@@ -235,7 +234,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum testStatusEEnum = null;
+	private EEnum operationStatusEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -915,7 +914,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOperationResult_Pending() {
+	public EAttribute getOperationResult_Status() {
 		return (EAttribute)operationResultEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -1185,8 +1184,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getTestStatus() {
-		return testStatusEEnum;
+	public EEnum getOperationStatus() {
+		return operationStatusEEnum;
 	}
 
 	/**
@@ -1315,7 +1314,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(operationResultEClass, OPERATION_RESULT__ERROR);
 		createEAttribute(operationResultEClass, OPERATION_RESULT__START);
 		createEAttribute(operationResultEClass, OPERATION_RESULT__FINISH);
-		createEAttribute(operationResultEClass, OPERATION_RESULT__PENDING);
+		createEAttribute(operationResultEClass, OPERATION_RESULT__STATUS);
 
 		throwableEClass = createEClass(THROWABLE);
 		createEAttribute(throwableEClass, THROWABLE__TYPE);
@@ -1358,7 +1357,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		jsonLoaderEClass = createEClass(JSON_LOADER);
 
 		// Create enums
-		testStatusEEnum = createEEnum(TEST_STATUS);
+		operationStatusEEnum = createEEnum(OPERATION_STATUS);
 
 		// Create data types
 		jsonObjectEDataType = createEDataType(JSON_OBJECT);
@@ -1501,7 +1500,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEReference(getOperationResult_Error(), this.getThrowable(), null, "error", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperationResult_Start(), ecorePackage.getELong(), "start", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperationResult_Finish(), ecorePackage.getELong(), "finish", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOperationResult_Pending(), ecorePackage.getEBoolean(), "pending", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperationResult_Status(), this.getOperationStatus(), "status", null, 0, 1, OperationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(throwableEClass, org.nasdanika.webtest.hub.Throwable.class, "Throwable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getThrowable_Type(), ecorePackage.getEString(), "type", null, 0, 1, org.nasdanika.webtest.hub.Throwable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1547,11 +1546,11 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEClass(jsonLoaderEClass, JSONLoader.class, "JSONLoader", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
-		initEEnum(testStatusEEnum, TestStatus.class, "TestStatus");
-		addEEnumLiteral(testStatusEEnum, TestStatus.PASS);
-		addEEnumLiteral(testStatusEEnum, TestStatus.FAIL);
-		addEEnumLiteral(testStatusEEnum, TestStatus.ERROR);
-		addEEnumLiteral(testStatusEEnum, TestStatus.PENDING);
+		initEEnum(operationStatusEEnum, OperationStatus.class, "OperationStatus");
+		addEEnumLiteral(operationStatusEEnum, OperationStatus.PASS);
+		addEEnumLiteral(operationStatusEEnum, OperationStatus.FAIL);
+		addEEnumLiteral(operationStatusEEnum, OperationStatus.ERROR);
+		addEEnumLiteral(operationStatusEEnum, OperationStatus.PENDING);
 
 		// Initialize data types
 		initEDataType(jsonObjectEDataType, JSONObject.class, "JSONObject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -3,6 +3,7 @@
 package org.nasdanika.webtest.hub;
 
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.html.HTMLFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,4 +55,7 @@ public interface TestResult extends Descriptor {
 	 * @generated
 	 */
 	EList<ActorResult> getActorResults();
+
+	Object getIcon(HTMLFactory htmlFactory);
+	
 } // TestResult

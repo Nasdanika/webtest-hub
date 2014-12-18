@@ -2,12 +2,17 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.nasdanika.core.ConverterContext;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.Table;
+import org.nasdanika.html.Table.Row;
+import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.StackTraceEntry;
@@ -118,5 +123,27 @@ public class ThrowableImpl extends CDOObjectImpl implements org.nasdanika.webtes
 			}
 		}
 		
+	}
+
+	@Override
+	public Object toCollapsible(HTMLFactory htmlFactory, Style style) {
+		Table stackTrace = htmlFactory.table().bordered();
+		Row hRow = stackTrace.row().style(Style.DANGER);
+		hRow.header("Class");
+		hRow.header("Method");
+		hRow.header("File");
+		hRow.header("Line number");
+		for (StackTraceEntry ste: getStackTrace()) {
+			Row traceRow = stackTrace.row();
+			traceRow.cell(ste.getClassName());
+			traceRow.cell(ste.getMethodName());
+			if (ste.isNative()) {
+				traceRow.cell("<I>Native method</I>").colspan(2);
+			} else {
+				traceRow.cell(ste.getFileName());
+				traceRow.cell(ste.getLineNumber()).style("text-align", "right");
+			}
+		}
+		return htmlFactory.collapsible(style, getType(), true, "<pre>"+StringEscapeUtils.escapeHtml4(getMessage())+"</pre>", stackTrace);
 	}
 } //ThrowableImpl

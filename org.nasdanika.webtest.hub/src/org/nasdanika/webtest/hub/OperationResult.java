@@ -2,7 +2,12 @@
  */
 package org.nasdanika.webtest.hub;
 
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.Table;
+import org.nasdanika.web.HttpContext;
 import org.nasdanika.webtest.performance.TimingBase;
 
 /**
@@ -25,7 +30,7 @@ import org.nasdanika.webtest.performance.TimingBase;
  *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getError <em>Error</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getStart <em>Start</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getFinish <em>Finish</em>}</li>
- *   <li>{@link org.nasdanika.webtest.hub.OperationResult#isPending <em>Pending</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getStatus <em>Status</em>}</li>
  * </ul>
  * </p>
  *
@@ -321,31 +326,43 @@ public interface OperationResult extends Descriptor {
 	void setFinish(long value);
 
 	/**
-	 * Returns the value of the '<em><b>Pending</b></em>' attribute.
+	 * Returns the value of the '<em><b>Status</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.nasdanika.webtest.hub.OperationStatus}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Pending</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Status</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pending</em>' attribute.
-	 * @see #setPending(boolean)
-	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_Pending()
+	 * @return the value of the '<em>Status</em>' attribute.
+	 * @see org.nasdanika.webtest.hub.OperationStatus
+	 * @see #setStatus(OperationStatus)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult_Status()
 	 * @model
 	 * @generated
 	 */
-	boolean isPending();
+	OperationStatus getStatus();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.webtest.hub.OperationResult#isPending <em>Pending</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.OperationResult#getStatus <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pending</em>' attribute.
-	 * @see #isPending()
+	 * @param value the new value of the '<em>Status</em>' attribute.
+	 * @see org.nasdanika.webtest.hub.OperationStatus
+	 * @see #getStatus()
 	 * @generated
 	 */
-	void setPending(boolean value);
+	void setStatus(OperationStatus value);
+
+	/**
+	 * Generates report row
+	 * @param htmlFactory
+	 * @param methodTable
+	 */
+	void genRow(HttpContext context, Table methodTable) throws Exception;
 	
-//	Object routeLink(HTMLFactory htmlFactory, boolean doStyle);	
+	Object getIcon(HTMLFactory htmlFactory) throws Exception;
+
+	void genRows(HTMLFactory htmlFactory, Table methodTable, Object carouselId, List<Screenshot> screenshots, int indent) throws Exception;
 
 } // OperationResult

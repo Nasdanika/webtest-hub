@@ -4,15 +4,15 @@ package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
 import java.util.concurrent.TimeUnit;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.core.ConverterContext;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
@@ -121,5 +121,10 @@ public class TestResultImpl extends DescriptorImpl implements TestResult {
 		super.loadJSON(json, context);
 		HubUtil.sessionProgress(this);
 	}
-
+	
+	@Override 
+	public Object getIcon(HTMLFactory htmlFactory) {
+		return htmlFactory.fontAwesome().webApplication(WebApplication.flask);
+	}
+	
 } //TestResultImpl

@@ -4,14 +4,15 @@ package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
 import java.util.concurrent.TimeUnit;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.HTMLFactory.Glyphicon;
+import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
@@ -102,6 +103,21 @@ public class TestSuiteResultImpl extends TestResultImpl implements TestSuiteResu
 				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
 			}			
 		}
+	}
+	
+	@Override
+	public Object getIcon(HTMLFactory htmlFactory) {
+		return htmlFactory.glyphicon(Glyphicon.folder_open);
+	}
+	
+	@RouteMethod(pattern="L?[\\d]+\\.html")
+	public String home(HttpContext context) throws Exception {
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+		if (!context.authorize(this, "read", null, null)) {
+			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
+		}	
+	
+		return this.toString();
 	}	
-
+	
 } //TestSuiteResultImpl

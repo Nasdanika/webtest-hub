@@ -1,18 +1,25 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.io.IOException;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.emf.cdo.CDOObject;
+import org.eclipse.emf.cdo.common.id.CDOID;
+import org.eclipse.emf.cdo.common.id.CDOIDUtil;
 import org.eclipse.emf.cdo.transaction.CDOCommitContext;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.transaction.CDOTransactionHandler2;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.webtest.hub.Hub;
+import org.nasdanika.webtest.hub.TestClassResult;
+import org.nasdanika.webtest.hub.TestResult;
 import org.nasdanika.webtest.hub.TestSession;
+import org.nasdanika.webtest.hub.TestSuiteResult;
 
 class HubUtil {
 	
@@ -103,5 +110,31 @@ class HubUtil {
 	static int width(EObject obj) {
 		return (int) ((getContainer(obj, Hub.class).getSlideWidth()+32)*12.0/9.0);	
 	}
-
+	
+	static String blankZero(int number) {
+		return number==0 ? "" : String.valueOf(number);
+	}
+	
+	static void aggregateStats(TestResult result, Map<String, int[]> stats) {
+		if (result instanceof TestSuiteResult) {
+			for (TestResult child: ((TestSuiteResult) result).getChildren()) {
+				aggregateStats(child, stats);
+			} 
+		} else if (result instanceof TestClassResult) {
+			for (Entry<String, Integer> e: ((TestClassResult) result).getStats().entrySet()) {
+				int[] sk = stats.get(e.getKey());
+				if (sk==null) {
+					stats.put(e.getKey(), new int[] {e.getValue()});
+				} else {
+					sk[0]+=e.getValue();
+				}
+			}
+		}
+	}
+	
+	static String cdoIDtoString(CDOID id) {
+		StringBuilder idBuilder = new StringBuilder();
+		CDOIDUtil.write(idBuilder, id);		
+		return idBuilder.toString();
+	}
 }

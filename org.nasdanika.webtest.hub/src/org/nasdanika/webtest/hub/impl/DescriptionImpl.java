@@ -2,6 +2,7 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
@@ -131,7 +132,7 @@ public class DescriptionImpl extends CDOObjectImpl implements Description {
 			}
 			descriptionBuilder.append(v);
 		}
-		return isHtml() ? descriptionBuilder.toString() : "<PRE>"+descriptionBuilder+"</PRE>";
+		return isHtml() ? descriptionBuilder.toString() : "<PRE>"+StringEscapeUtils.escapeHtml4(descriptionBuilder.toString())+"</PRE>";
 	}
 
 } //DescriptionImpl
