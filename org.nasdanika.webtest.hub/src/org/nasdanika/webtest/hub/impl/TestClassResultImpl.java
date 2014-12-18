@@ -3,8 +3,6 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.GZIPInputStream;
@@ -19,21 +17,18 @@ import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.core.ConverterContext;
-import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.Table;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
+import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
-import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.TestClassResult;
 import org.nasdanika.webtest.hub.TestMethodResult;
-import org.nasdanika.webtest.hub.TestSession;
 
 /**
  * <!-- begin-user-doc -->

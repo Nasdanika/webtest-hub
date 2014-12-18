@@ -26,7 +26,8 @@ import org.eclipse.emf.common.util.EMap;
 public interface PageResult extends Descriptor {
 	/**
 	 * Returns the value of the '<em><b>Results</b></em>' reference list.
-	 * The list contents are of type {@link org.nasdanika.webtest.hub.OperationResult}.
+	 * The list contents are of type {@link org.nasdanika.webtest.hub.PageMethodResult}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.webtest.hub.PageMethodResult#getPageResult <em>Page Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Results</em>' reference list isn't clear,
@@ -35,10 +36,11 @@ public interface PageResult extends Descriptor {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Results</em>' reference list.
 	 * @see org.nasdanika.webtest.hub.HubPackage#getPageResult_Results()
-	 * @model
+	 * @see org.nasdanika.webtest.hub.PageMethodResult#getPageResult
+	 * @model opposite="pageResult"
 	 * @generated
 	 */
-	EList<OperationResult> getResults();
+	EList<PageMethodResult> getResults();
 
 	/**
 	 * Returns the value of the '<em><b>Size</b></em>' attribute.

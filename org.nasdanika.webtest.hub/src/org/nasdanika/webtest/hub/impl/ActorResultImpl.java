@@ -10,9 +10,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.nasdanika.core.ConverterContext;
+import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.HubPackage;
-import org.nasdanika.webtest.hub.OperationResult;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,8 +54,8 @@ public class ActorResultImpl extends DescriptorImpl implements ActorResult {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<OperationResult> getResults() {
-		return (EList<OperationResult>)eGet(HubPackage.Literals.ACTOR_RESULT__RESULTS, true);
+	public EList<ActorMethodResult> getResults() {
+		return (EList<ActorMethodResult>)eGet(HubPackage.Literals.ACTOR_RESULT__RESULTS, true);
 	}
 	
 	/**
@@ -82,7 +82,7 @@ public class ActorResultImpl extends DescriptorImpl implements ActorResult {
 		if (json.has("results")) {
 			JSONArray res = json.getJSONArray("results");
 			for (int i=0; i<res.length(); ++i) {
-				getResults().add((OperationResult) eResource().getEObject(res.getString(i)));
+				getResults().add((ActorMethodResult) eResource().getEObject(res.getString(i)));
 			}
 		}
 		HubUtil.sessionProgress(this);

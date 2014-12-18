@@ -1585,168 +1585,6 @@ public interface HubPackage extends EPackage {
 	int INITIALIZATION_RESULT = 17;
 
 	/**
-	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__QUALIFIED_NAME = OPERATION_RESULT__QUALIFIED_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__TITLE = OPERATION_RESULT__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__DESCRIPTION = OPERATION_RESULT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Screenshots</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__SCREENSHOTS = OPERATION_RESULT__SCREENSHOTS;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__CHILDREN = OPERATION_RESULT__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Operation Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__OPERATION_NAME = OPERATION_RESULT__OPERATION_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__ARGUMENTS = OPERATION_RESULT__ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Before Timing</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__BEFORE_TIMING = OPERATION_RESULT__BEFORE_TIMING;
-
-	/**
-	 * The feature id for the '<em><b>Before Screenshot</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__BEFORE_SCREENSHOT = OPERATION_RESULT__BEFORE_SCREENSHOT;
-
-	/**
-	 * The feature id for the '<em><b>After Timing</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__AFTER_TIMING = OPERATION_RESULT__AFTER_TIMING;
-
-	/**
-	 * The feature id for the '<em><b>After Screenshot</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__AFTER_SCREENSHOT = OPERATION_RESULT__AFTER_SCREENSHOT;
-
-	/**
-	 * The feature id for the '<em><b>Failure</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__FAILURE = OPERATION_RESULT__FAILURE;
-
-	/**
-	 * The feature id for the '<em><b>Error</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__ERROR = OPERATION_RESULT__ERROR;
-
-	/**
-	 * The feature id for the '<em><b>Start</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__START = OPERATION_RESULT__START;
-
-	/**
-	 * The feature id for the '<em><b>Finish</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__FINISH = OPERATION_RESULT__FINISH;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT__STATUS = OPERATION_RESULT__STATUS;
-
-	/**
-	 * The number of structural features of the '<em>Initialization Result</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT_FEATURE_COUNT = OPERATION_RESULT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Initialization Result</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INITIALIZATION_RESULT_OPERATION_COUNT = OPERATION_RESULT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.MethodResultImpl <em>Method Result</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1929,168 +1767,6 @@ public interface HubPackage extends EPackage {
 	int ACTOR_METHOD_RESULT = 19;
 
 	/**
-	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__QUALIFIED_NAME = METHOD_RESULT__QUALIFIED_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__TITLE = METHOD_RESULT__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__DESCRIPTION = METHOD_RESULT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Screenshots</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__SCREENSHOTS = METHOD_RESULT__SCREENSHOTS;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__CHILDREN = METHOD_RESULT__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Operation Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__OPERATION_NAME = METHOD_RESULT__OPERATION_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__ARGUMENTS = METHOD_RESULT__ARGUMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Before Timing</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__BEFORE_TIMING = METHOD_RESULT__BEFORE_TIMING;
-
-	/**
-	 * The feature id for the '<em><b>Before Screenshot</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__BEFORE_SCREENSHOT = METHOD_RESULT__BEFORE_SCREENSHOT;
-
-	/**
-	 * The feature id for the '<em><b>After Timing</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__AFTER_TIMING = METHOD_RESULT__AFTER_TIMING;
-
-	/**
-	 * The feature id for the '<em><b>After Screenshot</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__AFTER_SCREENSHOT = METHOD_RESULT__AFTER_SCREENSHOT;
-
-	/**
-	 * The feature id for the '<em><b>Failure</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__FAILURE = METHOD_RESULT__FAILURE;
-
-	/**
-	 * The feature id for the '<em><b>Error</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__ERROR = METHOD_RESULT__ERROR;
-
-	/**
-	 * The feature id for the '<em><b>Start</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__START = METHOD_RESULT__START;
-
-	/**
-	 * The feature id for the '<em><b>Finish</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__FINISH = METHOD_RESULT__FINISH;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT__STATUS = METHOD_RESULT__STATUS;
-
-	/**
-	 * The number of structural features of the '<em>Actor Method Result</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT_FEATURE_COUNT = METHOD_RESULT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Actor Method Result</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR_METHOD_RESULT_OPERATION_COUNT = METHOD_RESULT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.PageMethodResultImpl <em>Page Method Result</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2245,13 +1921,22 @@ public interface HubPackage extends EPackage {
 	int PAGE_METHOD_RESULT__STATUS = METHOD_RESULT__STATUS;
 
 	/**
+	 * The feature id for the '<em><b>Page Result</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_METHOD_RESULT__PAGE_RESULT = METHOD_RESULT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Page Method Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_METHOD_RESULT_FEATURE_COUNT = METHOD_RESULT_FEATURE_COUNT + 0;
+	int PAGE_METHOD_RESULT_FEATURE_COUNT = METHOD_RESULT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Page Method Result</em>' class.
@@ -2261,6 +1946,348 @@ public interface HubPackage extends EPackage {
 	 * @ordered
 	 */
 	int PAGE_METHOD_RESULT_OPERATION_COUNT = METHOD_RESULT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__QUALIFIED_NAME = PAGE_METHOD_RESULT__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__TITLE = PAGE_METHOD_RESULT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__DESCRIPTION = PAGE_METHOD_RESULT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Screenshots</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__SCREENSHOTS = PAGE_METHOD_RESULT__SCREENSHOTS;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__CHILDREN = PAGE_METHOD_RESULT__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__OPERATION_NAME = PAGE_METHOD_RESULT__OPERATION_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__ARGUMENTS = PAGE_METHOD_RESULT__ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Before Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__BEFORE_TIMING = PAGE_METHOD_RESULT__BEFORE_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>Before Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__BEFORE_SCREENSHOT = PAGE_METHOD_RESULT__BEFORE_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>After Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__AFTER_TIMING = PAGE_METHOD_RESULT__AFTER_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>After Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__AFTER_SCREENSHOT = PAGE_METHOD_RESULT__AFTER_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>Failure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__FAILURE = PAGE_METHOD_RESULT__FAILURE;
+
+	/**
+	 * The feature id for the '<em><b>Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__ERROR = PAGE_METHOD_RESULT__ERROR;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__START = PAGE_METHOD_RESULT__START;
+
+	/**
+	 * The feature id for the '<em><b>Finish</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__FINISH = PAGE_METHOD_RESULT__FINISH;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__STATUS = PAGE_METHOD_RESULT__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Page Result</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT__PAGE_RESULT = PAGE_METHOD_RESULT__PAGE_RESULT;
+
+	/**
+	 * The number of structural features of the '<em>Initialization Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT_FEATURE_COUNT = PAGE_METHOD_RESULT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Initialization Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZATION_RESULT_OPERATION_COUNT = PAGE_METHOD_RESULT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__QUALIFIED_NAME = METHOD_RESULT__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__TITLE = METHOD_RESULT__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__DESCRIPTION = METHOD_RESULT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Screenshots</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__SCREENSHOTS = METHOD_RESULT__SCREENSHOTS;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__CHILDREN = METHOD_RESULT__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__OPERATION_NAME = METHOD_RESULT__OPERATION_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__ARGUMENTS = METHOD_RESULT__ARGUMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Before Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__BEFORE_TIMING = METHOD_RESULT__BEFORE_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>Before Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__BEFORE_SCREENSHOT = METHOD_RESULT__BEFORE_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>After Timing</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__AFTER_TIMING = METHOD_RESULT__AFTER_TIMING;
+
+	/**
+	 * The feature id for the '<em><b>After Screenshot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__AFTER_SCREENSHOT = METHOD_RESULT__AFTER_SCREENSHOT;
+
+	/**
+	 * The feature id for the '<em><b>Failure</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__FAILURE = METHOD_RESULT__FAILURE;
+
+	/**
+	 * The feature id for the '<em><b>Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__ERROR = METHOD_RESULT__ERROR;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__START = METHOD_RESULT__START;
+
+	/**
+	 * The feature id for the '<em><b>Finish</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__FINISH = METHOD_RESULT__FINISH;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__STATUS = METHOD_RESULT__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Actor Result</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT__ACTOR_RESULT = METHOD_RESULT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Actor Method Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT_FEATURE_COUNT = METHOD_RESULT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Actor Method Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_METHOD_RESULT_OPERATION_COUNT = METHOD_RESULT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.TestMethodResultImpl <em>Test Method Result</em>}' class.
@@ -3556,6 +3583,17 @@ public interface HubPackage extends EPackage {
 	EClass getActorMethodResult();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.webtest.hub.ActorMethodResult#getActorResult <em>Actor Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Actor Result</em>'.
+	 * @see org.nasdanika.webtest.hub.ActorMethodResult#getActorResult()
+	 * @see #getActorMethodResult()
+	 * @generated
+	 */
+	EReference getActorMethodResult_ActorResult();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.PageMethodResult <em>Page Method Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3564,6 +3602,17 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPageMethodResult();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.webtest.hub.PageMethodResult#getPageResult <em>Page Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Page Result</em>'.
+	 * @see org.nasdanika.webtest.hub.PageMethodResult#getPageResult()
+	 * @see #getPageMethodResult()
+	 * @generated
+	 */
+	EReference getPageMethodResult_PageResult();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.TestMethodResult <em>Test Method Result</em>}'.
@@ -4463,6 +4512,14 @@ public interface HubPackage extends EPackage {
 		EClass ACTOR_METHOD_RESULT = eINSTANCE.getActorMethodResult();
 
 		/**
+		 * The meta object literal for the '<em><b>Actor Result</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR_METHOD_RESULT__ACTOR_RESULT = eINSTANCE.getActorMethodResult_ActorResult();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.PageMethodResultImpl <em>Page Method Result</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4471,6 +4528,14 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PAGE_METHOD_RESULT = eINSTANCE.getPageMethodResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Page Result</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAGE_METHOD_RESULT__PAGE_RESULT = eINSTANCE.getPageMethodResult_PageResult();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.TestMethodResultImpl <em>Test Method Result</em>}' class.

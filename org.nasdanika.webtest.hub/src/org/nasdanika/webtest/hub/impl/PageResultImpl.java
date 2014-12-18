@@ -11,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.nasdanika.core.ConverterContext;
 import org.nasdanika.webtest.hub.HubPackage;
-import org.nasdanika.webtest.hub.OperationResult;
+import org.nasdanika.webtest.hub.PageMethodResult;
 import org.nasdanika.webtest.hub.PageResult;
 
 /**
@@ -55,8 +55,8 @@ public class PageResultImpl extends DescriptorImpl implements PageResult {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<OperationResult> getResults() {
-		return (EList<OperationResult>)eGet(HubPackage.Literals.PAGE_RESULT__RESULTS, true);
+	public EList<PageMethodResult> getResults() {
+		return (EList<PageMethodResult>)eGet(HubPackage.Literals.PAGE_RESULT__RESULTS, true);
 	}
 	
 	/**
@@ -104,7 +104,7 @@ public class PageResultImpl extends DescriptorImpl implements PageResult {
 		if (json.has("results")) {
 			JSONArray res = json.getJSONArray("results");
 			for (int i=0; i<res.length(); ++i) {
-				getResults().add((OperationResult) eResource().getEObject(res.getString(i)));
+				getResults().add((PageMethodResult) eResource().getEObject(res.getString(i)));
 			}
 		}
 		HubUtil.sessionProgress(this);

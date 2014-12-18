@@ -13,5 +13,5 @@ package org.nasdanika.webtest.hub;
  * @model
  * @generated
  */
-public interface InitializationResult extends OperationResult {
+public interface InitializationResult extends PageMethodResult {
 } // InitializationResult

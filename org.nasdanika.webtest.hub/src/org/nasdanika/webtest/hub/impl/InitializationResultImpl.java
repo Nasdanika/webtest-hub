@@ -3,6 +3,8 @@
 package org.nasdanika.webtest.hub.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.nasdanika.html.FontAwesome.WebApplication;
+import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.InitializationResult;
 
@@ -15,7 +17,7 @@ import org.nasdanika.webtest.hub.InitializationResult;
  *
  * @generated
  */
-public class InitializationResultImpl extends OperationResultImpl implements InitializationResult {
+public class InitializationResultImpl extends PageMethodResultImpl implements InitializationResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -33,6 +35,11 @@ public class InitializationResultImpl extends OperationResultImpl implements Ini
 	@Override
 	protected EClass eStaticClass() {
 		return HubPackage.Literals.INITIALIZATION_RESULT;
+	}
+	
+	@Override
+	public Object getIcon(HTMLFactory htmlFactory) throws Exception {
+		return htmlFactory.fontAwesome().webApplication(WebApplication.bolt);
 	}
 
 } //InitializationResultImpl

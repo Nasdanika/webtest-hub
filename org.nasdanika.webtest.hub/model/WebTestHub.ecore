@@ -122,10 +122,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="native" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InitializationResult" eSuperTypes="#//OperationResult"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InitializationResult" eSuperTypes="#//PageMethodResult"/>
   <eClassifiers xsi:type="ecore:EClass" name="MethodResult" eSuperTypes="#//OperationResult"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ActorMethodResult" eSuperTypes="#//MethodResult"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PageMethodResult" eSuperTypes="#//MethodResult"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActorMethodResult" eSuperTypes="#//MethodResult">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actorResult" eType="#//ActorResult"
+        eOpposite="#//ActorResult/results"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PageMethodResult" eSuperTypes="#//MethodResult">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pageResult" eType="#//PageResult"
+        eOpposite="#//PageResult/results"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestMethodResult" eSuperTypes="#//OperationResult">
     <eOperations name="loadTiming" eType="ecore:EClass ../../org.nasdanika.webtest.performance/model/performance.ecore#//TimingBase"
         eExceptions="#//Exception">
@@ -143,13 +149,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActorResult" eSuperTypes="#//Descriptor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="results" upperBound="-1"
-        eType="#//OperationResult"/>
+        eType="#//ActorMethodResult" eOpposite="#//ActorMethodResult/actorResult"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="coverage" upperBound="-1"
         eType="#//CoverageEntry" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PageResult" eSuperTypes="#//Descriptor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="results" upperBound="-1"
-        eType="#//OperationResult"/>
+        eType="#//PageMethodResult" eOpposite="#//PageMethodResult/pageResult"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="coverage" upperBound="-1"
         eType="#//CoverageEntry" containment="true"/>

@@ -25,7 +25,8 @@ import org.eclipse.emf.common.util.EMap;
 public interface ActorResult extends Descriptor {
 	/**
 	 * Returns the value of the '<em><b>Results</b></em>' reference list.
-	 * The list contents are of type {@link org.nasdanika.webtest.hub.OperationResult}.
+	 * The list contents are of type {@link org.nasdanika.webtest.hub.ActorMethodResult}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.webtest.hub.ActorMethodResult#getActorResult <em>Actor Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Results</em>' reference list isn't clear,
@@ -34,10 +35,11 @@ public interface ActorResult extends Descriptor {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Results</em>' reference list.
 	 * @see org.nasdanika.webtest.hub.HubPackage#getActorResult_Results()
-	 * @model
+	 * @see org.nasdanika.webtest.hub.ActorMethodResult#getActorResult
+	 * @model opposite="actorResult"
 	 * @generated
 	 */
-	EList<OperationResult> getResults();
+	EList<ActorMethodResult> getResults();
 
 	/**
 	 * Returns the value of the '<em><b>Coverage</b></em>' map.

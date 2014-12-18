@@ -226,6 +226,8 @@ public class HubSwitch<T> extends Switch<T> {
 			case HubPackage.INITIALIZATION_RESULT: {
 				InitializationResult initializationResult = (InitializationResult)theEObject;
 				T result = caseInitializationResult(initializationResult);
+				if (result == null) result = casePageMethodResult(initializationResult);
+				if (result == null) result = caseMethodResult(initializationResult);
 				if (result == null) result = caseOperationResult(initializationResult);
 				if (result == null) result = caseDescriptor(initializationResult);
 				if (result == null) result = caseJSONLoader(initializationResult);

@@ -27,6 +27,7 @@ import org.json.JSONTokener;
 import org.nasdanika.core.ConverterContext;
 import org.nasdanika.html.Carousel;
 import org.nasdanika.html.Carousel.Slide;
+import org.nasdanika.html.FontAwesome.Directional;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
@@ -42,11 +43,15 @@ import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
+import org.nasdanika.webtest.hub.ActorMethodResult;
+import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.OperationResult;
 import org.nasdanika.webtest.hub.OperationStatus;
+import org.nasdanika.webtest.hub.PageMethodResult;
+import org.nasdanika.webtest.hub.PageResult;
 import org.nasdanika.webtest.hub.Screenshot;
 import org.nasdanika.webtest.hub.TestMethodResult;
 import org.nasdanika.webtest.hub.Throwable;
@@ -531,7 +536,15 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 			row.style(Style.WARNING);
 		}
 		
-		Object caption = getIcon(htmlFactory)+"&nbsp;"+StringEscapeUtils.escapeHtml4(getTitle());
+		Object caption = getIcon(htmlFactory)+"&nbsp;";
+		if (this instanceof PageMethodResult) {
+			PageResult pr = ((PageMethodResult) this).getPageResult();
+			caption+=StringEscapeUtils.escapeHtml4(pr.getTitle())+"&nbsp;"+htmlFactory.fontAwesome().directional(Directional.caret_right)+"&nbsp;";
+		} else if (this instanceof ActorMethodResult) {
+			ActorResult ar = ((ActorMethodResult) this).getActorResult();
+			caption+=StringEscapeUtils.escapeHtml4(ar.getTitle())+"&nbsp;"+htmlFactory.fontAwesome().directional(Directional.caret_right)+"&nbsp;";			
+		}
+		caption += StringEscapeUtils.escapeHtml4(getTitle());
 		int slideIdx = -1;
 		Screenshot beforeScreenshot = getBeforeScreenshot();
 		if (beforeScreenshot!=null) {
@@ -631,9 +644,9 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 				
 				Table methodTable = htmlFactory.table().bordered();
 				Row headerRow = methodTable.row().style(Style.INFO);
-				headerRow.header(htmlFactory.glyphicon(Glyphicon.cog), " Method");
-				headerRow.header(htmlFactory.glyphicon(Glyphicon.file), " Description");
-				headerRow.header(htmlFactory.glyphicon(Glyphicon.time), " Duration");
+				headerRow.header(htmlFactory.glyphicon(Glyphicon.cog), " Method").style("text-align", "center");
+				headerRow.header(htmlFactory.glyphicon(Glyphicon.file), " Description").style("text-align", "center");
+				headerRow.header(htmlFactory.glyphicon(Glyphicon.time), " Duration").style("text-align", "center");
 				genRows(htmlFactory, methodTable, screenshotCarousel.getId(), getScreenshots(), 0);
 				
 				// TODO - parameters - method to override.

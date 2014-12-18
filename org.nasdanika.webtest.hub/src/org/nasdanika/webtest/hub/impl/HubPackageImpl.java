@@ -3,6 +3,7 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.util.Map;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -1040,8 +1041,26 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getActorMethodResult_ActorResult() {
+		return (EReference)actorMethodResultEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPageMethodResult() {
 		return pageMethodResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPageMethodResult_PageResult() {
+		return (EReference)pageMethodResultEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1333,8 +1352,10 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		methodResultEClass = createEClass(METHOD_RESULT);
 
 		actorMethodResultEClass = createEClass(ACTOR_METHOD_RESULT);
+		createEReference(actorMethodResultEClass, ACTOR_METHOD_RESULT__ACTOR_RESULT);
 
 		pageMethodResultEClass = createEClass(PAGE_METHOD_RESULT);
+		createEReference(pageMethodResultEClass, PAGE_METHOD_RESULT__PAGE_RESULT);
 
 		testMethodResultEClass = createEClass(TEST_METHOD_RESULT);
 		createEAttribute(testMethodResultEClass, TEST_METHOD_RESULT__PARAMETERS);
@@ -1411,7 +1432,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		operationResultEClass.getESuperTypes().add(this.getDescriptor());
 		throwableEClass.getESuperTypes().add(this.getJSONLoader());
 		stackTraceEntryEClass.getESuperTypes().add(this.getJSONLoader());
-		initializationResultEClass.getESuperTypes().add(this.getOperationResult());
+		initializationResultEClass.getESuperTypes().add(this.getPageMethodResult());
 		methodResultEClass.getESuperTypes().add(this.getOperationResult());
 		actorMethodResultEClass.getESuperTypes().add(this.getMethodResult());
 		pageMethodResultEClass.getESuperTypes().add(this.getMethodResult());
@@ -1519,8 +1540,10 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEClass(methodResultEClass, MethodResult.class, "MethodResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(actorMethodResultEClass, ActorMethodResult.class, "ActorMethodResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getActorMethodResult_ActorResult(), this.getActorResult(), this.getActorResult_Results(), "actorResult", null, 0, 1, ActorMethodResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pageMethodResultEClass, PageMethodResult.class, "PageMethodResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPageMethodResult_PageResult(), this.getPageResult(), this.getPageResult_Results(), "pageResult", null, 0, 1, PageMethodResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(testMethodResultEClass, TestMethodResult.class, "TestMethodResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTestMethodResult_Parameters(), ecorePackage.getEString(), "parameters", null, 0, -1, TestMethodResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1535,11 +1558,11 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getCoverageEntry_Value(), ecorePackage.getEIntegerObject(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actorResultEClass, ActorResult.class, "ActorResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getActorResult_Results(), this.getOperationResult(), null, "results", null, 0, -1, ActorResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActorResult_Results(), this.getActorMethodResult(), this.getActorMethodResult_ActorResult(), "results", null, 0, -1, ActorResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActorResult_Coverage(), this.getCoverageEntry(), null, "coverage", null, 0, -1, ActorResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pageResultEClass, PageResult.class, "PageResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPageResult_Results(), this.getOperationResult(), null, "results", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPageResult_Results(), this.getPageMethodResult(), this.getPageMethodResult_PageResult(), "results", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPageResult_Size(), ecorePackage.getEInt(), "size", null, 0, 1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPageResult_Coverage(), this.getCoverageEntry(), null, "coverage", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
