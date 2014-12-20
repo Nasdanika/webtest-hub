@@ -3,6 +3,7 @@
 package org.nasdanika.webtest.hub;
 
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Table.Row;
 import org.nasdanika.web.HttpContext;
 

@@ -3,6 +3,8 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.GZIPInputStream;
@@ -17,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.core.ConverterContext;
+import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.Table;
@@ -25,10 +28,12 @@ import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
+import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.TestClassResult;
 import org.nasdanika.webtest.hub.TestMethodResult;
+import org.nasdanika.webtest.hub.TestSession;
 
 /**
  * <!-- begin-user-doc -->
@@ -135,16 +140,17 @@ public class TestClassResultImpl extends TestResultImpl implements TestClassResu
 					tmr.genRow(context, methodTable);
 				}
 				
-//				Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs().id("test-session-breadcrumbs");
-//				breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer().eContainer().eContainer()))+"/summary", "Home");
-//				breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer().eContainer()))+".html", StringEscapeUtils.escapeHtml4(((Application) eContainer().eContainer()).getName()));
-//
-//				String title = StringEscapeUtils.escapeHtml4(getTitle())+" "+new SimpleDateFormat(TestSessionImpl.DATE_PATTERN).format(new Date(((TestSession) eContainer()).getTimestamp()));
-//				breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer()))+".html", title);
-//
-//				breadcrumbs.item(null, StringEscapeUtils.escapeHtml4(getTitle()));
+				Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs();
+				breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer().eContainer().eContainer()))+"/summary", "Home");
+				breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer().eContainer()))+".html", StringEscapeUtils.escapeHtml4(((Application) eContainer().eContainer()).getName()));
+
+				String title = StringEscapeUtils.escapeHtml4(((TestSession) eContainer()).getTitle())+" "+new SimpleDateFormat(TestSessionImpl.DATE_PATTERN).format(new Date(((TestSession) eContainer()).getTimestamp()));
+				breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer()))+".html", title);
+
+				breadcrumbs.item(null, StringEscapeUtils.escapeHtml4(getTitle()));
 								
-				return 	htmlFactory.tag("H3", getIcon(htmlFactory).toString(), " ", StringEscapeUtils.escapeHtml4(getTitle())).toString() +
+				return 	htmlFactory.inject("#breadcrumbs-container", breadcrumbs).toString() + 
+						htmlFactory.tag("H3", getIcon(htmlFactory), " ", StringEscapeUtils.escapeHtml4(getTitle())) +
 						getDescription().toHTML() +
 						"<P/>" +
 						methodTable; 

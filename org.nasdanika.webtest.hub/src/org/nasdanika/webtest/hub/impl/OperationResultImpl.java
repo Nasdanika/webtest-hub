@@ -48,6 +48,7 @@ import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
+import org.nasdanika.webtest.hub.InitializationResult;
 import org.nasdanika.webtest.hub.OperationResult;
 import org.nasdanika.webtest.hub.OperationStatus;
 import org.nasdanika.webtest.hub.PageMethodResult;
@@ -537,7 +538,9 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 		}
 		
 		Object caption = getIcon(htmlFactory)+"&nbsp;";
-		if (this instanceof PageMethodResult) {
+		if (this instanceof InitializationResult) {
+			caption+=StringEscapeUtils.escapeHtml4(((PageMethodResult) this).getPageResult().getTitle());			
+		} else if (this instanceof PageMethodResult) {
 			PageResult pr = ((PageMethodResult) this).getPageResult();
 			caption+=StringEscapeUtils.escapeHtml4(pr.getTitle())+"&nbsp;"+htmlFactory.fontAwesome().directional(Directional.caret_right)+"&nbsp;";
 		} else if (this instanceof ActorMethodResult) {

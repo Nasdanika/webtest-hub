@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hub" nsURI="urn:org.nasdanika.webtest.hub" nsPrefix="org.nasdanika.webtest.hub">
-  <eClassifiers xsi:type="ecore:EClass" name="Hub" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordProtectionDomain #//ApplicationOwner">
+  <eClassifiers xsi:type="ecore:EClass" name="Hub" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordProtectionDomain #//ApplicationOwner #//BreadcrumbsProvider">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guest" eType="#//Guest"
         containment="true"/>
@@ -17,7 +17,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Guest" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//User"/>
   <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//ApplicationOwner ../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordHashUser"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Application">
+  <eClassifiers xsi:type="ecore:EClass" name="Application" eSuperTypes="#//BreadcrumbsProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="testSessions" upperBound="-1"
         eType="#//TestSession" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="securityToken" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -38,7 +38,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="html" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TestSession" eSuperTypes="#//Descriptor">
+  <eClassifiers xsi:type="ecore:EClass" name="TestSession" eSuperTypes="#//Descriptor #//BreadcrumbsProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="results" upperBound="-1"
         eType="#//TestResult" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="published" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -53,7 +53,7 @@
     <eLiterals name="Error" value="2"/>
     <eLiterals name="Pending" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TestResult" eSuperTypes="#//Descriptor">
+  <eClassifiers xsi:type="ecore:EClass" name="TestResult" eSuperTypes="#//Descriptor #//BreadcrumbsProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pageResults" upperBound="-1"
         eType="#//PageResult" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actorResults" upperBound="-1"
@@ -87,7 +87,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="afterOperations" upperBound="-1"
         eType="#//OperationResult" eOpposite="#//OperationResult/afterScreenshot"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OperationResult" eSuperTypes="#//Descriptor">
+  <eClassifiers xsi:type="ecore:EClass" name="OperationResult" eSuperTypes="#//Descriptor #//BreadcrumbsProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="screenshots" upperBound="-1"
         eType="#//Screenshot"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
@@ -147,13 +147,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActorResult" eSuperTypes="#//Descriptor">
+  <eClassifiers xsi:type="ecore:EClass" name="ActorResult" eSuperTypes="#//Descriptor #//BreadcrumbsProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="results" upperBound="-1"
         eType="#//ActorMethodResult" eOpposite="#//ActorMethodResult/actorResult"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="coverage" upperBound="-1"
         eType="#//CoverageEntry" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PageResult" eSuperTypes="#//Descriptor">
+  <eClassifiers xsi:type="ecore:EClass" name="PageResult" eSuperTypes="#//Descriptor #//BreadcrumbsProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="results" upperBound="-1"
         eType="#//PageMethodResult" eOpposite="#//PageMethodResult/pageResult"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -162,6 +162,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="JSONObject" instanceClassName="org.json.JSONObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="JSONLoader" instanceClassName="org.nasdanika.core.JSONLoader"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BreadcrumbsProvider" instanceClassName="org.nasdanika.webtest.hub.BreadcrumbsProvider"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
 </ecore:EPackage>

@@ -251,7 +251,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 				for (Application a: getApplications()) {
 					a.summaryRow(context, applicationsTable.row());
 				}
-				return breadcrumbs.toString()+htmlFactory.panel(
+				return htmlFactory.div(breadcrumbs).id("breadcrumbs-container").toString()+htmlFactory.panel(
 						Style.INFO, 
 						"Applications", 
 						applicationsTable, 

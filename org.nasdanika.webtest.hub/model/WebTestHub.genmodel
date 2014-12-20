@@ -138,5 +138,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//PageResult/coverage"/>
     </genClasses>
     <genClasses image="false" ecoreClass="WebTestHub.ecore#//JSONLoader"/>
+    <genClasses image="false" ecoreClass="WebTestHub.ecore#//BreadcrumbsProvider"/>
   </genPackages>
 </genmodel:GenModel>

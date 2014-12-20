@@ -333,14 +333,14 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 			leftPanel.content(htmlFactory.collapsible(Style.INFO, htmlFactory.glyphicon(Glyphicon.list_alt)+" Pages", false, pagesLeftPanel));
 		}
 		
-		Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs().id("test-session-breadcrumbs");
+		Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs();
 		breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer().eContainer()))+"/summary", "Home");
 		breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer()))+".html", StringEscapeUtils.escapeHtml4(((Application) eContainer()).getName()));
 
 		String title = StringEscapeUtils.escapeHtml4(getTitle())+" "+new SimpleDateFormat(DATE_PATTERN).format(new Date(getTimestamp()));
 		breadcrumbs.item(null, title);
 		
-		return	breadcrumbs.toString() + 
+		return	htmlFactory.div(breadcrumbs).id("breadcrumbs-container").toString() + 
 				htmlFactory.div(leftPanel).addClass("col-"+DeviceSize.LARGE.code+"-"+leftPanelWidth) +
 				htmlFactory.div(summary(context)).id("right-panel").addClass("col-"+DeviceSize.LARGE.code+"-"+(12-leftPanelWidth)) +
 				htmlFactory.title(title); 

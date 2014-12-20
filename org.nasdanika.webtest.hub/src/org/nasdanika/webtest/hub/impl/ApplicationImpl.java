@@ -241,7 +241,7 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 				breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer()))+"/summary", "Home");
 				breadcrumbs.item(null, StringEscapeUtils.escapeHtml4(getName()));
 				
-				return	breadcrumbs.toString()+
+				return	htmlFactory.div(breadcrumbs).id("breadcrumbs-container").toString()+
 						htmlFactory.tag("H3", StringEscapeUtils.escapeHtml4(getName())) +
 						(getDescription()==null ? "" : getDescription()) +
 						htmlFactory.panel(Style.INFO, "Test sessions", testSessionsTable, null) +
