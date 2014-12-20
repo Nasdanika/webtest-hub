@@ -5,8 +5,6 @@ package org.nasdanika.webtest.hub;
 import org.eclipse.emf.common.util.EList;
 import org.nasdanika.cdo.security.Group;
 import org.nasdanika.cdo.security.LoginPasswordProtectionDomain;
-import org.nasdanika.html.Breadcrumbs;
-import org.nasdanika.web.HttpContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,10 +23,10 @@ import org.nasdanika.web.HttpContext;
  * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getHub()
- * @model
+ * @model superTypes="org.nasdanika.cdo.security.LoginPasswordProtectionDomain org.nasdanika.webtest.hub.ApplicationOwner org.nasdanika.webtest.hub.BreadcrumbsProvider"
  * @generated
  */
-public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner {
+public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, BreadcrumbsProvider {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

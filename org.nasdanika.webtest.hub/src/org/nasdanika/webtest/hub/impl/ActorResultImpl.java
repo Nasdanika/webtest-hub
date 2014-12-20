@@ -4,14 +4,20 @@ package org.nasdanika.webtest.hub.impl;
 
 import java.util.Iterator;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.nasdanika.core.ConverterContext;
+import org.nasdanika.html.Breadcrumbs;
+import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.HTMLFactory.Glyphicon;
+import org.nasdanika.web.HttpContext;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
+import org.nasdanika.webtest.hub.BreadcrumbsProvider;
 import org.nasdanika.webtest.hub.HubPackage;
 
 /**
@@ -86,6 +92,17 @@ public class ActorResultImpl extends DescriptorImpl implements ActorResult {
 			}
 		}
 		HubUtil.sessionProgress(this);
+	}
+	
+	@Override
+	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+		Breadcrumbs ret = ((BreadcrumbsProvider) eContainer()).createBreadcrumbs(context, false);		
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+		ret.item(active ? null : htmlFactory.routeRef("right-panel", "/"+context.getObjectPath(this))+".html",
+				htmlFactory.glyphicon(Glyphicon.user),
+				"&nbsp;",
+				StringEscapeUtils.escapeHtml4(getTitle()));		
+		return ret;
 	}
 
 } //ActorResultImpl

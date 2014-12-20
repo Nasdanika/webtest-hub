@@ -471,6 +471,34 @@ public interface HubPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.BreadcrumbsProvider <em>Breadcrumbs Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.BreadcrumbsProvider
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getBreadcrumbsProvider()
+	 * @generated
+	 */
+	int BREADCRUMBS_PROVIDER = 26;
+
+	/**
+	 * The number of structural features of the '<em>Breadcrumbs Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREADCRUMBS_PROVIDER_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Breadcrumbs Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREADCRUMBS_PROVIDER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.ApplicationImpl <em>Application</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -487,7 +515,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__TEST_SESSIONS = 0;
+	int APPLICATION__TEST_SESSIONS = BREADCRUMBS_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Security Token</b></em>' attribute.
@@ -496,7 +524,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__SECURITY_TOKEN = 1;
+	int APPLICATION__SECURITY_TOKEN = BREADCRUMBS_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Screenshots</b></em>' containment reference list.
@@ -505,7 +533,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__SCREENSHOTS = 2;
+	int APPLICATION__SCREENSHOTS = BREADCRUMBS_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -514,7 +542,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__NAME = 3;
+	int APPLICATION__NAME = BREADCRUMBS_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -523,7 +551,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__DESCRIPTION = 4;
+	int APPLICATION__DESCRIPTION = BREADCRUMBS_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Application</em>' class.
@@ -532,7 +560,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = 5;
+	int APPLICATION_FEATURE_COUNT = BREADCRUMBS_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Application</em>' class.
@@ -541,7 +569,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_OPERATION_COUNT = 0;
+	int APPLICATION_OPERATION_COUNT = BREADCRUMBS_PROVIDER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.core.JSONLoader <em>JSON Loader</em>}' class.
@@ -2697,7 +2725,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getOperationStatus()
 	 * @generated
 	 */
-	int OPERATION_STATUS = 26;
+	int OPERATION_STATUS = 27;
 
 	/**
 	 * The meta object id for the '<em>JSON Object</em>' data type.
@@ -2707,7 +2735,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONObject()
 	 * @generated
 	 */
-	int JSON_OBJECT = 27;
+	int JSON_OBJECT = 28;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -2717,7 +2745,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 28;
+	int EXCEPTION = 29;
 
 
 	/**
@@ -3777,6 +3805,17 @@ public interface HubPackage extends EPackage {
 	EClass getJSONLoader();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.BreadcrumbsProvider <em>Breadcrumbs Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Breadcrumbs Provider</em>'.
+	 * @see org.nasdanika.webtest.hub.BreadcrumbsProvider
+	 * @model instanceClass="org.nasdanika.webtest.hub.BreadcrumbsProvider"
+	 * @generated
+	 */
+	EClass getBreadcrumbsProvider();
+
+	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4666,6 +4705,16 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass JSON_LOADER = eINSTANCE.getJSONLoader();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.BreadcrumbsProvider <em>Breadcrumbs Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.BreadcrumbsProvider
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getBreadcrumbsProvider()
+		 * @generated
+		 */
+		EClass BREADCRUMBS_PROVIDER = eINSTANCE.getBreadcrumbsProvider();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}' enum.

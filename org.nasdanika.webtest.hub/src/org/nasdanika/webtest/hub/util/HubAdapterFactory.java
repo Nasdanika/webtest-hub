@@ -16,6 +16,7 @@ import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
+import org.nasdanika.webtest.hub.BreadcrumbsProvider;
 import org.nasdanika.webtest.hub.Description;
 import org.nasdanika.webtest.hub.Descriptor;
 import org.nasdanika.webtest.hub.Guest;
@@ -195,6 +196,10 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseJSONLoader(JSONLoader object) {
 				return createJSONLoaderAdapter();
+			}
+			@Override
+			public Adapter caseBreadcrumbsProvider(BreadcrumbsProvider object) {
+				return createBreadcrumbsProviderAdapter();
 			}
 			@Override
 			public <CR> Adapter caseProtectionDomain(ProtectionDomain<CR> object) {
@@ -597,6 +602,20 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJSONLoaderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.BreadcrumbsProvider <em>Breadcrumbs Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.BreadcrumbsProvider
+	 * @generated
+	 */
+	public Adapter createBreadcrumbsProviderAdapter() {
 		return null;
 	}
 

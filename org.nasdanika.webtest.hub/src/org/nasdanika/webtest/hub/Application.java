@@ -24,11 +24,11 @@ import org.nasdanika.web.HttpContext;
  * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getApplication()
- * @model
+ * @model superTypes="org.nasdanika.webtest.hub.BreadcrumbsProvider"
  * @extends CDOObject
  * @generated
  */
-public interface Application extends CDOObject {
+public interface Application extends CDOObject, BreadcrumbsProvider {
 	/**
 	 * Returns the value of the '<em><b>Test Sessions</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.webtest.hub.TestSession}.

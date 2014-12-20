@@ -19,10 +19,10 @@ import org.nasdanika.html.HTMLFactory;
  * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getTestResult()
- * @model
+ * @model superTypes="org.nasdanika.webtest.hub.Descriptor org.nasdanika.webtest.hub.BreadcrumbsProvider"
  * @generated
  */
-public interface TestResult extends Descriptor {
+public interface TestResult extends Descriptor, BreadcrumbsProvider {
 
 	/**
 	 * Returns the value of the '<em><b>Page Results</b></em>' containment reference list.

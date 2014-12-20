@@ -35,10 +35,10 @@ import org.nasdanika.webtest.performance.TimingBase;
  * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult()
- * @model
+ * @model superTypes="org.nasdanika.webtest.hub.Descriptor org.nasdanika.webtest.hub.BreadcrumbsProvider"
  * @generated
  */
-public interface OperationResult extends Descriptor {
+public interface OperationResult extends Descriptor, BreadcrumbsProvider {
 	/**
 	 * Returns the value of the '<em><b>Screenshots</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.webtest.hub.Screenshot}.

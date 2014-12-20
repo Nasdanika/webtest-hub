@@ -24,6 +24,7 @@ import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
+import org.nasdanika.webtest.hub.BreadcrumbsProvider;
 import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubPackage;
@@ -172,6 +173,11 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 				default: return -1;
 			}
 		}
+		if (baseClass == BreadcrumbsProvider.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -185,6 +191,11 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		if (baseClass == ApplicationOwner.class) {
 			switch (baseFeatureID) {
 				case HubPackage.APPLICATION_OWNER__APPLICATIONS: return HubPackage.HUB__APPLICATIONS;
+				default: return -1;
+			}
+		}
+		if (baseClass == BreadcrumbsProvider.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}
@@ -220,8 +231,6 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		if (!context.authorize(this, "read", null, null)) {
 			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
 		}	
-		Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs();
-		breadcrumbs.item(null, "Home");
 		Table applicationsTable = htmlFactory.table().bordered();
 		Row hRow = applicationsTable.row().style(Style.INFO);
 		hRow.header("Name").rowspan(2).style("text-align", "center").attribute("nowrap", "true");
@@ -251,7 +260,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 				for (Application a: getApplications()) {
 					a.summaryRow(context, applicationsTable.row());
 				}
-				return htmlFactory.div(breadcrumbs).id("breadcrumbs-container").toString()+htmlFactory.panel(
+				return htmlFactory.div(createBreadcrumbs(context, true)).id("breadcrumbs-container").toString()+htmlFactory.panel(
 						Style.INFO, 
 						"Applications", 
 						applicationsTable, 
@@ -264,5 +273,12 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		}
 	}
 	
+	@Override
+	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+		Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs();
+		breadcrumbs.item(active ? null : htmlFactory.routeRef("main", "/"+context.getObjectPath(this))+"/summary", "Home");
+		return breadcrumbs;
+	}
 
 } //HubImpl

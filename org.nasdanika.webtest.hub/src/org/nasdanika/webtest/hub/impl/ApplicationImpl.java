@@ -30,6 +30,7 @@ import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.Application;
+import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.Screenshot;
@@ -237,11 +238,8 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 				for (TestSession ts: getTestSessions()) {
 					ts.summaryRow(context, testSessionsTable.row());
 				}
-				Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs();
-				breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer()))+"/summary", "Home");
-				breadcrumbs.item(null, StringEscapeUtils.escapeHtml4(getName()));
 				
-				return	htmlFactory.div(breadcrumbs).id("breadcrumbs-container").toString()+
+				return	htmlFactory.div(createBreadcrumbs(context, true)).id("breadcrumbs-container").toString()+
 						htmlFactory.tag("H3", StringEscapeUtils.escapeHtml4(getName())) +
 						(getDescription()==null ? "" : getDescription()) +
 						htmlFactory.panel(Style.INFO, "Test sessions", testSessionsTable, null) +
@@ -252,6 +250,13 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 		} else {
 			return htmlFactory.alert(Style.WARNING, false, "The system is overloaded, please try again later.").toString(); 			
 		}
+	}
+	
+	@Override
+	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+		Breadcrumbs ret = ((Hub) eContainer()).createBreadcrumbs(context, false);
+		ret.item(active ? null : context.adapt(HTMLFactory.class).routeRef("main", "/"+context.getObjectPath(this))+".html", StringEscapeUtils.escapeHtml4(getName()));		
+		return ret;
 	}
 	
 	@Override

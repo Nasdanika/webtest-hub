@@ -3,7 +3,6 @@
 package org.nasdanika.webtest.hub;
 
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Table.Row;
 import org.nasdanika.web.HttpContext;
 
@@ -25,10 +24,10 @@ import org.nasdanika.web.HttpContext;
  * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getTestSession()
- * @model
+ * @model superTypes="org.nasdanika.webtest.hub.Descriptor org.nasdanika.webtest.hub.BreadcrumbsProvider"
  * @generated
  */
-public interface TestSession extends Descriptor {
+public interface TestSession extends Descriptor, BreadcrumbsProvider {
 	/**
 	 * Returns the value of the '<em><b>Results</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.webtest.hub.TestResult}.

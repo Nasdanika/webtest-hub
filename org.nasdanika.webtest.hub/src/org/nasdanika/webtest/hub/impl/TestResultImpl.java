@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -14,11 +15,13 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.core.ConverterContext;
 import org.nasdanika.html.FontAwesome.WebApplication;
+import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.ActorResult;
+import org.nasdanika.webtest.hub.BreadcrumbsProvider;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.PageResult;
@@ -127,6 +130,17 @@ public class TestResultImpl extends DescriptorImpl implements TestResult {
 	@Override 
 	public Object getIcon(HTMLFactory htmlFactory) {
 		return htmlFactory.fontAwesome().webApplication(WebApplication.flask);
+	}
+	
+	@Override
+	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+		Breadcrumbs ret = ((BreadcrumbsProvider) eContainer()).createBreadcrumbs(context, false);		
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+		ret.item(active ? null : htmlFactory.routeRef("right-panel", "/"+context.getObjectPath(this))+".html",
+				getIcon(htmlFactory),
+				"&nbsp;",
+				StringEscapeUtils.escapeHtml4(getTitle()));		
+		return ret;
 	}
 	
 } //TestResultImpl

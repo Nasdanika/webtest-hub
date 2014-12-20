@@ -19,10 +19,10 @@ import org.eclipse.emf.common.util.EMap;
  * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getActorResult()
- * @model
+ * @model superTypes="org.nasdanika.webtest.hub.Descriptor org.nasdanika.webtest.hub.BreadcrumbsProvider"
  * @generated
  */
-public interface ActorResult extends Descriptor {
+public interface ActorResult extends Descriptor, BreadcrumbsProvider {
 	/**
 	 * Returns the value of the '<em><b>Results</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.webtest.hub.ActorMethodResult}.

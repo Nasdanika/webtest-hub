@@ -20,10 +20,10 @@ import org.eclipse.emf.common.util.EMap;
  * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getPageResult()
- * @model
+ * @model superTypes="org.nasdanika.webtest.hub.Descriptor org.nasdanika.webtest.hub.BreadcrumbsProvider"
  * @generated
  */
-public interface PageResult extends Descriptor {
+public interface PageResult extends Descriptor, BreadcrumbsProvider {
 	/**
 	 * Returns the value of the '<em><b>Results</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.webtest.hub.PageMethodResult}.

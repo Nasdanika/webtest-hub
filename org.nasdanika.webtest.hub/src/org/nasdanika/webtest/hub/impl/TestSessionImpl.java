@@ -40,6 +40,7 @@ import org.nasdanika.html.LinkGroup;
 import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Table.Row.Cell;
+import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.Tabs;
 import org.nasdanika.html.UIElement.DeviceSize;
 import org.nasdanika.html.UIElement.HTMLColor;
@@ -333,17 +334,20 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 			leftPanel.content(htmlFactory.collapsible(Style.INFO, htmlFactory.glyphicon(Glyphicon.list_alt)+" Pages", false, pagesLeftPanel));
 		}
 		
-		Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs();
-		breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer().eContainer()))+"/summary", "Home");
-		breadcrumbs.item(htmlFactory.routeRef("main", "/"+context.getObjectPath(eContainer()))+".html", StringEscapeUtils.escapeHtml4(((Application) eContainer()).getName()));
-
 		String title = StringEscapeUtils.escapeHtml4(getTitle())+" "+new SimpleDateFormat(DATE_PATTERN).format(new Date(getTimestamp()));
-		breadcrumbs.item(null, title);
 		
-		return	htmlFactory.div(breadcrumbs).id("breadcrumbs-container").toString() + 
+		return	htmlFactory.div().id("breadcrumbs-container").toString() + 
 				htmlFactory.div(leftPanel).addClass("col-"+DeviceSize.LARGE.code+"-"+leftPanelWidth) +
 				htmlFactory.div(summary(context)).id("right-panel").addClass("col-"+DeviceSize.LARGE.code+"-"+(12-leftPanelWidth)) +
 				htmlFactory.title(title); 
+	}
+	
+	@Override
+	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+		Breadcrumbs ret = ((Application) eContainer()).createBreadcrumbs(context, false);
+		String title = StringEscapeUtils.escapeHtml4(getTitle())+" "+new SimpleDateFormat(DATE_PATTERN).format(new Date(getTimestamp()));
+		ret.item(active ? null : context.adapt(HTMLFactory.class).routeRef("main", "/"+context.getObjectPath(this))+".html", title);		
+		return ret;
 	}
 	
 	private Object pagesLeftPanel(HttpContext context, HTMLFactory htmlFactory) throws Exception {
@@ -408,7 +412,8 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 			}
 		}
 		
-		return 	"<H3>Summary</H3>"+
+		return 	htmlFactory.inject("#breadcrumbs-container", createBreadcrumbs(context, true)).toString() +
+				htmlFactory.tag(TagName.h3, "Summary") +
 				getDescription().toHTML()+
 				"<P/>"+
 				body;		

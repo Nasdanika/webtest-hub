@@ -15,6 +15,7 @@ import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
+import org.nasdanika.webtest.hub.BreadcrumbsProvider;
 import org.nasdanika.webtest.hub.Description;
 import org.nasdanika.webtest.hub.Descriptor;
 import org.nasdanika.webtest.hub.Guest;
@@ -97,6 +98,7 @@ public class HubSwitch<T> extends Switch<T> {
 				T result = caseHub(hub);
 				if (result == null) result = caseLoginPasswordProtectionDomain(hub);
 				if (result == null) result = caseApplicationOwner(hub);
+				if (result == null) result = caseBreadcrumbsProvider(hub);
 				if (result == null) result = caseProtectionDomain(hub);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -128,6 +130,7 @@ public class HubSwitch<T> extends Switch<T> {
 			case HubPackage.APPLICATION: {
 				Application application = (Application)theEObject;
 				T result = caseApplication(application);
+				if (result == null) result = caseBreadcrumbsProvider(application);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -149,6 +152,7 @@ public class HubSwitch<T> extends Switch<T> {
 				TestSession testSession = (TestSession)theEObject;
 				T result = caseTestSession(testSession);
 				if (result == null) result = caseDescriptor(testSession);
+				if (result == null) result = caseBreadcrumbsProvider(testSession);
 				if (result == null) result = caseJSONLoader(testSession);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -157,6 +161,7 @@ public class HubSwitch<T> extends Switch<T> {
 				TestResult testResult = (TestResult)theEObject;
 				T result = caseTestResult(testResult);
 				if (result == null) result = caseDescriptor(testResult);
+				if (result == null) result = caseBreadcrumbsProvider(testResult);
 				if (result == null) result = caseJSONLoader(testResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -166,6 +171,7 @@ public class HubSwitch<T> extends Switch<T> {
 				T result = caseTestClassResult(testClassResult);
 				if (result == null) result = caseTestResult(testClassResult);
 				if (result == null) result = caseDescriptor(testClassResult);
+				if (result == null) result = caseBreadcrumbsProvider(testClassResult);
 				if (result == null) result = caseJSONLoader(testClassResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -181,6 +187,7 @@ public class HubSwitch<T> extends Switch<T> {
 				T result = caseTestSuiteResult(testSuiteResult);
 				if (result == null) result = caseTestResult(testSuiteResult);
 				if (result == null) result = caseDescriptor(testSuiteResult);
+				if (result == null) result = caseBreadcrumbsProvider(testSuiteResult);
 				if (result == null) result = caseJSONLoader(testSuiteResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -191,6 +198,7 @@ public class HubSwitch<T> extends Switch<T> {
 				if (result == null) result = caseTestSuiteResult(parameterizedTestResult);
 				if (result == null) result = caseTestResult(parameterizedTestResult);
 				if (result == null) result = caseDescriptor(parameterizedTestResult);
+				if (result == null) result = caseBreadcrumbsProvider(parameterizedTestResult);
 				if (result == null) result = caseJSONLoader(parameterizedTestResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -205,6 +213,7 @@ public class HubSwitch<T> extends Switch<T> {
 				OperationResult operationResult = (OperationResult)theEObject;
 				T result = caseOperationResult(operationResult);
 				if (result == null) result = caseDescriptor(operationResult);
+				if (result == null) result = caseBreadcrumbsProvider(operationResult);
 				if (result == null) result = caseJSONLoader(operationResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -230,6 +239,7 @@ public class HubSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMethodResult(initializationResult);
 				if (result == null) result = caseOperationResult(initializationResult);
 				if (result == null) result = caseDescriptor(initializationResult);
+				if (result == null) result = caseBreadcrumbsProvider(initializationResult);
 				if (result == null) result = caseJSONLoader(initializationResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -239,6 +249,7 @@ public class HubSwitch<T> extends Switch<T> {
 				T result = caseMethodResult(methodResult);
 				if (result == null) result = caseOperationResult(methodResult);
 				if (result == null) result = caseDescriptor(methodResult);
+				if (result == null) result = caseBreadcrumbsProvider(methodResult);
 				if (result == null) result = caseJSONLoader(methodResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -249,6 +260,7 @@ public class HubSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMethodResult(actorMethodResult);
 				if (result == null) result = caseOperationResult(actorMethodResult);
 				if (result == null) result = caseDescriptor(actorMethodResult);
+				if (result == null) result = caseBreadcrumbsProvider(actorMethodResult);
 				if (result == null) result = caseJSONLoader(actorMethodResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -259,6 +271,7 @@ public class HubSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMethodResult(pageMethodResult);
 				if (result == null) result = caseOperationResult(pageMethodResult);
 				if (result == null) result = caseDescriptor(pageMethodResult);
+				if (result == null) result = caseBreadcrumbsProvider(pageMethodResult);
 				if (result == null) result = caseJSONLoader(pageMethodResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -268,6 +281,7 @@ public class HubSwitch<T> extends Switch<T> {
 				T result = caseTestMethodResult(testMethodResult);
 				if (result == null) result = caseOperationResult(testMethodResult);
 				if (result == null) result = caseDescriptor(testMethodResult);
+				if (result == null) result = caseBreadcrumbsProvider(testMethodResult);
 				if (result == null) result = caseJSONLoader(testMethodResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -282,6 +296,7 @@ public class HubSwitch<T> extends Switch<T> {
 				ActorResult actorResult = (ActorResult)theEObject;
 				T result = caseActorResult(actorResult);
 				if (result == null) result = caseDescriptor(actorResult);
+				if (result == null) result = caseBreadcrumbsProvider(actorResult);
 				if (result == null) result = caseJSONLoader(actorResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -290,6 +305,7 @@ public class HubSwitch<T> extends Switch<T> {
 				PageResult pageResult = (PageResult)theEObject;
 				T result = casePageResult(pageResult);
 				if (result == null) result = caseDescriptor(pageResult);
+				if (result == null) result = caseBreadcrumbsProvider(pageResult);
 				if (result == null) result = caseJSONLoader(pageResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -297,6 +313,12 @@ public class HubSwitch<T> extends Switch<T> {
 			case HubPackage.JSON_LOADER: {
 				JSONLoader jsonLoader = (JSONLoader)theEObject;
 				T result = caseJSONLoader(jsonLoader);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.BREADCRUMBS_PROVIDER: {
+				BreadcrumbsProvider breadcrumbsProvider = (BreadcrumbsProvider)theEObject;
+				T result = caseBreadcrumbsProvider(breadcrumbsProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -691,6 +713,21 @@ public class HubSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJSONLoader(JSONLoader object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Breadcrumbs Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Breadcrumbs Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBreadcrumbsProvider(BreadcrumbsProvider object) {
 		return null;
 	}
 

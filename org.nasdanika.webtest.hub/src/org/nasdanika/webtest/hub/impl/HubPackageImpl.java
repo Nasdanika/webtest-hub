@@ -19,6 +19,7 @@ import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
+import org.nasdanika.webtest.hub.BreadcrumbsProvider;
 import org.nasdanika.webtest.hub.Description;
 import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
@@ -229,6 +230,13 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * @generated
 	 */
 	private EClass jsonLoaderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass breadcrumbsProviderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1203,6 +1211,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBreadcrumbsProvider() {
+		return breadcrumbsProviderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getOperationStatus() {
 		return operationStatusEEnum;
 	}
@@ -1377,6 +1394,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 
 		jsonLoaderEClass = createEClass(JSON_LOADER);
 
+		breadcrumbsProviderEClass = createEClass(BREADCRUMBS_PROVIDER);
+
 		// Create enums
 		operationStatusEEnum = createEEnum(OPERATION_STATUS);
 
@@ -1419,17 +1438,22 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		// Add supertypes to classes
 		hubEClass.getESuperTypes().add(theSecurityPackage.getLoginPasswordProtectionDomain());
 		hubEClass.getESuperTypes().add(this.getApplicationOwner());
+		hubEClass.getESuperTypes().add(this.getBreadcrumbsProvider());
 		guestEClass.getESuperTypes().add(theSecurityPackage.getUser());
 		userEClass.getESuperTypes().add(this.getApplicationOwner());
 		userEClass.getESuperTypes().add(theSecurityPackage.getLoginPasswordHashUser());
+		applicationEClass.getESuperTypes().add(this.getBreadcrumbsProvider());
 		descriptorEClass.getESuperTypes().add(this.getJSONLoader());
 		descriptionEClass.getESuperTypes().add(this.getJSONLoader());
 		testSessionEClass.getESuperTypes().add(this.getDescriptor());
+		testSessionEClass.getESuperTypes().add(this.getBreadcrumbsProvider());
 		testResultEClass.getESuperTypes().add(this.getDescriptor());
+		testResultEClass.getESuperTypes().add(this.getBreadcrumbsProvider());
 		testClassResultEClass.getESuperTypes().add(this.getTestResult());
 		testSuiteResultEClass.getESuperTypes().add(this.getTestResult());
 		parameterizedTestResultEClass.getESuperTypes().add(this.getTestSuiteResult());
 		operationResultEClass.getESuperTypes().add(this.getDescriptor());
+		operationResultEClass.getESuperTypes().add(this.getBreadcrumbsProvider());
 		throwableEClass.getESuperTypes().add(this.getJSONLoader());
 		stackTraceEntryEClass.getESuperTypes().add(this.getJSONLoader());
 		initializationResultEClass.getESuperTypes().add(this.getPageMethodResult());
@@ -1438,7 +1462,9 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		pageMethodResultEClass.getESuperTypes().add(this.getMethodResult());
 		testMethodResultEClass.getESuperTypes().add(this.getOperationResult());
 		actorResultEClass.getESuperTypes().add(this.getDescriptor());
+		actorResultEClass.getESuperTypes().add(this.getBreadcrumbsProvider());
 		pageResultEClass.getESuperTypes().add(this.getDescriptor());
+		pageResultEClass.getESuperTypes().add(this.getBreadcrumbsProvider());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(hubEClass, Hub.class, "Hub", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1567,6 +1593,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEReference(getPageResult_Coverage(), this.getCoverageEntry(), null, "coverage", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jsonLoaderEClass, JSONLoader.class, "JSONLoader", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(breadcrumbsProviderEClass, BreadcrumbsProvider.class, "BreadcrumbsProvider", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(operationStatusEEnum, OperationStatus.class, "OperationStatus");

@@ -73,7 +73,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//TestResult" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterizedTestResult" eSuperTypes="#//TestSuiteResult"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterizedTestResult" eSuperTypes="#//TestSuiteResult">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDescriptors" upperBound="-1"
+        eType="#//Descriptor" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Screenshot">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>

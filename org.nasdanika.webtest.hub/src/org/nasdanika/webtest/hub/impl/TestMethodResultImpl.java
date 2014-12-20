@@ -6,14 +6,21 @@ import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.nasdanika.core.ConverterContext;
+import org.nasdanika.html.FontAwesome;
+import org.nasdanika.html.FontAwesome.Stack;
 import org.nasdanika.html.FontAwesome.WebApplication;
+import org.nasdanika.html.FontAwesome.Stack.IconSize;
 import org.nasdanika.html.HTMLFactory;
+import org.nasdanika.html.Table;
+import org.nasdanika.html.Tag;
+import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.TestMethodResult;
 import org.nasdanika.webtest.performance.NavigationTiming;
@@ -191,7 +198,41 @@ public class TestMethodResultImpl extends OperationResultImpl implements TestMet
 	
 	@Override
 	public Object getIcon(HTMLFactory htmlFactory) throws Exception {
-		return htmlFactory.fontAwesome().webApplication(WebApplication.flask);
+		FontAwesome<Tag> flask = htmlFactory.fontAwesome().webApplication(WebApplication.flask);
+		switch (getStatus()) {
+		case ERROR:
+			flask.style(Style.WARNING);
+			break;
+		case FAIL:
+			flask.style(Style.DANGER);
+			break;
+		case PASS:
+			flask.style(Style.SUCCESS);
+			break;
+		case PENDING:
+			flask.style(Style.DEFAULT);
+			break;
+		default:
+			throw new IllegalStateException("Unexpected status: "+getStatus());		
+		}
+		return flask;
+//		Stack stack = htmlFactory.fontAwesomeStack();
+//		stack.icon(, null, false);
+//	//	stack.icon(htmlFactory.fontAwesome().webApplication(WebApplication.cog).style(Style.SUCCESS), null, false);
+//		return stack;
+	}
+	
+	@Override
+	protected Table createParametersTable(HTMLFactory htmlFactory) {
+		if (getParameters().isEmpty()) {
+			return null;
+		}
+		Table ret = htmlFactory.table().bordered();
+		ret.row().style(Style.PRIMARY).header("Parameters").style("text-align", "center");
+		for (String p: getParameters()) {
+			ret.row().cell(StringEscapeUtils.escapeHtml4(p));
+		}
+		return ret;
 	}
 
 } //TestMethodResultImpl

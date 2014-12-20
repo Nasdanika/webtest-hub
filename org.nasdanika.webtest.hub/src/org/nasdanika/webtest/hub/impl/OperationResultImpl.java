@@ -25,10 +25,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.core.ConverterContext;
+import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Carousel;
 import org.nasdanika.html.Carousel.Slide;
 import org.nasdanika.html.FontAwesome.Directional;
 import org.nasdanika.html.FontAwesome.WebApplication;
+import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.HTMLFactory.Placement;
@@ -46,6 +48,7 @@ import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
+import org.nasdanika.webtest.hub.BreadcrumbsProvider;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.InitializationResult;
@@ -542,12 +545,19 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 			caption+=StringEscapeUtils.escapeHtml4(((PageMethodResult) this).getPageResult().getTitle());			
 		} else if (this instanceof PageMethodResult) {
 			PageResult pr = ((PageMethodResult) this).getPageResult();
-			caption+=StringEscapeUtils.escapeHtml4(pr.getTitle())+"&nbsp;"+htmlFactory.fontAwesome().directional(Directional.caret_right)+"&nbsp;";
+			caption += StringEscapeUtils.escapeHtml4(pr.getTitle()) +
+					"&nbsp;" +
+					htmlFactory.fontAwesome().directional(Directional.caret_right)+"&nbsp;" +
+					StringEscapeUtils.escapeHtml4(getTitle());
 		} else if (this instanceof ActorMethodResult) {
 			ActorResult ar = ((ActorMethodResult) this).getActorResult();
-			caption+=StringEscapeUtils.escapeHtml4(ar.getTitle())+"&nbsp;"+htmlFactory.fontAwesome().directional(Directional.caret_right)+"&nbsp;";			
+			caption += StringEscapeUtils.escapeHtml4(ar.getTitle()) +
+					"&nbsp;" +
+					htmlFactory.fontAwesome().directional(Directional.caret_right)+"&nbsp;" +			
+					StringEscapeUtils.escapeHtml4(getTitle());
+		} else {
+			caption += StringEscapeUtils.escapeHtml4(getTitle());
 		}
-		caption += StringEscapeUtils.escapeHtml4(getTitle());
 		int slideIdx = -1;
 		Screenshot beforeScreenshot = getBeforeScreenshot();
 		if (beforeScreenshot!=null) {
@@ -602,6 +612,9 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 		CDOLock readLock = cdoReadLock();
 		if (readLock.tryLock(15, TimeUnit.SECONDS)) {
 			try {
+				Fragment ret = htmlFactory.fragment(
+						htmlFactory.inject("#breadcrumbs-container", createBreadcrumbs(context, true)),
+						htmlFactory.tag(TagName.h3, getIcon(htmlFactory), "&nbsp;", StringEscapeUtils.escapeHtml4(getTitle())));
 				
 				StringBuilder initScript = new StringBuilder();
 				Carousel screenshotCarousel = htmlFactory.carousel()
@@ -645,21 +658,37 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 					}
 				}
 				
+				ret.content(
+						htmlFactory.tag(TagName.a).attribute("name", "carousel_"+screenshotCarousel.getId()),
+						screenshotCarousel);
+				
+				if (!getArguments().isEmpty()) {
+					Table argumentsTable = htmlFactory.table().bordered();
+					argumentsTable.row().style(Style.PRIMARY).header("Parameters").style("text-align", "center");
+					for (String arg: getArguments()) {
+						argumentsTable.row().cell(StringEscapeUtils.escapeHtml4(arg));
+					}
+					ret.content(argumentsTable);
+				}
+				
+				Table parametersTable = createParametersTable(htmlFactory);
+				if (parametersTable!=null) {
+					ret.content(parametersTable);
+				}
+				
 				Table methodTable = htmlFactory.table().bordered();
+				ret.content(methodTable);
 				Row headerRow = methodTable.row().style(Style.INFO);
 				headerRow.header(htmlFactory.glyphicon(Glyphicon.cog), " Method").style("text-align", "center");
 				headerRow.header(htmlFactory.glyphicon(Glyphicon.file), " Description").style("text-align", "center");
 				headerRow.header(htmlFactory.glyphicon(Glyphicon.time), " Duration").style("text-align", "center");
 				genRows(htmlFactory, methodTable, screenshotCarousel.getId(), getScreenshots(), 0);
 				
-				// TODO - parameters - method to override.
+				if (initScript.length()>0) {
+					ret.content(htmlFactory.tag(TagName.script, initScript));
+				}
 				
-				return 	htmlFactory.tag(TagName.h3, getIcon(htmlFactory), "&nbsp;", StringEscapeUtils.escapeHtml4(getTitle())).toString() +
-						htmlFactory.tag(TagName.a).attribute("name", "carousel_"+screenshotCarousel.getId()) +
-						screenshotCarousel +
-						methodTable +
-						(initScript.length()>0 ? htmlFactory.tag(TagName.script, initScript) : "");
-
+				return ret.toString();
 			} finally {
 				readLock.unlock();
 			}
@@ -668,9 +697,29 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 		}			
 	}	
 
+	/**
+	 * To be overriden by the test method result
+	 * @param htmlFactory
+	 * @return
+	 */
+	protected Table createParametersTable(HTMLFactory htmlFactory) {
+		return null;
+	}
+
 	@Override
 	public Object getIcon(HTMLFactory htmlFactory) throws Exception {
 		return htmlFactory.fontAwesome().webApplication(WebApplication.cog);
+	}
+	
+	@Override
+	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+		Breadcrumbs ret = ((BreadcrumbsProvider) eContainer()).createBreadcrumbs(context, false);		
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+		ret.item(active ? null : htmlFactory.routeRef("right-panel", "/"+context.getObjectPath(this))+".html",
+				getIcon(htmlFactory),
+				"&nbsp;",
+				StringEscapeUtils.escapeHtml4(getTitle()));		
+		return ret;
 	}
 
 } //OperationResultImpl
