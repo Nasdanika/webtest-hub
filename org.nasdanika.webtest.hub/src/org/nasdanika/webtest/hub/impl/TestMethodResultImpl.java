@@ -2,7 +2,6 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
-import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.TimeUnit;
 
@@ -14,14 +13,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.nasdanika.core.ConverterContext;
 import org.nasdanika.html.FontAwesome;
-import org.nasdanika.html.FontAwesome.Stack;
 import org.nasdanika.html.FontAwesome.WebApplication;
-import org.nasdanika.html.FontAwesome.Stack.IconSize;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.Table;
+import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Tag;
 import org.nasdanika.html.UIElement.Style;
+import org.nasdanika.webtest.hub.Descriptor;
 import org.nasdanika.webtest.hub.HubPackage;
+import org.nasdanika.webtest.hub.ParameterizedTestResult;
 import org.nasdanika.webtest.hub.TestMethodResult;
 import org.nasdanika.webtest.performance.NavigationTiming;
 import org.nasdanika.webtest.performance.PerformanceFactory;
@@ -227,12 +227,23 @@ public class TestMethodResultImpl extends OperationResultImpl implements TestMet
 		if (getParameters().isEmpty()) {
 			return null;
 		}
-		Table ret = htmlFactory.table().bordered();
-		ret.row().style(Style.PRIMARY).header("Parameters").style("text-align", "center");
-		for (String p: getParameters()) {
-			ret.row().cell(StringEscapeUtils.escapeHtml4(p));
+		// TODO - Descriptor info - title, description, value.
+		Table pTable = htmlFactory.table().bordered();
+		Row hRow = pTable.row().style(Style.INFO);
+		hRow.header("Name").style("text-align", "center");
+		hRow.header("Value").style("text-align", "center");
+		hRow.header("Description").style("text-align", "center");
+		EList<Descriptor> pdl = HubUtil.getContainer(this, ParameterizedTestResult.class).getParameterDescriptors();
+		int idx = 0;
+		for (String p: getParameters()) {			
+			Row pRow = pTable.row();
+			Descriptor pd = pdl.get(idx);
+			pRow.cell(pd.getTitle());
+			pRow.cell(StringEscapeUtils.escapeHtml4(p));			
+			pRow.cell(pd.getDescription().toHTML());
+			++idx;
 		}
-		return ret;
+		return 	pTable;
 	}
 
 } //TestMethodResultImpl

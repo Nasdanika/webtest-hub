@@ -716,6 +716,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getParameterizedTestResult_ParameterDescriptors() {
+		return (EReference)parameterizedTestResultEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getScreenshot() {
 		return screenshotEClass;
 	}
@@ -1325,6 +1334,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(testSuiteResultEClass, TEST_SUITE_RESULT__CHILDREN);
 
 		parameterizedTestResultEClass = createEClass(PARAMETERIZED_TEST_RESULT);
+		createEReference(parameterizedTestResultEClass, PARAMETERIZED_TEST_RESULT__PARAMETER_DESCRIPTORS);
 
 		screenshotEClass = createEClass(SCREENSHOT);
 		createEAttribute(screenshotEClass, SCREENSHOT__CONTENT);
@@ -1522,6 +1532,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEReference(getTestSuiteResult_Children(), this.getTestResult(), null, "children", null, 0, -1, TestSuiteResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterizedTestResultEClass, ParameterizedTestResult.class, "ParameterizedTestResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterizedTestResult_ParameterDescriptors(), this.getDescriptor(), null, "parameterDescriptors", null, 0, -1, ParameterizedTestResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(screenshotEClass, Screenshot.class, "Screenshot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScreenshot_Content(), ecorePackage.getEByteArray(), "content", null, 0, 1, Screenshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

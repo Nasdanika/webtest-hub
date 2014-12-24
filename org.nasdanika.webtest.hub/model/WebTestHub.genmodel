@@ -70,7 +70,9 @@
     <genClasses ecoreClass="WebTestHub.ecore#//TestSuiteResult">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//TestSuiteResult/children"/>
     </genClasses>
-    <genClasses ecoreClass="WebTestHub.ecore#//ParameterizedTestResult"/>
+    <genClasses ecoreClass="WebTestHub.ecore#//ParameterizedTestResult">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//ParameterizedTestResult/parameterDescriptors"/>
+    </genClasses>
     <genClasses ecoreClass="WebTestHub.ecore#//Screenshot">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//Screenshot/content"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//Screenshot/timestamp"/>

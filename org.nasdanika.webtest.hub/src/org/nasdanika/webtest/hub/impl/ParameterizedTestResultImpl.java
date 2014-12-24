@@ -2,28 +2,33 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.nasdanika.core.ConverterContext;
 import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.Table;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
+import org.nasdanika.html.HTMLFactory.Placement;
+import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
-import org.nasdanika.html.Table.Row.Cell;
+import org.nasdanika.html.Tag;
+import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RouteMethod;
+import org.nasdanika.webtest.hub.Descriptor;
+import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.ParameterizedTestResult;
+import org.nasdanika.webtest.hub.TestClassResult;
+import org.nasdanika.webtest.hub.TestMethodResult;
 import org.nasdanika.webtest.hub.TestResult;
 
 /**
@@ -31,6 +36,10 @@ import org.nasdanika.webtest.hub.TestResult;
  * An implementation of the model object '<em><b>Parameterized Test Result</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.ParameterizedTestResultImpl#getParameterDescriptors <em>Parameter Descriptors</em>}</li>
+ * </ul>
  * </p>
  *
  * @generated
@@ -55,6 +64,16 @@ public class ParameterizedTestResultImpl extends TestSuiteResultImpl implements 
 		return HubPackage.Literals.PARAMETERIZED_TEST_RESULT;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<Descriptor> getParameterDescriptors() {
+		return (EList<Descriptor>)eGet(HubPackage.Literals.PARAMETERIZED_TEST_RESULT__PARAMETER_DESCRIPTORS, true);
+	}
+
 	@Override
 	public Object getIcon(HTMLFactory htmlFactory) {
 		return htmlFactory.glyphicon(Glyphicon.tasks);
@@ -69,99 +88,73 @@ public class ParameterizedTestResultImpl extends TestSuiteResultImpl implements 
 		CDOLock readLock = cdoReadLock();
 		if (readLock.tryLock(15, TimeUnit.SECONDS)) {
 			try {
-				Table testResultsTable = htmlFactory.table().bordered();
-				Row hRow = testResultsTable.row().style(Style.INFO);
-				hRow.header("Test").style("text-align", "center").attribute("nowrap", "true");
-				hRow.header("Description").style("text-align", "center").attribute("nowrap", "true");
-				hRow.header(htmlFactory.glyphicon(Glyphicon.ok), "&nbsp;Pass").style("text-align", "center").attribute("nowrap", "true").style("color", HTMLColor.Green);
-				hRow.header(htmlFactory.glyphicon(Glyphicon.remove), "&nbsp;Fail").style("text-align", "center").attribute("nowrap", "true").style("color", HTMLColor.Red);
-				hRow.header(htmlFactory.glyphicon(Glyphicon.warning_sign), "&nbsp;Error").style("text-align", "center").attribute("nowrap", "true").style("color", HTMLColor.DarkOrange);
-				hRow.header(htmlFactory.glyphicon(Glyphicon.time), "&nbsp;Pending").style("text-align", "center").attribute("nowrap", "true").style("color", "gray");
+				Table classTable = htmlFactory.table().bordered();
+				Row header = classTable.row().style(Style.INFO);
+				int[] totals = {0, 0, 0, 0};
 				
-				List<TestResult> sortedResults = new ArrayList<>(getChildren());
-				Collections.sort(sortedResults, new Comparator<TestResult>() {
-	
-					@Override
-					public int compare(TestResult o1, TestResult o2) {
-						String t1 = o1.getTitle();
-						String t2 = o2.getTitle();
-						if (t1==null) {
-							if (t2==null) {
-								return o1.getQualifiedName().compareTo(o2.getQualifiedName());
-							}
-							return 1;
-						}
-						if (t2==null) {
-							return -1;
-						}
-						return t1.compareTo(t2);
+				header.header("#").rowspan(2);
+				
+				header.header("Parameters").colspan(getParameterDescriptors().size()).style("text-align", "center").attribute("nowrap", "true");
+			
+				header.header(htmlFactory.glyphicon(Glyphicon.ok), "&nbsp;Pass").rowspan(2).style("text-align", "center").attribute("nowrap", "true").style("color", HTMLColor.Green);
+				header.header(htmlFactory.glyphicon(Glyphicon.remove), "&nbsp;Fail").rowspan(2).style("text-align", "center").attribute("nowrap", "true").style("color", HTMLColor.Red);
+				header.header(htmlFactory.glyphicon(Glyphicon.warning_sign), "&nbsp;Error").rowspan(2).style("text-align", "center").attribute("nowrap", "true").style("color", HTMLColor.DarkOrange);
+				header.header(htmlFactory.glyphicon(Glyphicon.time), "&nbsp;Pending").rowspan(2).style("text-align", "center").attribute("nowrap", "true").style("color", "gray");
+				
+				StringBuilder tooltipInitializers = new StringBuilder();
+				
+				Row paramNamesRow = classTable.row().style(Style.INFO);
+				for (Descriptor pd: getParameterDescriptors()) {
+					Object prmHeader = pd.getTitle();
+					String descriptionHtml = pd.getDescription().toHTML();
+					if (descriptionHtml != null && descriptionHtml.trim().length()!=0) {
+						prmHeader = htmlFactory.span(prmHeader);
+						htmlFactory.tooltip((Tag) prmHeader, Placement.TOP, descriptionHtml);
+						((Tag) prmHeader).id("parameterHeader_"+htmlFactory.nextId());
+						tooltipInitializers.append("$('#"+((Tag) prmHeader).getId()+"').tooltip({html:true});");
 					}
-				});
-				
-				int tPass = 0;
-				int tFail = 0;
-				int tError = 0;
-				int tPending = 0;
-	
-				for (TestResult tr: sortedResults) {
-					Row sRow = testResultsTable.row();
-					sRow.cell(htmlFactory.routeLink(
-							"right-panel", 
-							"/"+context.getObjectPath(tr)+".html", 
-							tr.getIcon(htmlFactory), "&nbsp;", StringEscapeUtils.escapeHtml4(tr.getTitle()))); 
-					
-					sRow.cell(tr.getDescription().toHTML());
-					Map<String, int[]> stats = new HashMap<>();
-					HubUtil.aggregateStats(tr, stats);
-					
-					int pass = stats.get("Pass")[0];
-					tPass+=pass;
-					sRow.cell(HubUtil.blankZero(pass)).style("text-align", "center");
-					
-					int fail = stats.get("Fail")[0];
-					tFail+=fail;
-					Cell failCell = sRow.cell(HubUtil.blankZero(fail)).style("text-align", "center");
-					
-					int error = stats.get("Error")[0];
-					Cell errorCell = sRow.cell(HubUtil.blankZero(error)).style("text-align", "center");
-					tError+=error;
-					if (error>0) {
-						errorCell.style("font-weight", "bold").style("color", HTMLColor.DarkOrange);
+					paramNamesRow.header(prmHeader);
+				}
+				int testIdx = 1;
+				for (TestResult tr: getChildren()) {
+					TestClassResult tcr = (TestClassResult) tr;
+					if (!tcr.getMethodResults().isEmpty()) {
+						Row classRow = classTable.row();
+						classRow.cell(htmlFactory.routeLink("right-panel", "/"+context.getObjectPath(tr)+".html", testIdx++));
+
+						TestMethodResult firstTest = tcr.getMethodResults().get(0);
+						int idx = 0;
+						for (Object prm: firstTest.getParameters()) {
+							classRow.cell(prm);
+							idx++;
+						}
+						
+						EMap<String, Integer> stats = tcr.getStats();
+						// TODO - parameter values, render to HTML.
+						classRow.cell(HubUtil.blankZero(stats.get("Pass"))).attribute("align", "center");
+						classRow.cell(HubUtil.blankZero(stats.get("Fail"))).attribute("align", "center").style("color", HTMLColor.Red);
+						classRow.cell(HubUtil.blankZero(stats.get("Error"))).attribute("align", "center").style("color", HTMLColor.DarkOrange);
+						classRow.cell(HubUtil.blankZero(stats.get("Pending"))).attribute("align", "center");
+
+						totals[0]+=stats.get("Pass")==null ? 0 : stats.get("Pass");
+						totals[0]+=stats.get("Fail")==null ? 0 : stats.get("Fail");
+						totals[0]+=stats.get("Error")==null ? 0 : stats.get("Error");
+						totals[0]+=stats.get("Pending")==null ? 0 : stats.get("Pending");
 					}
-					
-					int pending = stats.get("Pending")[0];
-					tPending+=pending;
-					sRow.cell(HubUtil.blankZero(pending)).style("text-align", "center");
-					
-					if (fail>0) {
-						failCell.style("font-weight", "bold").style("color", "red");
-						sRow.style(Style.DANGER);
-					} else if (error>0) {
-						sRow.style(Style.WARNING);			
-					}			
 				}
-				
-				Row tRow = testResultsTable.row().style(Style.INFO);
-				tRow.header("Total").colspan(2);
-				
-				tRow.cell(HubUtil.blankZero(tPass)).style("text-align", "center");
-				Cell failCell = tRow.cell(HubUtil.blankZero(tFail)).style("text-align", "center");
-				if (tFail>0) {
-					failCell.style("font-weight", "bold").style("color", "red");
-				}
-				
-				Cell errorCell = tRow.cell(HubUtil.blankZero(tError)).style("text-align", "center");
-				if (tError>0) {
-					errorCell.style("font-weight", "bold").style("color", HTMLColor.DarkOrange);
-				}
-				
-				tRow.cell(HubUtil.blankZero(tPending)).style("text-align", "center");
+				Row totalsRow = classTable.row().style(Style.INFO);
+				totalsRow.cell("Total").colspan(getParameterDescriptors().size()+1);
+				totalsRow.cell(HubUtil.blankZero(totals[0])).attribute("align", "center");
+				totalsRow.cell(HubUtil.blankZero(totals[1])).attribute("align", "center").style("color", HTMLColor.Red);
+				totalsRow.cell(HubUtil.blankZero(totals[2])).attribute("align", "center").style("color", HTMLColor.DarkOrange);
+				totalsRow.cell(HubUtil.blankZero(totals[3])).attribute("align", "center");
 												
 				return 	htmlFactory.inject("#breadcrumbs-container", createBreadcrumbs(context, true)).toString() + 
 						htmlFactory.tag("H3", getIcon(htmlFactory), " ", StringEscapeUtils.escapeHtml4(getTitle())) +
 						getDescription().toHTML() +
 						"<P/>" +
-						testResultsTable; 
+						classTable +
+						(tooltipInitializers.length()==0 ? "" : htmlFactory.tag(TagName.script, tooltipInitializers)); 
 			} finally {
 				readLock.unlock();
 			}
@@ -169,5 +162,18 @@ public class ParameterizedTestResultImpl extends TestSuiteResultImpl implements 
 			return htmlFactory.alert(Style.DANGER, false, "System is overloaded, please try again later!").toString();
 		}		
 	}	
+	
+	@Override
+	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+		super.loadJSON(json, context);
+		if (json.has("parameterDescriptors")) {
+			JSONArray pda = json.getJSONArray("parameterDescriptors");
+			for (int i=0; i < pda.length(); ++i) {
+				Descriptor pd = HubFactory.eINSTANCE.createDescriptor();
+				pd.loadJSON(pda.getJSONObject(i), context);
+				getParameterDescriptors().add(pd);
+			}
+		}
+	}
 
 } //ParameterizedTestResultImpl

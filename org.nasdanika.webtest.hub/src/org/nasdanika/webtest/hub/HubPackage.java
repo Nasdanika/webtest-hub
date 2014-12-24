@@ -1176,13 +1176,22 @@ public interface HubPackage extends EPackage {
 	int PARAMETERIZED_TEST_RESULT__CHILDREN = TEST_SUITE_RESULT__CHILDREN;
 
 	/**
+	 * The feature id for the '<em><b>Parameter Descriptors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETERIZED_TEST_RESULT__PARAMETER_DESCRIPTORS = TEST_SUITE_RESULT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Parameterized Test Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETERIZED_TEST_RESULT_FEATURE_COUNT = TEST_SUITE_RESULT_FEATURE_COUNT + 0;
+	int PARAMETERIZED_TEST_RESULT_FEATURE_COUNT = TEST_SUITE_RESULT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Parameterized Test Result</em>' class.
@@ -3211,6 +3220,17 @@ public interface HubPackage extends EPackage {
 	EClass getParameterizedTestResult();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.ParameterizedTestResult#getParameterDescriptors <em>Parameter Descriptors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameter Descriptors</em>'.
+	 * @see org.nasdanika.webtest.hub.ParameterizedTestResult#getParameterDescriptors()
+	 * @see #getParameterizedTestResult()
+	 * @generated
+	 */
+	EReference getParameterizedTestResult_ParameterDescriptors();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.Screenshot <em>Screenshot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4239,6 +4259,14 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PARAMETERIZED_TEST_RESULT = eINSTANCE.getParameterizedTestResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Descriptors</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETERIZED_TEST_RESULT__PARAMETER_DESCRIPTORS = eINSTANCE.getParameterizedTestResult_ParameterDescriptors();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl <em>Screenshot</em>}' class.

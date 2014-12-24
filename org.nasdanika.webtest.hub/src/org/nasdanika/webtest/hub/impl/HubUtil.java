@@ -111,8 +111,8 @@ class HubUtil {
 		return (int) ((getContainer(obj, Hub.class).getSlideWidth()+32)*12.0/9.0);	
 	}
 	
-	static String blankZero(int number) {
-		return number==0 ? "" : String.valueOf(number);
+	static String blankZero(Integer number) {
+		return number==null || number==0 ? "" : String.valueOf(number);
 	}
 	
 	static void aggregateStats(TestResult result, Map<String, int[]> stats) {

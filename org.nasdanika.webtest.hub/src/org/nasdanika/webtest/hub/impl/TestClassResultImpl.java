@@ -17,16 +17,21 @@ import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.core.ConverterContext;
+import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
+import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
+import org.nasdanika.webtest.hub.BreadcrumbsProvider;
+import org.nasdanika.webtest.hub.Descriptor;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
+import org.nasdanika.webtest.hub.ParameterizedTestResult;
 import org.nasdanika.webtest.hub.TestClassResult;
 import org.nasdanika.webtest.hub.TestMethodResult;
 
@@ -126,6 +131,25 @@ public class TestClassResultImpl extends TestResultImpl implements TestClassResu
 		CDOLock readLock = cdoReadLock();
 		if (readLock.tryLock(15, TimeUnit.SECONDS)) {
 			try {
+				Table parametersTable = null;
+				if (eContainer() instanceof ParameterizedTestResult && !getMethodResults().isEmpty()) {
+					parametersTable = htmlFactory.table().bordered();
+					Row hRow = parametersTable.row().style(Style.INFO);
+					hRow.header("Name").style("text-align", "center");
+					hRow.header("Value").style("text-align", "center");
+					hRow.header("Description").style("text-align", "center");
+					EList<Descriptor> pdl = HubUtil.getContainer(this, ParameterizedTestResult.class).getParameterDescriptors();
+					int idx = 0;
+					for (String p: getMethodResults().get(0).getParameters()) {			
+						Row pRow = parametersTable.row();
+						Descriptor pd = pdl.get(idx);
+						pRow.cell(pd.getTitle());
+						pRow.cell(StringEscapeUtils.escapeHtml4(p));			
+						pRow.cell(pd.getDescription().toHTML());
+						++idx;
+					}
+				}								
+				
 				Table methodTable = htmlFactory.table().bordered();
 				Row headerRow = methodTable.row().style(Style.INFO);
 				headerRow.header(htmlFactory.glyphicon(Glyphicon.cog), " Method").style("white-space", "nowrap");
@@ -136,9 +160,11 @@ public class TestClassResultImpl extends TestResultImpl implements TestClassResu
 				}
 												
 				return 	htmlFactory.inject("#breadcrumbs-container", createBreadcrumbs(context, true)).toString() + 
-						htmlFactory.tag("H3", getIcon(htmlFactory), " ", StringEscapeUtils.escapeHtml4(getTitle())) +
+						htmlFactory.tag(TagName.h3, getIcon(htmlFactory), " ", StringEscapeUtils.escapeHtml4(getTitle())) +
 						getDescription().toHTML() +
 						"<P/>" +
+						(parametersTable==null ? "" : htmlFactory.tag(TagName.h4, "Parameters").toString() + parametersTable) +
+						htmlFactory.tag(TagName.h4, "Methods") +
 						methodTable; 
 			} finally {
 				readLock.unlock();
@@ -147,5 +173,21 @@ public class TestClassResultImpl extends TestResultImpl implements TestClassResu
 			return htmlFactory.alert(Style.DANGER, false, "System is overloaded, please try again later!").toString();
 		}			
 	}	
+		
+	@Override
+	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+		if (eContainer() instanceof ParameterizedTestResult) {
+			Breadcrumbs ret = ((BreadcrumbsProvider) eContainer()).createBreadcrumbs(context, false);		
+			HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+			ret.item(active ? null : htmlFactory.routeRef("right-panel", "/"+context.getObjectPath(this))+".html",
+					getIcon(htmlFactory),
+					"&nbsp;",
+					((ParameterizedTestResult) eContainer()).getChildren().indexOf(this)+1);		
+			return ret;
+			
+		}
+		return super.createBreadcrumbs(context, active);
+	}
+	
 
 } //TestClassResultImpl

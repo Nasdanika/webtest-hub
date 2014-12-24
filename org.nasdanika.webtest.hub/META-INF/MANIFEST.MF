@@ -17,5 +17,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.nasdanika.web,
  org.nasdanika.cdo,
  org.nasdanika.webtest.performance;visibility:=reexport,
- org.apache.commons.lang;bundle-version="3.3.2"
+ org.apache.commons.lang;bundle-version="3.3.2",
+ org.json
 Bundle-ActivationPolicy: lazy

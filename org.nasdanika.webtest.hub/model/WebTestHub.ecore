@@ -159,9 +159,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="PageResult" eSuperTypes="#//Descriptor #//BreadcrumbsProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="results" upperBound="-1"
         eType="#//PageMethodResult" eOpposite="#//PageMethodResult/pageResult"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="coverage" upperBound="-1"
         eType="#//CoverageEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WebElement" eSuperTypes="#//Descriptor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locators" upperBound="-1"
+        eType="#//Locator" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Locator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="how" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="using" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="JSONObject" instanceClassName="org.json.JSONObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="JSONLoader" instanceClassName="org.nasdanika.core.JSONLoader"

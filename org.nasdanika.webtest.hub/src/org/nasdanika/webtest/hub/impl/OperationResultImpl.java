@@ -673,8 +673,13 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 				
 				Table parametersTable = createParametersTable(htmlFactory);
 				if (parametersTable!=null) {
-					ret.content(parametersTable);
+					ret.content(
+							"<P/>", 
+							htmlFactory.tag(TagName.h4, "Parameters"),
+							parametersTable);
 				}
+				
+				ret.content(htmlFactory.tag(TagName.h4, "Methods"));
 				
 				Table methodTable = htmlFactory.table().bordered();
 				ret.content(methodTable);

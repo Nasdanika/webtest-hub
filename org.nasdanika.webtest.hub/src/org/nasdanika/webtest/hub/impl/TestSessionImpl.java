@@ -40,8 +40,8 @@ import org.nasdanika.html.LinkGroup;
 import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Table.Row.Cell;
-import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.Tabs;
+import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.DeviceSize;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
@@ -466,22 +466,22 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 			Map<String, int[]> stats = new HashMap<>();
 			HubUtil.aggregateStats(tr, stats);
 			
-			int pass = stats.get("Pass")[0];
+			int pass = stats.containsKey("Pass") ? stats.get("Pass")[0] : 0;
 			tPass+=pass;
 			sRow.cell(HubUtil.blankZero(pass)).style("text-align", "center");
 			
-			int fail = stats.get("Fail")[0];
+			int fail = stats.containsKey("Fail") ? stats.get("Fail")[0] : 0;
 			tFail+=fail;
 			Cell failCell = sRow.cell(HubUtil.blankZero(fail)).style("text-align", "center");
 			
-			int error = stats.get("Error")[0];
+			int error = stats.containsKey("Error") ? stats.get("Error")[0] : 0;
 			Cell errorCell = sRow.cell(HubUtil.blankZero(error)).style("text-align", "center");
 			tError+=error;
 			if (error>0) {
 				errorCell.style("font-weight", "bold").style("color", HTMLColor.DarkOrange);
 			}
 			
-			int pending = stats.get("Pending")[0];
+			int pending = stats.containsKey("Pending") ? stats.get("Pending")[0] : 0;
 			tPending+=pending;
 			sRow.cell(HubUtil.blankZero(pending)).style("text-align", "center");
 			
