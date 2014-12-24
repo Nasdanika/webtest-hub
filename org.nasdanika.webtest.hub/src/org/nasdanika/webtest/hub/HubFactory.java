@@ -220,6 +220,24 @@ public interface HubFactory extends EFactory {
 	PageResult createPageResult();
 
 	/**
+	 * Returns a new object of class '<em>Web Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Web Element</em>'.
+	 * @generated
+	 */
+	WebElement createWebElement();
+
+	/**
+	 * Returns a new object of class '<em>Locator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Locator</em>'.
+	 * @generated
+	 */
+	Locator createLocator();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

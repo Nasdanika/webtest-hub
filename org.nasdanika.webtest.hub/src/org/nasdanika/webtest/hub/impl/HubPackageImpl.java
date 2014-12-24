@@ -26,6 +26,7 @@ import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.InitializationResult;
+import org.nasdanika.webtest.hub.Locator;
 import org.nasdanika.webtest.hub.MethodResult;
 import org.nasdanika.webtest.hub.OperationResult;
 import org.nasdanika.webtest.hub.OperationStatus;
@@ -40,6 +41,7 @@ import org.nasdanika.webtest.hub.TestResult;
 import org.nasdanika.webtest.hub.TestSession;
 import org.nasdanika.webtest.hub.TestSuiteResult;
 import org.nasdanika.webtest.hub.User;
+import org.nasdanika.webtest.hub.WebElement;
 import org.nasdanika.webtest.performance.PerformancePackage;
 
 /**
@@ -223,6 +225,20 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * @generated
 	 */
 	private EClass pageResultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass webElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass locatorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1193,8 +1209,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPageResult_Size() {
-		return (EAttribute)pageResultEClass.getEStructuralFeatures().get(1);
+	public EReference getPageResult_Coverage() {
+		return (EReference)pageResultEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1202,8 +1218,53 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPageResult_Coverage() {
+	public EReference getPageResult_WebElements() {
 		return (EReference)pageResultEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getWebElement() {
+		return webElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWebElement_Locators() {
+		return (EReference)webElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLocator() {
+		return locatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLocator_How() {
+		return (EAttribute)locatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLocator_Using() {
+		return (EAttribute)locatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1399,8 +1460,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 
 		pageResultEClass = createEClass(PAGE_RESULT);
 		createEReference(pageResultEClass, PAGE_RESULT__RESULTS);
-		createEAttribute(pageResultEClass, PAGE_RESULT__SIZE);
 		createEReference(pageResultEClass, PAGE_RESULT__COVERAGE);
+		createEReference(pageResultEClass, PAGE_RESULT__WEB_ELEMENTS);
+
+		webElementEClass = createEClass(WEB_ELEMENT);
+		createEReference(webElementEClass, WEB_ELEMENT__LOCATORS);
+
+		locatorEClass = createEClass(LOCATOR);
+		createEAttribute(locatorEClass, LOCATOR__HOW);
+		createEAttribute(locatorEClass, LOCATOR__USING);
 
 		jsonLoaderEClass = createEClass(JSON_LOADER);
 
@@ -1475,6 +1543,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		actorResultEClass.getESuperTypes().add(this.getBreadcrumbsProvider());
 		pageResultEClass.getESuperTypes().add(this.getDescriptor());
 		pageResultEClass.getESuperTypes().add(this.getBreadcrumbsProvider());
+		webElementEClass.getESuperTypes().add(this.getDescriptor());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(hubEClass, Hub.class, "Hub", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1600,8 +1669,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 
 		initEClass(pageResultEClass, PageResult.class, "PageResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPageResult_Results(), this.getPageMethodResult(), this.getPageMethodResult_PageResult(), "results", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPageResult_Size(), ecorePackage.getEInt(), "size", null, 0, 1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPageResult_Coverage(), this.getCoverageEntry(), null, "coverage", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPageResult_WebElements(), this.getWebElement(), null, "webElements", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(webElementEClass, WebElement.class, "WebElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getWebElement_Locators(), this.getLocator(), null, "locators", null, 0, -1, WebElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(locatorEClass, Locator.class, "Locator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLocator_How(), ecorePackage.getEString(), "how", null, 0, 1, Locator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLocator_Using(), ecorePackage.getEString(), "using", null, 0, 1, Locator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jsonLoaderEClass, JSONLoader.class, "JSONLoader", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 

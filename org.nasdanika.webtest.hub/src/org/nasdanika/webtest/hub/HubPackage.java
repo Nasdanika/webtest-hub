@@ -478,7 +478,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getBreadcrumbsProvider()
 	 * @generated
 	 */
-	int BREADCRUMBS_PROVIDER = 26;
+	int BREADCRUMBS_PROVIDER = 28;
 
 	/**
 	 * The number of structural features of the '<em>Breadcrumbs Provider</em>' class.
@@ -579,7 +579,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONLoader()
 	 * @generated
 	 */
-	int JSON_LOADER = 25;
+	int JSON_LOADER = 27;
 
 	/**
 	 * The number of structural features of the '<em>JSON Loader</em>' class.
@@ -2691,22 +2691,22 @@ public interface HubPackage extends EPackage {
 	int PAGE_RESULT__RESULTS = DESCRIPTOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PAGE_RESULT__SIZE = DESCRIPTOR_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Coverage</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_RESULT__COVERAGE = DESCRIPTOR_FEATURE_COUNT + 2;
+	int PAGE_RESULT__COVERAGE = DESCRIPTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Web Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_RESULT__WEB_ELEMENTS = DESCRIPTOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Page Result</em>' class.
@@ -2727,6 +2727,116 @@ public interface HubPackage extends EPackage {
 	int PAGE_RESULT_OPERATION_COUNT = DESCRIPTOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.WebElementImpl <em>Web Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.impl.WebElementImpl
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getWebElement()
+	 * @generated
+	 */
+	int WEB_ELEMENT = 25;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_ELEMENT__QUALIFIED_NAME = DESCRIPTOR__QUALIFIED_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_ELEMENT__TITLE = DESCRIPTOR__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_ELEMENT__DESCRIPTION = DESCRIPTOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Locators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_ELEMENT__LOCATORS = DESCRIPTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Web Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_ELEMENT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Web Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WEB_ELEMENT_OPERATION_COUNT = DESCRIPTOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.LocatorImpl <em>Locator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.impl.LocatorImpl
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getLocator()
+	 * @generated
+	 */
+	int LOCATOR = 26;
+
+	/**
+	 * The feature id for the '<em><b>How</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCATOR__HOW = 0;
+
+	/**
+	 * The feature id for the '<em><b>Using</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCATOR__USING = 1;
+
+	/**
+	 * The number of structural features of the '<em>Locator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCATOR_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Locator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCATOR_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2734,7 +2844,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getOperationStatus()
 	 * @generated
 	 */
-	int OPERATION_STATUS = 27;
+	int OPERATION_STATUS = 29;
 
 	/**
 	 * The meta object id for the '<em>JSON Object</em>' data type.
@@ -2744,7 +2854,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONObject()
 	 * @generated
 	 */
-	int JSON_OBJECT = 28;
+	int JSON_OBJECT = 30;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -2754,7 +2864,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 29;
+	int EXCEPTION = 31;
 
 
 	/**
@@ -3792,17 +3902,6 @@ public interface HubPackage extends EPackage {
 	EReference getPageResult_Results();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.PageResult#getSize <em>Size</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Size</em>'.
-	 * @see org.nasdanika.webtest.hub.PageResult#getSize()
-	 * @see #getPageResult()
-	 * @generated
-	 */
-	EAttribute getPageResult_Size();
-
-	/**
 	 * Returns the meta object for the map '{@link org.nasdanika.webtest.hub.PageResult#getCoverage <em>Coverage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3812,6 +3911,70 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPageResult_Coverage();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.PageResult#getWebElements <em>Web Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Web Elements</em>'.
+	 * @see org.nasdanika.webtest.hub.PageResult#getWebElements()
+	 * @see #getPageResult()
+	 * @generated
+	 */
+	EReference getPageResult_WebElements();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.WebElement <em>Web Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Web Element</em>'.
+	 * @see org.nasdanika.webtest.hub.WebElement
+	 * @generated
+	 */
+	EClass getWebElement();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.WebElement#getLocators <em>Locators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Locators</em>'.
+	 * @see org.nasdanika.webtest.hub.WebElement#getLocators()
+	 * @see #getWebElement()
+	 * @generated
+	 */
+	EReference getWebElement_Locators();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.Locator <em>Locator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Locator</em>'.
+	 * @see org.nasdanika.webtest.hub.Locator
+	 * @generated
+	 */
+	EClass getLocator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.Locator#getHow <em>How</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>How</em>'.
+	 * @see org.nasdanika.webtest.hub.Locator#getHow()
+	 * @see #getLocator()
+	 * @generated
+	 */
+	EAttribute getLocator_How();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.Locator#getUsing <em>Using</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Using</em>'.
+	 * @see org.nasdanika.webtest.hub.Locator#getUsing()
+	 * @see #getLocator()
+	 * @generated
+	 */
+	EAttribute getLocator_Using();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.core.JSONLoader <em>JSON Loader</em>}'.
@@ -4709,20 +4872,64 @@ public interface HubPackage extends EPackage {
 		EReference PAGE_RESULT__RESULTS = eINSTANCE.getPageResult_Results();
 
 		/**
-		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PAGE_RESULT__SIZE = eINSTANCE.getPageResult_Size();
-
-		/**
 		 * The meta object literal for the '<em><b>Coverage</b></em>' map feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PAGE_RESULT__COVERAGE = eINSTANCE.getPageResult_Coverage();
+
+		/**
+		 * The meta object literal for the '<em><b>Web Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAGE_RESULT__WEB_ELEMENTS = eINSTANCE.getPageResult_WebElements();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.WebElementImpl <em>Web Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.impl.WebElementImpl
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getWebElement()
+		 * @generated
+		 */
+		EClass WEB_ELEMENT = eINSTANCE.getWebElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Locators</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WEB_ELEMENT__LOCATORS = eINSTANCE.getWebElement_Locators();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.LocatorImpl <em>Locator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.impl.LocatorImpl
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getLocator()
+		 * @generated
+		 */
+		EClass LOCATOR = eINSTANCE.getLocator();
+
+		/**
+		 * The meta object literal for the '<em><b>How</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOCATOR__HOW = eINSTANCE.getLocator_How();
+
+		/**
+		 * The meta object literal for the '<em><b>Using</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOCATOR__USING = eINSTANCE.getLocator_Using();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.core.JSONLoader <em>JSON Loader</em>}' class.

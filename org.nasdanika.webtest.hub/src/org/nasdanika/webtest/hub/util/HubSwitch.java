@@ -22,6 +22,7 @@ import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.InitializationResult;
+import org.nasdanika.webtest.hub.Locator;
 import org.nasdanika.webtest.hub.MethodResult;
 import org.nasdanika.webtest.hub.OperationResult;
 import org.nasdanika.webtest.hub.PageMethodResult;
@@ -35,6 +36,7 @@ import org.nasdanika.webtest.hub.TestResult;
 import org.nasdanika.webtest.hub.TestSession;
 import org.nasdanika.webtest.hub.TestSuiteResult;
 import org.nasdanika.webtest.hub.User;
+import org.nasdanika.webtest.hub.WebElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -307,6 +309,20 @@ public class HubSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDescriptor(pageResult);
 				if (result == null) result = caseBreadcrumbsProvider(pageResult);
 				if (result == null) result = caseJSONLoader(pageResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.WEB_ELEMENT: {
+				WebElement webElement = (WebElement)theEObject;
+				T result = caseWebElement(webElement);
+				if (result == null) result = caseDescriptor(webElement);
+				if (result == null) result = caseJSONLoader(webElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.LOCATOR: {
+				Locator locator = (Locator)theEObject;
+				T result = caseLocator(locator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -698,6 +714,36 @@ public class HubSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePageResult(PageResult object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Web Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Web Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWebElement(WebElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Locator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Locator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLocator(Locator object) {
 		return null;
 	}
 

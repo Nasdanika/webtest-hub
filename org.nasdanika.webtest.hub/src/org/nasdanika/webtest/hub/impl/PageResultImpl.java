@@ -21,9 +21,11 @@ import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.BreadcrumbsProvider;
+import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.PageMethodResult;
 import org.nasdanika.webtest.hub.PageResult;
+import org.nasdanika.webtest.hub.WebElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,8 +35,8 @@ import org.nasdanika.webtest.hub.PageResult;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.PageResultImpl#getResults <em>Results</em>}</li>
- *   <li>{@link org.nasdanika.webtest.hub.impl.PageResultImpl#getSize <em>Size</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.PageResultImpl#getCoverage <em>Coverage</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.PageResultImpl#getWebElements <em>Web Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,17 +77,9 @@ public class PageResultImpl extends DescriptorImpl implements PageResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getSize() {
-		return (Integer)eGet(HubPackage.Literals.PAGE_RESULT__SIZE, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSize(int newSize) {
-		eSet(HubPackage.Literals.PAGE_RESULT__SIZE, newSize);
+	@SuppressWarnings("unchecked")
+	public EMap<String, Integer> getCoverage() {
+		return (EMap<String, Integer>)eGet(HubPackage.Literals.PAGE_RESULT__COVERAGE, true);
 	}
 
 	/**
@@ -94,15 +88,20 @@ public class PageResultImpl extends DescriptorImpl implements PageResult {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EMap<String, Integer> getCoverage() {
-		return (EMap<String, Integer>)eGet(HubPackage.Literals.PAGE_RESULT__COVERAGE, true);
+	public EList<WebElement> getWebElements() {
+		return (EList<WebElement>)eGet(HubPackage.Literals.PAGE_RESULT__WEB_ELEMENTS, true);
 	}
 
 	@Override
 	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
 		super.loadJSON(json, context);
-		if (json.has("size")) {
-			setSize(json.getInt("size"));
+		if (json.has("webElements")) {
+			JSONArray wea = json.getJSONArray("webElements");
+			for (int i=0; i<wea.length(); ++i) {
+				WebElement we = HubFactory.eINSTANCE.createWebElement();
+				getWebElements().add(we);
+				we.loadJSON(wea.getJSONObject(i), context);
+			}
 		}
 		if (json.has("coverage")) {
 			JSONObject cov = json.getJSONObject("coverage");

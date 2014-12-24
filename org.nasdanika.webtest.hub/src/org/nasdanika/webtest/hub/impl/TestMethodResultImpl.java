@@ -2,6 +2,7 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.TimeUnit;
 

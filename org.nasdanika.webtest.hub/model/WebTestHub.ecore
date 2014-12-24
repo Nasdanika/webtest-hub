@@ -161,6 +161,8 @@
         eType="#//PageMethodResult" eOpposite="#//PageMethodResult/pageResult"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="coverage" upperBound="-1"
         eType="#//CoverageEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="webElements" upperBound="-1"
+        eType="#//WebElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WebElement" eSuperTypes="#//Descriptor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="locators" upperBound="-1"

@@ -688,7 +688,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 					pi = new PageInfo();
 					pi.qualifiedName = pr.getQualifiedName();
 					pi.title = pr.getTitle();
-					pi.size = pr.getSize();
+					pi.size = pr.getWebElements().size();
 					pi.description = pr.getDescription()==null ? "" : pr.getDescription().toHTML();
 					pageInfo.put(pr.getQualifiedName(), pi);
 				}
@@ -751,8 +751,8 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 			HubUtil.aggregateStats(result, stats);
 			for (PageResult pr: result.getPageResults()) {
 				Integer ps = pageSizeMap.get(pr.getQualifiedName());
-				if (ps==null || pr.getSize()>ps) {
-					pageSizeMap.put(pr.getQualifiedName(), pr.getSize());
+				if (ps==null || pr.getWebElements().size()>ps) {
+					pageSizeMap.put(pr.getQualifiedName(), pr.getWebElements().size());
 				}
 				Map<String, int[]> mm = pageMethodsMap.get(pr.getQualifiedName());
 				if (mm==null) {

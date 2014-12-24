@@ -23,6 +23,7 @@ import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.InitializationResult;
+import org.nasdanika.webtest.hub.Locator;
 import org.nasdanika.webtest.hub.MethodResult;
 import org.nasdanika.webtest.hub.OperationResult;
 import org.nasdanika.webtest.hub.PageMethodResult;
@@ -36,6 +37,7 @@ import org.nasdanika.webtest.hub.TestResult;
 import org.nasdanika.webtest.hub.TestSession;
 import org.nasdanika.webtest.hub.TestSuiteResult;
 import org.nasdanika.webtest.hub.User;
+import org.nasdanika.webtest.hub.WebElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -192,6 +194,14 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePageResult(PageResult object) {
 				return createPageResultAdapter();
+			}
+			@Override
+			public Adapter caseWebElement(WebElement object) {
+				return createWebElementAdapter();
+			}
+			@Override
+			public Adapter caseLocator(Locator object) {
+				return createLocatorAdapter();
 			}
 			@Override
 			public Adapter caseJSONLoader(JSONLoader object) {
@@ -588,6 +598,34 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPageResultAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.WebElement <em>Web Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.WebElement
+	 * @generated
+	 */
+	public Adapter createWebElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.Locator <em>Locator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.Locator
+	 * @generated
+	 */
+	public Adapter createLocatorAdapter() {
 		return null;
 	}
 

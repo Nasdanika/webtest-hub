@@ -21,6 +21,7 @@ import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.InitializationResult;
+import org.nasdanika.webtest.hub.Locator;
 import org.nasdanika.webtest.hub.MethodResult;
 import org.nasdanika.webtest.hub.OperationResult;
 import org.nasdanika.webtest.hub.OperationStatus;
@@ -35,6 +36,7 @@ import org.nasdanika.webtest.hub.TestResult;
 import org.nasdanika.webtest.hub.TestSession;
 import org.nasdanika.webtest.hub.TestSuiteResult;
 import org.nasdanika.webtest.hub.User;
+import org.nasdanika.webtest.hub.WebElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,6 +106,8 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 			case HubPackage.COVERAGE_ENTRY: return (EObject)createCoverageEntry();
 			case HubPackage.ACTOR_RESULT: return (EObject)createActorResult();
 			case HubPackage.PAGE_RESULT: return (EObject)createPageResult();
+			case HubPackage.WEB_ELEMENT: return (EObject)createWebElement();
+			case HubPackage.LOCATOR: return (EObject)createLocator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -385,6 +389,26 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	public PageResult createPageResult() {
 		PageResultImpl pageResult = new PageResultImpl();
 		return pageResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WebElement createWebElement() {
+		WebElementImpl webElement = new WebElementImpl();
+		return webElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Locator createLocator() {
+		LocatorImpl locator = new LocatorImpl();
+		return locator;
 	}
 
 	/**
