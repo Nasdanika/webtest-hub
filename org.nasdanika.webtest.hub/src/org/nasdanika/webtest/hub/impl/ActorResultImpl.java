@@ -2,13 +2,14 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,6 +17,8 @@ import org.nasdanika.core.ConverterContext;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
+import org.nasdanika.html.Table;
+import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
@@ -23,6 +26,8 @@ import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.BreadcrumbsProvider;
+import org.nasdanika.webtest.hub.Coverage;
+import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 
 /**
@@ -75,19 +80,19 @@ public class ActorResultImpl extends DescriptorImpl implements ActorResult {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EMap<String, Integer> getCoverage() {
-		return (EMap<String, Integer>)eGet(HubPackage.Literals.ACTOR_RESULT__COVERAGE, true);
+	public EList<Coverage> getCoverage() {
+		return (EList<Coverage>)eGet(HubPackage.Literals.ACTOR_RESULT__COVERAGE, true);
 	}
 
 	@Override
 	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
 		super.loadJSON(json, context);
 		if (json.has("coverage")) {
-			JSONObject cov = json.getJSONObject("coverage");
-			Iterator<String> kit = cov.keys();
-			while (kit.hasNext()) {
-				String key = kit.next();				
-				getCoverage().put(key, cov.getInt(key));
+			JSONArray cov = json.getJSONArray("coverage");
+			for (int i=0; i<cov.length(); ++i) {
+				Coverage coverage = HubFactory.eINSTANCE.createCoverage();
+				getCoverage().add(coverage);
+				coverage.loadJSON(cov.getJSONObject(i), context);
 			}
 		}
 		if (json.has("results")) {
@@ -107,11 +112,33 @@ public class ActorResultImpl extends DescriptorImpl implements ActorResult {
 		}	
 		CDOLock readLock = cdoReadLock();
 		if (readLock.tryLock(15, TimeUnit.SECONDS)) {
-			try {
+			try {				
+				Table methodTable = htmlFactory.table().bordered();
+				Row headerRow = methodTable.row().style(Style.INFO);
+				headerRow.header(htmlFactory.glyphicon(Glyphicon.cog), " Method");
+				headerRow.header(htmlFactory.glyphicon(Glyphicon.file), " Description");
+				headerRow.header(htmlFactory.glyphicon(Glyphicon.file), " Calls");
+				ArrayList<Coverage> sortedCoverage = new ArrayList<>(getCoverage());
+				Collections.sort(sortedCoverage, new Comparator<Coverage>() {
+
+					@Override
+					public int compare(Coverage o1, Coverage o2) {
+						return o1.getTitle().compareTo(o2.getTitle());
+					}
+					
+				});
+				for (Coverage coverage: sortedCoverage) {
+					Row methodRow = methodTable.row();
+					methodRow.cell(StringEscapeUtils.escapeHtml4(coverage.getTitle()));
+					methodRow.cell(coverage.getDescription().toHTML());				
+					methodRow.cell(HubUtil.blankZero(coverage.getInvocations())).attribute("align", "right");
+				}
+				
 				return 	htmlFactory.inject("#breadcrumbs-container", createBreadcrumbs(context, true)).toString() + 
 						htmlFactory.tag(TagName.h3, htmlFactory.glyphicon(Glyphicon.user), " ", StringEscapeUtils.escapeHtml4(getTitle())) +
 						getDescription().toHTML() +
-						"<P/>";
+						"<P/>" +
+						methodTable;
 			} finally {
 				readLock.unlock();
 			}

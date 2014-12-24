@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpServletResponse;
@@ -50,6 +49,7 @@ import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
+import org.nasdanika.webtest.hub.Coverage;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.OperationResult;
@@ -65,7 +65,9 @@ import org.nasdanika.webtest.hub.TestSession;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getResults <em>Results</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getTestResults <em>Test Results</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getPageResults <em>Page Results</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getActorResults <em>Actor Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#isPublished <em>Published</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getSize <em>Size</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getProgress <em>Progress</em>}</li>
@@ -104,10 +106,30 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<TestResult> getResults() {
-		return (EList<TestResult>)eGet(HubPackage.Literals.TEST_SESSION__RESULTS, true);
+	public EList<TestResult> getTestResults() {
+		return (EList<TestResult>)eGet(HubPackage.Literals.TEST_SESSION__TEST_RESULTS, true);
 	}
-		
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<PageResult> getPageResults() {
+		return (EList<PageResult>)eGet(HubPackage.Literals.TEST_SESSION__PAGE_RESULTS, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<ActorResult> getActorResults() {
+		return (EList<ActorResult>)eGet(HubPackage.Literals.TEST_SESSION__ACTOR_RESULTS, true);
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,7 +229,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		setProgress(1);
 	}
 
-	@RouteMethod(pattern="L[\\d]+/results", value=RequestMethod.POST)
+	@RouteMethod(pattern="L[\\d]+/testResults", value=RequestMethod.POST)
 	public void createTestResult(final HttpContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			CDOLock writeLock = cdoWriteLock();
@@ -217,21 +239,21 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 					switch (json.getString("type")) {
 					case "class": {
 						TestResult result = HubFactory.eINSTANCE.createTestClassResult();
-						getResults().add(result);
+						getTestResults().add(result);
 						result.loadJSON(json, context);
 						HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
 						break;
 					}
 					case "suite": {
 						TestResult result = HubFactory.eINSTANCE.createTestSuiteResult();
-						getResults().add(result);
+						getTestResults().add(result);
 						result.loadJSON(json, context);
 						HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
 						break;
 					}
 					case "parameterized": {
 						TestResult result = HubFactory.eINSTANCE.createParameterizedTestResult();
-						getResults().add(result);
+						getTestResults().add(result);
 						result.loadJSON(json, context);
 						HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);				
 						break;
@@ -239,6 +261,46 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 					default:
 						context.getResponse().sendError(HttpServletResponse.SC_BAD_REQUEST, "Unexpected type: "+json.getString("type"));
 					}
+				} finally {
+					writeLock.unlock();
+				}
+			} else {			
+				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
+			}			
+		}
+	}	
+	
+	@RouteMethod(pattern="L[\\d]+/pageResults", value=RequestMethod.POST)
+	public void createPageResult(final HttpContext context) throws Exception {
+		if (HubUtil.authorize(context, this)) {
+			CDOLock writeLock = cdoWriteLock();
+			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+				try (BufferedReader reader = context.getRequest().getReader()) {
+					JSONObject json = new JSONObject(new JSONTokener(reader));
+					PageResult result = HubFactory.eINSTANCE.createPageResult();
+					getPageResults().add(result);
+					result.loadJSON(json, context);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);
+				} finally {
+					writeLock.unlock();
+				}
+			} else {			
+				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
+			}			
+		}
+	}	
+		
+	@RouteMethod(pattern="L[\\d]+/actorResults", value=RequestMethod.POST)
+	public void createActorResult(final HttpContext context) throws Exception {
+		if (HubUtil.authorize(context, this)) {
+			CDOLock writeLock = cdoWriteLock();
+			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+				try (BufferedReader reader = context.getRequest().getReader()) {
+					JSONObject json = new JSONObject(new JSONTokener(reader));
+					ActorResult result = HubFactory.eINSTANCE.createActorResult();
+					getActorResults().add(result);
+					result.loadJSON(json, context);
+					HubUtil.respondWithLocationAndObjectIdOnCommit(context, result);
 				} finally {
 					writeLock.unlock();
 				}
@@ -351,17 +413,23 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	}
 	
 	private Object pagesLeftPanel(HttpContext context, HTMLFactory htmlFactory) throws Exception {
-		List<PageInfo> pageInfo = pageInfo();
-						
-		if (pageInfo.isEmpty()) {
+		List<PageResult> prs = new ArrayList<>(getPageResults());
+		if (prs.isEmpty()) {
 			return null;
 		}
+		Collections.sort(prs, new Comparator<PageResult>() {
+
+			@Override
+			public int compare(PageResult o1, PageResult o2) {				
+				return o1.getTitle().compareTo(o2.getTitle());
+			}
+		});
 
 		LinkGroup linkGroup = htmlFactory.linkGroup();
-		for (PageInfo pi: pageInfo) {
+		for (PageResult pr: prs) {
 			linkGroup.item(
-					StringEscapeUtils.escapeHtml4(pi.title), 
-					htmlFactory.routeRef("right-panel",	"/"+context.getObjectPath(this)+"/page/"+pi.qualifiedName),
+					StringEscapeUtils.escapeHtml4(pr.getTitle()), 
+					htmlFactory.routeRef("right-panel",	"/"+context.getObjectPath(pr)+".html"),
 					null, 
 					false);
 		}
@@ -369,17 +437,23 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	}
 
 	private Object actorsLeftPanel(HttpContext context, HTMLFactory htmlFactory) throws Exception {
-		List<ActorInfo> actorInfo = actorInfo();
-		
-		if (actorInfo.isEmpty()) {
+		List<ActorResult> ars = new ArrayList<>(getActorResults());
+		if (ars.isEmpty()) {
 			return null;
 		}
+		Collections.sort(ars, new Comparator<ActorResult>() {
+
+			@Override
+			public int compare(ActorResult o1, ActorResult o2) {				
+				return o1.getTitle().compareTo(o2.getTitle());
+			}
+		});
 
 		LinkGroup linkGroup = htmlFactory.linkGroup();
-		for (ActorInfo ai: actorInfo) {
+		for (ActorResult ar: ars) {
 			linkGroup.item(
-					StringEscapeUtils.escapeHtml4(ai.title), 
-					htmlFactory.routeRef("right-panel",	"/"+context.getObjectPath(this)+"/actor/"+ai.qualifiedName),
+					StringEscapeUtils.escapeHtml4(ar.getTitle()), 
+					htmlFactory.routeRef("right-panel",	"/"+context.getObjectPath(ar)+".html"),
 					null, 
 					false);
 		}
@@ -430,7 +504,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		hRow.header(htmlFactory.glyphicon(Glyphicon.warning_sign), "&nbsp;Error").style("text-align", "center").attribute("nowrap", "true").style("color", HTMLColor.DarkOrange);
 		hRow.header(htmlFactory.glyphicon(Glyphicon.time), "&nbsp;Pending").style("text-align", "center").attribute("nowrap", "true").style("color", "gray");
 		
-		List<TestResult> sortedResults = new ArrayList<>(getResults());
+		List<TestResult> sortedResults = new ArrayList<>(getTestResults());
 		Collections.sort(sortedResults, new Comparator<TestResult>() {
 
 			@Override
@@ -512,32 +586,18 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		return testResultsTable.toString();
 	}
 	
-	private static class ActorInfo implements Comparable<ActorInfo> {
-		String qualifiedName;
-		String title;
-		String description;
-		Map<String, int[]> coverage = new HashMap<>();
-		
-		@Override
-		public int compareTo(ActorInfo o) {
-			if (title==null) {
-				if (o.title==null) {
-					return qualifiedName.compareTo(o.qualifiedName);
-				}
-				return 1;
-			}
-			if (o.title==null) {
-				return -1;
-			}
-			return title.compareTo(o.title);
-		}
-	}	
-	
 	private String actorsSummary(HttpContext context) throws Exception {		
-		List<ActorInfo> actorInfo = actorInfo();		
-		if (actorInfo.isEmpty()) {
+		List<ActorResult> ars = new ArrayList<>(getActorResults());
+		if (ars.isEmpty()) {
 			return null;
 		}
+		Collections.sort(ars, new Comparator<ActorResult>() {
+
+			@Override
+			public int compare(ActorResult o1, ActorResult o2) {				
+				return o1.getTitle().compareTo(o2.getTitle());
+			}
+		});
 
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		Table actorTable = htmlFactory.table().bordered();
@@ -548,25 +608,25 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		header.header("Methods").style("text-align", "center");
 		header.header("Invocations").style("text-align", "center");
 		header.header("Coverage").style("text-align", "center");
-		for (ActorInfo ai: actorInfo) {
+		for (ActorResult ar: ars) {
 			Row pageRow = actorTable.row();
 			pageRow.cell(htmlFactory.routeLink(
 					"right-panel", 
-					"/"+context.getObjectPath(this)+"/actor/"+ai.qualifiedName, 
-					StringEscapeUtils.escapeHtml4(ai.title)));
-			pageRow.cell(ai.description);
+					"/"+context.getObjectPath(ar)+".html", 
+					StringEscapeUtils.escapeHtml4(ar.getTitle())));
+			pageRow.cell(ar.getDescription().toHTML());
 			int covered = 0;
 			int calls = 0;
-			for (int[] mc: ai.coverage.values()) {
-				if (mc[0]!=0) {
+			for (Coverage mc: ar.getCoverage()) {
+				if (mc.getInvocations()!=0) {
 					++covered;
 				}
-				calls+=mc[0];
+				calls+=mc.getInvocations();
 			}
-			pageRow.cell(HubUtil.blankZero(ai.coverage.size())).style("text-align", "center");
+			pageRow.cell(HubUtil.blankZero(ar.getCoverage().size())).style("text-align", "center");
 			pageRow.cell(HubUtil.blankZero(calls)).attribute("align", "center");
-			pageRow.cell(covered==0 ? "" : covered+MessageFormat.format(" ({0,number,#.##}%)", 100.0*covered/ai.coverage.size())).style("text-align", "center");
-			totals[0]+=ai.coverage.size();
+			pageRow.cell(covered==0 ? "" : covered+MessageFormat.format(" ({0,number,#.##}%)", 100.0*covered/ar.getCoverage().size())).style("text-align", "center");
+			totals[0]+=ar.getCoverage().size();
 			totals[1]+=calls;
 			totals[2]+=covered;
 		}
@@ -577,63 +637,19 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		totalsRow.cell(totals[2]==0 ? "" : totals[2]+MessageFormat.format(" ({0,number,#.##}%)", 100.0*totals[2]/totals[0])).attribute("align", "center");
 		return actorTable.toString();
 	}
-
-	private List<ActorInfo> actorInfo() {
-		final Map<String, ActorInfo> actorInfo = new HashMap<>(); // qName -> Method -> calls
-		
-		for (TestResult result: getResults()) {
-			for (ActorResult ar: result.getActorResults()) {
-				ActorInfo ai = actorInfo.get(ar.getQualifiedName());
-				if (ai==null) {
-					ai = new ActorInfo();
-					ai.qualifiedName = ar.getQualifiedName();
-					ai.title = ar.getTitle();
-					ai.description = ar.getDescription()==null ? "" : ar.getDescription().toHTML();
-					actorInfo.put(ar.getQualifiedName(), ai);
-				}
-				for (Entry<String, Integer> am: ar.getCoverage()) {
-					int[] mc = ai.coverage.get(am.getKey());
-					if (mc==null) {
-						ai.coverage.put(am.getKey(), new int[] {am.getValue()});
-					} else {
-						mc[0]+=am.getValue();
-					}
-				}
-			}
-		}
-		List<ActorInfo> ail = new ArrayList<>(actorInfo.values());
-		Collections.sort(ail);
-		return ail;
-	}
-	
-	private static class PageInfo implements Comparable<PageInfo> {
-		String qualifiedName;
-		String title;
-		String description;
-		Map<String, int[]> coverage = new HashMap<>();
-		int size;
-		
-		@Override
-		public int compareTo(PageInfo o) {
-			if (title==null) {
-				if (o.title==null) {
-					return qualifiedName.compareTo(o.qualifiedName);
-				}
-				return 1;
-			}
-			if (o.title==null) {
-				return -1;
-			}
-			return title.compareTo(o.title);
-		}
-	}	
 	
 	private String pagesSummary(HttpContext context) throws Exception {
-		List<PageInfo> pageInfo = pageInfo();
-		
-		if (pageInfo.isEmpty()) {
+		List<PageResult> prs = new ArrayList<>(getPageResults());
+		if (prs.isEmpty()) {
 			return null;
 		}
+		Collections.sort(prs, new Comparator<PageResult>() {
+
+			@Override
+			public int compare(PageResult o1, PageResult o2) {				
+				return o1.getTitle().compareTo(o2.getTitle());
+			}
+		});
 
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		Table pageTable = htmlFactory.table().bordered();
@@ -645,27 +661,27 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		header.header("Methods").style("text-align", "center");
 		header.header("Invocations").style("text-align", "center");
 		header.header("Coverage").style("text-align", "center");
-		for (PageInfo pi: pageInfo) {
+		for (PageResult pr: prs) {
 			Row pageRow = pageTable.row();
 			pageRow.cell(htmlFactory.routeLink(
 					"right-panel", 
-					"/"+context.getObjectPath(this)+"/page/"+pi.qualifiedName, 
-					StringEscapeUtils.escapeHtml4(pi.title)));
-			pageRow.cell(pi.description);
+					"/"+context.getObjectPath(pr)+".html", 
+					StringEscapeUtils.escapeHtml4(pr.getTitle())));
+			pageRow.cell(pr.getDescription().toHTML());
 			int covered = 0;
 			int calls = 0;
-			for (int[] mc: pi.coverage.values()) {
-				if (mc[0]!=0) {
+			for (Coverage mc: pr.getCoverage()) {
+				if (mc.getInvocations()!=0) {
 					++covered;
 				}
-				calls+=mc[0];
+				calls+=mc.getInvocations();
 			}
-			pageRow.cell(HubUtil.blankZero(pi.size)).style("text-align", "center");
-			pageRow.cell(HubUtil.blankZero(pi.coverage.size())).style("text-align", "center");
+			pageRow.cell(HubUtil.blankZero(pr.getWebElements().size())).style("text-align", "center");
+			pageRow.cell(HubUtil.blankZero(pr.getCoverage().size())).style("text-align", "center");
 			pageRow.cell(HubUtil.blankZero(calls)).style("text-align", "center");
-			pageRow.cell(covered==0 ? "" : covered+MessageFormat.format(" ({0,number,#.##}%)", 100.0*covered/pi.coverage.size())).style("text-align", "center");
-			totals[0]+=pi.size;
-			totals[1]+=pi.coverage.size();
+			pageRow.cell(covered==0 ? "" : covered+MessageFormat.format(" ({0,number,#.##}%)", 100.0*covered/pr.getCoverage().size())).style("text-align", "center");
+			totals[0]+=pr.getWebElements().size();
+			totals[1]+=pr.getCoverage().size();
 			totals[2]+=calls;
 			totals[3]+=covered;
 		}
@@ -677,38 +693,9 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		totalsRow.cell(totals[3]==0 ? "" : totals[3]+MessageFormat.format(" ({0,number,#.##}%)", 100.0*totals[3]/totals[1])).attribute("align", "center");
 		return pageTable.toString();
 	}
-
-	private List<PageInfo> pageInfo() {
-		Map<String, PageInfo> pageInfo = new HashMap<>(); // qName -> Method -> calls
-		
-		for (TestResult result: getResults()) {
-			for (PageResult pr: result.getPageResults()) {
-				PageInfo pi = pageInfo.get(pr.getQualifiedName());
-				if (pi==null) {
-					pi = new PageInfo();
-					pi.qualifiedName = pr.getQualifiedName();
-					pi.title = pr.getTitle();
-					pi.size = pr.getWebElements().size();
-					pi.description = pr.getDescription()==null ? "" : pr.getDescription().toHTML();
-					pageInfo.put(pr.getQualifiedName(), pi);
-				}
-				for (Entry<String, Integer> pm: pr.getCoverage()) {
-					int[] mc = pi.coverage.get(pm.getKey());
-					if (mc==null) {
-						pi.coverage.put(pm.getKey(), new int[] {pm.getValue()});
-					} else {
-						mc[0]+=pm.getValue();
-					}
-				}				
-			}
-		}
-		List<PageInfo> pil = new ArrayList<>(pageInfo.values());
-		Collections.sort(pil);
-		return pil;
-	}
 	
 	private Object testsLeftPanel(HttpContext context, HTMLFactory htmlFactory) throws Exception {
-		List<TestResult> sortedResults = new ArrayList<>(getResults());
+		List<TestResult> sortedResults = new ArrayList<>(getTestResults());
 		Collections.sort(sortedResults, new Comparator<TestResult>() {
 
 			@Override
@@ -747,40 +734,41 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		final Map<String, Map<String, int[]>> pageMethodsMap = new HashMap<>(); // qName -> Method -> calls
 		final Map<String, Map<String, int[]>> actorMethodsMap = new HashMap<>(); // qName -> Method -> calls
 		
-		for (TestResult result: getResults()) {
+		for (TestResult result: getTestResults()) {
 			HubUtil.aggregateStats(result, stats);
-			for (PageResult pr: result.getPageResults()) {
-				Integer ps = pageSizeMap.get(pr.getQualifiedName());
-				if (ps==null || pr.getWebElements().size()>ps) {
-					pageSizeMap.put(pr.getQualifiedName(), pr.getWebElements().size());
-				}
-				Map<String, int[]> mm = pageMethodsMap.get(pr.getQualifiedName());
-				if (mm==null) {
-					mm = new HashMap<>();
-					pageMethodsMap.put(pr.getQualifiedName(), mm);
-				}
-				for (Entry<String, Integer> pm: pr.getCoverage()) {
-					int[] mc = mm.get(pm.getKey());
-					if (mc==null) {
-						mm.put(pm.getKey(), new int[] {pm.getValue()});
-					} else {
-						mc[0]+=pm.getValue();
-					}
+		}
+		
+		for (PageResult pr: getPageResults()) {
+			Integer ps = pageSizeMap.get(pr.getQualifiedName());
+			if (ps==null || pr.getWebElements().size()>ps) {
+				pageSizeMap.put(pr.getQualifiedName(), pr.getWebElements().size());
+			}
+			Map<String, int[]> mm = pageMethodsMap.get(pr.getQualifiedName());
+			if (mm==null) {
+				mm = new HashMap<>();
+				pageMethodsMap.put(pr.getQualifiedName(), mm);
+			}
+			for (Coverage pm: pr.getCoverage()) {
+				int[] mc = mm.get(pm.getQualifiedName());
+				if (mc==null) {
+					mm.put(pm.getQualifiedName(), new int[] {pm.getInvocations()});
+				} else {
+					mc[0]+=pm.getInvocations();
 				}
 			}
-			for (ActorResult ar: result.getActorResults()) {
-				Map<String, int[]> mm = actorMethodsMap.get(ar.getQualifiedName());
-				if (mm==null) {
-					mm = new HashMap<>();
-					actorMethodsMap.put(ar.getQualifiedName(), mm);
-				}
-				for (Entry<String, Integer> am: ar.getCoverage()) {
-					int[] mc = mm.get(am.getKey());
-					if (mc==null) {
-						mm.put(am.getKey(), new int[] {am.getValue()});
-					} else {
-						mc[0]+=am.getValue();
-					}
+		}
+		for (ActorResult ar: getActorResults()) {
+			Map<String, int[]> mm = actorMethodsMap.get(ar.getQualifiedName());
+			if (mm==null) {
+				mm = new HashMap<>();
+				actorMethodsMap.put(ar.getQualifiedName(), mm);
+			}
+			for (Coverage am: ar.getCoverage()) {
+				int[] mc = mm.get(am.getQualifiedName());
+				if (mc==null) {
+					mm.put(am.getQualifiedName(), new int[] {am.getInvocations()});
+				} else {
+					mc[0]+=am.getInvocations();
 				}
 			}
 		}

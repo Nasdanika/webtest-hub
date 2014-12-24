@@ -202,6 +202,15 @@ public interface HubFactory extends EFactory {
 	TestMethodResult createTestMethodResult();
 
 	/**
+	 * Returns a new object of class '<em>Coverage</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Coverage</em>'.
+	 * @generated
+	 */
+	Coverage createCoverage();
+
+	/**
 	 * Returns a new object of class '<em>Actor Result</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

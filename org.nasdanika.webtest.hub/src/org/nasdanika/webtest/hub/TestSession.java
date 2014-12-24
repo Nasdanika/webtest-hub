@@ -14,7 +14,9 @@ import org.nasdanika.web.HttpContext;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.nasdanika.webtest.hub.TestSession#getResults <em>Results</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.TestSession#getTestResults <em>Test Results</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.TestSession#getPageResults <em>Page Results</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.TestSession#getActorResults <em>Actor Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.TestSession#isPublished <em>Published</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.TestSession#getSize <em>Size</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.TestSession#getProgress <em>Progress</em>}</li>
@@ -29,20 +31,52 @@ import org.nasdanika.web.HttpContext;
  */
 public interface TestSession extends Descriptor, BreadcrumbsProvider {
 	/**
-	 * Returns the value of the '<em><b>Results</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Test Results</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.webtest.hub.TestResult}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Results</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Test Results</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Results</em>' containment reference list.
-	 * @see org.nasdanika.webtest.hub.HubPackage#getTestSession_Results()
+	 * @return the value of the '<em>Test Results</em>' containment reference list.
+	 * @see org.nasdanika.webtest.hub.HubPackage#getTestSession_TestResults()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<TestResult> getResults();
+	EList<TestResult> getTestResults();
+
+	/**
+	 * Returns the value of the '<em><b>Page Results</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.webtest.hub.PageResult}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Page Results</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Page Results</em>' containment reference list.
+	 * @see org.nasdanika.webtest.hub.HubPackage#getTestSession_PageResults()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<PageResult> getPageResults();
+
+	/**
+	 * Returns the value of the '<em><b>Actor Results</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.webtest.hub.ActorResult}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Actor Results</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Actor Results</em>' containment reference list.
+	 * @see org.nasdanika.webtest.hub.HubPackage#getTestSession_ActorResults()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ActorResult> getActorResults();
 
 	/**
 	 * Returns the value of the '<em><b>Published</b></em>' attribute.

@@ -747,13 +747,31 @@ public interface HubPackage extends EPackage {
 	int TEST_SESSION__DESCRIPTION = DESCRIPTOR__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Test Results</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_SESSION__RESULTS = DESCRIPTOR_FEATURE_COUNT + 0;
+	int TEST_SESSION__TEST_RESULTS = DESCRIPTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Page Results</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_SESSION__PAGE_RESULTS = DESCRIPTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Actor Results</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_SESSION__ACTOR_RESULTS = DESCRIPTOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Published</b></em>' attribute.
@@ -762,7 +780,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_SESSION__PUBLISHED = DESCRIPTOR_FEATURE_COUNT + 1;
+	int TEST_SESSION__PUBLISHED = DESCRIPTOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -771,7 +789,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_SESSION__SIZE = DESCRIPTOR_FEATURE_COUNT + 2;
+	int TEST_SESSION__SIZE = DESCRIPTOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Progress</b></em>' attribute.
@@ -780,7 +798,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_SESSION__PROGRESS = DESCRIPTOR_FEATURE_COUNT + 3;
+	int TEST_SESSION__PROGRESS = DESCRIPTOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
@@ -789,7 +807,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_SESSION__TIMESTAMP = DESCRIPTOR_FEATURE_COUNT + 4;
+	int TEST_SESSION__TIMESTAMP = DESCRIPTOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Node</b></em>' attribute.
@@ -798,7 +816,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_SESSION__NODE = DESCRIPTOR_FEATURE_COUNT + 5;
+	int TEST_SESSION__NODE = DESCRIPTOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Test Session</em>' class.
@@ -807,7 +825,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_SESSION_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 6;
+	int TEST_SESSION_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Test Session</em>' class.
@@ -2526,50 +2544,68 @@ public interface HubPackage extends EPackage {
 	int TEST_METHOD_RESULT_OPERATION_COUNT = OPERATION_RESULT_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.CoverageEntryImpl <em>Coverage Entry</em>}' class.
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.CoverageImpl <em>Coverage</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.webtest.hub.impl.CoverageEntryImpl
-	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCoverageEntry()
+	 * @see org.nasdanika.webtest.hub.impl.CoverageImpl
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCoverage()
 	 * @generated
 	 */
-	int COVERAGE_ENTRY = 22;
+	int COVERAGE = 22;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COVERAGE_ENTRY__KEY = 0;
+	int COVERAGE__QUALIFIED_NAME = DESCRIPTOR__QUALIFIED_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COVERAGE_ENTRY__VALUE = 1;
+	int COVERAGE__TITLE = DESCRIPTOR__TITLE;
 
 	/**
-	 * The number of structural features of the '<em>Coverage Entry</em>' class.
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COVERAGE_ENTRY_FEATURE_COUNT = 2;
+	int COVERAGE__DESCRIPTION = DESCRIPTOR__DESCRIPTION;
 
 	/**
-	 * The number of operations of the '<em>Coverage Entry</em>' class.
+	 * The feature id for the '<em><b>Invocations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COVERAGE_ENTRY_OPERATION_COUNT = 0;
+	int COVERAGE__INVOCATIONS = DESCRIPTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Coverage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVERAGE_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Coverage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVERAGE_OPERATION_COUNT = DESCRIPTOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.ActorResultImpl <em>Actor Result</em>}' class.
@@ -2618,7 +2654,7 @@ public interface HubPackage extends EPackage {
 	int ACTOR_RESULT__RESULTS = DESCRIPTOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' map.
+	 * The feature id for the '<em><b>Coverage</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2691,7 +2727,7 @@ public interface HubPackage extends EPackage {
 	int PAGE_RESULT__RESULTS = DESCRIPTOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Coverage</b></em>' map.
+	 * The feature id for the '<em><b>Coverage</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3135,15 +3171,37 @@ public interface HubPackage extends EPackage {
 	EClass getTestSession();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.TestSession#getResults <em>Results</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.TestSession#getTestResults <em>Test Results</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Results</em>'.
-	 * @see org.nasdanika.webtest.hub.TestSession#getResults()
+	 * @return the meta object for the containment reference list '<em>Test Results</em>'.
+	 * @see org.nasdanika.webtest.hub.TestSession#getTestResults()
 	 * @see #getTestSession()
 	 * @generated
 	 */
-	EReference getTestSession_Results();
+	EReference getTestSession_TestResults();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.TestSession#getPageResults <em>Page Results</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Page Results</em>'.
+	 * @see org.nasdanika.webtest.hub.TestSession#getPageResults()
+	 * @see #getTestSession()
+	 * @generated
+	 */
+	EReference getTestSession_PageResults();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.TestSession#getActorResults <em>Actor Results</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Actor Results</em>'.
+	 * @see org.nasdanika.webtest.hub.TestSession#getActorResults()
+	 * @see #getTestSession()
+	 * @generated
+	 */
+	EReference getTestSession_ActorResults();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.TestSession#isPublished <em>Published</em>}'.
@@ -3815,38 +3873,25 @@ public interface HubPackage extends EPackage {
 	EOperation getTestMethodResult__LoadTiming__JSONObject();
 
 	/**
-	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Coverage Entry</em>}'.
+	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.Coverage <em>Coverage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Coverage Entry</em>'.
-	 * @see java.util.Map.Entry
-	 * @model keyDataType="org.eclipse.emf.ecore.EString"
-	 *        valueDataType="org.eclipse.emf.ecore.EIntegerObject"
+	 * @return the meta object for class '<em>Coverage</em>'.
+	 * @see org.nasdanika.webtest.hub.Coverage
 	 * @generated
 	 */
-	EClass getCoverageEntry();
+	EClass getCoverage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.Coverage#getInvocations <em>Invocations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Key</em>'.
-	 * @see java.util.Map.Entry
-	 * @see #getCoverageEntry()
+	 * @return the meta object for the attribute '<em>Invocations</em>'.
+	 * @see org.nasdanika.webtest.hub.Coverage#getInvocations()
+	 * @see #getCoverage()
 	 * @generated
 	 */
-	EAttribute getCoverageEntry_Key();
-
-	/**
-	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see java.util.Map.Entry
-	 * @see #getCoverageEntry()
-	 * @generated
-	 */
-	EAttribute getCoverageEntry_Value();
+	EAttribute getCoverage_Invocations();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.ActorResult <em>Actor Result</em>}'.
@@ -3870,10 +3915,10 @@ public interface HubPackage extends EPackage {
 	EReference getActorResult_Results();
 
 	/**
-	 * Returns the meta object for the map '{@link org.nasdanika.webtest.hub.ActorResult#getCoverage <em>Coverage</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.ActorResult#getCoverage <em>Coverage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the map '<em>Coverage</em>'.
+	 * @return the meta object for the containment reference list '<em>Coverage</em>'.
 	 * @see org.nasdanika.webtest.hub.ActorResult#getCoverage()
 	 * @see #getActorResult()
 	 * @generated
@@ -3902,10 +3947,10 @@ public interface HubPackage extends EPackage {
 	EReference getPageResult_Results();
 
 	/**
-	 * Returns the meta object for the map '{@link org.nasdanika.webtest.hub.PageResult#getCoverage <em>Coverage</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.webtest.hub.PageResult#getCoverage <em>Coverage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the map '<em>Coverage</em>'.
+	 * @return the meta object for the containment reference list '<em>Coverage</em>'.
 	 * @see org.nasdanika.webtest.hub.PageResult#getCoverage()
 	 * @see #getPageResult()
 	 * @generated
@@ -4270,12 +4315,28 @@ public interface HubPackage extends EPackage {
 		EClass TEST_SESSION = eINSTANCE.getTestSession();
 
 		/**
-		 * The meta object literal for the '<em><b>Results</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Test Results</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEST_SESSION__RESULTS = eINSTANCE.getTestSession_Results();
+		EReference TEST_SESSION__TEST_RESULTS = eINSTANCE.getTestSession_TestResults();
+
+		/**
+		 * The meta object literal for the '<em><b>Page Results</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEST_SESSION__PAGE_RESULTS = eINSTANCE.getTestSession_PageResults();
+
+		/**
+		 * The meta object literal for the '<em><b>Actor Results</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEST_SESSION__ACTOR_RESULTS = eINSTANCE.getTestSession_ActorResults();
 
 		/**
 		 * The meta object literal for the '<em><b>Published</b></em>' attribute feature.
@@ -4802,30 +4863,22 @@ public interface HubPackage extends EPackage {
 		EOperation TEST_METHOD_RESULT___LOAD_TIMING__JSONOBJECT = eINSTANCE.getTestMethodResult__LoadTiming__JSONObject();
 
 		/**
-		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.CoverageEntryImpl <em>Coverage Entry</em>}' class.
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.CoverageImpl <em>Coverage</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.webtest.hub.impl.CoverageEntryImpl
-		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCoverageEntry()
+		 * @see org.nasdanika.webtest.hub.impl.CoverageImpl
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCoverage()
 		 * @generated
 		 */
-		EClass COVERAGE_ENTRY = eINSTANCE.getCoverageEntry();
+		EClass COVERAGE = eINSTANCE.getCoverage();
 
 		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Invocations</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COVERAGE_ENTRY__KEY = eINSTANCE.getCoverageEntry_Key();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COVERAGE_ENTRY__VALUE = eINSTANCE.getCoverageEntry_Value();
+		EAttribute COVERAGE__INVOCATIONS = eINSTANCE.getCoverage_Invocations();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.ActorResultImpl <em>Actor Result</em>}' class.
@@ -4846,7 +4899,7 @@ public interface HubPackage extends EPackage {
 		EReference ACTOR_RESULT__RESULTS = eINSTANCE.getActorResult_Results();
 
 		/**
-		 * The meta object literal for the '<em><b>Coverage</b></em>' map feature.
+		 * The meta object literal for the '<em><b>Coverage</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4872,7 +4925,7 @@ public interface HubPackage extends EPackage {
 		EReference PAGE_RESULT__RESULTS = eINSTANCE.getPageResult_Results();
 
 		/**
-		 * The meta object literal for the '<em><b>Coverage</b></em>' map feature.
+		 * The meta object literal for the '<em><b>Coverage</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

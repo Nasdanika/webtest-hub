@@ -16,6 +16,7 @@ import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
 import org.nasdanika.webtest.hub.BreadcrumbsProvider;
+import org.nasdanika.webtest.hub.Coverage;
 import org.nasdanika.webtest.hub.Description;
 import org.nasdanika.webtest.hub.Descriptor;
 import org.nasdanika.webtest.hub.Guest;
@@ -288,9 +289,11 @@ public class HubSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case HubPackage.COVERAGE_ENTRY: {
-				@SuppressWarnings("unchecked") Map.Entry<String, Integer> coverageEntry = (Map.Entry<String, Integer>)theEObject;
-				T result = caseCoverageEntry(coverageEntry);
+			case HubPackage.COVERAGE: {
+				Coverage coverage = (Coverage)theEObject;
+				T result = caseCoverage(coverage);
+				if (result == null) result = caseDescriptor(coverage);
+				if (result == null) result = caseJSONLoader(coverage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -673,17 +676,17 @@ public class HubSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Coverage Entry</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Coverage</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Coverage Entry</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Coverage</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCoverageEntry(Map.Entry<String, Integer> object) {
+	public T caseCoverage(Coverage object) {
 		return null;
 	}
 

@@ -3,7 +3,6 @@
 package org.nasdanika.webtest.hub;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,21 +42,20 @@ public interface PageResult extends Descriptor, BreadcrumbsProvider {
 	EList<PageMethodResult> getResults();
 
 	/**
-	 * Returns the value of the '<em><b>Coverage</b></em>' map.
-	 * The key is of type {@link java.lang.String},
-	 * and the value is of type {@link java.lang.Integer},
+	 * Returns the value of the '<em><b>Coverage</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.webtest.hub.Coverage}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Coverage</em>' map isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Coverage</em>' map.
+	 * @return the value of the '<em>Coverage</em>' containment reference list.
 	 * @see org.nasdanika.webtest.hub.HubPackage#getPageResult_Coverage()
-	 * @model mapType="org.nasdanika.webtest.hub.CoverageEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EIntegerObject>"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EMap<String, Integer> getCoverage();
+	EList<Coverage> getCoverage();
 
 	/**
 	 * Returns the value of the '<em><b>Web Elements</b></em>' containment reference list.

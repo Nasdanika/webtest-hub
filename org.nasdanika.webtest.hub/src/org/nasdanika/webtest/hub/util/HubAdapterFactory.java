@@ -17,6 +17,7 @@ import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
 import org.nasdanika.webtest.hub.BreadcrumbsProvider;
+import org.nasdanika.webtest.hub.Coverage;
 import org.nasdanika.webtest.hub.Description;
 import org.nasdanika.webtest.hub.Descriptor;
 import org.nasdanika.webtest.hub.Guest;
@@ -184,8 +185,8 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 				return createTestMethodResultAdapter();
 			}
 			@Override
-			public Adapter caseCoverageEntry(Map.Entry<String, Integer> object) {
-				return createCoverageEntryAdapter();
+			public Adapter caseCoverage(Coverage object) {
+				return createCoverageAdapter();
 			}
 			@Override
 			public Adapter caseActorResult(ActorResult object) {
@@ -560,16 +561,16 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Coverage Entry</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.Coverage <em>Coverage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see java.util.Map.Entry
+	 * @see org.nasdanika.webtest.hub.Coverage
 	 * @generated
 	 */
-	public Adapter createCoverageEntryAdapter() {
+	public Adapter createCoverageAdapter() {
 		return null;
 	}
 

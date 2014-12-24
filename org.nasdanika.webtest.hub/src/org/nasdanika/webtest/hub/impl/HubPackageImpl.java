@@ -20,6 +20,7 @@ import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
 import org.nasdanika.webtest.hub.BreadcrumbsProvider;
+import org.nasdanika.webtest.hub.Coverage;
 import org.nasdanika.webtest.hub.Description;
 import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
@@ -210,7 +211,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass coverageEntryEClass = null;
+	private EClass coverageEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -570,7 +571,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTestSession_Results() {
+	public EReference getTestSession_TestResults() {
 		return (EReference)testSessionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -579,25 +580,25 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTestSession_PageResults() {
+		return (EReference)testSessionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTestSession_ActorResults() {
+		return (EReference)testSessionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getTestSession_Published() {
-		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTestSession_Size() {
-		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTestSession_Progress() {
 		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -606,7 +607,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTestSession_Timestamp() {
+	public EAttribute getTestSession_Size() {
 		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -615,8 +616,26 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTestSession_Node() {
+	public EAttribute getTestSession_Progress() {
 		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTestSession_Timestamp() {
+		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTestSession_Node() {
+		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1137,8 +1156,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCoverageEntry() {
-		return coverageEntryEClass;
+	public EClass getCoverage() {
+		return coverageEClass;
 	}
 
 	/**
@@ -1146,17 +1165,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCoverageEntry_Key() {
-		return (EAttribute)coverageEntryEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCoverageEntry_Value() {
-		return (EAttribute)coverageEntryEClass.getEStructuralFeatures().get(1);
+	public EAttribute getCoverage_Invocations() {
+		return (EAttribute)coverageEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1372,7 +1382,9 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEAttribute(descriptionEClass, DESCRIPTION__HTML);
 
 		testSessionEClass = createEClass(TEST_SESSION);
-		createEReference(testSessionEClass, TEST_SESSION__RESULTS);
+		createEReference(testSessionEClass, TEST_SESSION__TEST_RESULTS);
+		createEReference(testSessionEClass, TEST_SESSION__PAGE_RESULTS);
+		createEReference(testSessionEClass, TEST_SESSION__ACTOR_RESULTS);
 		createEAttribute(testSessionEClass, TEST_SESSION__PUBLISHED);
 		createEAttribute(testSessionEClass, TEST_SESSION__SIZE);
 		createEAttribute(testSessionEClass, TEST_SESSION__PROGRESS);
@@ -1450,9 +1462,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(testMethodResultEClass, TEST_METHOD_RESULT__NAVIGATION_TIMING);
 		createEOperation(testMethodResultEClass, TEST_METHOD_RESULT___LOAD_TIMING__JSONOBJECT);
 
-		coverageEntryEClass = createEClass(COVERAGE_ENTRY);
-		createEAttribute(coverageEntryEClass, COVERAGE_ENTRY__KEY);
-		createEAttribute(coverageEntryEClass, COVERAGE_ENTRY__VALUE);
+		coverageEClass = createEClass(COVERAGE);
+		createEAttribute(coverageEClass, COVERAGE__INVOCATIONS);
 
 		actorResultEClass = createEClass(ACTOR_RESULT);
 		createEReference(actorResultEClass, ACTOR_RESULT__RESULTS);
@@ -1539,6 +1550,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		actorMethodResultEClass.getESuperTypes().add(this.getMethodResult());
 		pageMethodResultEClass.getESuperTypes().add(this.getMethodResult());
 		testMethodResultEClass.getESuperTypes().add(this.getOperationResult());
+		coverageEClass.getESuperTypes().add(this.getDescriptor());
 		actorResultEClass.getESuperTypes().add(this.getDescriptor());
 		actorResultEClass.getESuperTypes().add(this.getBreadcrumbsProvider());
 		pageResultEClass.getESuperTypes().add(this.getDescriptor());
@@ -1578,7 +1590,9 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getDescription_Html(), ecorePackage.getEBoolean(), "html", null, 0, 1, Description.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(testSessionEClass, TestSession.class, "TestSession", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTestSession_Results(), this.getTestResult(), null, "results", null, 0, -1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTestSession_TestResults(), this.getTestResult(), null, "testResults", null, 0, -1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTestSession_PageResults(), this.getPageResult(), null, "pageResults", null, 0, -1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTestSession_ActorResults(), this.getActorResult(), null, "actorResults", null, 0, -1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestSession_Published(), ecorePackage.getEBoolean(), "published", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestSession_Size(), ecorePackage.getEInt(), "size", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestSession_Progress(), ecorePackage.getEInt(), "progress", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1659,17 +1673,16 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		addEParameter(op, this.getJSONObject(), "json", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
-		initEClass(coverageEntryEClass, Map.Entry.class, "CoverageEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCoverageEntry_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCoverageEntry_Value(), ecorePackage.getEIntegerObject(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(coverageEClass, Coverage.class, "Coverage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCoverage_Invocations(), ecorePackage.getEInt(), "invocations", null, 0, 1, Coverage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actorResultEClass, ActorResult.class, "ActorResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActorResult_Results(), this.getActorMethodResult(), this.getActorMethodResult_ActorResult(), "results", null, 0, -1, ActorResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getActorResult_Coverage(), this.getCoverageEntry(), null, "coverage", null, 0, -1, ActorResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActorResult_Coverage(), this.getCoverage(), null, "coverage", null, 0, -1, ActorResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pageResultEClass, PageResult.class, "PageResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPageResult_Results(), this.getPageMethodResult(), this.getPageMethodResult_PageResult(), "results", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPageResult_Coverage(), this.getCoverageEntry(), null, "coverage", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPageResult_Coverage(), this.getCoverage(), null, "coverage", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPageResult_WebElements(), this.getWebElement(), null, "webElements", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(webElementEClass, WebElement.class, "WebElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

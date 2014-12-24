@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
+import org.nasdanika.webtest.hub.Coverage;
 import org.nasdanika.webtest.hub.Description;
 import org.nasdanika.webtest.hub.Descriptor;
 import org.nasdanika.webtest.hub.Guest;
@@ -103,7 +104,7 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 			case HubPackage.ACTOR_METHOD_RESULT: return (EObject)createActorMethodResult();
 			case HubPackage.PAGE_METHOD_RESULT: return (EObject)createPageMethodResult();
 			case HubPackage.TEST_METHOD_RESULT: return (EObject)createTestMethodResult();
-			case HubPackage.COVERAGE_ENTRY: return (EObject)createCoverageEntry();
+			case HubPackage.COVERAGE: return (EObject)createCoverage();
 			case HubPackage.ACTOR_RESULT: return (EObject)createActorResult();
 			case HubPackage.PAGE_RESULT: return (EObject)createPageResult();
 			case HubPackage.WEB_ELEMENT: return (EObject)createWebElement();
@@ -366,9 +367,9 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map.Entry<String, Integer> createCoverageEntry() {
-		CoverageEntryImpl coverageEntry = new CoverageEntryImpl();
-		return coverageEntry;
+	public Coverage createCoverage() {
+		CoverageImpl coverage = new CoverageImpl();
+		return coverage;
 	}
 
 	/**
