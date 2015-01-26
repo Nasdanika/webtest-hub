@@ -693,6 +693,16 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 					ret.content(htmlFactory.tag(TagName.script, initScript));
 				}
 				
+//				System.out.println("----");		
+//				System.out.println(getBeforeTiming()+" "+getAfterTiming());
+//				
+//				for (OperationResult c: getChildren()) {
+//					System.out.println("\t"+c.getBeforeTiming()+" "+c.getAfterTiming());
+//					for (OperationResult cc: c.getChildren()) {
+//						System.out.println("\t"+cc.getBeforeTiming()+" "+cc.getAfterTiming());
+//					}
+//				}
+				
 				return ret.toString();
 			} finally {
 				readLock.unlock();

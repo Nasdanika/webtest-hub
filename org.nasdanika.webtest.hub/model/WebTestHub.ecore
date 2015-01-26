@@ -2,18 +2,27 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hub" nsURI="urn:org.nasdanika.webtest.hub" nsPrefix="org.nasdanika.webtest.hub">
   <eClassifiers xsi:type="ecore:EClass" name="Hub" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordProtectionDomain #//ApplicationOwner #//BreadcrumbsProvider">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAnnotations source="org.nasdanika.cdo.web:private"/>
+    <eOperations name="testOperation" eType="#//Application">
+      <eParameters name="prm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="Web Test Hub"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guest" eType="#//Guest"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
         eType="#//User" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="administrators" eType="ecore:EClass ../../org.nasdanika.cdo.security/model/security.ecore#//Group"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slideWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slideWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="800"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationOwner" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="applications" upperBound="-1"
-        eType="#//Application" containment="true"/>
+        eType="#//Application" containment="true">
+      <eAnnotations source="org.nasdanika.cdo.web:eager-obj"/>
+      <eAnnotations source="org.nasdanika.cdo.web:lenient"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Guest" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//User"/>
   <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//ApplicationOwner ../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordHashUser"/>

@@ -206,13 +206,22 @@ public interface HubPackage extends EPackage {
 	int HUB___GET_USER__STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN___GET_USER__STRING;
 
 	/**
+	 * The operation id for the '<em>Test Operation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUB___TEST_OPERATION__INT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Hub</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HUB_OPERATION_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 0;
+	int HUB_OPERATION_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}' class.
@@ -2969,6 +2978,16 @@ public interface HubPackage extends EPackage {
 	EAttribute getHub_SlideWidth();
 
 	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#testOperation(int) <em>Test Operation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Test Operation</em>' operation.
+	 * @see org.nasdanika.webtest.hub.Hub#testOperation(int)
+	 * @generated
+	 */
+	EOperation getHub__TestOperation__int();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4147,6 +4166,14 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute HUB__SLIDE_WIDTH = eINSTANCE.getHub_SlideWidth();
+
+		/**
+		 * The meta object literal for the '<em><b>Test Operation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation HUB___TEST_OPERATION__INT = eINSTANCE.getHub__TestOperation__int();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}' class.

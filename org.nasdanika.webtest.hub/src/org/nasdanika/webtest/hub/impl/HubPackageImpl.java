@@ -400,6 +400,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getHub__TestOperation__int() {
+		return hubEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getApplicationOwner() {
 		return applicationOwnerEClass;
 	}
@@ -1356,6 +1365,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(hubEClass, HUB__USERS);
 		createEReference(hubEClass, HUB__ADMINISTRATORS);
 		createEAttribute(hubEClass, HUB__SLIDE_WIDTH);
+		createEOperation(hubEClass, HUB___TEST_OPERATION__INT);
 
 		applicationOwnerEClass = createEClass(APPLICATION_OWNER);
 		createEReference(applicationOwnerEClass, APPLICATION_OWNER__APPLICATIONS);
@@ -1559,11 +1569,14 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(hubEClass, Hub.class, "Hub", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getHub_Name(), ecorePackage.getEString(), "name", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHub_Name(), ecorePackage.getEString(), "name", "Web Test Hub", 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHub_Guest(), this.getGuest(), null, "guest", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHub_Users(), this.getUser(), null, "users", null, 0, -1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHub_Administrators(), theSecurityPackage.getGroup(), null, "administrators", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getHub_SlideWidth(), ecorePackage.getEInt(), "slideWidth", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHub_SlideWidth(), ecorePackage.getEInt(), "slideWidth", "800", 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getHub__TestOperation__int(), this.getApplication(), "testOperation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "prm", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(applicationOwnerEClass, ApplicationOwner.class, "ApplicationOwner", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApplicationOwner_Applications(), this.getApplication(), null, "applications", null, 0, -1, ApplicationOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1669,7 +1682,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getTestMethodResult_Parameters(), ecorePackage.getEString(), "parameters", null, 0, -1, TestMethodResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTestMethodResult_NavigationTiming(), thePerformancePackage.getNavigationTiming(), null, "navigationTiming", null, 0, -1, TestMethodResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getTestMethodResult__LoadTiming__JSONObject(), thePerformancePackage.getTimingBase(), "loadTiming", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTestMethodResult__LoadTiming__JSONObject(), thePerformancePackage.getTimingBase(), "loadTiming", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getJSONObject(), "json", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
@@ -1709,6 +1722,42 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// org.nasdanika.cdo.web:eager-obj
+		createOrgAnnotations();
+		// org.nasdanika.cdo.web:lenient
+		createOrg_1Annotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo.web:eager-obj</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrgAnnotations() {
+		String source = "org.nasdanika.cdo.web:eager-obj";	
+		addAnnotation
+		  (getApplicationOwner_Applications(), 
+		   source, 
+		   new String[] {
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo.web:lenient</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrg_1Annotations() {
+		String source = "org.nasdanika.cdo.web:lenient";	
+		addAnnotation
+		  (getApplicationOwner_Applications(), 
+		   source, 
+		   new String[] {
+		   });
 	}
 
 } //HubPackageImpl

@@ -29,6 +29,7 @@ import org.nasdanika.cdo.security.LoginPasswordProtectionDomain;
 public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, BreadcrumbsProvider {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * The default value is <code>"Web Test Hub"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
@@ -38,7 +39,7 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.nasdanika.webtest.hub.HubPackage#getHub_Name()
-	 * @model
+	 * @model default="Web Test Hub"
 	 * @generated
 	 */
 	String getName();
@@ -123,6 +124,7 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 
 	/**
 	 * Returns the value of the '<em><b>Slide Width</b></em>' attribute.
+	 * The default value is <code>"800"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Slide Width</em>' attribute isn't clear,
@@ -132,7 +134,7 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	 * @return the value of the '<em>Slide Width</em>' attribute.
 	 * @see #setSlideWidth(int)
 	 * @see org.nasdanika.webtest.hub.HubPackage#getHub_SlideWidth()
-	 * @model
+	 * @model default="800"
 	 * @generated
 	 */
 	int getSlideWidth();
@@ -146,5 +148,13 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	 * @generated
 	 */
 	void setSlideWidth(int value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Application testOperation(int prm);
 
 } // Hub

@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>Tests</title>
+		<!-- <script src="/js/q.js"></script>  -->
+		<!-- <script src="/js/jquery-1.11.1.min.js"></script>  -->
+		<script src="/js/require.js"></script>
+		<script>	
+			require.config({
+			    baseUrl: 'js',
+			    paths: {
+			        jquery: 'jquery-1.11.1.min'
+			    }
+			});
+			require(["/router/transaction/elements/WebTestHub/L3.js"], function(hub) {
+				console.log(hub.$path);
+				hub.testOperation(393).then(function(app) {
+					console.log("Application: "+app.name+" "+app.description);
+				});
+				/*
+				var apps = hub.applications;
+				apps[apps.length-1]().$delete().then(function(res) {
+					console.log(res);
+					for (ak in hub.applications) {
+						console.log(hub.applications[ak]().name);
+					}
+				});
+				
+				hub.applications.push(function() { return { name: 'my functional joy #'+hub.applications.length}; });				
+				hub.$store().then(function(h) {
+					for (ak in hub.applications) {
+						console.log(hub.applications[ak]().name);
+					}
+				});
+				var session = require("/router/transaction/session.js");
+				var app = hub.applications[0]();
+				console.log(app.name);
+				app.name = "Nasdanika Bank Examples " + new Date();
+				console.log('App: '+app.$path);
+				app.$store().then(function(a) {
+					console.log("stored: "+a.name);
+				}).done();
+				app.testSessions.then(function (ts) {
+					for (t in ts) {
+						ts[t]().then(function (v) { 
+							console.log(v.title); 
+							v.title = v.title + "!!!";							
+						}).done();						
+					}
+					//ts.push("Morkovka");
+					try {
+						//app.$store().done();
+						hub.testOperation(10).then(
+								function(result) { 
+									console.log("Result: ");
+									console.log(result);
+								},
+								function(error) { 
+									console.log("Vsyo ploho: "+error);
+									console.dir(error);
+									console.log(typeof error);
+								}).done();
+					} catch (e) {
+						console.log(e);
+					}
+				}).done();
+				*/
+			});
+		</script>
+	</head>
+	<body>
+		Nothing.
+	</body>
+</html>

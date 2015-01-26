@@ -2,6 +2,7 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.emf.cdo.CDOLock;
@@ -163,6 +164,17 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Application testOperation(int prm) {
+		Application app = getApplications().get(1);
+		app.setDescription("Prm: "+prm);
+		return app;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -200,6 +212,20 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case HubPackage.HUB___TEST_OPERATION__INT:
+				return testOperation((Integer)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -280,5 +306,5 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		breadcrumbs.item(active ? null : htmlFactory.routeRef("main", "/"+context.getObjectPath(this))+"/summary", "Home");
 		return breadcrumbs;
 	}
-
+		
 } //HubImpl
