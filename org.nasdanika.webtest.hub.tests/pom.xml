@@ -116,7 +116,7 @@
                     <includes>
 	                    <include>**/WebTestHubTests.java</include>
                     </includes>
-					<argLine>-Xmx512m -Dorg.osgi.service.http.port=8080</argLine>
+					<argLine>-Xmx512m -Dorg.osgi.service.http.port=18080</argLine>
 				</configuration>
 			</plugin>
 		</plugins>

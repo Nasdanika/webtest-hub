@@ -2672,13 +2672,22 @@ public interface HubPackage extends EPackage {
 	int ACTOR_RESULT__COVERAGE = DESCRIPTOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Proxy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_RESULT__PROXY = DESCRIPTOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Actor Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 2;
+	int ACTOR_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Actor Result</em>' class.
@@ -2754,13 +2763,22 @@ public interface HubPackage extends EPackage {
 	int PAGE_RESULT__WEB_ELEMENTS = DESCRIPTOR_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Proxy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_RESULT__PROXY = DESCRIPTOR_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Page Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 3;
+	int PAGE_RESULT_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Page Result</em>' class.
@@ -3945,6 +3963,17 @@ public interface HubPackage extends EPackage {
 	EReference getActorResult_Coverage();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.ActorResult#isProxy <em>Proxy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Proxy</em>'.
+	 * @see org.nasdanika.webtest.hub.ActorResult#isProxy()
+	 * @see #getActorResult()
+	 * @generated
+	 */
+	EAttribute getActorResult_Proxy();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.PageResult <em>Page Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3986,6 +4015,17 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPageResult_WebElements();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.webtest.hub.PageResult#isProxy <em>Proxy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Proxy</em>'.
+	 * @see org.nasdanika.webtest.hub.PageResult#isProxy()
+	 * @see #getPageResult()
+	 * @generated
+	 */
+	EAttribute getPageResult_Proxy();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.WebElement <em>Web Element</em>}'.
@@ -4934,6 +4974,14 @@ public interface HubPackage extends EPackage {
 		EReference ACTOR_RESULT__COVERAGE = eINSTANCE.getActorResult_Coverage();
 
 		/**
+		 * The meta object literal for the '<em><b>Proxy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR_RESULT__PROXY = eINSTANCE.getActorResult_Proxy();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.PageResultImpl <em>Page Result</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4966,6 +5014,14 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PAGE_RESULT__WEB_ELEMENTS = eINSTANCE.getPageResult_WebElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Proxy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE_RESULT__PROXY = eINSTANCE.getPageResult_Proxy();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.WebElementImpl <em>Web Element</em>}' class.

@@ -1,7 +1,7 @@
 package org.nasdanika.webtest.hub.ui.driver.pages.impl;
 
 import org.nasdanika.webtest.Page;
-import org.nasdanika.webtest.ReflectivePageBase;
+import org.nasdanika.webtest.ReflectivePageFragmentBase;
 import org.nasdanika.webtest.hub.ui.driver.pages.UserPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
  * @author Pavel Vlasov
  *
  */
-public class UserPageImpl extends ReflectivePageBase<WebDriver> implements UserPage {
+public class UserPageImpl extends ReflectivePageFragmentBase<WebDriver> implements UserPage {
 
 	private WebDriver driver;
 	

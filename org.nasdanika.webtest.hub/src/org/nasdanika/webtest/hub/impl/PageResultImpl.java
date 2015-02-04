@@ -51,6 +51,7 @@ import org.nasdanika.webtest.hub.WebElement;
  *   <li>{@link org.nasdanika.webtest.hub.impl.PageResultImpl#getResults <em>Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.PageResultImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.PageResultImpl#getWebElements <em>Web Elements</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.PageResultImpl#isProxy <em>Proxy</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,9 +107,28 @@ public class PageResultImpl extends DescriptorImpl implements PageResult {
 		return (EList<WebElement>)eGet(HubPackage.Literals.PAGE_RESULT__WEB_ELEMENTS, true);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isProxy() {
+		return (Boolean)eGet(HubPackage.Literals.PAGE_RESULT__PROXY, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProxy(boolean newProxy) {
+		eSet(HubPackage.Literals.PAGE_RESULT__PROXY, newProxy);
+	}
+
 	@Override
 	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
 		super.loadJSON(json, context);
+		setProxy(json.getBoolean("isProxy"));
 		if (json.has("webElements")) {
 			JSONArray wea = json.getJSONArray("webElements");
 			for (int i=0; i<wea.length(); ++i) {

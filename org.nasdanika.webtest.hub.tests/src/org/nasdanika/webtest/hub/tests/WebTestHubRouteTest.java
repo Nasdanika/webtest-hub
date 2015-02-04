@@ -70,7 +70,7 @@ public class WebTestHubRouteTest implements WebTest<WebDriver> {
 	@Description("WebTest Hub Route")
 	@Screenshot({Screenshot.When.AFTER, Screenshot.When.EXCEPTION})
 	public void appRoute() throws Exception {
-		getWebDriver().get("http://localhost:8080/router/webtest-hub.html?theme="+theme);
+		getWebDriver().get("http://localhost:18080/router/webtest-hub.html?theme="+theme);
 		new WebDriverWait(getWebDriver(), 20).until(ExpectedConditions.visibilityOfElementLocated(By.id("button-groups")));		
 	}
 	

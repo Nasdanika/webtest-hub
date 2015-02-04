@@ -654,6 +654,12 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 							captionBuilder.append("&nbsp;");
 							captionBuilder.append(comment);		
 						}
+						captionBuilder.append("&nbsp;&nbsp;");
+						captionBuilder.append(htmlFactory.tag("a", htmlFactory.glyphicon(Glyphicon.new_window))
+								.attribute("href", context.getObjectPath(se)+".png")
+								.attribute("target", "_blank")
+								.attribute("title", "Open image in a new tab")
+								.style("color", "inherit"));
 						slide.caption(htmlFactory.label(Style.INFO, captionBuilder).style("opacity", "0.7"));
 					}
 				}

@@ -39,6 +39,7 @@ import org.nasdanika.webtest.hub.HubPackage;
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ActorResultImpl#getResults <em>Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ActorResultImpl#getCoverage <em>Coverage</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.ActorResultImpl#isProxy <em>Proxy</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,9 +85,28 @@ public class ActorResultImpl extends DescriptorImpl implements ActorResult {
 		return (EList<Coverage>)eGet(HubPackage.Literals.ACTOR_RESULT__COVERAGE, true);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isProxy() {
+		return (Boolean)eGet(HubPackage.Literals.ACTOR_RESULT__PROXY, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProxy(boolean newProxy) {
+		eSet(HubPackage.Literals.ACTOR_RESULT__PROXY, newProxy);
+	}
+
 	@Override
 	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
 		super.loadJSON(json, context);
+		setProxy(json.getBoolean("isProxy"));
 		if (json.has("coverage")) {
 			JSONArray cov = json.getJSONArray("coverage");
 			for (int i=0; i<cov.length(); ++i) {

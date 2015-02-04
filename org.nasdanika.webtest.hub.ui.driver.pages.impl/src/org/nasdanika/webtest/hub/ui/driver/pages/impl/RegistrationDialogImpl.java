@@ -1,7 +1,7 @@
 package org.nasdanika.webtest.hub.ui.driver.pages.impl;
 
 import org.nasdanika.webtest.Page;
-import org.nasdanika.webtest.ReflectivePageBase;
+import org.nasdanika.webtest.ReflectivePageFragmentBase;
 import org.nasdanika.webtest.Wait;
 import org.nasdanika.webtest.WebTestUtil;
 import org.nasdanika.webtest.hub.ui.driver.pages.GuestHome;
@@ -10,12 +10,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Wait(id="rLogin")
-public class RegistrationDialogImpl extends ReflectivePageBase<WebDriver> implements RegistrationDialog {
+public class RegistrationDialogImpl extends ReflectivePageFragmentBase<WebDriver> implements RegistrationDialog {
 
 	private WebDriver driver;
 	private WebDriverWait webDriverWait;

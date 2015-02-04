@@ -1,0 +1,80 @@
+<%@ jet package="org.nasdanika.webtest.hub.impl" class="HubAppsControllerGenerator"%>
+
+require(["<%=argument%>.js"], function(hub) {
+	angular.module('hubApp', []).controller('AppsController', ['$scope', function ($scope) {  	 
+		function applyModelChanges() {
+			$scope.$apply();
+			jQuery("#appOverlay").css("display", "none");
+		};
+
+		function onError(error) {
+			jQuery("#appOverlay").css("display", "none");
+			console.trace(error);
+			alert(error);
+		};
+		
+		function showOverlay() {
+			jQuery('#appOverlay').width(jQuery('#appContainer').width());
+			jQuery('#appOverlay').height(jQuery('#appContainer').height());
+			jQuery("#appOverlay").css("display", "block");		
+		};		
+		   
+    	$scope.hub = hub;
+    	
+    	$scope.hubApplications = function() {
+    		return hub.applications;
+    	}
+    	
+    	$scope.appName = function(app) {
+    		return typeof app === 'function' ? app().name : app.name;
+    	};
+
+		var appPropertyDescriptor = Object.getOwnPropertyDescriptor(hub, "applications");
+		$scope.canAddApp = appPropertyDescriptor!==undefined && appPropertyDescriptor.hasOwnProperty("set");
+		
+		$scope.canDeleteApp = function(pos) {
+			var app = hub.applications[pos];			
+			return typeof app === 'function' && typeof app().$delete === 'function';
+		};
+		
+		$scope.deleteApp = function(pos) {
+			if (confirm("Do you really want to delete application "+hub.applications[pos]().name+"?")) {
+				showOverlay();
+				hub.applications.splice(pos, 1);
+				hub.$store().then(applyModelChanges, onError).done();
+			}
+		};
+
+		$scope.addApp = function() {
+			var hubApps = hub.applications;
+			for (ak in hubApps) {
+				if (hubApps[ak]().name === $scope.newAppName) {
+					$scope.newAppErrorMessage = "Duplicate application name";
+					return;
+				}
+			}
+			hub.applications.push({ name: $scope.newAppName });
+			hub.$store().then(
+				function() {
+					delete $scope.newAppName;
+					delete $scope.newAppErrorMessage;
+					$scope.$apply();
+					var newAppModal = angular.element("#newAppFormModal");
+					newAppModal.on('hidden.bs.modal', function (e) {
+						var apps = hub.applications;
+						var route = 'router/main/'+apps[apps.length-1].$path+'.html';
+						workspace.navigate(route, { trigger : true });
+					});
+					newAppModal.modal('hide');
+				},
+				function(error) {
+					$scope.newAppErrorMessage = error;
+				}).done();
+		};      
+		
+		jQuery("#appOverlay").css("display", "none");
+      
+	}]);
+    
+	angular.bootstrap(document, ['hubApp']);
+});

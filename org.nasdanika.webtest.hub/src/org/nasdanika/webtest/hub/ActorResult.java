@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.ActorResult#getResults <em>Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.ActorResult#getCoverage <em>Coverage</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.ActorResult#isProxy <em>Proxy</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,5 +56,31 @@ public interface ActorResult extends Descriptor, BreadcrumbsProvider {
 	 * @generated
 	 */
 	EList<Coverage> getCoverage();
+
+	/**
+	 * Returns the value of the '<em><b>Proxy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Proxy</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Proxy</em>' attribute.
+	 * @see #setProxy(boolean)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getActorResult_Proxy()
+	 * @model
+	 * @generated
+	 */
+	boolean isProxy();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.ActorResult#isProxy <em>Proxy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Proxy</em>' attribute.
+	 * @see #isProxy()
+	 * @generated
+	 */
+	void setProxy(boolean value);
 
 } // ActorResult

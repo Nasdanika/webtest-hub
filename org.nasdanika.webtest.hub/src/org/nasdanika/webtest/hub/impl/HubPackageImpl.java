@@ -1210,6 +1210,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getActorResult_Proxy() {
+		return (EAttribute)actorResultEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPageResult() {
 		return pageResultEClass;
 	}
@@ -1239,6 +1248,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 */
 	public EReference getPageResult_WebElements() {
 		return (EReference)pageResultEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPageResult_Proxy() {
+		return (EAttribute)pageResultEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1478,11 +1496,13 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		actorResultEClass = createEClass(ACTOR_RESULT);
 		createEReference(actorResultEClass, ACTOR_RESULT__RESULTS);
 		createEReference(actorResultEClass, ACTOR_RESULT__COVERAGE);
+		createEAttribute(actorResultEClass, ACTOR_RESULT__PROXY);
 
 		pageResultEClass = createEClass(PAGE_RESULT);
 		createEReference(pageResultEClass, PAGE_RESULT__RESULTS);
 		createEReference(pageResultEClass, PAGE_RESULT__COVERAGE);
 		createEReference(pageResultEClass, PAGE_RESULT__WEB_ELEMENTS);
+		createEAttribute(pageResultEClass, PAGE_RESULT__PROXY);
 
 		webElementEClass = createEClass(WEB_ELEMENT);
 		createEReference(webElementEClass, WEB_ELEMENT__LOCATORS);
@@ -1692,11 +1712,13 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEClass(actorResultEClass, ActorResult.class, "ActorResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActorResult_Results(), this.getActorMethodResult(), this.getActorMethodResult_ActorResult(), "results", null, 0, -1, ActorResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActorResult_Coverage(), this.getCoverage(), null, "coverage", null, 0, -1, ActorResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActorResult_Proxy(), ecorePackage.getEBoolean(), "proxy", null, 0, 1, ActorResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pageResultEClass, PageResult.class, "PageResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPageResult_Results(), this.getPageMethodResult(), this.getPageMethodResult_PageResult(), "results", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPageResult_Coverage(), this.getCoverage(), null, "coverage", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPageResult_WebElements(), this.getWebElement(), null, "webElements", null, 0, -1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPageResult_Proxy(), ecorePackage.getEBoolean(), "proxy", null, 0, 1, PageResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(webElementEClass, WebElement.class, "WebElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getWebElement_Locators(), this.getLocator(), null, "locators", null, 0, -1, WebElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1724,10 +1746,27 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createResource(eNS_URI);
 
 		// Create annotations
-		// org.nasdanika.cdo.web:eager-obj
+		// org.nasdanika.cdo.web:private
 		createOrgAnnotations();
-		// org.nasdanika.cdo.web:lenient
+		// org.nasdanika.cdo.web:eager-obj
 		createOrg_1Annotations();
+		// org.nasdanika.cdo.web:lenient
+		createOrg_2Annotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo.web:private</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrgAnnotations() {
+		String source = "org.nasdanika.cdo.web:private";	
+		addAnnotation
+		  (hubEClass, 
+		   source, 
+		   new String[] {
+		   });
 	}
 
 	/**
@@ -1736,7 +1775,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrgAnnotations() {
+	protected void createOrg_1Annotations() {
 		String source = "org.nasdanika.cdo.web:eager-obj";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
@@ -1751,7 +1790,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_1Annotations() {
+	protected void createOrg_2Annotations() {
 		String source = "org.nasdanika.cdo.web:lenient";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 

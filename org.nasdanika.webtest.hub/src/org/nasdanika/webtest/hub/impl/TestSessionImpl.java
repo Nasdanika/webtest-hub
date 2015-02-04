@@ -427,13 +427,15 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 
 		LinkGroup linkGroup = htmlFactory.linkGroup();
 		for (PageResult pr: prs) {
-			linkGroup.item(
-					StringEscapeUtils.escapeHtml4(pr.getTitle()), 
-					htmlFactory.routeRef("right-panel",	"/"+context.getObjectPath(pr)+".html"),
-					null, 
-					false);
+			if (!pr.isProxy()) {
+				linkGroup.item(
+						StringEscapeUtils.escapeHtml4(pr.getTitle()), 
+						htmlFactory.routeRef("right-panel",	"/"+context.getObjectPath(pr)+".html"),
+						null, 
+						false);
+			}
 		}
-		return linkGroup;
+		return linkGroup.length()==0 ? null : linkGroup;
 	}
 
 	private Object actorsLeftPanel(HttpContext context, HTMLFactory htmlFactory) throws Exception {
@@ -451,13 +453,15 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 
 		LinkGroup linkGroup = htmlFactory.linkGroup();
 		for (ActorResult ar: ars) {
-			linkGroup.item(
-					StringEscapeUtils.escapeHtml4(ar.getTitle()), 
-					htmlFactory.routeRef("right-panel",	"/"+context.getObjectPath(ar)+".html"),
-					null, 
-					false);
+			if (!ar.isProxy()) {
+				linkGroup.item(
+						StringEscapeUtils.escapeHtml4(ar.getTitle()), 
+						htmlFactory.routeRef("right-panel",	"/"+context.getObjectPath(ar)+".html"),
+						null, 
+						false);
+			}
 		}
-		return linkGroup;
+		return linkGroup.length()==0 ? null : linkGroup;
 	}
 
 	@RouteMethod
@@ -609,33 +613,35 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		header.header("Invocations").style("text-align", "center");
 		header.header("Coverage").style("text-align", "center");
 		for (ActorResult ar: ars) {
-			Row pageRow = actorTable.row();
-			pageRow.cell(htmlFactory.routeLink(
-					"right-panel", 
-					"/"+context.getObjectPath(ar)+".html", 
-					StringEscapeUtils.escapeHtml4(ar.getTitle())));
-			pageRow.cell(ar.getDescription().toHTML());
-			int covered = 0;
-			int calls = 0;
-			for (Coverage mc: ar.getCoverage()) {
-				if (mc.getInvocations()!=0) {
-					++covered;
+			if (!ar.isProxy()) {
+				Row pageRow = actorTable.row();
+				pageRow.cell(htmlFactory.routeLink(
+						"right-panel", 
+						"/"+context.getObjectPath(ar)+".html", 
+						StringEscapeUtils.escapeHtml4(ar.getTitle())));
+				pageRow.cell(ar.getDescription().toHTML());
+				int covered = 0;
+				int calls = 0;
+				for (Coverage mc: ar.getCoverage()) {
+					if (mc.getInvocations()!=0) {
+						++covered;
+					}
+					calls+=mc.getInvocations();
 				}
-				calls+=mc.getInvocations();
+				pageRow.cell(HubUtil.blankZero(ar.getCoverage().size())).style("text-align", "center");
+				pageRow.cell(HubUtil.blankZero(calls)).attribute("align", "center");
+				pageRow.cell(covered==0 ? "" : covered+MessageFormat.format(" ({0,number,#.##}%)", 100.0*covered/ar.getCoverage().size())).style("text-align", "center");
+				totals[0]+=ar.getCoverage().size();
+				totals[1]+=calls;
+				totals[2]+=covered;
 			}
-			pageRow.cell(HubUtil.blankZero(ar.getCoverage().size())).style("text-align", "center");
-			pageRow.cell(HubUtil.blankZero(calls)).attribute("align", "center");
-			pageRow.cell(covered==0 ? "" : covered+MessageFormat.format(" ({0,number,#.##}%)", 100.0*covered/ar.getCoverage().size())).style("text-align", "center");
-			totals[0]+=ar.getCoverage().size();
-			totals[1]+=calls;
-			totals[2]+=covered;
 		}
 		Row totalsRow = actorTable.row().style(Style.INFO);
 		totalsRow.cell("Total").colspan(2);
 		totalsRow.cell(HubUtil.blankZero(totals[0])).attribute("align", "center");
 		totalsRow.cell(HubUtil.blankZero(totals[1])).attribute("align", "center");
 		totalsRow.cell(totals[2]==0 ? "" : totals[2]+MessageFormat.format(" ({0,number,#.##}%)", 100.0*totals[2]/totals[0])).attribute("align", "center");
-		return actorTable.toString();
+		return actorTable.length()==0 ? null : actorTable.toString();
 	}
 	
 	private String pagesSummary(HttpContext context) throws Exception {
@@ -662,28 +668,30 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		header.header("Invocations").style("text-align", "center");
 		header.header("Coverage").style("text-align", "center");
 		for (PageResult pr: prs) {
-			Row pageRow = pageTable.row();
-			pageRow.cell(htmlFactory.routeLink(
-					"right-panel", 
-					"/"+context.getObjectPath(pr)+".html", 
-					StringEscapeUtils.escapeHtml4(pr.getTitle())));
-			pageRow.cell(pr.getDescription().toHTML());
-			int covered = 0;
-			int calls = 0;
-			for (Coverage mc: pr.getCoverage()) {
-				if (mc.getInvocations()!=0) {
-					++covered;
+			if (!pr.isProxy()) {
+				Row pageRow = pageTable.row();
+				pageRow.cell(htmlFactory.routeLink(
+						"right-panel", 
+						"/"+context.getObjectPath(pr)+".html", 
+						StringEscapeUtils.escapeHtml4(pr.getTitle())));
+				pageRow.cell(pr.getDescription().toHTML());
+				int covered = 0;
+				int calls = 0;
+				for (Coverage mc: pr.getCoverage()) {
+					if (mc.getInvocations()!=0) {
+						++covered;
+					}
+					calls+=mc.getInvocations();
 				}
-				calls+=mc.getInvocations();
+				pageRow.cell(HubUtil.blankZero(pr.getWebElements().size())).style("text-align", "center");
+				pageRow.cell(HubUtil.blankZero(pr.getCoverage().size())).style("text-align", "center");
+				pageRow.cell(HubUtil.blankZero(calls)).style("text-align", "center");
+				pageRow.cell(covered==0 ? "" : covered+MessageFormat.format(" ({0,number,#.##}%)", 100.0*covered/pr.getCoverage().size())).style("text-align", "center");
+				totals[0]+=pr.getWebElements().size();
+				totals[1]+=pr.getCoverage().size();
+				totals[2]+=calls;
+				totals[3]+=covered;
 			}
-			pageRow.cell(HubUtil.blankZero(pr.getWebElements().size())).style("text-align", "center");
-			pageRow.cell(HubUtil.blankZero(pr.getCoverage().size())).style("text-align", "center");
-			pageRow.cell(HubUtil.blankZero(calls)).style("text-align", "center");
-			pageRow.cell(covered==0 ? "" : covered+MessageFormat.format(" ({0,number,#.##}%)", 100.0*covered/pr.getCoverage().size())).style("text-align", "center");
-			totals[0]+=pr.getWebElements().size();
-			totals[1]+=pr.getCoverage().size();
-			totals[2]+=calls;
-			totals[3]+=covered;
 		}
 		Row totalsRow = pageTable.row().style(Style.INFO);
 		totalsRow.cell("Total").colspan(2);
@@ -691,7 +699,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		totalsRow.cell(HubUtil.blankZero(totals[1])).attribute("align", "center");
 		totalsRow.cell(HubUtil.blankZero(totals[2])).attribute("align", "center");
 		totalsRow.cell(totals[3]==0 ? "" : totals[3]+MessageFormat.format(" ({0,number,#.##}%)", 100.0*totals[3]/totals[1])).attribute("align", "center");
-		return pageTable.toString();
+		return pageTable.length()==0 ? null : pageTable.toString();
 	}
 	
 	private Object testsLeftPanel(HttpContext context, HTMLFactory htmlFactory) throws Exception {
@@ -739,36 +747,40 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		}
 		
 		for (PageResult pr: getPageResults()) {
-			Integer ps = pageSizeMap.get(pr.getQualifiedName());
-			if (ps==null || pr.getWebElements().size()>ps) {
-				pageSizeMap.put(pr.getQualifiedName(), pr.getWebElements().size());
-			}
-			Map<String, int[]> mm = pageMethodsMap.get(pr.getQualifiedName());
-			if (mm==null) {
-				mm = new HashMap<>();
-				pageMethodsMap.put(pr.getQualifiedName(), mm);
-			}
-			for (Coverage pm: pr.getCoverage()) {
-				int[] mc = mm.get(pm.getQualifiedName());
-				if (mc==null) {
-					mm.put(pm.getQualifiedName(), new int[] {pm.getInvocations()});
-				} else {
-					mc[0]+=pm.getInvocations();
+			if (!pr.isProxy()) {
+				Integer ps = pageSizeMap.get(pr.getQualifiedName());
+				if (ps==null || pr.getWebElements().size()>ps) {
+					pageSizeMap.put(pr.getQualifiedName(), pr.getWebElements().size());
+				}
+				Map<String, int[]> mm = pageMethodsMap.get(pr.getQualifiedName());
+				if (mm==null) {
+					mm = new HashMap<>();
+					pageMethodsMap.put(pr.getQualifiedName(), mm);
+				}
+				for (Coverage pm: pr.getCoverage()) {
+					int[] mc = mm.get(pm.getQualifiedName());
+					if (mc==null) {
+						mm.put(pm.getQualifiedName(), new int[] {pm.getInvocations()});
+					} else {
+						mc[0]+=pm.getInvocations();
+					}
 				}
 			}
 		}
 		for (ActorResult ar: getActorResults()) {
-			Map<String, int[]> mm = actorMethodsMap.get(ar.getQualifiedName());
-			if (mm==null) {
-				mm = new HashMap<>();
-				actorMethodsMap.put(ar.getQualifiedName(), mm);
-			}
-			for (Coverage am: ar.getCoverage()) {
-				int[] mc = mm.get(am.getQualifiedName());
-				if (mc==null) {
-					mm.put(am.getQualifiedName(), new int[] {am.getInvocations()});
-				} else {
-					mc[0]+=am.getInvocations();
+			if (!ar.isProxy()) {
+				Map<String, int[]> mm = actorMethodsMap.get(ar.getQualifiedName());
+				if (mm==null) {
+					mm = new HashMap<>();
+					actorMethodsMap.put(ar.getQualifiedName(), mm);
+				}
+				for (Coverage am: ar.getCoverage()) {
+					int[] mc = mm.get(am.getQualifiedName());
+					if (mc==null) {
+						mm.put(am.getQualifiedName(), new int[] {am.getInvocations()});
+					} else {
+						mc[0]+=am.getInvocations();
+					}
 				}
 			}
 		}
