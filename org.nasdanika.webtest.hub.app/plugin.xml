@@ -58,6 +58,9 @@
                /js/angular.min.js
             </script>
             <script>
+               /js/angular-sanitize.js
+            </script>
+            <script>
                /js/lightbox.min.js
             </script>
             <stylesheet>

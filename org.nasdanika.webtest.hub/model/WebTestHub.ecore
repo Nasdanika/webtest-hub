@@ -26,7 +26,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Guest" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//User"/>
   <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//ApplicationOwner ../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordHashUser"/>
   <eClassifiers xsi:type="ecore:EClass" name="Application" eSuperTypes="#//BreadcrumbsProvider">
-    <eOperations name="getSummaryRowCells" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eOperations name="getSummaryRow" eType="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//JSONObject"
         eExceptions="#//Exception">
       <eAnnotations source="org.nasdanika.cdo.web:getter"/>
       <eParameters name="context" eType="#//HttpContext"/>

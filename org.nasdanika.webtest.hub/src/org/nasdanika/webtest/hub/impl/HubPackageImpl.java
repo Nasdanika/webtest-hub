@@ -507,7 +507,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplication__GetSummaryRowCells__HttpContext() {
+	public EOperation getApplication__GetSummaryRow__HttpContext() {
 		return applicationEClass.getEOperations().get(0);
 	}
 
@@ -1424,7 +1424,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(applicationEClass, APPLICATION__SCREENSHOTS);
 		createEAttribute(applicationEClass, APPLICATION__NAME);
 		createEAttribute(applicationEClass, APPLICATION__DESCRIPTION);
-		createEOperation(applicationEClass, APPLICATION___GET_SUMMARY_ROW_CELLS__HTTPCONTEXT);
+		createEOperation(applicationEClass, APPLICATION___GET_SUMMARY_ROW__HTTPCONTEXT);
 
 		descriptorEClass = createEClass(DESCRIPTOR);
 		createEAttribute(descriptorEClass, DESCRIPTOR__QUALIFIED_NAME);
@@ -1640,7 +1640,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getApplication_Name(), ecorePackage.getEString(), "name", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_Description(), ecorePackage.getEString(), "description", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getApplication__GetSummaryRowCells__HttpContext(), ecorePackage.getEString(), "getSummaryRowCells", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getApplication__GetSummaryRow__HttpContext(), thePerformancePackage.getJSONObject(), "getSummaryRow", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
@@ -1779,29 +1779,12 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createResource(eNS_URI);
 
 		// Create annotations
-		// org.nasdanika.cdo.web:private
-		createOrgAnnotations();
 		// org.nasdanika.cdo.web:eager-obj
-		createOrg_1Annotations();
+		createOrgAnnotations();
 		// org.nasdanika.cdo.web:lenient
-		createOrg_2Annotations();
+		createOrg_1Annotations();
 		// org.nasdanika.cdo.web:getter
-		createOrg_3Annotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>org.nasdanika.cdo.web:private</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createOrgAnnotations() {
-		String source = "org.nasdanika.cdo.web:private";	
-		addAnnotation
-		  (hubEClass, 
-		   source, 
-		   new String[] {
-		   });
+		createOrg_2Annotations();
 	}
 
 	/**
@@ -1810,7 +1793,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_1Annotations() {
+	protected void createOrgAnnotations() {
 		String source = "org.nasdanika.cdo.web:eager-obj";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
@@ -1825,7 +1808,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_2Annotations() {
+	protected void createOrg_1Annotations() {
 		String source = "org.nasdanika.cdo.web:lenient";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
@@ -1840,10 +1823,10 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_3Annotations() {
+	protected void createOrg_2Annotations() {
 		String source = "org.nasdanika.cdo.web:getter";	
 		addAnnotation
-		  (getApplication__GetSummaryRowCells__HttpContext(), 
+		  (getApplication__GetSummaryRow__HttpContext(), 
 		   source, 
 		   new String[] {
 		   });

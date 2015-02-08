@@ -1,7 +1,6 @@
 <%@ jet package="org.nasdanika.webtest.hub.impl" class="GuestAppControllersRenderer" skeleton="CDOObjectRenderer.skeleton" %>
 
 angular.module('guestApp', []).controller('registrationController', function($scope, $http) {
-	console.log("Registration controller");
 	
 	$scope.registrationData = {};
 	
@@ -23,7 +22,6 @@ angular.module('guestApp', []).controller('registrationController', function($sc
 });
 
 angular.module('guestApp').controller('loginController', function($scope, $http) {
-	console.log("Login controller");
 
 	// create a blank object to hold our form information
 	// $scope will allow this to pass between controller and view

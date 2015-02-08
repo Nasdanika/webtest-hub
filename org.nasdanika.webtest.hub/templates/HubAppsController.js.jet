@@ -1,86 +1,84 @@
 <%@ jet package="org.nasdanika.webtest.hub.impl" class="ApplicationsControllerGenerator"%>
 
-require(["<%=argument%>.js"], function(hub) {
-	console.log(hub.name);
-	return;
-	try {
-		angular.module('hubApp', []).controller('AppsController', ['$scope', function ($scope) {  	 
-			function applyModelChanges() {
-				$scope.$apply();
-				jQuery("#appOverlay").css("display", "none");
-			};
-	
-			function onError(error) {
-				jQuery("#appOverlay").css("display", "none");
-				console.trace(error);
-				alert(error);
-			};
-			
-			function showOverlay() {
-				jQuery('#appOverlay').width(jQuery('#appContainer').width());
-				jQuery('#appOverlay').height(jQuery('#appContainer').height());
-				jQuery("#appOverlay").css("display", "block");		
-			};		
-			   
-	    	$scope.hub = hub;
-	    	
-	    	$scope.hubApplications = function() {
-	    		return hub.applications;
-	    	}
-	    	
-	    	$scope.appName = function(app) {
-	    		return typeof app === 'function' ? app().name : app.name;
-	    	};
-	
-			var appPropertyDescriptor = Object.getOwnPropertyDescriptor(hub, "applications");
-			$scope.canAddApp = appPropertyDescriptor!==undefined && appPropertyDescriptor.hasOwnProperty("set");
-			
-			$scope.canDeleteApp = function(pos) {
-				var app = hub.applications[pos];			
-				return typeof app === 'function' && typeof app().$delete === 'function';
-			};
-			
-			$scope.deleteApp = function(pos) {
-				if (confirm("Do you really want to delete application "+hub.applications[pos]().name+"?")) {
-					showOverlay();
-					hub.applications.splice(pos, 1);
-					hub.$store().then(applyModelChanges, onError).done();
-				}
-			};
-	
-			$scope.addApp = function() {
-				var hubApps = hub.applications;
-				for (ak in hubApps) {
-					if (hubApps[ak]().name === $scope.newAppName) {
-						$scope.newAppErrorMessage = "Duplicate application name";
-						return;
-					}
-				}
-				hub.applications.push({ name: $scope.newAppName });
-				hub.$store().then(
-					function() {
-						delete $scope.newAppName;
-						delete $scope.newAppErrorMessage;
-						$scope.$apply();
-						var newAppModal = angular.element("#newAppFormModal");
-						newAppModal.on('hidden.bs.modal', function (e) {
-							var apps = hub.applications;
-							var route = 'router/main/'+apps[apps.length-1].$path+'.html';
-							workspace.navigate(route, { trigger : true });
-						});
-						newAppModal.modal('hide');
-					},
-					function(error) {
-						$scope.newAppErrorMessage = error;
-					}).done();
-			};      
-			
+require(["<%=argument%>.js", 'q'], function(hub, Q) {
+	angular.module('hubApp', ['ngSanitize']).controller('ApplicationsController', ['$scope', '$sce', function ($scope, $sce) {  	 
+		function applyModelChanges() {
+			$scope.$apply();
 			jQuery("#appOverlay").css("display", "none");
-	      
-		}]);
-	    
-		angular.bootstrap(jQuery("#applicationPanel"), ['hubApp']);
-	} catch (error) {
-		log.error(error);
-	}
+		};
+
+		function onError(error) {
+			jQuery("#appOverlay").css("display", "none");
+			console.trace(error);
+			alert(error);
+		};
+		
+		function showOverlay() {
+			jQuery('#appOverlay').width(jQuery('#appContainer').width());
+			jQuery('#appOverlay').height(jQuery('#appContainer').height());
+			jQuery("#appOverlay").css("display", "block");		
+		};		
+		   
+    	$scope.hub = hub;
+    	
+    	Q.all(hub.applications.map(function(app) { return app().summaryRow })).then(function (summaryRows) {
+    		for (i in summaryRows) {
+    			summaryRows[i].name = $sce.trustAsHtml(summaryRows[i].name);
+    		}
+    		$scope.hubApplicationsSummary = summaryRows;
+    		$scope.$apply();
+    	}).done();
+    	
+    	$scope.appName = function(app) {
+    		return typeof app === 'function' ? app().name : app.name;
+    	};
+
+		var appPropertyDescriptor = Object.getOwnPropertyDescriptor(hub, "applications");
+		$scope.canAddApp = appPropertyDescriptor!==undefined && appPropertyDescriptor.hasOwnProperty("set");
+		
+		$scope.canDeleteApp = function(pos) {
+			var app = hub.applications[pos];			
+			return typeof app === 'function' && typeof app().$delete === 'function';
+		};
+		
+		$scope.deleteApp = function(pos) {
+			if (confirm("Do you really want to delete application "+hub.applications[pos]().name+"?")) {
+				showOverlay();
+				hub.applications.splice(pos, 1);
+				hub.$store().then(applyModelChanges, onError).done();
+			}
+		};
+
+		$scope.addApp = function() {
+			var hubApps = hub.applications;
+			for (ak in hubApps) {
+				if (hubApps[ak]().name === $scope.newAppName) {
+					$scope.newAppErrorMessage = "Duplicate application name";
+					return;
+				}
+			}
+			hub.applications.push({ name: $scope.newAppName });
+			hub.$store().then(
+				function() {
+					delete $scope.newAppName;
+					delete $scope.newAppErrorMessage;
+					$scope.$apply();
+					var newAppModal = angular.element("#newAppFormModal");
+					newAppModal.on('hidden.bs.modal', function (e) {
+						var apps = hub.applications;
+						var route = 'router/main/'+apps[apps.length-1].$path+'.html';
+						workspace.navigate(route, { trigger : true });
+					});
+					newAppModal.modal('hide');
+				},
+				function(error) {
+					$scope.newAppErrorMessage = error;
+				}).done();
+		};      
+		
+		jQuery("#appOverlay").css("display", "none");
+      
+	}]);
+    
+	angular.bootstrap(jQuery("#applicationPanel"), ['hubApp']);
 });

@@ -290,7 +290,23 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		hRow2.header("Coverage").style("text-align", "center").attribute("nowrap", "true");
 
 		
-		applicationsTable.row().ngRepeat("app in hub.applications").content("{{ app().summaryRowCells }}");
+		Row appRow = applicationsTable.row().ngRepeat("appSummary in hubApplicationsSummary");
+		appRow.cell().ngBindHtml("appSummary.name");
+		appRow.cell().ngBindHtml("appSummary.lastTest").style("text-align", "center");
+
+		appRow.cell().ngBindHtml("appSummary.tests.pass").style("text-align", "center");
+		appRow.cell().ngBindHtml("appSummary.tests.fail").style("text-align", "center");
+		appRow.cell().ngBindHtml("appSummary.tests.error").style("text-align", "center");
+		appRow.cell().ngBindHtml("appSummary.tests.pending").style("text-align", "center");
+		
+		appRow.cell().ngBindHtml("appSummary.actors.classes").style("text-align", "center");
+		appRow.cell().ngBindHtml("appSummary.actors.methods").style("text-align", "center");
+		appRow.cell().ngBindHtml("appSummary.actors.coverage").style("text-align", "center");
+
+		appRow.cell().ngBindHtml("appSummary.pages.classes").style("text-align", "center");
+		appRow.cell().ngBindHtml("appSummary.pages.methods").style("text-align", "center");
+		appRow.cell().ngBindHtml("appSummary.pages.elements").style("text-align", "center");
+		appRow.cell().ngBindHtml("appSummary.pages.coverage").style("text-align", "center");		
 		
 		Fragment appFragment = htmlFactory.fragment(applicationsTable);
 		
@@ -307,7 +323,6 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 					appFragment, 
 					null).id("applicationPanel").ngController("ApplicationsController") +
 					htmlFactory.tag(TagName.script, new ApplicationsControllerGenerator().generate(context.getObjectPath(this))) +
-					htmlFactory.tag("script", "angular.bootstrap($('#applicationPanel'), ['hubApp']);") + 
 					htmlFactory.title(getName());
 	}
 	

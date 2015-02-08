@@ -2,11 +2,9 @@
  */
 package org.nasdanika.webtest.hub;
 
-import java.util.List;
-
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.html.Table;
+import org.json.JSONObject;
 import org.nasdanika.html.Table.Row;
 import org.nasdanika.web.HttpContext;
 
@@ -145,12 +143,12 @@ public interface Application extends CDOObject, BreadcrumbsProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
+	 * @model dataType="org.nasdanika.webtest.performance.JSONObject" exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
 	 * @generated
 	 */
-	String getSummaryRowCells(HttpContext context) throws Exception;
+	JSONObject getSummaryRow(HttpContext context) throws Exception;
 
-	void summaryRow(HttpContext context, Row row) throws Exception;
+	//void summaryRow(HttpContext context, Row row) throws Exception;
 	
 
 } // Application

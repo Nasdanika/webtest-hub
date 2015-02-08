@@ -349,7 +349,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 				.width(HubUtil.width(this))
 				.minHeight(600)
 				.style(Style.PRIMARY)
-				.header("Nasdanika Bank")
+				.header(StringEscapeUtils.escapeHtml4(((Hub) eContainer()).getName()))
 				.headerLink("/index.html");
 
 		String objectPath = context.getObjectPath(this);

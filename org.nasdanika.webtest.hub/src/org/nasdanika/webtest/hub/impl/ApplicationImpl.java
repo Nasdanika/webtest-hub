@@ -4,6 +4,7 @@ package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,9 +19,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.nasdanika.cdo.web.routes.CDOWebUtil;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Button;
 import org.nasdanika.html.FontAwesome.WebApplication;
+import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.Table;
@@ -161,20 +164,57 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 		eSet(HubPackage.Literals.APPLICATION__DESCRIPTION, newDescription);
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public String getSummaryRowCells(HttpContext context) throws Exception {
-		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);		
-		Row row = htmlFactory.table().row();
-		summaryRow(context, row);
-		StringBuilder sb = new StringBuilder();
-		for (Cell cell: row.cells()) {
-			sb.append(cell);
+	public JSONObject getSummaryRow(HttpContext context) throws Exception {
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+		JSONObject ret = new JSONObject();
+		Fragment nameFragment = htmlFactory.fragment(htmlFactory.routeLink(
+				"main", 
+				"/"+context.getObjectPath(this)+".html", 
+				StringEscapeUtils.escapeHtml4(getName())));
+		
+		if (context.authorize(this, "delete", null, null)) {
+			Button deleteButton = htmlFactory.button(htmlFactory.fontAwesome().webApplication(WebApplication.trash).getTarget()).style("float", "right");
+			deleteButton.on(Event.click, "alert('Coming soon!');");
+			nameFragment.content("&nbsp;", deleteButton);
 		}
-		return sb.toString();
+		ret.put("name", CDOWebUtil.marshalValue(nameFragment));
+		
+//		aRow.cell(getDescription());
+		
+		EList<TestSession> ts = getTestSessions();
+		TestSession lastTestSession = ts.isEmpty() ? null : ts.get(ts.size()-1);
+		Totals totals = lastTestSession == null ? null : lastTestSession.getTotals();
+		
+		ret.put("lastTest", CDOWebUtil.marshalValue(lastTestSession==null ? "" : new SimpleDateFormat(TestSessionImpl.DATE_PATTERN).format(new Date(lastTestSession.getTimestamp()))));
+		
+		JSONObject testsSummary = new JSONObject();
+		ret.put("tests", CDOWebUtil.marshalValue(testsSummary));
+		testsSummary.put("pass", CDOWebUtil.marshalValue(totals==null ? "" : HubUtil.blankZero(totals.getPass())));
+		testsSummary.put("fail", CDOWebUtil.marshalValue(totals==null ? "" : HubUtil.blankZero(totals.getFail())));
+		testsSummary.put("error", CDOWebUtil.marshalValue(totals==null ? "" : HubUtil.blankZero(totals.getError())));
+		testsSummary.put("pending", CDOWebUtil.marshalValue(totals==null ? "" : HubUtil.blankZero(totals.getPending())));
+
+		JSONObject actorsSummary = new JSONObject();
+		ret.put("actors", CDOWebUtil.marshalValue(actorsSummary));
+		actorsSummary.put("classes", CDOWebUtil.marshalValue(totals==null ? "" : HubUtil.blankZero(totals.getActorClasses())));
+		actorsSummary.put("methods", CDOWebUtil.marshalValue(totals==null ? "" : HubUtil.blankZero(totals.getActorMethods())));
+		actorsSummary.put("coverage", CDOWebUtil.marshalValue(totals==null || totals.getActorMethods()==0 ? "" : totals.getActorCoverage()+" ("+(100*totals.getActorCoverage()/Math.max(1, totals.getActorMethods()))+"%)"));
+		
+		JSONObject pagesSummary = new JSONObject();
+		ret.put("pages", CDOWebUtil.marshalValue(pagesSummary));
+		pagesSummary.put("classes", CDOWebUtil.marshalValue(totals==null ? "" : HubUtil.blankZero(totals.getPageClasses())));
+		pagesSummary.put("methods", CDOWebUtil.marshalValue(totals==null ? "" : HubUtil.blankZero(totals.getPageMethods())));
+		pagesSummary.put("elements", CDOWebUtil.marshalValue(totals==null ? "" : HubUtil.blankZero(totals.getPageElements())));
+		pagesSummary.put("coverage", CDOWebUtil.marshalValue(totals==null|| totals.getPageMethods()==0 ? "" : totals.getPageCoverage()+" ("+(100*totals.getPageCoverage()/Math.max(1, totals.getPageMethods()))+"%)"));
+				
+		return ret;
+		
 	}
 
 	/**
@@ -185,9 +225,9 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case HubPackage.APPLICATION___GET_SUMMARY_ROW_CELLS__HTTPCONTEXT:
+			case HubPackage.APPLICATION___GET_SUMMARY_ROW__HTTPCONTEXT:
 				try {
-					return getSummaryRowCells((HttpContext)arguments.get(0));
+					return getSummaryRow((HttpContext)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -295,60 +335,6 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 		Breadcrumbs ret = ((Hub) eContainer()).createBreadcrumbs(context, false);
 		ret.item(active ? null : context.adapt(HTMLFactory.class).routeRef("main", "/"+context.getObjectPath(this))+".html", StringEscapeUtils.escapeHtml4(getName()));		
 		return ret;
-	}
-	
-	@Override
-	public void summaryRow(HttpContext context, Row aRow) throws Exception {
-		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);		
-		Cell nameCell = aRow.cell(htmlFactory.routeLink(
-				"main", 
-				"/"+context.getObjectPath(this)+".html", 
-				StringEscapeUtils.escapeHtml4(getName())));
-		
-		if (context.authorize(this, "delete", null, null)) {
-			Button deleteButton = htmlFactory.button(htmlFactory.fontAwesome().webApplication(WebApplication.trash).getTarget()).style("float", "right");
-			deleteButton.on(Event.click, "alert('Coming soon!');");
-			nameCell.content("&nbsp;", deleteButton);
-		}
-		
-//		aRow.cell(getDescription());
-		
-		EList<TestSession> ts = getTestSessions();
-		TestSession lastTestSession = ts.isEmpty() ? null : ts.get(ts.size()-1);
-		Totals totals = lastTestSession == null ? null : lastTestSession.getTotals();
-		
-		aRow.cell(lastTestSession==null ? "" : new SimpleDateFormat(TestSessionImpl.DATE_PATTERN).format(new Date(lastTestSession.getTimestamp()))).style("text-align", "center");	
-		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getPass())).style("text-align", "center");
-		
-		Cell failCell = aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getFail())).style("text-align", "center");
-		if (totals.getFail()>0) {
-			failCell.style("font-weight", "bold").style("color", "red");
-		}
-		
-		Cell errorCell = aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getError())).style("text-align", "center");
-		if (totals!=null && totals.getError()>0) {
-			errorCell.style("font-weight", "bold").style("color", HTMLColor.DarkOrange);
-		}
-		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getPending())).style("text-align", "center");
-		
-//		if (totals!=null) {
-//			if (totals.getFail()>0) {
-//				failCell.style("font-weight", "bold").style("color", "red");
-//				aRow.style(Style.DANGER);
-//			} else if (totals.getError()>0) {
-//				aRow.style(Style.WARNING);			
-//			}
-//		}
-
-		// TODO - trending arrows
-		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getActorClasses())).style("text-align", "center");
-		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getActorMethods())).style("text-align", "center");
-		aRow.cell(totals==null || totals.getActorMethods()==0 ? "" : totals.getActorCoverage()+" ("+(100*totals.getActorCoverage()/Math.max(1, totals.getActorMethods()))+"%)").style("text-align", "center");
-		
-		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getPageClasses())).style("text-align", "center");
-		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getPageMethods())).style("text-align", "center");
-		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getPageElements())).style("text-align", "center");					
-		aRow.cell(totals==null|| totals.getPageMethods()==0 ? "" : totals.getPageCoverage()+" ("+(100*totals.getPageCoverage()/Math.max(1, totals.getPageMethods()))+"%)").style("text-align", "center");
 	}
 	
 

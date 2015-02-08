@@ -572,13 +572,13 @@ public interface HubPackage extends EPackage {
 	int APPLICATION_FEATURE_COUNT = BREADCRUMBS_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Get Summary Row Cells</em>' operation.
+	 * The operation id for the '<em>Get Summary Row</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION___GET_SUMMARY_ROW_CELLS__HTTPCONTEXT = BREADCRUMBS_PROVIDER_OPERATION_COUNT + 0;
+	int APPLICATION___GET_SUMMARY_ROW__HTTPCONTEXT = BREADCRUMBS_PROVIDER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Application</em>' class.
@@ -3131,14 +3131,14 @@ public interface HubPackage extends EPackage {
 	EAttribute getApplication_Description();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Application#getSummaryRowCells(org.nasdanika.web.HttpContext) <em>Get Summary Row Cells</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Application#getSummaryRow(org.nasdanika.web.HttpContext) <em>Get Summary Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Summary Row Cells</em>' operation.
-	 * @see org.nasdanika.webtest.hub.Application#getSummaryRowCells(org.nasdanika.web.HttpContext)
+	 * @return the meta object for the '<em>Get Summary Row</em>' operation.
+	 * @see org.nasdanika.webtest.hub.Application#getSummaryRow(org.nasdanika.web.HttpContext)
 	 * @generated
 	 */
-	EOperation getApplication__GetSummaryRowCells__HttpContext();
+	EOperation getApplication__GetSummaryRow__HttpContext();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.Descriptor <em>Descriptor</em>}'.
@@ -4344,12 +4344,12 @@ public interface HubPackage extends EPackage {
 		EAttribute APPLICATION__DESCRIPTION = eINSTANCE.getApplication_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Summary Row Cells</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Summary Row</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation APPLICATION___GET_SUMMARY_ROW_CELLS__HTTPCONTEXT = eINSTANCE.getApplication__GetSummaryRowCells__HttpContext();
+		EOperation APPLICATION___GET_SUMMARY_ROW__HTTPCONTEXT = eINSTANCE.getApplication__GetSummaryRow__HttpContext();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.DescriptorImpl <em>Descriptor</em>}' class.

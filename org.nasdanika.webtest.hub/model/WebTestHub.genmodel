@@ -40,8 +40,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//Application/screenshots"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//Application/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//Application/description"/>
-      <genOperations ecoreOperation="WebTestHub.ecore#//Application/getSummaryRowCells">
-        <genParameters ecoreParameter="WebTestHub.ecore#//Application/getSummaryRowCells/context"/>
+      <genOperations ecoreOperation="WebTestHub.ecore#//Application/getSummaryRow">
+        <genParameters ecoreParameter="WebTestHub.ecore#//Application/getSummaryRow/context"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="WebTestHub.ecore#//Descriptor">
