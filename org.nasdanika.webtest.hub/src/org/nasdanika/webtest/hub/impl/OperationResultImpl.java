@@ -28,6 +28,7 @@ import org.nasdanika.core.ConverterContext;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Carousel;
 import org.nasdanika.html.Carousel.Slide;
+import org.nasdanika.html.FontAwesome;
 import org.nasdanika.html.FontAwesome.Directional;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.Fragment;
@@ -570,7 +571,25 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 		if (slideIdx!=-1) {
 			caption = htmlFactory.link("#carousel_"+carouselId, caption).on(Event.click, "jQuery('#"+carouselId+"').carousel("+slideIdx+"); return true;");
 		}
-		row.cell(caption).style("padding-left", (indent*30+5)+"px");
+		Cell titleCell = row.cell(caption).style("padding-left", (indent*30+5)+"px");
+		if (!getArguments().isEmpty()) {			
+			titleCell.content("&nbsp;");
+			Tag popoverButton = htmlFactory.fontAwesome().directional(Directional.caret_down).getTarget();
+			popoverButton.id("argumentsPopover_"+htmlFactory.nextId());		
+			Table argsTable = htmlFactory.table().bordered();
+			int counter = 0;
+			for (String arg: getArguments()) {
+				Row argRow = argsTable.row();
+				argRow.cell(counter++);
+				argRow.cell("<PRE>"+StringEscapeUtils.escapeHtml4(arg)+"</PRE>");
+			}
+			htmlFactory.popover(popoverButton, Placement.BOTTOM, "Arguments", null).attribute("data-html", "true");
+			titleCell.content(popoverButton);
+			JSONObject options = new JSONObject();
+			options.put("content", argsTable.toString());
+			titleCell.content(htmlFactory.tag("script", "$('#"+popoverButton.getId()+"').popover("+options+");"));	
+			
+		}
 		
 		genDescriptionAndDurationCells(htmlFactory, row);
 		
@@ -654,12 +673,14 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 							captionBuilder.append("&nbsp;");
 							captionBuilder.append(comment);		
 						}
+						
 						captionBuilder.append("&nbsp;&nbsp;");
 						captionBuilder.append(htmlFactory.tag("a", htmlFactory.glyphicon(Glyphicon.new_window))
 								.attribute("href", context.getObjectPath(se)+".png")
 								.attribute("target", "_blank")
 								.attribute("title", "Open image in a new tab")
 								.style("color", "inherit"));
+						
 						slide.caption(htmlFactory.label(Style.INFO, captionBuilder).style("opacity", "0.7"));
 					}
 				}

@@ -1,12 +1,12 @@
 package org.nasdanika.webtest.hub.impl;
 
-public class HubAppsControllerGenerator
+public class ApplicationsControllerGenerator
 {
   protected static String nl;
-  public static synchronized HubAppsControllerGenerator create(String lineSeparator)
+  public static synchronized ApplicationsControllerGenerator create(String lineSeparator)
   {
     nl = lineSeparator;
-    HubAppsControllerGenerator result = new HubAppsControllerGenerator();
+    ApplicationsControllerGenerator result = new ApplicationsControllerGenerator();
     nl = null;
     return result;
   }

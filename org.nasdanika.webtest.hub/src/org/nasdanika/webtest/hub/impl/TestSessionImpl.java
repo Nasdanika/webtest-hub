@@ -789,22 +789,26 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 
 			@Override
 			public int getPass() {
-				return stats.get("Pass")[0];
+				int[] pass = stats.get("Pass");
+				return pass==null ? 0 : pass[0];
 			}
 
 			@Override
 			public int getFail() {
-				return stats.get("Fail")[0];
+				int[] fail = stats.get("Fail");
+				return fail==null ? 0 : fail[0];
 			}
 
 			@Override
 			public int getError() {
-				return stats.get("Error")[0];
+				int[] error = stats.get("Error");
+				return error==null ? 0 : error[0];
 			}
 
 			@Override
 			public int getPending() {
-				return stats.get("Pending")[0];
+				int[] pending = stats.get("Pending");
+				return pending==null ? 0 : pending[0];
 			}
 
 			@Override

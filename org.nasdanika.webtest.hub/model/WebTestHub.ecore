@@ -27,6 +27,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Guest" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//User"/>
   <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//ApplicationOwner ../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordHashUser"/>
   <eClassifiers xsi:type="ecore:EClass" name="Application" eSuperTypes="#//BreadcrumbsProvider">
+    <eOperations name="getSummaryRowCells" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        eExceptions="#//Exception">
+      <eAnnotations source="org.nasdanika.cdo.web:getter"/>
+      <eParameters name="context" eType="#//HttpContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="testSessions" upperBound="-1"
         eType="#//TestSession" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="securityToken" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -35,6 +40,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="HttpContext" instanceClassName="org.nasdanika.web.HttpContext"/>
   <eClassifiers xsi:type="ecore:EClass" name="Descriptor" eSuperTypes="#//JSONLoader">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

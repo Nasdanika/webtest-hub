@@ -14,11 +14,24 @@ import org.nasdanika.cdo.security.Group;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.impl.LoginPasswordProtectionDomainImpl;
 import org.nasdanika.html.Breadcrumbs;
+import org.nasdanika.html.Button;
+import org.nasdanika.html.Button.Type;
+import org.nasdanika.html.FontAwesome.Rotate;
 import org.nasdanika.html.FontAwesome.WebApplication;
+import org.nasdanika.html.Form;
+import org.nasdanika.html.Form.Method;
+import org.nasdanika.html.FormInputGroup;
+import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
+import org.nasdanika.html.HTMLFactory.InputType;
+import org.nasdanika.html.Input;
+import org.nasdanika.html.Modal;
 import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
+import org.nasdanika.html.Tag;
+import org.nasdanika.html.Tag.TagName;
+import org.nasdanika.html.TextArea;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
@@ -280,17 +293,25 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		hRow2.header("Elements").style("text-align", "center").attribute("nowrap", "true");
 		hRow2.header("Coverage").style("text-align", "center").attribute("nowrap", "true");
 		
+		Fragment appFragment = htmlFactory.fragment(applicationsTable);
+		
+		if (context.authorize(this, "write", "applications", null)) {
+			Button addButton = htmlFactory.button("Add").style(Style.PRIMARY);
+			appFragment.content(addButton);
+		}
+		
 		CDOLock readLock = cdoReadLock();
 		if (readLock.tryLock(5, TimeUnit.SECONDS)) {
 			try {
 				for (Application a: getApplications()) {
 					a.summaryRow(context, applicationsTable.row());
 				}
-				return htmlFactory.div(createBreadcrumbs(context, true)).id("breadcrumbs-container").toString()+htmlFactory.panel(
-						Style.INFO, 
-						"Applications", 
-						applicationsTable, 
-						null).toString()+htmlFactory.title(getName());
+				return htmlFactory.div(createBreadcrumbs(context, true)).id("breadcrumbs-container").toString()	+
+						htmlFactory.panel(
+							Style.INFO, 
+							"Applications", 
+							appFragment, 
+							null).toString()+htmlFactory.title(getName());
 			} finally {
 				readLock.unlock();
 			}
@@ -298,6 +319,76 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 			return htmlFactory.alert(Style.WARNING, false, "The system is overloaded, please try again later.").toString(); 			
 		}
 	}
+	
+	private Modal createNewApplicationFormModal(HTMLFactory htmlFactory, String objectPath) throws Exception {
+		Form newApplicationForm = htmlFactory.form()
+				.method(Method.post)
+				//.action(objectPath+"/register")
+				.id("newAppForm")
+				.ngController("appController")
+				.ngSubmit("newApp()");
+		
+		newApplicationForm.content(htmlFactory.div("").style("color", "red").id("errorMessage"));
+		
+		HubUtil.createFormInputGroup(
+				htmlFactory, 
+				newApplicationForm,
+				htmlFactory.input(InputType.text).required().autofocus(),
+				"name",
+				"Application name",
+				"newApplicationData",
+				"errorData");		
+		
+		newApplicationForm.content(" ");
+		
+		TextArea appDescription = htmlFactory.textArea()
+				.name("appDescription")
+				.id("appDescription")
+				.placeholder("Description")
+				.ngModel("newApplicationData.description");
+		
+		Tag descriptionErrorMessage = htmlFactory.span()
+				.ngBind("errorData.description")
+				.ngShow("errorData.description")
+				.style("color", "red")
+				.id("descriptionErrorMessage");
+		
+		newApplicationForm.formInputGroup("Description", "appDescription", appDescription, descriptionErrorMessage).ngClass("{ 'has-error' : errorData.description }");
+		
+		newApplicationForm.content(" ");
+		
+		Input securityToken = htmlFactory.input(InputType.text)
+				.name("appSecurityToken")
+				.id("appSecurityToken")
+				.placeholder("Security token")
+				.required()
+				.ngModel("newApplicationData.securityToken");
+		
+		Tag securityTokenErrorMessage = htmlFactory.span()
+				.ngBind("errorData.securityToken")
+				.ngShow("errorData.securityToken")
+				.style("color", "red")
+				.id("securityTokenErrorMessage");
+		
+		newApplicationForm.formInputGroup("Security token", "appSecurityToken", securityToken, securityTokenErrorMessage)
+			.ngClass("{ 'has-error' : errorData.securityToken }")
+			.leftAddOn(htmlFactory.fontAwesome().webApplication(WebApplication.key).fixedWidth());
+		
+		newApplicationForm.content(" ");
+		
+		newApplicationForm.content(" ");
+		
+		newApplicationForm.button("Create").type(Type.SUBMIT).style(Style.PRIMARY).id("newAppSubmitButton");
+		newApplicationForm.content("&nbsp;");
+		newApplicationForm.button("Cancel").attribute("data-dismiss", "modal").id("newAppCancelButton");
+		
+		return htmlFactory.modal()
+				.id("new-app-form-modal")
+				.small()
+				.title("Create application")
+				.body(newApplicationForm, htmlFactory.tag(TagName.script, new RegistrationControllerRenderer().generate(this, objectPath+"/applications")));
+	}
+	
 	
 	@Override
 	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {

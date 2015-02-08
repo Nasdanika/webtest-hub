@@ -14,7 +14,7 @@ public class RegistrationControllerRenderer {
 
   public final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl;
   protected final String TEXT_1 = NL + "angular.module('guestApp').controller('registrationController', function($scope, $http) {" + NL + "" + NL + "\t$scope.registrationData = {};" + NL + "\t" + NL + "\t$scope.errorData = {};" + NL + "" + NL + "\t$scope.register = function() {" + NL + "\t\t$http.post('";
-  protected final String TEXT_2 = "', $scope.registrationData).success(function(data) {" + NL + "\t\t\tif (data.target) {" + NL + "           \t\twindow.location = data.target;" + NL + "           \t} else {" + NL + "\t\t\t\t$scope.errorData = data;       " + NL + "\t\t\t\tconsole.dir(data);    \t\t" + NL + "           \t}" + NL + "        }).error(function(data, status, headers, config) {" + NL + "\t\t\talert(\"Login failed: \"+status);" + NL + "\t\t});" + NL + "\t};" + NL + "" + NL + "});";
+  protected final String TEXT_2 = "', $scope.registrationData).success(function(data) {" + NL + "\t\t\tif (data.target) {" + NL + "           \t\twindow.location = data.target;" + NL + "           \t} else {" + NL + "\t\t\t\t$scope.errorData = data;       " + NL + "\t\t\t\tconsole.dir(data);    \t\t" + NL + "           \t}" + NL + "        }).error(function(data, status, headers, config) {" + NL + "\t\t\talert(\"Registration failed: \"+status);" + NL + "\t\t});" + NL + "\t};" + NL + "" + NL + "});";
   protected final String TEXT_3 = NL;
 
 public String generate(org.eclipse.emf.cdo.CDOObject target, Object... args) throws Exception

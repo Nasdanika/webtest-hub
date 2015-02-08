@@ -1,4 +1,4 @@
-<%@ jet package="org.nasdanika.webtest.hub.impl" class="HubAppsControllerGenerator"%>
+<%@ jet package="org.nasdanika.webtest.hub.impl" class="ApplicationsControllerGenerator"%>
 
 require(["<%=argument%>.js"], function(hub) {
 	angular.module('hubApp', []).controller('AppsController', ['$scope', function ($scope) {  	 

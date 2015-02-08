@@ -21,17 +21,17 @@ import org.nasdanika.core.AuthorizationProvider.AccessDecision;
 import org.nasdanika.core.Context;
 import org.nasdanika.html.ApplicationPanel;
 import org.nasdanika.html.ApplicationPanel.ContentPanel;
-import org.nasdanika.html.Fragment;
+import org.nasdanika.html.FontAwesome.Spinner;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.Navbar;
 import org.nasdanika.html.Theme;
-import org.nasdanika.html.UIElement.DeviceSize;
 import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.Application;
+import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.User;
 
@@ -345,7 +345,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 		}
 		ApplicationPanel appPanel = htmlFactory
 				.applicationPanel()
-				.width(800)
+				.width(HubUtil.width(this))
 				.minHeight(600)
 				.style(Style.PRIMARY)
 				.header("Nasdanika Bank")
@@ -363,22 +363,20 @@ public class UserImpl extends CDOObjectImpl implements User {
 
 		appPanel.navigation(navBar /*, breadcrumbs */);
 		
-		ContentPanel mainPanel = appPanel.contentPanel("TODO").id("main");
-		
-		Fragment rightPanelContent = htmlFactory.fragment();
-		context.buildUICategory("right-panel", rightPanelContent, null);
-		if (!rightPanelContent.isEmpty()) {
-			mainPanel.width(DeviceSize.LARGE, 9);
-			appPanel.contentPanel(rightPanelContent).width(DeviceSize.LARGE, 3);
-		}
-		
-		appPanel.footer(htmlFactory.link("#", "Contact Us"));
-		return htmlFactory.bootstrapRouterApplication(
-				Theme.Default,
-				"Nasdanika Bank", 
-				null, //"main/"+context.getObjectPath(this)+"/accounts.html", 
-				null, 
-				appPanel).toString();
+		ContentPanel mainPanel = appPanel.contentPanel()
+				.id("main");
+//				.width(DeviceSize.SMALL, 9)
+//				.width(DeviceSize.MEDIUM, 10)
+//				.width(DeviceSize.LARGE, 11);
+			
+			mainPanel.content(htmlFactory.fontAwesome().spinner(Spinner.spinner).spin()+"&nbsp;Loading summary");//HubUtil.getContainer(this, HubImpl.class).summary(context));
+			
+			return htmlFactory.bootstrapRouterApplication(
+					Theme.Default,
+					StringEscapeUtils.escapeHtml4(((Hub) eContainer()).getName()), 
+					"main/"+context.getObjectPath(eContainer())+"/summary", 
+					null, 
+					appPanel).toString();
 	}
 		
 	@RouteMethod()

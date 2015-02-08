@@ -18,12 +18,15 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.html.Breadcrumbs;
+import org.nasdanika.html.Button;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Table.Row.Cell;
+import org.nasdanika.html.Tag;
+import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
@@ -262,10 +265,17 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 	@Override
 	public void summaryRow(HttpContext context, Row aRow) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
-		aRow.cell(htmlFactory.routeLink(
+		Cell nameCell = aRow.cell(htmlFactory.routeLink(
 				"main", 
 				"/"+context.getObjectPath(this)+".html", 
-				StringEscapeUtils.escapeHtml4(getName()))); 
+				StringEscapeUtils.escapeHtml4(getName())));
+		
+		if (context.authorize(this, "delete", null, null)) {
+			Button deleteButton = htmlFactory.button(htmlFactory.fontAwesome().webApplication(WebApplication.trash).getTarget()).style("float", "right");
+			deleteButton.on(Event.click, "alert('Coming soon!');");
+			nameCell.content("&nbsp;", deleteButton);
+		}
+		
 //		aRow.cell(getDescription());
 		
 		EList<TestSession> ts = getTestSessions();

@@ -15,7 +15,7 @@ angular.module('guestApp').controller('registrationController', function($scope,
 				console.dir(data);    		
            	}
         }).error(function(data, status, headers, config) {
-			alert("Login failed: "+status);
+			alert("Registration failed: "+status);
 		});
 	};
 
