@@ -43,7 +43,7 @@ public class WebTestHubSessionInitializerComponent implements CDOSessionInitiali
 				hub.setGuest(guest);
 				hub.setUnauthenticatedPrincipal(guest);
 
-				// Read permission to Guest
+				// Read permission on Hub to Guest
 				Permission permission = SecurityFactory.eINSTANCE.createPermission();
 				permission.setTarget(hub); // self-target
 				permission.setAllow(true);

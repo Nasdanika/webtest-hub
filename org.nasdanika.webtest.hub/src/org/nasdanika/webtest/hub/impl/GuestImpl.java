@@ -464,14 +464,23 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 					hub.setPasswordHash(newUser, password);
 					hub.getUsers().add(newUser);
 					
-					// Permission				
+//					// Permission				
+//					Permission permission = SecurityFactory.eINSTANCE.createPermission();
+//					permission.setTarget(newUser); // self-target
+//					permission.setAllow(true);
+//					permission.setName("*");
+//					permission.setTargetClass("User");
+//					permission.setTargetNamespaceURI("urn:org.nasdanika.cdo.security");
+//					newUser.getPermissions().add(permission);				
+
+					// Read permission on Hub to the new user.
 					Permission permission = SecurityFactory.eINSTANCE.createPermission();
-					permission.setTarget(newUser); // self-target
+					permission.setTarget(hub); // self-target
 					permission.setAllow(true);
-					permission.setName("*");
-					permission.setTargetClass("User");
-					permission.setTargetNamespaceURI("urn:org.nasdanika.cdo.security");
-					newUser.getPermissions().add(permission);				
+					permission.setName("read");
+					permission.setTargetClass("Hub");
+					permission.setTargetNamespaceURI("urn:org.nasdanika.webtest.hub");
+					newUser.getPermissions().add(permission);													
 					
 					//((UserImpl) newUser).init();
 					
