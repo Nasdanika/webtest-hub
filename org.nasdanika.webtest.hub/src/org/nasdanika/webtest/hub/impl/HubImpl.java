@@ -3,9 +3,7 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.concurrent.TimeUnit;
 
-import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -16,11 +14,9 @@ import org.nasdanika.cdo.security.impl.LoginPasswordProtectionDomainImpl;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Button;
 import org.nasdanika.html.Button.Type;
-import org.nasdanika.html.FontAwesome.Rotate;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.Form;
 import org.nasdanika.html.Form.Method;
-import org.nasdanika.html.FormInputGroup;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
@@ -292,6 +288,9 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		hRow2.header("Methods").style("text-align", "center").attribute("nowrap", "true");
 		hRow2.header("Elements").style("text-align", "center").attribute("nowrap", "true");
 		hRow2.header("Coverage").style("text-align", "center").attribute("nowrap", "true");
+
+		
+		applicationsTable.row().ngRepeat("app in hub.applications").content("{{ app().summaryRowCells }}");
 		
 		Fragment appFragment = htmlFactory.fragment(applicationsTable);
 		
@@ -300,24 +299,16 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 			appFragment.content(addButton);
 		}
 		
-		CDOLock readLock = cdoReadLock();
-		if (readLock.tryLock(5, TimeUnit.SECONDS)) {
-			try {
-				for (Application a: getApplications()) {
-					a.summaryRow(context, applicationsTable.row());
-				}
-				return htmlFactory.div(createBreadcrumbs(context, true)).id("breadcrumbs-container").toString()	+
-						htmlFactory.panel(
-							Style.INFO, 
-							"Applications", 
-							appFragment, 
-							null).toString()+htmlFactory.title(getName());
-			} finally {
-				readLock.unlock();
-			}
-		} else {
-			return htmlFactory.alert(Style.WARNING, false, "The system is overloaded, please try again later.").toString(); 			
-		}
+		return htmlFactory.div(
+				createBreadcrumbs(context, true)).id("breadcrumbs-container").toString() +
+				htmlFactory.panel(
+					Style.INFO, 
+					"Applications", 
+					appFragment, 
+					null).id("applicationPanel").ngController("ApplicationsController") +
+					htmlFactory.tag(TagName.script, new ApplicationsControllerGenerator().generate(context.getObjectPath(this))) +
+					htmlFactory.tag("script", "angular.bootstrap($('#applicationPanel'), ['hubApp']);") + 
+					htmlFactory.title(getName());
 	}
 	
 	private Modal createNewApplicationFormModal(HTMLFactory htmlFactory, String objectPath) throws Exception {
@@ -386,7 +377,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 				.id("new-app-form-modal")
 				.small()
 				.title("Create application")
-				.body(newApplicationForm, htmlFactory.tag(TagName.script, new RegistrationControllerRenderer().generate(this, objectPath+"/applications")));
+				.body(newApplicationForm);
 	}
 	
 	

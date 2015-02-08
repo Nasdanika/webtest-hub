@@ -4,6 +4,7 @@ package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -25,7 +26,6 @@ import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Table.Row.Cell;
-import org.nasdanika.html.Tag;
 import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
@@ -161,6 +161,41 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 		eSet(HubPackage.Literals.APPLICATION__DESCRIPTION, newDescription);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getSummaryRowCells(HttpContext context) throws Exception {
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);		
+		Row row = htmlFactory.table().row();
+		summaryRow(context, row);
+		StringBuilder sb = new StringBuilder();
+		for (Cell cell: row.cells()) {
+			sb.append(cell);
+		}
+		return sb.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case HubPackage.APPLICATION___GET_SUMMARY_ROW_CELLS__HTTPCONTEXT:
+				try {
+					return getSummaryRowCells((HttpContext)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
 	@RouteMethod(pattern="L[\\d]+/testSessions", value=RequestMethod.POST)
 	public void createTestSession(final HttpContext context) throws Exception {
 		if (authorize(context)) {
@@ -264,7 +299,7 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 	
 	@Override
 	public void summaryRow(HttpContext context, Row aRow) throws Exception {
-		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);		
 		Cell nameCell = aRow.cell(htmlFactory.routeLink(
 				"main", 
 				"/"+context.getObjectPath(this)+".html", 
@@ -284,21 +319,26 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 		
 		aRow.cell(lastTestSession==null ? "" : new SimpleDateFormat(TestSessionImpl.DATE_PATTERN).format(new Date(lastTestSession.getTimestamp()))).style("text-align", "center");	
 		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getPass())).style("text-align", "center");
+		
 		Cell failCell = aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getFail())).style("text-align", "center");
+		if (totals.getFail()>0) {
+			failCell.style("font-weight", "bold").style("color", "red");
+		}
+		
 		Cell errorCell = aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getError())).style("text-align", "center");
 		if (totals!=null && totals.getError()>0) {
 			errorCell.style("font-weight", "bold").style("color", HTMLColor.DarkOrange);
 		}
 		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getPending())).style("text-align", "center");
 		
-		if (totals!=null) {
-			if (totals.getFail()>0) {
-				failCell.style("font-weight", "bold").style("color", "red");
-				aRow.style(Style.DANGER);
-			} else if (totals.getError()>0) {
-				aRow.style(Style.WARNING);			
-			}
-		}
+//		if (totals!=null) {
+//			if (totals.getFail()>0) {
+//				failCell.style("font-weight", "bold").style("color", "red");
+//				aRow.style(Style.DANGER);
+//			} else if (totals.getError()>0) {
+//				aRow.style(Style.WARNING);			
+//			}
+//		}
 
 		// TODO - trending arrows
 		aRow.cell(totals==null ? "" : HubUtil.blankZero(totals.getActorClasses())).style("text-align", "center");

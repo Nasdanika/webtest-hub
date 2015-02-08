@@ -572,13 +572,22 @@ public interface HubPackage extends EPackage {
 	int APPLICATION_FEATURE_COUNT = BREADCRUMBS_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Get Summary Row Cells</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION___GET_SUMMARY_ROW_CELLS__HTTPCONTEXT = BREADCRUMBS_PROVIDER_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Application</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_OPERATION_COUNT = BREADCRUMBS_PROVIDER_OPERATION_COUNT + 0;
+	int APPLICATION_OPERATION_COUNT = BREADCRUMBS_PROVIDER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.core.JSONLoader <em>JSON Loader</em>}' class.
@@ -2910,6 +2919,16 @@ public interface HubPackage extends EPackage {
 	int OPERATION_STATUS = 29;
 
 	/**
+	 * The meta object id for the '<em>Http Context</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.web.HttpContext
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getHttpContext()
+	 * @generated
+	 */
+	int HTTP_CONTEXT = 30;
+
+	/**
 	 * The meta object id for the '<em>JSON Object</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2917,7 +2936,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONObject()
 	 * @generated
 	 */
-	int JSON_OBJECT = 30;
+	int JSON_OBJECT = 31;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -2927,7 +2946,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 31;
+	int EXCEPTION = 32;
 
 
 	/**
@@ -3110,6 +3129,16 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getApplication_Description();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Application#getSummaryRowCells(org.nasdanika.web.HttpContext) <em>Get Summary Row Cells</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Summary Row Cells</em>' operation.
+	 * @see org.nasdanika.webtest.hub.Application#getSummaryRowCells(org.nasdanika.web.HttpContext)
+	 * @generated
+	 */
+	EOperation getApplication__GetSummaryRowCells__HttpContext();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.Descriptor <em>Descriptor</em>}'.
@@ -4113,6 +4142,17 @@ public interface HubPackage extends EPackage {
 	EEnum getOperationStatus();
 
 	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.web.HttpContext <em>Http Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Http Context</em>'.
+	 * @see org.nasdanika.web.HttpContext
+	 * @model instanceClass="org.nasdanika.web.HttpContext"
+	 * @generated
+	 */
+	EDataType getHttpContext();
+
+	/**
 	 * Returns the meta object for data type '{@link org.json.JSONObject <em>JSON Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4302,6 +4342,14 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute APPLICATION__DESCRIPTION = eINSTANCE.getApplication_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Summary Row Cells</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation APPLICATION___GET_SUMMARY_ROW_CELLS__HTTPCONTEXT = eINSTANCE.getApplication__GetSummaryRowCells__HttpContext();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.DescriptorImpl <em>Descriptor</em>}' class.
@@ -5096,6 +5144,16 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum OPERATION_STATUS = eINSTANCE.getOperationStatus();
+
+		/**
+		 * The meta object literal for the '<em>Http Context</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.web.HttpContext
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getHttpContext()
+		 * @generated
+		 */
+		EDataType HTTP_CONTEXT = eINSTANCE.getHttpContext();
 
 		/**
 		 * The meta object literal for the '<em>JSON Object</em>' data type.

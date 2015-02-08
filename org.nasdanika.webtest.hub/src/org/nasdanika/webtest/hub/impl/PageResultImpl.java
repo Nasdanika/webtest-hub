@@ -200,7 +200,7 @@ public class PageResultImpl extends DescriptorImpl implements PageResult {
 					weRow.cell(StringEscapeUtils.escapeHtml4(we.getTitle())).rowspan(locSize);
 					weRow.cell(we.getDescription().toHTML()).rowspan(locSize);
 					for (Locator loc: we.getLocators()) {
-						Row locRow = weRow.length()==2 ? weRow : webElementsTable.row();
+						Row locRow = weRow.cells().size()==2 ? weRow : webElementsTable.row();
 						locRow.cell(loc.getHow()).style("text-align", "center");
 						locRow.cell(StringEscapeUtils.escapeHtml4(loc.getUsing()));
 					}

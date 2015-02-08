@@ -26,6 +26,7 @@ import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.Navbar;
 import org.nasdanika.html.Theme;
+import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
@@ -375,7 +376,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 					Theme.Default,
 					StringEscapeUtils.escapeHtml4(((Hub) eContainer()).getName()), 
 					"main/"+context.getObjectPath(eContainer())+"/summary", 
-					null, 
+					htmlFactory.tag(TagName.script, getClass().getResource("RequireJSConfig.js")), 
 					appPanel).toString();
 	}
 		

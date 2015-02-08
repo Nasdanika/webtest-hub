@@ -16,6 +16,7 @@
       <genEnumLiterals ecoreEnumLiteral="WebTestHub.ecore#//OperationStatus/Error"/>
       <genEnumLiterals ecoreEnumLiteral="WebTestHub.ecore#//OperationStatus/Pending"/>
     </genEnums>
+    <genDataTypes ecoreDataType="WebTestHub.ecore#//HttpContext"/>
     <genDataTypes ecoreDataType="WebTestHub.ecore#//JSONObject"/>
     <genDataTypes ecoreDataType="WebTestHub.ecore#//Exception"/>
     <genClasses ecoreClass="WebTestHub.ecore#//Hub">
@@ -39,6 +40,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//Application/screenshots"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//Application/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//Application/description"/>
+      <genOperations ecoreOperation="WebTestHub.ecore#//Application/getSummaryRowCells">
+        <genParameters ecoreParameter="WebTestHub.ecore#//Application/getSummaryRowCells/context"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="WebTestHub.ecore#//Descriptor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//Descriptor/qualifiedName"/>

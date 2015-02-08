@@ -219,40 +219,41 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.headerLink("/index.html")
 				.id("guestAppPanel")
 				.footer(htmlFactory.link("#", "Documentation"));		
-				
-		Navbar navBar = htmlFactory.navbar("Welcome!", objectPath+".html"); 
 		
-		createLoginForm(htmlFactory, navBar);
 		
+		Navbar navBar = htmlFactory.navbar("Welcome!", objectPath+".html"); 	
+		createLoginForm(htmlFactory, navBar);		
 		navBar.item(htmlFactory.link("#", "Register").id("registerMenuItem").on(Event.click, "jQuery('#registration-form-modal').modal();"), false, true);
 		
+		Modal authenticationFailedModal = htmlFactory.modal()
+				.id("authentication-failed-modal")
+				.small()
+				.title("Authentication failed")
+				.body("Invalid Login/Password combination");
+						
+		Tag guestAppDiv = htmlFactory.div(
+				navBar, 
+				createRegistrationFormModal(htmlFactory, objectPath), 
+				authenticationFailedModal).id("guestApp");		
+				
 		appPanel.navigation(
-				navBar,
-				htmlFactory.tag("script", new LoginControllerRenderer().generate(this, objectPath+"/login")));		
+				guestAppDiv,
+				htmlFactory.tag("script", new GuestAppControllersRenderer().generate(this, objectPath)),
+				htmlFactory.tag("script", "angular.bootstrap($('#guestApp'), ['guestApp']);"));		
 		
-		ContentPanel mainPanel = appPanel.contentPanel()
-			.id("main");
+		ContentPanel mainPanel = appPanel.contentPanel().id("main");
 //			.width(DeviceSize.SMALL, 9)
 //			.width(DeviceSize.MEDIUM, 10)
 //			.width(DeviceSize.LARGE, 11);
 		
 		mainPanel.content(htmlFactory.fontAwesome().spinner(Spinner.spinner).spin()+"&nbsp;Loading summary");//HubUtil.getContainer(this, HubImpl.class).summary(context));
 				
-		Modal authenticationFailedModal = htmlFactory.modal()
-				.id("authentication-failed-modal")
-				.small()
-				.title("Authentication failed")
-				.body("Invalid Login/Password combination");
-		
 		return htmlFactory.bootstrapRouterApplication(
 				Theme.Default,
 				StringEscapeUtils.escapeHtml4(((Hub) eContainer()).getName()), 
 				"main/"+context.getObjectPath(eContainer())+"/summary", 
-				null, 
-				appPanel, 
-				createRegistrationFormModal(htmlFactory, objectPath), 
-				authenticationFailedModal,
-				htmlFactory.tag("script", "angular.bootstrap($('body'), ['guestApp']);")).toString();
+				htmlFactory.tag(TagName.script, getClass().getResource("RequireJSConfig.js")), 
+				appPanel).toString();
 		
 	}
 
@@ -349,7 +350,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.id("registration-form-modal")
 				.small()
 				.title("Register")
-				.body(registrationForm, htmlFactory.tag(TagName.script, new RegistrationControllerRenderer().generate(this, objectPath+"/register")));
+				.body(registrationForm);
 	}
 
 	private void createLoginForm(HTMLFactory htmlFactory, Navbar navBar) {

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.json.JSONObject;
 import org.nasdanika.cdo.security.SecurityPackage;
 import org.nasdanika.core.JSONLoader;
+import org.nasdanika.web.HttpContext;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
@@ -267,6 +268,13 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EDataType httpContextEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType jsonObjectEDataType = null;
 
 	/**
@@ -492,6 +500,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 */
 	public EAttribute getApplication_Description() {
 		return (EAttribute)applicationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getApplication__GetSummaryRowCells__HttpContext() {
+		return applicationEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1336,6 +1353,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getHttpContext() {
+		return httpContextEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getJSONObject() {
 		return jsonObjectEDataType;
 	}
@@ -1398,6 +1424,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(applicationEClass, APPLICATION__SCREENSHOTS);
 		createEAttribute(applicationEClass, APPLICATION__NAME);
 		createEAttribute(applicationEClass, APPLICATION__DESCRIPTION);
+		createEOperation(applicationEClass, APPLICATION___GET_SUMMARY_ROW_CELLS__HTTPCONTEXT);
 
 		descriptorEClass = createEClass(DESCRIPTOR);
 		createEAttribute(descriptorEClass, DESCRIPTOR__QUALIFIED_NAME);
@@ -1519,6 +1546,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		operationStatusEEnum = createEEnum(OPERATION_STATUS);
 
 		// Create data types
+		httpContextEDataType = createEDataType(HTTP_CONTEXT);
 		jsonObjectEDataType = createEDataType(JSON_OBJECT);
 		exceptionEDataType = createEDataType(EXCEPTION);
 	}
@@ -1611,6 +1639,10 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEReference(getApplication_Screenshots(), this.getScreenshot(), null, "screenshots", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_Name(), ecorePackage.getEString(), "name", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_Description(), ecorePackage.getEString(), "description", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getApplication__GetSummaryRowCells__HttpContext(), ecorePackage.getEString(), "getSummaryRowCells", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
 
 		initEClass(descriptorEClass, org.nasdanika.webtest.hub.Descriptor.class, "Descriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDescriptor_QualifiedName(), ecorePackage.getEString(), "qualifiedName", null, 0, 1, org.nasdanika.webtest.hub.Descriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1739,6 +1771,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		addEEnumLiteral(operationStatusEEnum, OperationStatus.PENDING);
 
 		// Initialize data types
+		initEDataType(httpContextEDataType, HttpContext.class, "HttpContext", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(jsonObjectEDataType, JSONObject.class, "JSONObject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(exceptionEDataType, Exception.class, "Exception", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
@@ -1752,6 +1785,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createOrg_1Annotations();
 		// org.nasdanika.cdo.web:lenient
 		createOrg_2Annotations();
+		// org.nasdanika.cdo.web:getter
+		createOrg_3Annotations();
 	}
 
 	/**
@@ -1794,6 +1829,21 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		String source = "org.nasdanika.cdo.web:lenient";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
+		   source, 
+		   new String[] {
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo.web:getter</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrg_3Annotations() {
+		String source = "org.nasdanika.cdo.web:getter";	
+		addAnnotation
+		  (getApplication__GetSummaryRowCells__HttpContext(), 
 		   source, 
 		   new String[] {
 		   });

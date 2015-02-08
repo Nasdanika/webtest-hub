@@ -641,7 +641,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		totalsRow.cell(HubUtil.blankZero(totals[0])).attribute("align", "center");
 		totalsRow.cell(HubUtil.blankZero(totals[1])).attribute("align", "center");
 		totalsRow.cell(totals[2]==0 ? "" : totals[2]+MessageFormat.format(" ({0,number,#.##}%)", 100.0*totals[2]/totals[0])).attribute("align", "center");
-		return actorTable.length()==0 ? null : actorTable.toString();
+		return actorTable.rows().isEmpty() ? null : actorTable.toString();
 	}
 	
 	private String pagesSummary(HttpContext context) throws Exception {
@@ -699,7 +699,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		totalsRow.cell(HubUtil.blankZero(totals[1])).attribute("align", "center");
 		totalsRow.cell(HubUtil.blankZero(totals[2])).attribute("align", "center");
 		totalsRow.cell(totals[3]==0 ? "" : totals[3]+MessageFormat.format(" ({0,number,#.##}%)", 100.0*totals[3]/totals[1])).attribute("align", "center");
-		return pageTable.length()==0 ? null : pageTable.toString();
+		return pageTable.rows().isEmpty() ? null : pageTable.toString();
 	}
 	
 	private Object testsLeftPanel(HttpContext context, HTMLFactory htmlFactory) throws Exception {

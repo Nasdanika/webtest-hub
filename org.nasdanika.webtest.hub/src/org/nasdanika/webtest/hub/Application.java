@@ -2,8 +2,11 @@
  */
 package org.nasdanika.webtest.hub;
 
+import java.util.List;
+
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
 import org.nasdanika.web.HttpContext;
 
@@ -138,6 +141,14 @@ public interface Application extends CDOObject, BreadcrumbsProvider {
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
+	 * @generated
+	 */
+	String getSummaryRowCells(HttpContext context) throws Exception;
 
 	void summaryRow(HttpContext context, Row row) throws Exception;
 	
