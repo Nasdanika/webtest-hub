@@ -9,6 +9,7 @@ import org.eclipse.emf.cdo.transaction.CDOTransactionHandler2;
 import org.eclipse.emf.cdo.util.CommitException;
 import org.nasdanika.cdo.CDOSessionInitializer;
 import org.nasdanika.cdo.security.Group;
+import org.nasdanika.cdo.security.Permission;
 import org.nasdanika.cdo.security.SecurityFactory;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.Guest;
@@ -41,6 +42,15 @@ public class WebTestHubSessionInitializerComponent implements CDOSessionInitiali
 				Guest guest = HubFactory.eINSTANCE.createGuest();
 				hub.setGuest(guest);
 				hub.setUnauthenticatedPrincipal(guest);
+
+				// Read permission to Guest
+				Permission permission = SecurityFactory.eINSTANCE.createPermission();
+				permission.setTarget(hub); // self-target
+				permission.setAllow(true);
+				permission.setName("read");
+				permission.setTargetClass("Hub");
+				permission.setTargetNamespaceURI("urn:org.nasdanika.webtest.hub");
+				guest.getPermissions().add(permission);								
 				
 				Group administrators = SecurityFactory.eINSTANCE.createGroup();
 				administrators.setName("Administrators");
