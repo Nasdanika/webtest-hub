@@ -171,19 +171,11 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 	 * @generated NOT
 	 */
 	public JSONObject getSummaryRow(HttpContext context) throws Exception {
-		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		JSONObject ret = new JSONObject();
-		Fragment nameFragment = htmlFactory.fragment(htmlFactory.routeLink(
-				"main", 
-				"/"+context.getObjectPath(this)+".html", 
-				StringEscapeUtils.escapeHtml4(getName())));
 		
-		if (context.authorize(this, "delete", null, null)) {
-			Button deleteButton = htmlFactory.button(htmlFactory.fontAwesome().webApplication(WebApplication.trash).getTarget()).style("float", "right");
-			deleteButton.on(Event.click, "alert('Coming soon!');");
-			nameFragment.content("&nbsp;", deleteButton);
-		}
-		ret.put("name", CDOWebUtil.marshalValue(nameFragment));
+		ret.put("name", CDOWebUtil.marshalValue(getName()));
+		ret.put("$path", CDOWebUtil.marshalValue(context.getObjectPath(this)));
+		ret.put("$delete", CDOWebUtil.marshalValue(context.authorize(this, "delete", null, null)));
 		
 //		aRow.cell(getDescription());
 		

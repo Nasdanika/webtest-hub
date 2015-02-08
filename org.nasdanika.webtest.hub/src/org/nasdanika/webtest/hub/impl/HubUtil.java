@@ -14,8 +14,8 @@ import org.eclipse.emf.cdo.transaction.CDOCommitContext;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.transaction.CDOTransactionHandler2;
 import org.eclipse.emf.ecore.EObject;
-import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.Form;
+import org.nasdanika.html.FormGroup;
 import org.nasdanika.html.FormInputGroup;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.InputBase;
@@ -174,9 +174,42 @@ class HubUtil {
 				.ngShow(errorData==null ? name+"Error" : errorData+"."+name)
 				.style("color", "red");
 		
-		return form.formInputGroup(title, name, control, errorMessage)
-			.ngClass("{ 'has-error' : "+(errorData==null ? name+"Error" : errorData+"."+name)+" }")
-			.leftAddOn(htmlFactory.fontAwesome().webApplication(WebApplication.key).fixedWidth());
+		return form.formInputGroup(title, name, control, errorMessage).ngClass("{ 'has-error' : "+(errorData==null ? name+"Error" : errorData+"."+name)+" }");
 		
 	}
+	
+	/**
+	 * Creates and configures a form group.
+	 * @param htmlFactory Factory
+	 * @param form Form
+	 * @param control Control. This method sets control <code>name</code>, <code>ng-model</code>, and <code>id</code>. Other attributes, such are <code>required</code> can
+	 * be explicitly configured.
+	 * @param name Input/control name and id.
+	 * @param title Control title.
+	 * @param modelData Model data. If null control is bound to scope.
+	 * @param errorData Error data. If null error message is bound to <code>&lt;name&gtError</code> scope variable.
+	 * @return form group
+	 */
+	static FormGroup<?> createFormGroup(
+			HTMLFactory htmlFactory, 
+			Form form, 
+			InputBase<?> control,
+			String name,
+			String title,
+			String modelData, 
+			String errorData) {
+		
+		control.name(name);
+		control.ngModel(modelData==null ? name : modelData+"."+name);
+		control.id(name);
+		
+		Tag errorMessage = htmlFactory.span()
+				.ngBind(errorData==null ? name+"Error" : errorData+"."+name)
+				.ngShow(errorData==null ? name+"Error" : errorData+"."+name)
+				.style("color", "red");
+		
+		return form.formGroup(title, name, control, errorMessage).ngClass("{ 'has-error' : "+(errorData==null ? name+"Error" : errorData+"."+name)+" }");
+		
+	}
+	
 }

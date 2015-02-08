@@ -28,6 +28,7 @@ import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Tag;
 import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.TextArea;
+import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
@@ -291,27 +292,38 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 
 		
 		Row appRow = applicationsTable.row().ngRepeat("appSummary in hubApplicationsSummary");
-		appRow.cell().ngBindHtml("appSummary.name");
+
+		Tag nameLink = htmlFactory.tag(TagName.a, "{{ appSummary.name }}").attribute("href", "#router/main/{{ appSummary.$path }}.html");
+		
+		Button deleteButton = htmlFactory.button(htmlFactory.fontAwesome().webApplication(WebApplication.trash).getTarget()).style("float", "right");
+		deleteButton.ngClick("deleteApp(appSummary.$path)");
+		deleteButton.ngShow("appSummary.$delete");
+		
+		appRow.cell(nameLink, "&nbsp;", deleteButton);		
+
 		appRow.cell().ngBindHtml("appSummary.lastTest").style("text-align", "center");
 
-		appRow.cell().ngBindHtml("appSummary.tests.pass").style("text-align", "center");
-		appRow.cell().ngBindHtml("appSummary.tests.fail").style("text-align", "center");
-		appRow.cell().ngBindHtml("appSummary.tests.error").style("text-align", "center");
-		appRow.cell().ngBindHtml("appSummary.tests.pending").style("text-align", "center");
+		appRow.cell().ngBind("appSummary.tests.pass").style("text-align", "center");
+		appRow.cell().ngBind("appSummary.tests.fail").style("text-align", "center");
+		appRow.cell().ngBind("appSummary.tests.error").style("text-align", "center");
+		appRow.cell().ngBind("appSummary.tests.pending").style("text-align", "center");
 		
-		appRow.cell().ngBindHtml("appSummary.actors.classes").style("text-align", "center");
-		appRow.cell().ngBindHtml("appSummary.actors.methods").style("text-align", "center");
-		appRow.cell().ngBindHtml("appSummary.actors.coverage").style("text-align", "center");
+		appRow.cell().ngBind("appSummary.actors.classes").style("text-align", "center");
+		appRow.cell().ngBind("appSummary.actors.methods").style("text-align", "center");
+		appRow.cell().ngBind("appSummary.actors.coverage").style("text-align", "center");
 
-		appRow.cell().ngBindHtml("appSummary.pages.classes").style("text-align", "center");
-		appRow.cell().ngBindHtml("appSummary.pages.methods").style("text-align", "center");
-		appRow.cell().ngBindHtml("appSummary.pages.elements").style("text-align", "center");
-		appRow.cell().ngBindHtml("appSummary.pages.coverage").style("text-align", "center");		
+		appRow.cell().ngBind("appSummary.pages.classes").style("text-align", "center");
+		appRow.cell().ngBind("appSummary.pages.methods").style("text-align", "center");
+		appRow.cell().ngBind("appSummary.pages.elements").style("text-align", "center");
+		appRow.cell().ngBind("appSummary.pages.coverage").style("text-align", "center");		
 		
 		Fragment appFragment = htmlFactory.fragment(applicationsTable);
 		
 		if (context.authorize(this, "write", "applications", null)) {
+			Modal newApplicationModal = createNewApplicationFormModal(htmlFactory, context.getObjectPath(this));
+			appFragment.content(newApplicationModal);
 			Button addButton = htmlFactory.button("Add").style(Style.PRIMARY);
+			newApplicationModal.bind(addButton);
 			appFragment.content(addButton);
 		}
 		
@@ -331,12 +343,11 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 				.method(Method.post)
 				//.action(objectPath+"/register")
 				.id("newAppForm")
-				.ngController("appController")
-				.ngSubmit("newApp()");
+				.ngSubmit("addApp()");
 		
-		newApplicationForm.content(htmlFactory.div("").style("color", "red").id("errorMessage"));
+		newApplicationForm.content(htmlFactory.div("").style("color", "red").ngBind("newAppErrorMessage"));
 		
-		HubUtil.createFormInputGroup(
+		HubUtil.createFormGroup(
 				htmlFactory, 
 				newApplicationForm,
 				htmlFactory.input(InputType.text).required().autofocus(),
@@ -347,19 +358,16 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		
 		newApplicationForm.content(" ");
 		
-		TextArea appDescription = htmlFactory.textArea()
-				.name("appDescription")
-				.id("appDescription")
-				.placeholder("Description")
-				.ngModel("newApplicationData.description");
+		TextArea appDescription = htmlFactory.textArea().placeholder("Description").rows(4);
 		
-		Tag descriptionErrorMessage = htmlFactory.span()
-				.ngBind("errorData.description")
-				.ngShow("errorData.description")
-				.style("color", "red")
-				.id("descriptionErrorMessage");
-		
-		newApplicationForm.formInputGroup("Description", "appDescription", appDescription, descriptionErrorMessage).ngClass("{ 'has-error' : errorData.description }");
+		HubUtil.createFormGroup(
+				htmlFactory, 
+				newApplicationForm, 
+				appDescription, 
+				"description", 
+				"Description", 
+				"newApplicationData",
+				"errorData");		
 		
 		newApplicationForm.content(" ");
 		
@@ -389,7 +397,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		newApplicationForm.button("Cancel").attribute("data-dismiss", "modal").id("newAppCancelButton");
 		
 		return htmlFactory.modal()
-				.id("new-app-form-modal")
+				.id("newAppFormModal")
 				.small()
 				.title("Create application")
 				.body(newApplicationForm);
