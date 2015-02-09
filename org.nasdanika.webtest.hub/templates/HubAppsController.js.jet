@@ -1,6 +1,6 @@
 <%@ jet package="org.nasdanika.webtest.hub.impl" class="ApplicationsControllerGenerator"%>
 
-require(["<%=argument%>.js", 'q'], function(hub, Q) {
+require(["<%=argument%>.js", 'q', 'jquery'], function(hub, Q, jQuery) {
 	angular.module('hubApp', ['ngSanitize']).controller('ApplicationsController', ['$scope', '$sce', function ($scope, $sce) {  	 
 		function applyModelChanges() {
 	    	Q.all(hub.applications.map(function(app) { return app().summaryRow })).then(function (summaryRows) {
@@ -9,20 +9,20 @@ require(["<%=argument%>.js", 'q'], function(hub, Q) {
 	    		}
 	    		$scope.hubApplicationsSummary = summaryRows;
 	    		$scope.$apply();			
-				jQuery("#appOverlay").css("display", "none");
+				jQuery("#applicationOverlay").css("display", "none");
 	    	}).done();
 		};
 
 		function onError(error) {
-			jQuery("#appOverlay").css("display", "none");
+			jQuery("#applicationOverlay").css("display", "none");
 			console.trace(error);
 			alert(error);
 		};
 		
 		function showOverlay() {
-			jQuery('#appOverlay').width(jQuery('#appContainer').width());
-			jQuery('#appOverlay').height(jQuery('#appContainer').height());
-			jQuery("#appOverlay").css("display", "block");		
+			jQuery('#applicationOverlay').width(jQuery('#appContainer').width());
+			jQuery('#applicationOverlay').height(jQuery('#appContainer').height());
+			jQuery("#applicationOverlay").css("display", "block");		
 		};		
 		   
     	$scope.hub = hub;
@@ -82,7 +82,7 @@ require(["<%=argument%>.js", 'q'], function(hub, Q) {
 				}).done();
 		};      
 		
-		jQuery("#appOverlay").css("display", "none");
+		jQuery("#applicationOverlay").css("display", "none");
       
 	}]);
     

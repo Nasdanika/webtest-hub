@@ -14,6 +14,7 @@ import org.nasdanika.cdo.security.impl.LoginPasswordProtectionDomainImpl;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Button;
 import org.nasdanika.html.Button.Type;
+import org.nasdanika.html.FontAwesome.Spinner;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.Form;
 import org.nasdanika.html.Form.Method;
@@ -289,11 +290,10 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		hRow2.header("Methods").style("text-align", "center").attribute("nowrap", "true");
 		hRow2.header("Elements").style("text-align", "center").attribute("nowrap", "true");
 		hRow2.header("Coverage").style("text-align", "center").attribute("nowrap", "true");
-
 		
 		Row appRow = applicationsTable.row().ngRepeat("appSummary in hubApplicationsSummary");
-
-		Tag nameLink = htmlFactory.tag(TagName.a, "{{ appSummary.name }}").attribute("href", "#router/main/{{ appSummary.$path }}.html");
+		
+		Tag nameLink = htmlFactory.routeLink("main", "/{{ appSummary.$path }}.html", "").ngBind("appSummary.name");  
 		
 		Button deleteButton = htmlFactory.button(htmlFactory.fontAwesome().webApplication(WebApplication.trash).getTarget()).style("float", "right");
 		deleteButton.ngClick("deleteApp(appSummary.$path)");
@@ -327,15 +327,17 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 			appFragment.content(addButton);
 		}
 		
-		return htmlFactory.div(
-				createBreadcrumbs(context, true)).id("breadcrumbs-container").toString() +
+		return htmlFactory.div(createBreadcrumbs(context, true)).id("breadcrumbs-container").toString() +
+				htmlFactory.spinnerOverlay(Spinner.cog).id("applicationOverlay") +
 				htmlFactory.panel(
 					Style.INFO, 
 					"Applications", 
 					appFragment, 
 					null).id("applicationPanel").ngController("ApplicationsController") +
 					htmlFactory.tag(TagName.script, new ApplicationsControllerGenerator().generate(context.getObjectPath(this))) +
-					htmlFactory.title(getName());
+					htmlFactory.title(getName()) +
+					htmlFactory.tag(TagName.script, "jQuery('#applicationOverlay').width(jQuery('#applicationPanel').width());") +
+					htmlFactory.tag(TagName.script, "jQuery('#applicationOverlay').height(jQuery('#applicationPanel').height());");
 	}
 	
 	private Modal createNewApplicationFormModal(HTMLFactory htmlFactory, String objectPath) throws Exception {
