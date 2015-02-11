@@ -2,8 +2,6 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -29,7 +27,6 @@ import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Tag;
 import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.TextArea;
-import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
@@ -175,17 +172,6 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public Application testOperation(int prm) {
-		Application app = getApplications().get(1);
-		app.setDescription("Prm: "+prm);
-		return app;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -223,20 +209,6 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case HubPackage.HUB___TEST_OPERATION__INT:
-				return testOperation((Integer)arguments.get(0));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -304,8 +276,8 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		appRow.cell().ngBindHtml("appSummary.lastTest").style("text-align", "center");
 
 		appRow.cell().ngBind("appSummary.tests.pass").style("text-align", "center");
-		appRow.cell().ngBind("appSummary.tests.fail").style("text-align", "center");
-		appRow.cell().ngBind("appSummary.tests.error").style("text-align", "center");
+		appRow.cell().ngBind("appSummary.tests.fail").style("text-align", "center").style("font-weight", "bold").style("color", HTMLColor.Red);
+		appRow.cell().ngBind("appSummary.tests.error").style("text-align", "center").style("font-weight", "bold").style("color", HTMLColor.DarkOrange);
 		appRow.cell().ngBind("appSummary.tests.pending").style("text-align", "center");
 		
 		appRow.cell().ngBind("appSummary.actors.classes").style("text-align", "center");
@@ -328,14 +300,14 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		}
 		
 		return htmlFactory.div(createBreadcrumbs(context, true)).id("breadcrumbs-container").toString() +
-				htmlFactory.spinnerOverlay(Spinner.cog).id("applicationOverlay") +
+				htmlFactory.spinnerOverlay(Spinner.refresh).id("applicationOverlay") +
 				htmlFactory.panel(
 					Style.INFO, 
 					"Applications", 
 					appFragment, 
 					null).id("applicationPanel").ngController("ApplicationsController") +
-					htmlFactory.tag(TagName.script, new ApplicationsControllerGenerator().generate(context.getObjectPath(this))) +
 					htmlFactory.title(getName()) +
+					htmlFactory.tag(TagName.script, new ApplicationsControllerGenerator().generate(context.getObjectPath(this))) +
 					htmlFactory.tag(TagName.script, "jQuery('#applicationOverlay').width(jQuery('#applicationPanel').width());") +
 					htmlFactory.tag(TagName.script, "jQuery('#applicationOverlay').height(jQuery('#applicationPanel').height());");
 	}

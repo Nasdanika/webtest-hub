@@ -20,8 +20,8 @@ require(["<%=argument%>.js", 'q', 'jquery'], function(hub, Q, jQuery) {
 		};
 		
 		function showOverlay() {
-			jQuery('#applicationOverlay').width(jQuery('#appContainer').width());
-			jQuery('#applicationOverlay').height(jQuery('#appContainer').height());
+			jQuery('#applicationOverlay').width(jQuery('#applicationPanel').width());
+			jQuery('#applicationOverlay').height(jQuery('#applicationPanel').height());
 			jQuery("#applicationOverlay").css("display", "block");		
 		};		
 		   

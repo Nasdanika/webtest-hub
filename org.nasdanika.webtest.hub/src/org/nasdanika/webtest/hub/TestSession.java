@@ -2,7 +2,11 @@
  */
 package org.nasdanika.webtest.hub;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.core.Context;
+import org.nasdanika.core.Deletable;
 import org.nasdanika.html.Table.Row;
 import org.nasdanika.web.HttpContext;
 
@@ -29,7 +33,7 @@ import org.nasdanika.web.HttpContext;
  * @model superTypes="org.nasdanika.webtest.hub.Descriptor org.nasdanika.webtest.hub.BreadcrumbsProvider"
  * @generated
  */
-public interface TestSession extends Descriptor, BreadcrumbsProvider {
+public interface TestSession extends Descriptor, BreadcrumbsProvider, Deletable<Context> {
 	/**
 	 * Returns the value of the '<em><b>Test Results</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.webtest.hub.TestResult}.
@@ -208,8 +212,14 @@ public interface TestSession extends Descriptor, BreadcrumbsProvider {
 	 */
 	void setNode(String value);
 
-	void summaryRow(HttpContext context, Row row) throws Exception;
-	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
+	 * @generated
+	 */
+	Map<String, Object> getSummaryRow(HttpContext context) throws Exception;
+
 	interface Totals {
 		int getPass();
 		int getFail();

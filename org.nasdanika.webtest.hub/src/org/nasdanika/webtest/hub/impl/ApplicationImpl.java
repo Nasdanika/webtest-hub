@@ -21,15 +21,13 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.cdo.web.routes.CDOWebUtil;
 import org.nasdanika.html.Breadcrumbs;
-import org.nasdanika.html.Button;
+import org.nasdanika.html.FontAwesome.Spinner;
 import org.nasdanika.html.FontAwesome.WebApplication;
-import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
-import org.nasdanika.html.Table.Row.Cell;
-import org.nasdanika.html.UIElement.Event;
+import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpContext;
@@ -174,7 +172,7 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 		JSONObject ret = new JSONObject();
 		
 		ret.put("name", CDOWebUtil.marshalValue(getName()));
-		ret.put("$path", CDOWebUtil.marshalValue(context.getObjectPath(this)));
+		ret.put(CDOWebUtil.PATH_KEY, CDOWebUtil.marshalValue(context.getObjectPath(this)));
 		ret.put("$delete", CDOWebUtil.marshalValue(context.authorize(this, "delete", null, null)));
 		
 //		aRow.cell(getDescription());
@@ -302,24 +300,40 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 		hRow2.header("Elements").style("text-align", "center").attribute("nowrap", "true");
 		hRow2.header("Coverage").style("text-align", "center").attribute("nowrap", "true");
 		
-		CDOLock readLock = cdoReadLock();
-		if (readLock.tryLock(5, TimeUnit.SECONDS)) {
-			try {
-				for (TestSession ts: getTestSessions()) {
-					ts.summaryRow(context, testSessionsTable.row());
-				}
 				
-				return	htmlFactory.div(createBreadcrumbs(context, true)).id("breadcrumbs-container").toString()+
-						htmlFactory.tag("H3", StringEscapeUtils.escapeHtml4(getName())) +
-						(getDescription()==null ? "" : getDescription()) +
-						htmlFactory.panel(Style.INFO, "Test sessions", testSessionsTable, null) +
-						htmlFactory.title(getName());
-			} finally {
-				readLock.unlock();
-			}
-		} else {
-			return htmlFactory.alert(Style.WARNING, false, "The system is overloaded, please try again later.").toString(); 			
-		}
+		Row aRow = testSessionsTable.row().ngRepeat("summaryRow in testSessionsSummary");
+		
+		aRow.cell(
+				htmlFactory.routeLink("main","/{{ summaryRow.$path }}.html","").ngBind("summaryRow.title"),
+				"&nbsp;",
+				htmlFactory.button(htmlFactory.fontAwesome().webApplication(WebApplication.trash).getTarget()).style("float", "right").ngClick("deleteTestSession(summaryRow.$path)").ngShow("summaryRow.$delete"));
+		
+		aRow.cell().ngBind("summaryRow.node").style("text-align", "center");
+		aRow.cell().ngBind("summaryRow.time").style("text-align", "center");	
+		
+		aRow.cell().ngBind("summaryRow.tests.pass").style("text-align", "center");
+		aRow.cell().ngBind("summaryRow.tests.fail").style("text-align", "center").style("font-weight", "bold").style("color", HTMLColor.Red);
+		aRow.cell().ngBind("summaryRow.tests.error").style("text-align", "center").style("font-weight", "bold").style("color", HTMLColor.DarkOrange);
+		aRow.cell().ngBind("summaryRow.tests.pending").style("text-align", "center");
+
+		aRow.cell().ngBind("summaryRow.actors.classes").style("text-align", "center");
+		aRow.cell().ngBind("summaryRow.actors.methods").style("text-align", "center");
+		aRow.cell().ngBind("summaryRow.actors.coverage").style("text-align", "center");
+
+		aRow.cell().ngBind("summaryRow.pages.classes").style("text-align", "center");
+		aRow.cell().ngBind("summaryRow.pages.methods").style("text-align", "center");
+		aRow.cell().ngBind("summaryRow.pages.elements").style("text-align", "center");
+		aRow.cell().ngBind("summaryRow.pages.coverage").style("text-align", "center");
+				
+		return	htmlFactory.div(createBreadcrumbs(context, true)).id("breadcrumbs-container").toString()+
+				htmlFactory.tag("H3", StringEscapeUtils.escapeHtml4(getName())) +
+				(getDescription()==null ? "" : getDescription()) +
+				htmlFactory.spinnerOverlay(Spinner.refresh).id("testSessionsOverlay") +
+				htmlFactory.panel(Style.INFO, "Test sessions", testSessionsTable, null).id("testSessionsPanel").ngController("TestSessionsController") +
+				htmlFactory.title(getName()) +
+				htmlFactory.tag(TagName.script, new TestSessionsControllerGenerator().generate(context.getObjectPath(this))) +
+				htmlFactory.tag(TagName.script, "jQuery('#testSessionsOverlay').width(jQuery('#testSessionsPanel').width());") +
+				htmlFactory.tag(TagName.script, "jQuery('#testSessionsOverlay').height(jQuery('#testSessionsPanel').height());")				;
 	}
 	
 	@Override

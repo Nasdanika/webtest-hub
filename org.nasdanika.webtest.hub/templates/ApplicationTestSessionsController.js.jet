@@ -1,0 +1,51 @@
+<%@ jet package="org.nasdanika.webtest.hub.impl" class="TestSessionsControllerGenerator"%>
+
+require(["<%=argument%>.js", 'q', 'jquery'], function(app, Q, jQuery) {
+	angular.module('testSessionsApp', []).controller('TestSessionsController', ['$scope', function ($scope) {	
+		function applyModelChanges() {
+					
+			app.testSessions.then(function(testSessions) {	
+				var summaryRowPromises = testSessions.map(
+		    			function(tsAccessor) {
+		    				return tsAccessor().then(function(ts) {
+		    					return ts.summaryRow;
+		    				});
+		    			});
+		    			 						
+		    	Q.all(summaryRowPromises).then(function(summaryRows) {
+		    		$scope.testSessionsSummary = summaryRows;
+		    		$scope.$apply();			
+					jQuery("#testSessionsOverlay").css("display", "none");
+		    	}).done();
+		    }).done();
+		};
+
+		function onError(error) {
+			$scope.busy = false;
+			jQuery("#testSessionsOverlay").css("display", "none");
+			alert(error);
+		};
+		
+		function showOverlay() {
+			var testSessionsOverlay = jQuery('#testSessionsOverlay');
+			testSessionsOverlay.width(jQuery('#testSessionsPanel').width());
+			testSessionsOverlay.height(jQuery('#testSessionsPanel').height());
+			testSessionsOverlay.css("display", "block");
+		};		
+		
+    	applyModelChanges();
+
+		$scope.deleteTestSession = function(path) {
+			require([path+".js"], function(testSession) {	
+				if (confirm("Do you really want to delete test session "+app.name+"?")) {
+					showOverlay();
+					testSession.$delete().then(applyModelChanges, onError).done();
+				}
+			});
+		};
+		
+//		jQuery("#testSessionsOverlay").css("display", "none");      
+	}]);
+    
+	angular.bootstrap(jQuery("#testSessionsPanel"), ['testSessionsApp']);
+});

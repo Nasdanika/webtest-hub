@@ -2,9 +2,6 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hub" nsURI="urn:org.nasdanika.webtest.hub" nsPrefix="org.nasdanika.webtest.hub">
   <eClassifiers xsi:type="ecore:EClass" name="Hub" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordProtectionDomain #//ApplicationOwner #//BreadcrumbsProvider">
-    <eOperations name="testOperation" eType="#//Application">
-      <eParameters name="prm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="Web Test Hub"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guest" eType="#//Guest"
@@ -32,7 +29,9 @@
       <eParameters name="context" eType="#//HttpContext"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="testSessions" upperBound="-1"
-        eType="#//TestSession" containment="true"/>
+        eType="#//TestSession" containment="true">
+      <eAnnotations source="org.nasdanika.cdo.web:lenient"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="securityToken" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="screenshots" upperBound="-1"
         eType="#//Screenshot" containment="true"/>
@@ -52,7 +51,15 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="html" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TestSession" eSuperTypes="#//Descriptor #//BreadcrumbsProvider">
+  <eClassifiers xsi:type="ecore:EClass" name="TestSession" eSuperTypes="#//Descriptor #//BreadcrumbsProvider #//Deletable">
+    <eOperations name="getSummaryRow" eExceptions="#//Exception">
+      <eAnnotations source="org.nasdanika.cdo.web:getter"/>
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eGenericType>
+      <eParameters name="context" eType="#//HttpContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="testResults" upperBound="-1"
         eType="#//TestResult" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pageResults" upperBound="-1"
@@ -197,4 +204,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="BreadcrumbsProvider" instanceClassName="org.nasdanika.webtest.hub.BreadcrumbsProvider"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Deletable" instanceClassName="org.nasdanika.core.Deletable"
+      abstract="true" interface="true"/>
 </ecore:EPackage>

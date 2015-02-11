@@ -5,6 +5,8 @@ package org.nasdanika.webtest.hub.impl;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.lang.Throwable;
+import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,8 +29,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.nasdanika.cdo.web.routes.CDOWebUtil;
+import org.nasdanika.core.Context;
 import org.nasdanika.core.ConverterContext;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.FontAwesome.WebApplication;
@@ -218,6 +223,63 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	 */
 	public void setNode(String newNode) {
 		eSet(HubPackage.Literals.TEST_SESSION__NODE, newNode);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Map<String, Object> getSummaryRow(HttpContext context) throws Exception {
+		Map<String, Object> ret = new HashMap<>();
+		ret.put(CDOWebUtil.PATH_KEY, context.getObjectPath(this));
+		ret.put("$delete", context.authorize(this, "delete", null, null));
+		ret.put("title", getTitle());
+		ret.put("node", getNode());
+		ret.put("time", new SimpleDateFormat(DATE_PATTERN).format(new Date(getTimestamp())));
+
+		Totals totals = getTotals();
+		
+		Map<String, Object> testsTotals = new HashMap<>();
+		ret.put("tests", testsTotals);
+		testsTotals.put("pass", HubUtil.blankZero(totals.getPass()));
+		testsTotals.put("fail", HubUtil.blankZero(totals.getFail()));
+		testsTotals.put("error", HubUtil.blankZero(totals.getError()));
+		testsTotals.put("pending", HubUtil.blankZero(totals.getPending()));
+		
+		Map<String, Object> actorsTotals = new HashMap<>();
+		ret.put("actors", actorsTotals);
+		actorsTotals.put("classes", HubUtil.blankZero(totals.getActorClasses()));
+		actorsTotals.put("methods", HubUtil.blankZero(totals.getActorMethods()));
+		actorsTotals.put("coverage", totals.getActorMethods()==0 ? "" : totals.getActorCoverage()+" ("+(100*totals.getActorCoverage()/Math.max(1, totals.getActorMethods()))+"%)");
+		
+		Map<String, Object> pagesTotals = new HashMap<>();
+		ret.put("pages", pagesTotals);
+		pagesTotals.put("classes", HubUtil.blankZero(totals.getPageClasses()));
+		pagesTotals.put("methods", HubUtil.blankZero(totals.getPageMethods()));
+		pagesTotals.put("elements", HubUtil.blankZero(totals.getPageElements()));
+		pagesTotals.put("coverage", totals.getPageMethods()==0 ? "" : totals.getPageCoverage()+" ("+(100*totals.getPageCoverage()/Math.max(1, totals.getPageMethods()))+"%)");
+		
+		return ret;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case HubPackage.TEST_SESSION___GET_SUMMARY_ROW__HTTPCONTEXT:
+				try {
+					return getSummaryRow((HttpContext)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	@Override
@@ -876,43 +938,23 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 			
 		};
 	}
-	
-	@Override
-	public void summaryRow(HttpContext context, Row aRow) throws Exception {
-		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
-		aRow.cell(htmlFactory.routeLink(
-				"main", 
-				"/"+context.getObjectPath(this)+".html", 
-				StringEscapeUtils.escapeHtml4(getTitle()))); 
-//		aRow.cell(getDescription());
-		aRow.cell(getNode()).style("text-align", "center");
-		aRow.cell(new SimpleDateFormat(DATE_PATTERN).format(new Date(getTimestamp()))).style("text-align", "center");	
-		
-		Totals totals = getTotals();
-		
-		aRow.cell(HubUtil.blankZero(totals.getPass())).style("text-align", "center");
-		Cell failCell = aRow.cell(HubUtil.blankZero(totals.getFail())).style("text-align", "center");
-		Cell errorCell = aRow.cell(HubUtil.blankZero(totals.getError())).style("text-align", "center");
-		if (totals.getError()>0) {
-			errorCell.style("font-weight", "bold").style("color", HTMLColor.DarkOrange);
-		}
-		aRow.cell(HubUtil.blankZero(totals.getPending())).style("text-align", "center");
-		
-		if (totals.getFail()>0) {
-			failCell.style("font-weight", "bold").style("color", "red");
-			aRow.style(Style.DANGER);
-		} else if (totals.getError()>0) {
-			aRow.style(Style.WARNING);			
-		}
 
-		aRow.cell(HubUtil.blankZero(totals.getActorClasses())).style("text-align", "center");
-		aRow.cell(HubUtil.blankZero(totals.getActorMethods())).style("text-align", "center");
-		aRow.cell(totals.getActorMethods()==0 ? "" : totals.getActorCoverage()+" ("+(100*totals.getActorCoverage()/Math.max(1, totals.getActorMethods()))+"%)").style("text-align", "center");
-		
-		aRow.cell(HubUtil.blankZero(totals.getPageClasses())).style("text-align", "center");
-		aRow.cell(HubUtil.blankZero(totals.getPageMethods())).style("text-align", "center");
-		aRow.cell(HubUtil.blankZero(totals.getPageElements())).style("text-align", "center");					
-		aRow.cell(totals.getPageMethods()==0 ? "" : totals.getPageCoverage()+" ("+(100*totals.getPageCoverage()/Math.max(1, totals.getPageMethods()))+"%)").style("text-align", "center");
+	/**
+	 * Deletes self and then screenshots which have no references to operation results.
+	 */
+	@Override
+	public void delete(Context context) throws Exception {
+		EObject container = eContainer();
+		EcoreUtil.delete(this, true);
+		if (container instanceof Application) {
+			Iterator<Screenshot> sit = ((Application) container).getScreenshots().iterator();
+			while (sit.hasNext()) {
+				Screenshot screenshot = sit.next();
+				if (screenshot.getAfterOperations().isEmpty() && screenshot.getAfterOperations().isEmpty()) {
+					sit.remove();
+				}
+			}
+		}		
 	}
 	
 } //TestSessionImpl

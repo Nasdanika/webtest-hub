@@ -149,12 +149,4 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	 */
 	void setSlideWidth(int value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	Application testOperation(int prm);
-
 } // Hub

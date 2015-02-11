@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -408,15 +409,6 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getHub__TestOperation__int() {
-		return hubEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getApplicationOwner() {
 		return applicationOwnerEClass;
 	}
@@ -662,6 +654,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 */
 	public EAttribute getTestSession_Node() {
 		return (EAttribute)testSessionEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTestSession__GetSummaryRow__HttpContext() {
+		return testSessionEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1409,7 +1410,6 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(hubEClass, HUB__USERS);
 		createEReference(hubEClass, HUB__ADMINISTRATORS);
 		createEAttribute(hubEClass, HUB__SLIDE_WIDTH);
-		createEOperation(hubEClass, HUB___TEST_OPERATION__INT);
 
 		applicationOwnerEClass = createEClass(APPLICATION_OWNER);
 		createEReference(applicationOwnerEClass, APPLICATION_OWNER__APPLICATIONS);
@@ -1445,6 +1445,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEAttribute(testSessionEClass, TEST_SESSION__PROGRESS);
 		createEAttribute(testSessionEClass, TEST_SESSION__TIMESTAMP);
 		createEAttribute(testSessionEClass, TEST_SESSION__NODE);
+		createEOperation(testSessionEClass, TEST_SESSION___GET_SUMMARY_ROW__HTTPCONTEXT);
 
 		testResultEClass = createEClass(TEST_RESULT);
 		createEReference(testResultEClass, TEST_RESULT__PAGE_RESULTS);
@@ -1623,9 +1624,6 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEReference(getHub_Administrators(), theSecurityPackage.getGroup(), null, "administrators", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHub_SlideWidth(), ecorePackage.getEInt(), "slideWidth", "800", 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getHub__TestOperation__int(), this.getApplication(), "testOperation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "prm", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(applicationOwnerEClass, ApplicationOwner.class, "ApplicationOwner", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApplicationOwner_Applications(), this.getApplication(), null, "applications", null, 0, -1, ApplicationOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1640,7 +1638,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getApplication_Name(), ecorePackage.getEString(), "name", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_Description(), ecorePackage.getEString(), "description", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getApplication__GetSummaryRow__HttpContext(), thePerformancePackage.getJSONObject(), "getSummaryRow", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getApplication__GetSummaryRow__HttpContext(), thePerformancePackage.getJSONObject(), "getSummaryRow", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
@@ -1663,6 +1661,16 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getTestSession_Progress(), ecorePackage.getEInt(), "progress", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestSession_Timestamp(), ecorePackage.getELong(), "timestamp", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestSession_Node(), ecorePackage.getEString(), "node", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getTestSession__GetSummaryRow__HttpContext(), null, "getSummaryRow", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		initEClass(testResultEClass, TestResult.class, "TestResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTestResult_PageResults(), this.getPageResult(), null, "pageResults", null, 0, -1, TestResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1814,6 +1822,11 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		  (getApplicationOwner_Applications(), 
 		   source, 
 		   new String[] {
+		   });	
+		addAnnotation
+		  (getApplication_TestSessions(), 
+		   source, 
+		   new String[] {
 		   });
 	}
 
@@ -1827,6 +1840,11 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		String source = "org.nasdanika.cdo.web:getter";	
 		addAnnotation
 		  (getApplication__GetSummaryRow__HttpContext(), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (getTestSession__GetSummaryRow__HttpContext(), 
 		   source, 
 		   new String[] {
 		   });

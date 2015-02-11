@@ -1,0 +1,618 @@
+[INFO] Scanning for projects...
+[INFO] Computing target platform for MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.ui.driver.actors:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\pom.xml
+[INFO] Fetching p2.index from http://download.eclipse.org/releases/luna/ (0B at 0B/s)
+[INFO] Adding repository http://download.eclipse.org/releases/luna
+[INFO] Fetching p2.index from http://download.eclipse.org/releases/luna/201501121000/ (0B at 0B/s)
+[INFO] Fetching p2.index from http://download.eclipse.org/releases/luna/201409261001/ (0B at 0B/s)
+[INFO] Fetching p2.index from http://download.eclipse.org/releases/luna/201406250900/ (0B at 0B/s)
+[INFO] Adding repository http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository
+[INFO] Adding repository http://download.eclipse.org/jetty/updates/jetty-bundles-8.x
+[INFO] Adding repository http://www.nasdanika.org/third_party_repository
+[INFO] Adding repository http://www.nasdanika.org/server/repository
+[INFO] Fetching content.jar from http://www.nasdanika.org/server/repository/ (0B of 74.32kB at 0B/s)
+[INFO] Resolving dependencies of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.ui.driver.actors:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\pom.xml
+[INFO] Fetching org.nasdanika.html_1.2.0.201502051216.jar from http://www.nasdanika.org/server/repository/plugins/ (0B of 186.89kB at 0B/s)
+[INFO] Fetching org.nasdanika.webtest_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/plugins/ (0B of 461.55kB at 0B/s)
+[INFO] Fetching org.nasdanika.webtest_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/plugins/ (447.41kB of 461.55kB at 445.98kB/s)
+[WARNING] The following locally built units have been used to resolve project dependencies:
+[WARNING]   org.openqa.selenium/2.44.0
+[WARNING]   org.apache.commons.lang/3.3.2
+[INFO] Resolving class path of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.ui.driver.actors:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\pom.xml
+[INFO] Computing target platform for MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.ui.driver.pages:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\pom.xml
+[INFO] Resolving dependencies of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.ui.driver.pages:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\pom.xml
+[WARNING] The following locally built units have been used to resolve project dependencies:
+[WARNING]   org.openqa.selenium/2.44.0
+[WARNING]   org.apache.commons.lang/3.3.2
+[INFO] Resolving class path of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.ui.driver.pages:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\pom.xml
+[INFO] Computing target platform for MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.ui.driver.actors.impl:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\pom.xml
+[INFO] Resolving dependencies of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.ui.driver.actors.impl:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\pom.xml
+[WARNING] The following locally built units have been used to resolve project dependencies:
+[WARNING]   org.openqa.selenium/2.44.0
+[WARNING]   org.apache.commons.lang/3.3.2
+[INFO] Resolving class path of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.ui.driver.actors.impl:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\pom.xml
+[INFO] Computing target platform for MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.ui.driver.pages.impl:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\pom.xml
+[INFO] Resolving dependencies of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.ui.driver.pages.impl:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\pom.xml
+[WARNING] The following locally built units have been used to resolve project dependencies:
+[WARNING]   org.openqa.selenium/2.44.0
+[WARNING]   org.apache.commons.lang/3.3.2
+[INFO] Resolving class path of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.ui.driver.pages.impl:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\pom.xml
+[INFO] Computing target platform for MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\pom.xml
+[INFO] Resolving dependencies of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\pom.xml
+[INFO] Fetching org.nasdanika.web_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/plugins/ (0B of 88.25kB at 0B/s)
+[INFO] Fetching org.nasdanika.cdo.security_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/plugins/ (0B of 67.21kB at 0B/s)
+[INFO] Fetching org.nasdanika.cdo_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/plugins/ (0B of 164.79kB at 0B/s)
+[INFO] Fetching org.nasdanika.core_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/plugins/ (0B of 45.25kB at 0B/s)
+[INFO] Fetching org.nasdanika.webtest.performance_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/plugins/ (0B of 38.04kB at 0B/s)
+[WARNING] The following locally built units have been used to resolve project dependencies:
+[WARNING]   org.apache.commons.lang/3.3.2
+[INFO] Resolving class path of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\pom.xml
+[INFO] Computing target platform for MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.app:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\pom.xml
+[INFO] Resolving dependencies of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.app:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\pom.xml
+[INFO] Fetching org.nasdanika.cdo.h2_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/plugins/ (0B of 4.5kB at 0B/s)
+[WARNING] The following locally built units have been used to resolve project dependencies:
+[WARNING]   org.apache.commons.lang/3.3.2
+[INFO] Resolving class path of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.app:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\pom.xml
+[INFO] Computing target platform for MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.tests:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\pom.xml
+[INFO] Resolving dependencies of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.tests:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\pom.xml
+[WARNING] The following locally built units have been used to resolve project dependencies:
+[WARNING]   org.openqa.selenium/2.44.0
+[WARNING]   org.apache.commons.lang/3.3.2
+[INFO] Resolving class path of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.tests:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\pom.xml
+[INFO] Computing target platform for MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.feature:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.feature\pom.xml
+[INFO] Resolving dependencies of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.feature:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.feature\pom.xml
+[INFO] Fetching org.nasdanika.cdo.feature_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/features/ (0B of 2.42kB at 0B/s)
+[INFO] Fetching org.nasdanika.equinox.feature_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/features/ (0B of 2.39kB at 0B/s)
+[INFO] Fetching org.nasdanika.feature_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/features/ (0B of 6kB at 0B/s)
+[INFO] Fetching org.nasdanika.server.jetty.feature_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/features/ (0B of 2.34kB at 0B/s)
+[WARNING] The following locally built units have been used to resolve project dependencies:
+[WARNING]   org.nasdanika.third-party.feature.feature.jar/0.1.0.201412020354
+[WARNING]   org.nasdanika.third-party.feature.feature.group/0.1.0.201412020354
+[WARNING]   org.openqa.selenium/2.44.0
+[WARNING]   org.apache.commons.lang/3.3.2
+[INFO] Resolving class path of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.feature:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.feature\pom.xml
+[INFO] Computing target platform for MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.tests.feature:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests.feature\pom.xml
+[INFO] Resolving dependencies of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.tests.feature:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests.feature\pom.xml
+[INFO] Fetching org.nasdanika.html.feature_1.2.0.201502051216.jar from http://www.nasdanika.org/server/repository/features/ (0B of 2.04kB at 0B/s)
+[INFO] Fetching org.nasdanika.webtest.feature_0.1.0.201502051216.jar from http://www.nasdanika.org/server/repository/features/ (0B of 2.12kB at 0B/s)
+[WARNING] The following locally built units have been used to resolve project dependencies:
+[WARNING]   org.nasdanika.third-party.feature.feature.jar/0.1.0.201412020354
+[WARNING]   org.nasdanika.third-party.feature.feature.group/0.1.0.201412020354
+[WARNING]   org.openqa.selenium/2.44.0
+[WARNING]   org.apache.commons.lang/3.3.2
+[INFO] Resolving class path of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.tests.feature:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests.feature\pom.xml
+[INFO] Computing target platform for MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.repository:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\pom.xml
+[INFO] Resolving dependencies of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.repository:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\pom.xml
+[WARNING] The following locally built units have been used to resolve project dependencies:
+[WARNING]   org.nasdanika.third-party.feature.feature.jar/0.1.0.201412020354
+[WARNING]   org.nasdanika.third-party.feature.feature.group/0.1.0.201412020354
+[WARNING]   org.openqa.selenium/2.44.0
+[WARNING]   org.apache.commons.lang/3.3.2
+[INFO] Resolving class path of MavenProject: org.nasdanika.webtest.hub:org.nasdanika.webtest.hub.repository:0.1.0-SNAPSHOT @ C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\pom.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] org.nasdanika.webtest.hub.ui.driver.pages
+[INFO] org.nasdanika.webtest.hub.ui.driver.actors
+[INFO] org.nasdanika.webtest.hub.ui.driver.actors.impl
+[INFO] org.nasdanika.webtest.hub.ui.driver.pages.impl
+[INFO] org.nasdanika.webtest.hub
+[INFO] org.nasdanika.webtest.hub.app
+[INFO] org.nasdanika.webtest.hub.tests
+[INFO] org.nasdanika.webtest.hub.feature
+[INFO] org.nasdanika.webtest.hub.tests.feature
+[INFO] WebTest Hub Repository
+[INFO] Aggregator
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.nasdanika.webtest.hub.ui.driver.pages 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[INFO] Deleting C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:build-qualifier (default-build-qualifier) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[INFO] The project's OSGi version is 0.1.0.201502051630
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-id (default-validate-id) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-version (default-validate-version) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.22.0:compile (default-compile) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[INFO] Compiling 6 source files to C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\src\test\resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.22.0:plugin-source (plugin-source) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[WARNING] bundle localization file C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\plugin.properties not found
+[WARNING] Bundle-Vendor header not found in C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\META-INF\MANIFEST.MF, fallback to 'unknown' for source bundle
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\target\org.nasdanika.webtest.hub.ui.driver.pages-0.1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.22.0:target-platform (default-target-platform) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:package-plugin (default-package-plugin) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\target\org.nasdanika.webtest.hub.ui.driver.pages-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:p2-metadata-default (default-p2-metadata-default) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\target\org.nasdanika.webtest.hub.ui.driver.pages-0.1.0-SNAPSHOT.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.pages\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.pages-0.1.0-SNAPSHOT.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\pom.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.pages\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.pages-0.1.0-SNAPSHOT.pom
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\target\org.nasdanika.webtest.hub.ui.driver.pages-0.1.0-SNAPSHOT-sources.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.pages\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.pages-0.1.0-SNAPSHOT-sources.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\target\p2content.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.pages\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.pages-0.1.0-SNAPSHOT-p2metadata.xml
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages\target\p2artifacts.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.pages\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.pages-0.1.0-SNAPSHOT-p2artifacts.xml
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:update-local-index (default-update-local-index) @ org.nasdanika.webtest.hub.ui.driver.pages ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.nasdanika.webtest.hub.ui.driver.actors 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[INFO] Deleting C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:build-qualifier (default-build-qualifier) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[INFO] The project's OSGi version is 0.1.0.201502051630
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-id (default-validate-id) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-version (default-validate-version) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.22.0:compile (default-compile) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[INFO] Compiling 4 source files to C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\src\test\resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.22.0:plugin-source (plugin-source) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[WARNING] bundle localization file C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\plugin.properties not found
+[WARNING] Bundle-Vendor header not found in C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\META-INF\MANIFEST.MF, fallback to 'unknown' for source bundle
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\target\org.nasdanika.webtest.hub.ui.driver.actors-0.1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.22.0:target-platform (default-target-platform) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:package-plugin (default-package-plugin) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\target\org.nasdanika.webtest.hub.ui.driver.actors-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:p2-metadata-default (default-p2-metadata-default) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\target\org.nasdanika.webtest.hub.ui.driver.actors-0.1.0-SNAPSHOT.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.actors\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.actors-0.1.0-SNAPSHOT.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\pom.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.actors\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.actors-0.1.0-SNAPSHOT.pom
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\target\org.nasdanika.webtest.hub.ui.driver.actors-0.1.0-SNAPSHOT-sources.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.actors\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.actors-0.1.0-SNAPSHOT-sources.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\target\p2content.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.actors\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.actors-0.1.0-SNAPSHOT-p2metadata.xml
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors\target\p2artifacts.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.actors\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.actors-0.1.0-SNAPSHOT-p2artifacts.xml
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:update-local-index (default-update-local-index) @ org.nasdanika.webtest.hub.ui.driver.actors ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.nasdanika.webtest.hub.ui.driver.actors.impl 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[INFO] Deleting C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:build-qualifier (default-build-qualifier) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[INFO] The project's OSGi version is 0.1.0.201502051630
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-id (default-validate-id) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-version (default-validate-version) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.22.0:compile (default-compile) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[INFO] Compiling 3 source files to C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\src\test\resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.22.0:plugin-source (plugin-source) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[WARNING] bundle localization file C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\plugin.properties not found
+[WARNING] Bundle-Vendor header not found in C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\META-INF\MANIFEST.MF, fallback to 'unknown' for source bundle
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\target\org.nasdanika.webtest.hub.ui.driver.actors.impl-0.1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.22.0:target-platform (default-target-platform) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:package-plugin (default-package-plugin) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\target\org.nasdanika.webtest.hub.ui.driver.actors.impl-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:p2-metadata-default (default-p2-metadata-default) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\target\org.nasdanika.webtest.hub.ui.driver.actors.impl-0.1.0-SNAPSHOT.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.actors.impl-0.1.0-SNAPSHOT.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\pom.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.actors.impl-0.1.0-SNAPSHOT.pom
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\target\org.nasdanika.webtest.hub.ui.driver.actors.impl-0.1.0-SNAPSHOT-sources.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.actors.impl-0.1.0-SNAPSHOT-sources.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\target\p2content.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.actors.impl-0.1.0-SNAPSHOT-p2metadata.xml
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\target\p2artifacts.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.actors.impl\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.actors.impl-0.1.0-SNAPSHOT-p2artifacts.xml
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:update-local-index (default-update-local-index) @ org.nasdanika.webtest.hub.ui.driver.actors.impl ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.nasdanika.webtest.hub.ui.driver.pages.impl 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[INFO] Deleting C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:build-qualifier (default-build-qualifier) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[INFO] The project's OSGi version is 0.1.0.201502051630
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-id (default-validate-id) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-version (default-validate-version) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.22.0:compile (default-compile) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[INFO] Compiling 6 source files to C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\src\test\resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.22.0:plugin-source (plugin-source) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[WARNING] bundle localization file C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\plugin.properties not found
+[WARNING] Bundle-Vendor header not found in C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\META-INF\MANIFEST.MF, fallback to 'unknown' for source bundle
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\target\org.nasdanika.webtest.hub.ui.driver.pages.impl-0.1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.22.0:target-platform (default-target-platform) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:package-plugin (default-package-plugin) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\target\org.nasdanika.webtest.hub.ui.driver.pages.impl-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:p2-metadata-default (default-p2-metadata-default) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\target\org.nasdanika.webtest.hub.ui.driver.pages.impl-0.1.0-SNAPSHOT.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.pages.impl-0.1.0-SNAPSHOT.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\pom.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.pages.impl-0.1.0-SNAPSHOT.pom
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\target\org.nasdanika.webtest.hub.ui.driver.pages.impl-0.1.0-SNAPSHOT-sources.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.pages.impl-0.1.0-SNAPSHOT-sources.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\target\p2content.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.pages.impl-0.1.0-SNAPSHOT-p2metadata.xml
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\target\p2artifacts.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.ui.driver.pages.impl\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.ui.driver.pages.impl-0.1.0-SNAPSHOT-p2artifacts.xml
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:update-local-index (default-update-local-index) @ org.nasdanika.webtest.hub.ui.driver.pages.impl ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.nasdanika.webtest.hub 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ org.nasdanika.webtest.hub ---
+[INFO] Deleting C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:build-qualifier (default-build-qualifier) @ org.nasdanika.webtest.hub ---
+[INFO] The project's OSGi version is 0.1.0.201502051630
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-id (default-validate-id) @ org.nasdanika.webtest.hub ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-version (default-validate-version) @ org.nasdanika.webtest.hub ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.nasdanika.webtest.hub ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.22.0:compile (default-compile) @ org.nasdanika.webtest.hub ---
+[INFO] Compiling 65 source files to C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.nasdanika.webtest.hub ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\src\test\resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.22.0:plugin-source (plugin-source) @ org.nasdanika.webtest.hub ---
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\target\org.nasdanika.webtest.hub-0.1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.22.0:target-platform (default-target-platform) @ org.nasdanika.webtest.hub ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:package-plugin (default-package-plugin) @ org.nasdanika.webtest.hub ---
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\target\org.nasdanika.webtest.hub-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:p2-metadata-default (default-p2-metadata-default) @ org.nasdanika.webtest.hub ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ org.nasdanika.webtest.hub ---
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\target\org.nasdanika.webtest.hub-0.1.0-SNAPSHOT.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub-0.1.0-SNAPSHOT.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\pom.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub-0.1.0-SNAPSHOT.pom
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\target\org.nasdanika.webtest.hub-0.1.0-SNAPSHOT-sources.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub-0.1.0-SNAPSHOT-sources.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\target\p2content.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub-0.1.0-SNAPSHOT-p2metadata.xml
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub\target\p2artifacts.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub-0.1.0-SNAPSHOT-p2artifacts.xml
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:update-local-index (default-update-local-index) @ org.nasdanika.webtest.hub ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.nasdanika.webtest.hub.app 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ org.nasdanika.webtest.hub.app ---
+[INFO] Deleting C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:build-qualifier (default-build-qualifier) @ org.nasdanika.webtest.hub.app ---
+[INFO] The project's OSGi version is 0.1.0.201502051630
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-id (default-validate-id) @ org.nasdanika.webtest.hub.app ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-version (default-validate-version) @ org.nasdanika.webtest.hub.app ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.nasdanika.webtest.hub.app ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.22.0:compile (default-compile) @ org.nasdanika.webtest.hub.app ---
+[INFO] Compiling 3 source files to C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.nasdanika.webtest.hub.app ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\src\test\resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.22.0:plugin-source (plugin-source) @ org.nasdanika.webtest.hub.app ---
+[WARNING] bundle localization file C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\plugin.properties not found
+[WARNING] Bundle-Vendor header not found in C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\META-INF\MANIFEST.MF, fallback to 'unknown' for source bundle
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\target\org.nasdanika.webtest.hub.app-0.1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.22.0:target-platform (default-target-platform) @ org.nasdanika.webtest.hub.app ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:package-plugin (default-package-plugin) @ org.nasdanika.webtest.hub.app ---
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\target\org.nasdanika.webtest.hub.app-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:p2-metadata-default (default-p2-metadata-default) @ org.nasdanika.webtest.hub.app ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ org.nasdanika.webtest.hub.app ---
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\target\org.nasdanika.webtest.hub.app-0.1.0-SNAPSHOT.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.app\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.app-0.1.0-SNAPSHOT.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\pom.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.app\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.app-0.1.0-SNAPSHOT.pom
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\target\org.nasdanika.webtest.hub.app-0.1.0-SNAPSHOT-sources.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.app\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.app-0.1.0-SNAPSHOT-sources.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\target\p2content.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.app\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.app-0.1.0-SNAPSHOT-p2metadata.xml
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.app\target\p2artifacts.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.app\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.app-0.1.0-SNAPSHOT-p2artifacts.xml
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:update-local-index (default-update-local-index) @ org.nasdanika.webtest.hub.app ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.nasdanika.webtest.hub.tests 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ org.nasdanika.webtest.hub.tests ---
+[INFO] Deleting C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:build-qualifier (default-build-qualifier) @ org.nasdanika.webtest.hub.tests ---
+[INFO] The project's OSGi version is 0.1.0.201502051630
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-id (default-validate-id) @ org.nasdanika.webtest.hub.tests ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-version (default-validate-version) @ org.nasdanika.webtest.hub.tests ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.nasdanika.webtest.hub.tests ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.22.0:compile (default-compile) @ org.nasdanika.webtest.hub.tests ---
+[INFO] Compiling 5 source files to C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.nasdanika.webtest.hub.tests ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\src\test\resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.22.0:plugin-source (plugin-source) @ org.nasdanika.webtest.hub.tests ---
+[WARNING] bundle localization file C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\plugin.properties not found
+[WARNING] Bundle-Vendor header not found in C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\META-INF\MANIFEST.MF, fallback to 'unknown' for source bundle
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\org.nasdanika.webtest.hub.tests-0.1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.22.0:target-platform (default-target-platform) @ org.nasdanika.webtest.hub.tests ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:package-plugin (default-package-plugin) @ org.nasdanika.webtest.hub.tests ---
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\org.nasdanika.webtest.hub.tests-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:p2-metadata-default (default-p2-metadata-default) @ org.nasdanika.webtest.hub.tests ---
+[INFO] 
+[INFO] --- tycho-surefire-plugin:0.22.0:test (default-test) @ org.nasdanika.webtest.hub.tests ---
+[INFO] Expected eclipse log file: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\work\data\.metadata\.log
+[INFO] Command line:
+	[C:\Program Files\Java\jdk1.7.0_11\jre\bin\java.exe, -Dosgi.noShutdown=false, -Dosgi.os=win32, -Dosgi.ws=win32, -Dosgi.arch=x86_64, -Xmx512m, -Dorg.osgi.service.http.port=18080, -Dosgi.clean=true, -jar, C:\Users\Pavel\.m2\repository\p2\osgi\bundle\org.eclipse.equinox.launcher\1.3.0.v20140415-2008\org.eclipse.equinox.launcher-1.3.0.v20140415-2008.jar, -data, C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\work\data, -install, C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\work, -configuration, C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\work\configuration, -application, org.eclipse.tycho.surefire.osgibooter.headlesstest, -testproperties, C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\surefire.properties]
+Page factory component activated with base URL 'http://localhost:18080'
+WebTest Hub Actor Factory Component activated
+Initializing session
+Application ID: OID7
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.nasdanika.webtest.hub.tests.WebTestHubTests
+Nasdanika Web Test Report generated in C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\nasdanika-web-tests\org\nasdanika\webtest\hub\tests\WebTestHubTests
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 324.84 sec - in org.nasdanika.webtest.hub.tests.WebTestHubTests
+aHappyPath(org.nasdanika.webtest.hub.tests.Register)  Time elapsed: 23.162 sec
+allBlank(org.nasdanika.webtest.hub.tests.Register)  Time elapsed: 3.78 sec
+blankId(org.nasdanika.webtest.hub.tests.Register)  Time elapsed: 16.654 sec
+blankName(org.nasdanika.webtest.hub.tests.Register)  Time elapsed: 4.198 sec
+blankPassword(org.nasdanika.webtest.hub.tests.Register)  Time elapsed: 16.079 sec
+blankPasswordConfirm(org.nasdanika.webtest.hub.tests.Register)  Time elapsed: 16.022 sec
+cancelSignUp(org.nasdanika.webtest.hub.tests.Register)  Time elapsed: 4.047 sec
+duplicateId(org.nasdanika.webtest.hub.tests.Register)  Time elapsed: 16.78 sec
+passwordsDoNotMatch(org.nasdanika.webtest.hub.tests.Register)  Time elapsed: 17.058 sec
+shortId(org.nasdanika.webtest.hub.tests.Register)  Time elapsed: 3.936 sec
+shortPassword(org.nasdanika.webtest.hub.tests.Register)  Time elapsed: 3.515 sec
+weakPassword(org.nasdanika.webtest.hub.tests.Register)  Time elapsed: 3.465 sec
+_SignUpCustomer[0: firefox](org.nasdanika.webtest.hub.tests.LogIn)  Time elapsed: 12.733 sec
+emptyOnlineId[0: firefox](org.nasdanika.webtest.hub.tests.LogIn)  Time elapsed: 67.594 sec
+emptyPassword[0: firefox](org.nasdanika.webtest.hub.tests.LogIn)  Time elapsed: 67.803 sec
+invalidCredentials[0: firefox](org.nasdanika.webtest.hub.tests.LogIn)  Time elapsed: 38.539 sec
+signIn[0: firefox](org.nasdanika.webtest.hub.tests.LogIn)  Time elapsed: 8.57 sec
+
+Results :
+
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] All tests passed!
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ org.nasdanika.webtest.hub.tests ---
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\org.nasdanika.webtest.hub.tests-0.1.0-SNAPSHOT.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.tests\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.tests-0.1.0-SNAPSHOT.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\pom.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.tests\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.tests-0.1.0-SNAPSHOT.pom
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\org.nasdanika.webtest.hub.tests-0.1.0-SNAPSHOT-sources.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.tests\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.tests-0.1.0-SNAPSHOT-sources.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\p2content.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.tests\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.tests-0.1.0-SNAPSHOT-p2metadata.xml
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests\target\p2artifacts.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.tests\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.tests-0.1.0-SNAPSHOT-p2artifacts.xml
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:update-local-index (default-update-local-index) @ org.nasdanika.webtest.hub.tests ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.nasdanika.webtest.hub.feature 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ org.nasdanika.webtest.hub.feature ---
+[INFO] Deleting C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.feature\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.nasdanika.webtest.hub.feature ---
+[INFO] The project's OSGi version is 0.1.0.201502051630
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-id (default-validate-id) @ org.nasdanika.webtest.hub.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-version (default-validate-version) @ org.nasdanika.webtest.hub.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.22.0:plugin-source (plugin-source) @ org.nasdanika.webtest.hub.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.22.0:target-platform (default-target-platform) @ org.nasdanika.webtest.hub.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:package-feature (default-package-feature) @ org.nasdanika.webtest.hub.feature ---
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.feature\target\org.nasdanika.webtest.hub.feature-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:p2-metadata-default (default-p2-metadata-default) @ org.nasdanika.webtest.hub.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:feature-p2-metadata (default-feature-p2-metadata) @ org.nasdanika.webtest.hub.feature ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ org.nasdanika.webtest.hub.feature ---
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.feature\target\org.nasdanika.webtest.hub.feature-0.1.0-SNAPSHOT.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.feature\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.feature-0.1.0-SNAPSHOT.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.feature\pom.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.feature\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.feature-0.1.0-SNAPSHOT.pom
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.feature\target\p2content.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.feature\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.feature-0.1.0-SNAPSHOT-p2metadata.xml
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.feature\target\p2artifacts.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.feature\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.feature-0.1.0-SNAPSHOT-p2artifacts.xml
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:update-local-index (default-update-local-index) @ org.nasdanika.webtest.hub.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.nasdanika.webtest.hub.tests.feature 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ org.nasdanika.webtest.hub.tests.feature ---
+[INFO] Deleting C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests.feature\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.nasdanika.webtest.hub.tests.feature ---
+[INFO] The project's OSGi version is 0.1.0.201502051630
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-id (default-validate-id) @ org.nasdanika.webtest.hub.tests.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:validate-version (default-validate-version) @ org.nasdanika.webtest.hub.tests.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.22.0:plugin-source (plugin-source) @ org.nasdanika.webtest.hub.tests.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.22.0:target-platform (default-target-platform) @ org.nasdanika.webtest.hub.tests.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:package-feature (default-package-feature) @ org.nasdanika.webtest.hub.tests.feature ---
+[INFO] Building jar: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests.feature\target\org.nasdanika.webtest.hub.tests.feature-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:p2-metadata-default (default-p2-metadata-default) @ org.nasdanika.webtest.hub.tests.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:feature-p2-metadata (default-feature-p2-metadata) @ org.nasdanika.webtest.hub.tests.feature ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ org.nasdanika.webtest.hub.tests.feature ---
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests.feature\target\org.nasdanika.webtest.hub.tests.feature-0.1.0-SNAPSHOT.jar to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.tests.feature\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.tests.feature-0.1.0-SNAPSHOT.jar
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests.feature\pom.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.tests.feature\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.tests.feature-0.1.0-SNAPSHOT.pom
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests.feature\target\p2content.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.tests.feature\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.tests.feature-0.1.0-SNAPSHOT-p2metadata.xml
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.tests.feature\target\p2artifacts.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.tests.feature\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.tests.feature-0.1.0-SNAPSHOT-p2artifacts.xml
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:update-local-index (default-update-local-index) @ org.nasdanika.webtest.hub.tests.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building WebTest Hub Repository 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ org.nasdanika.webtest.hub.repository ---
+[INFO] Deleting C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.22.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.nasdanika.webtest.hub.repository ---
+[INFO] The project's OSGi version is 0.1.0.201502051630
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean-1) @ org.nasdanika.webtest.hub.repository ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.nasdanika.webtest.hub.repository ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\src\main\resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.22.0:plugin-source (plugin-source) @ org.nasdanika.webtest.hub.repository ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.22.0:target-platform (default-target-platform) @ org.nasdanika.webtest.hub.repository ---
+[INFO] 
+[INFO] --- tycho-p2-publisher-plugin:0.22.0:publish-products (default-publish-products) @ org.nasdanika.webtest.hub.repository ---
+[INFO] 
+[INFO] --- tycho-p2-publisher-plugin:0.22.0:publish-categories (default-publish-categories) @ org.nasdanika.webtest.hub.repository ---
+[INFO] 
+[INFO] --- tycho-p2-publisher-plugin:0.22.0:attach-artifacts (default-attach-artifacts) @ org.nasdanika.webtest.hub.repository ---
+[INFO] 
+[INFO] --- tycho-p2-repository-plugin:0.22.0:assemble-repository (default-assemble-repository) @ org.nasdanika.webtest.hub.repository ---
+[INFO] 
+[INFO] --- tycho-p2-repository-plugin:0.22.0:archive-repository (default-archive-repository) @ org.nasdanika.webtest.hub.repository ---
+[INFO] Building zip: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\org.nasdanika.webtest.hub.repository-0.1.0-SNAPSHOT.zip
+[INFO] 
+[INFO] --- tycho-p2-director-plugin:0.22.0:materialize-products (build-distributions) @ org.nasdanika.webtest.hub.repository ---
+[INFO] Installing product org.nasdanika.webtest.hub.product for environment linux/gtk/x86_64 to C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\products\org.nasdanika.webtest.hub.product\linux\gtk\x86_64
+Installing org.nasdanika.webtest.hub.product 0.1.0.201502051630.
+Operation completed in 5010 ms.
+[INFO] Installing product org.nasdanika.webtest.hub.product for environment win32/win32/x86_64 to C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\products\org.nasdanika.webtest.hub.product\win32\win32\x86_64
+Installing org.nasdanika.webtest.hub.product 0.1.0.201502051630.
+Operation completed in 3166 ms.
+[INFO] 
+[INFO] --- tycho-p2-director-plugin:0.22.0:archive-products (build-distributions) @ org.nasdanika.webtest.hub.repository ---
+[INFO] Building zip: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\products\org.nasdanika.webtest.hub.product-linux.gtk.x86_64.zip
+[INFO] Building zip: C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\products\org.nasdanika.webtest.hub.product-win32.win32.x86_64.zip
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ org.nasdanika.webtest.hub.repository ---
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\org.nasdanika.webtest.hub.repository-0.1.0-SNAPSHOT.zip to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.repository\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.repository-0.1.0-SNAPSHOT.zip
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\pom.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.repository\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.repository-0.1.0-SNAPSHOT.pom
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\extraArtifacts\org.nasdanika.webtest.hub.tests.product.executable.gtk.linux.x86_64.zip to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.repository\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.repository-0.1.0-SNAPSHOT-org.nasdanika.webtest.hub.tests.product.executable.gtk.linux.x86_64.zip
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\extraArtifacts\org.nasdanika.webtest.hub.product.executable.win32.win32.x86_64.zip to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.repository\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.repository-0.1.0-SNAPSHOT-org.nasdanika.webtest.hub.product.executable.win32.win32.x86_64.zip
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\p2content.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.repository\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.repository-0.1.0-SNAPSHOT-p2metadata.xml
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\extraArtifacts\org.nasdanika.webtest.hub.product.executable.gtk.linux.x86_64.zip to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.repository\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.repository-0.1.0-SNAPSHOT-org.nasdanika.webtest.hub.product.executable.gtk.linux.x86_64.zip
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\p2artifacts.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.repository\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.repository-0.1.0-SNAPSHOT-p2artifacts.xml
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\extraArtifacts\org.nasdanika.webtest.hub.tests.product.executable.win32.win32.x86_64.zip to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.repository\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.repository-0.1.0-SNAPSHOT-org.nasdanika.webtest.hub.tests.product.executable.win32.win32.x86_64.zip
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\products\org.nasdanika.webtest.hub.product-linux.gtk.x86_64.zip to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.repository\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.repository-0.1.0-SNAPSHOT-linux.gtk.x86_64.zip
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.repository\target\products\org.nasdanika.webtest.hub.product-win32.win32.x86_64.zip to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.repository\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.repository-0.1.0-SNAPSHOT-win32.win32.x86_64.zip
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.22.0:update-local-index (default-update-local-index) @ org.nasdanika.webtest.hub.repository ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Aggregator 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ org.nasdanika.webtest.hub.aggregator ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ org.nasdanika.webtest.hub.aggregator ---
+[INFO] Installing C:\Users\Pavel\git\Nasdanika\webtest-hub\org.nasdanika.webtest.hub.aggregator\pom.xml to C:\Users\Pavel\.m2\repository\org\nasdanika\webtest\hub\org.nasdanika.webtest.hub.aggregator\0.1.0-SNAPSHOT\org.nasdanika.webtest.hub.aggregator-0.1.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] org.nasdanika.webtest.hub.ui.driver.pages ......... SUCCESS [  4.775 s]
+[INFO] org.nasdanika.webtest.hub.ui.driver.actors ........ SUCCESS [  0.846 s]
+[INFO] org.nasdanika.webtest.hub.ui.driver.actors.impl ... SUCCESS [  1.264 s]
+[INFO] org.nasdanika.webtest.hub.ui.driver.pages.impl .... SUCCESS [  1.624 s]
+[INFO] org.nasdanika.webtest.hub ......................... SUCCESS [  5.640 s]
+[INFO] org.nasdanika.webtest.hub.app ..................... SUCCESS [  3.700 s]
+[INFO] org.nasdanika.webtest.hub.tests ................... SUCCESS [05:46 min]
+[INFO] org.nasdanika.webtest.hub.feature ................. SUCCESS [  0.359 s]
+[INFO] org.nasdanika.webtest.hub.tests.feature ........... SUCCESS [  0.218 s]
+[INFO] WebTest Hub Repository ............................ SUCCESS [ 30.227 s]
+[INFO] Aggregator ........................................ SUCCESS [  3.684 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 09:07 min
+[INFO] Finished at: 2015-02-05T11:37:27-05:00
+[INFO] Final Memory: 147M/744M
+[INFO] ------------------------------------------------------------------------

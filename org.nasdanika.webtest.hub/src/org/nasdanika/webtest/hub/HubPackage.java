@@ -206,22 +206,13 @@ public interface HubPackage extends EPackage {
 	int HUB___GET_USER__STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN___GET_USER__STRING;
 
 	/**
-	 * The operation id for the '<em>Test Operation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HUB___TEST_OPERATION__INT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Hub</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HUB_OPERATION_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 1;
+	int HUB_OPERATION_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}' class.
@@ -846,13 +837,22 @@ public interface HubPackage extends EPackage {
 	int TEST_SESSION_FEATURE_COUNT = DESCRIPTOR_FEATURE_COUNT + 8;
 
 	/**
+	 * The operation id for the '<em>Get Summary Row</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_SESSION___GET_SUMMARY_ROW__HTTPCONTEXT = DESCRIPTOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Test Session</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_SESSION_OPERATION_COUNT = DESCRIPTOR_OPERATION_COUNT + 0;
+	int TEST_SESSION_OPERATION_COUNT = DESCRIPTOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.TestResultImpl <em>Test Result</em>}' class.
@@ -3015,16 +3015,6 @@ public interface HubPackage extends EPackage {
 	EAttribute getHub_SlideWidth();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#testOperation(int) <em>Test Operation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Test Operation</em>' operation.
-	 * @see org.nasdanika.webtest.hub.Hub#testOperation(int)
-	 * @generated
-	 */
-	EOperation getHub__TestOperation__int();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3323,6 +3313,16 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTestSession_Node();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.TestSession#getSummaryRow(org.nasdanika.web.HttpContext) <em>Get Summary Row</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Summary Row</em>' operation.
+	 * @see org.nasdanika.webtest.hub.TestSession#getSummaryRow(org.nasdanika.web.HttpContext)
+	 * @generated
+	 */
+	EOperation getTestSession__GetSummaryRow__HttpContext();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.TestResult <em>Test Result</em>}'.
@@ -4248,14 +4248,6 @@ public interface HubPackage extends EPackage {
 		EAttribute HUB__SLIDE_WIDTH = eINSTANCE.getHub_SlideWidth();
 
 		/**
-		 * The meta object literal for the '<em><b>Test Operation</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation HUB___TEST_OPERATION__INT = eINSTANCE.getHub__TestOperation__int();
-
-		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4492,6 +4484,14 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEST_SESSION__NODE = eINSTANCE.getTestSession_Node();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Summary Row</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEST_SESSION___GET_SUMMARY_ROW__HTTPCONTEXT = eINSTANCE.getTestSession__GetSummaryRow__HttpContext();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.TestResultImpl <em>Test Result</em>}' class.
