@@ -9,9 +9,11 @@ import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.nasdanika.cdo.CDOViewContext;
 import org.nasdanika.cdo.security.AuthorizationHelper;
 import org.nasdanika.cdo.security.Group;
 import org.nasdanika.cdo.security.LoginPasswordHashUser;
+import org.nasdanika.cdo.security.LoginUser;
 import org.nasdanika.cdo.security.Permission;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.ProtectionDomain;
@@ -48,8 +50,8 @@ import org.nasdanika.webtest.hub.User;
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getPermissions <em>Permissions</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getProtectionDomain <em>Protection Domain</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getLogin <em>Login</em>}</li>
- *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getPasswordHash <em>Password Hash</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#isDisabled <em>Disabled</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getPasswordHash <em>Password Hash</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,7 +132,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 	 * @generated
 	 */
 	public String getLogin() {
-		return (String)eGet(SecurityPackage.Literals.LOGIN_PASSWORD_HASH_USER__LOGIN, true);
+		return (String)eGet(SecurityPackage.Literals.LOGIN_USER__LOGIN, true);
 	}
 
 	/**
@@ -139,7 +141,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 	 * @generated
 	 */
 	public void setLogin(String newLogin) {
-		eSet(SecurityPackage.Literals.LOGIN_PASSWORD_HASH_USER__LOGIN, newLogin);
+		eSet(SecurityPackage.Literals.LOGIN_USER__LOGIN, newLogin);
 	}
 
 	/**
@@ -166,7 +168,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 	 * @generated
 	 */
 	public boolean isDisabled() {
-		return (Boolean)eGet(SecurityPackage.Literals.LOGIN_PASSWORD_HASH_USER__DISABLED, true);
+		return (Boolean)eGet(SecurityPackage.Literals.LOGIN_USER__DISABLED, true);
 	}
 
 	/**
@@ -175,7 +177,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 	 * @generated
 	 */
 	public void setDisabled(boolean newDisabled) {
-		eSet(SecurityPackage.Literals.LOGIN_PASSWORD_HASH_USER__DISABLED, newDisabled);
+		eSet(SecurityPackage.Literals.LOGIN_USER__DISABLED, newDisabled);
 	}
 
 	/**
@@ -231,11 +233,16 @@ public class UserImpl extends CDOObjectImpl implements User {
 				default: return -1;
 			}
 		}
+		if (baseClass == LoginUser.class) {
+			switch (derivedFeatureID) {
+				case HubPackage.USER__LOGIN: return SecurityPackage.LOGIN_USER__LOGIN;
+				case HubPackage.USER__DISABLED: return SecurityPackage.LOGIN_USER__DISABLED;
+				default: return -1;
+			}
+		}
 		if (baseClass == LoginPasswordHashUser.class) {
 			switch (derivedFeatureID) {
-				case HubPackage.USER__LOGIN: return SecurityPackage.LOGIN_PASSWORD_HASH_USER__LOGIN;
 				case HubPackage.USER__PASSWORD_HASH: return SecurityPackage.LOGIN_PASSWORD_HASH_USER__PASSWORD_HASH;
-				case HubPackage.USER__DISABLED: return SecurityPackage.LOGIN_PASSWORD_HASH_USER__DISABLED;
 				default: return -1;
 			}
 		}
@@ -262,11 +269,16 @@ public class UserImpl extends CDOObjectImpl implements User {
 				default: return -1;
 			}
 		}
+		if (baseClass == LoginUser.class) {
+			switch (baseFeatureID) {
+				case SecurityPackage.LOGIN_USER__LOGIN: return HubPackage.USER__LOGIN;
+				case SecurityPackage.LOGIN_USER__DISABLED: return HubPackage.USER__DISABLED;
+				default: return -1;
+			}
+		}
 		if (baseClass == LoginPasswordHashUser.class) {
 			switch (baseFeatureID) {
-				case SecurityPackage.LOGIN_PASSWORD_HASH_USER__LOGIN: return HubPackage.USER__LOGIN;
 				case SecurityPackage.LOGIN_PASSWORD_HASH_USER__PASSWORD_HASH: return HubPackage.USER__PASSWORD_HASH;
-				case SecurityPackage.LOGIN_PASSWORD_HASH_USER__DISABLED: return HubPackage.USER__DISABLED;
 				default: return -1;
 			}
 		}
@@ -282,14 +294,19 @@ public class UserImpl extends CDOObjectImpl implements User {
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == Principal.class) {
 			switch (baseOperationID) {
-				case SecurityPackage.PRINCIPAL___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP: return HubPackage.USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP;
-				case SecurityPackage.PRINCIPAL___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT: return HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT;
-				case SecurityPackage.PRINCIPAL___SEND_MESSAGE__PRINCIPAL_STRING_MAP: return HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_MAP;
-				case SecurityPackage.PRINCIPAL___SEND_MESSAGE__PRINCIPAL_STRING_STRING: return HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING;
+				case SecurityPackage.PRINCIPAL___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP: return HubPackage.USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP_1;
+				case SecurityPackage.PRINCIPAL___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT: return HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT_1;
+				case SecurityPackage.PRINCIPAL___SEND_MESSAGE__PRINCIPAL_STRING_MAP: return HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_MAP_1;
+				case SecurityPackage.PRINCIPAL___SEND_MESSAGE__PRINCIPAL_STRING_STRING: return HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_1;
 				default: return -1;
 			}
 		}
 		if (baseClass == org.nasdanika.cdo.security.User.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == LoginUser.class) {
 			switch (baseOperationID) {
 				default: return -1;
 			}
@@ -311,15 +328,15 @@ public class UserImpl extends CDOObjectImpl implements User {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case HubPackage.USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP:
+			case HubPackage.USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP_1:
 				return authorize((SecurityPolicy)arguments.get(0), (Context)arguments.get(1), arguments.get(2), (String)arguments.get(3), (String)arguments.get(4), (Map<String, Object>)arguments.get(5));
-			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT:
+			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT_1:
 				sendMessage((Principal)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), arguments.get(3));
 				return null;
-			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_MAP:
+			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_MAP_1:
 				sendMessage((Principal)arguments.get(0), (String)arguments.get(1), (Map<String, Object>)arguments.get(2));
 				return null;
-			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING:
+			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_1:
 				sendMessage((Principal)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2));
 				return null;
 		}
@@ -344,6 +361,13 @@ public class UserImpl extends CDOObjectImpl implements User {
 		if (!context.authorize(this, "read", null, null)) {
 			return "Access denied!"; 			
 		}
+		
+		@SuppressWarnings("unchecked")
+		Principal principal = ((CDOViewContext<?, ?, HttpContext>) context).getPrincipal(context);
+		if (this != principal) {
+			return "Access denied!"; 			
+		}
+		
 		ApplicationPanel appPanel = htmlFactory
 				.applicationPanel()
 				.width(HubUtil.width(this))
@@ -353,7 +377,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 				.headerLink("/index.html");
 
 		String objectPath = context.getObjectPath(this);
-		Navbar navBar = htmlFactory.navbar(htmlFactory.span(StringEscapeUtils.escapeHtml4("TODO - User name"/*getName()*/)).id("banner"), objectPath+".html"); // Profile for authenticated user?		
+		Navbar navBar = htmlFactory.navbar(htmlFactory.span(StringEscapeUtils.escapeHtml4(getLogin())).id("banner"), objectPath+".html"); // Profile for authenticated user?		
 		navBar.item(htmlFactory.link(objectPath+"/logout", "Log out&nbsp;", htmlFactory.glyphicon(Glyphicon.log_out)).on(Event.click, "return confirm('Are you sure you want to log out?');"), false, true);
 
 		//Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs();

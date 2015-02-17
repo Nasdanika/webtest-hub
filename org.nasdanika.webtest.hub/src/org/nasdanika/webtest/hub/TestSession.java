@@ -3,11 +3,8 @@
 package org.nasdanika.webtest.hub;
 
 import java.util.Map;
-
 import org.eclipse.emf.common.util.EList;
-import org.nasdanika.core.Context;
 import org.nasdanika.core.Deletable;
-import org.nasdanika.html.Table.Row;
 import org.nasdanika.web.HttpContext;
 
 /**
@@ -30,10 +27,10 @@ import org.nasdanika.web.HttpContext;
  * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getTestSession()
- * @model superTypes="org.nasdanika.webtest.hub.Descriptor org.nasdanika.webtest.hub.BreadcrumbsProvider"
+ * @model superTypes="org.nasdanika.webtest.hub.Descriptor org.nasdanika.webtest.hub.BreadcrumbsProvider org.nasdanika.webtest.hub.Deletable"
  * @generated
  */
-public interface TestSession extends Descriptor, BreadcrumbsProvider, Deletable<Context> {
+public interface TestSession extends Descriptor, BreadcrumbsProvider, Deletable {
 	/**
 	 * Returns the value of the '<em><b>Test Results</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.webtest.hub.TestResult}.

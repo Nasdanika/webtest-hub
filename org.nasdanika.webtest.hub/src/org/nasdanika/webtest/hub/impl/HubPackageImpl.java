@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.json.JSONObject;
 import org.nasdanika.cdo.security.SecurityPackage;
+import org.nasdanika.core.Deletable;
 import org.nasdanika.core.JSONLoader;
 import org.nasdanika.web.HttpContext;
 import org.nasdanika.webtest.hub.ActorMethodResult;
@@ -262,6 +263,13 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass deletableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum operationStatusEEnum = null;
 
 	/**
@@ -402,6 +410,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 */
 	public EAttribute getHub_SlideWidth() {
 		return (EAttribute)hubEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getHub__ExecuteScript__HttpContext_String() {
+		return hubEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1345,6 +1362,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDeletable() {
+		return deletableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getOperationStatus() {
 		return operationStatusEEnum;
 	}
@@ -1410,6 +1436,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(hubEClass, HUB__USERS);
 		createEReference(hubEClass, HUB__ADMINISTRATORS);
 		createEAttribute(hubEClass, HUB__SLIDE_WIDTH);
+		createEOperation(hubEClass, HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING);
 
 		applicationOwnerEClass = createEClass(APPLICATION_OWNER);
 		createEReference(applicationOwnerEClass, APPLICATION_OWNER__APPLICATIONS);
@@ -1543,6 +1570,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 
 		breadcrumbsProviderEClass = createEClass(BREADCRUMBS_PROVIDER);
 
+		deletableEClass = createEClass(DELETABLE);
+
 		// Create enums
 		operationStatusEEnum = createEEnum(OPERATION_STATUS);
 
@@ -1595,6 +1624,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		descriptionEClass.getESuperTypes().add(this.getJSONLoader());
 		testSessionEClass.getESuperTypes().add(this.getDescriptor());
 		testSessionEClass.getESuperTypes().add(this.getBreadcrumbsProvider());
+		testSessionEClass.getESuperTypes().add(this.getDeletable());
 		testResultEClass.getESuperTypes().add(this.getDescriptor());
 		testResultEClass.getESuperTypes().add(this.getBreadcrumbsProvider());
 		testClassResultEClass.getESuperTypes().add(this.getTestResult());
@@ -1624,6 +1654,16 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEReference(getHub_Administrators(), theSecurityPackage.getGroup(), null, "administrators", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHub_SlideWidth(), ecorePackage.getEInt(), "slideWidth", "800", 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getHub__ExecuteScript__HttpContext_String(), null, "executeScript", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "script", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
 		initEClass(applicationOwnerEClass, ApplicationOwner.class, "ApplicationOwner", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApplicationOwner_Applications(), this.getApplication(), null, "applications", null, 0, -1, ApplicationOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1638,7 +1678,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getApplication_Name(), ecorePackage.getEString(), "name", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_Description(), ecorePackage.getEString(), "description", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getApplication__GetSummaryRow__HttpContext(), thePerformancePackage.getJSONObject(), "getSummaryRow", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getApplication__GetSummaryRow__HttpContext(), thePerformancePackage.getJSONObject(), "getSummaryRow", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
@@ -1665,8 +1705,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		op = initEOperation(getTestSession__GetSummaryRow__HttpContext(), null, "getSummaryRow", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEString());
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
@@ -1771,6 +1811,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 
 		initEClass(breadcrumbsProviderEClass, BreadcrumbsProvider.class, "BreadcrumbsProvider", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(deletableEClass, Deletable.class, "Deletable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(operationStatusEEnum, OperationStatus.class, "OperationStatus");
 		addEEnumLiteral(operationStatusEEnum, OperationStatus.PASS);
@@ -1787,12 +1829,37 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createResource(eNS_URI);
 
 		// Create annotations
-		// org.nasdanika.cdo.web:eager-obj
-		createOrgAnnotations();
-		// org.nasdanika.cdo.web:lenient
-		createOrg_1Annotations();
 		// org.nasdanika.cdo.web:getter
+		createOrgAnnotations();
+		// org.nasdanika.cdo.web:eager-obj
+		createOrg_1Annotations();
+		// org.nasdanika.cdo.web:lenient
 		createOrg_2Annotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo.web:getter</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrgAnnotations() {
+		String source = "org.nasdanika.cdo.web:getter";	
+		addAnnotation
+		  (getHub__ExecuteScript__HttpContext_String(), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (getApplication__GetSummaryRow__HttpContext(), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (getTestSession__GetSummaryRow__HttpContext(), 
+		   source, 
+		   new String[] {
+		   });
 	}
 
 	/**
@@ -1801,7 +1868,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrgAnnotations() {
+	protected void createOrg_1Annotations() {
 		String source = "org.nasdanika.cdo.web:eager-obj";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
@@ -1816,7 +1883,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_1Annotations() {
+	protected void createOrg_2Annotations() {
 		String source = "org.nasdanika.cdo.web:lenient";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
@@ -1825,26 +1892,6 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		   });	
 		addAnnotation
 		  (getApplication_TestSessions(), 
-		   source, 
-		   new String[] {
-		   });
-	}
-
-	/**
-	 * Initializes the annotations for <b>org.nasdanika.cdo.web:getter</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createOrg_2Annotations() {
-		String source = "org.nasdanika.cdo.web:getter";	
-		addAnnotation
-		  (getApplication__GetSummaryRow__HttpContext(), 
-		   source, 
-		   new String[] {
-		   });	
-		addAnnotation
-		  (getTestSession__GetSummaryRow__HttpContext(), 
 		   source, 
 		   new String[] {
 		   });

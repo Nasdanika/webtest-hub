@@ -2,6 +2,9 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
+
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -172,6 +175,17 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Map<String, String> executeScript(HttpContext context, String script) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -214,6 +228,20 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case HubPackage.HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING:
+				return executeScript((HttpContext)arguments.get(0), (String)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public EList<org.nasdanika.cdo.security.User> getAllUsers() {
@@ -230,7 +258,8 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 */
 	@RouteMethod(pattern="L?[\\d]+\\.html")
 	public void home(HttpContext context) throws Exception {
-		Principal principal = ((CDOViewContext<?,?>) context).getPrincipal();
+		@SuppressWarnings("unchecked")
+		Principal principal = ((CDOViewContext<?,?,HttpContext>) context).getPrincipal(context);
 		context.getResponse().sendRedirect(context.getObjectPath(principal)+".html");
 	}	
 	

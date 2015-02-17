@@ -9,8 +9,10 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.cdo.security.LoginPasswordHashUser;
 import org.nasdanika.cdo.security.LoginPasswordProtectionDomain;
+import org.nasdanika.cdo.security.LoginUser;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.ProtectionDomain;
+import org.nasdanika.core.Deletable;
 import org.nasdanika.core.JSONLoader;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
@@ -213,6 +215,10 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 				return createBreadcrumbsProviderAdapter();
 			}
 			@Override
+			public Adapter caseDeletable(Deletable object) {
+				return createDeletableAdapter();
+			}
+			@Override
 			public <CR> Adapter caseProtectionDomain(ProtectionDomain<CR> object) {
 				return createProtectionDomainAdapter();
 			}
@@ -227,6 +233,10 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSecurity_User(org.nasdanika.cdo.security.User object) {
 				return createSecurity_UserAdapter();
+			}
+			@Override
+			public Adapter caseLoginUser(LoginUser object) {
+				return createLoginUserAdapter();
 			}
 			@Override
 			public Adapter caseLoginPasswordHashUser(LoginPasswordHashUser object) {
@@ -659,6 +669,20 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.core.Deletable <em>Deletable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.core.Deletable
+	 * @generated
+	 */
+	public Adapter createDeletableAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.cdo.security.ProtectionDomain <em>Protection Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -711,6 +735,20 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSecurity_UserAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.cdo.security.LoginUser <em>Login User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.cdo.security.LoginUser
+	 * @generated
+	 */
+	public Adapter createLoginUserAdapter() {
 		return null;
 	}
 

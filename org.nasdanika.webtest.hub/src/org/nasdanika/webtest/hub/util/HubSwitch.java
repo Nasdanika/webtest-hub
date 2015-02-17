@@ -8,8 +8,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.nasdanika.cdo.security.LoginPasswordHashUser;
 import org.nasdanika.cdo.security.LoginPasswordProtectionDomain;
+import org.nasdanika.cdo.security.LoginUser;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.ProtectionDomain;
+import org.nasdanika.core.Deletable;
 import org.nasdanika.core.JSONLoader;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
@@ -125,6 +127,7 @@ public class HubSwitch<T> extends Switch<T> {
 				T result = caseUser(user);
 				if (result == null) result = caseApplicationOwner(user);
 				if (result == null) result = caseLoginPasswordHashUser(user);
+				if (result == null) result = caseLoginUser(user);
 				if (result == null) result = caseSecurity_User(user);
 				if (result == null) result = casePrincipal(user);
 				if (result == null) result = defaultCase(theEObject);
@@ -156,6 +159,7 @@ public class HubSwitch<T> extends Switch<T> {
 				T result = caseTestSession(testSession);
 				if (result == null) result = caseDescriptor(testSession);
 				if (result == null) result = caseBreadcrumbsProvider(testSession);
+				if (result == null) result = caseDeletable(testSession);
 				if (result == null) result = caseJSONLoader(testSession);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -338,6 +342,12 @@ public class HubSwitch<T> extends Switch<T> {
 			case HubPackage.BREADCRUMBS_PROVIDER: {
 				BreadcrumbsProvider breadcrumbsProvider = (BreadcrumbsProvider)theEObject;
 				T result = caseBreadcrumbsProvider(breadcrumbsProvider);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.DELETABLE: {
+				Deletable deletable = (Deletable)theEObject;
+				T result = caseDeletable(deletable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -781,6 +791,21 @@ public class HubSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Deletable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Deletable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDeletable(Deletable object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Protection Domain</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -837,6 +862,21 @@ public class HubSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSecurity_User(org.nasdanika.cdo.security.User object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Login User</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Login User</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLoginUser(LoginUser object) {
 		return null;
 	}
 

@@ -12,9 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.GZIPInputStream;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
@@ -28,7 +26,6 @@ import org.nasdanika.core.ConverterContext;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Carousel;
 import org.nasdanika.html.Carousel.Slide;
-import org.nasdanika.html.FontAwesome;
 import org.nasdanika.html.FontAwesome.Directional;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.Fragment;

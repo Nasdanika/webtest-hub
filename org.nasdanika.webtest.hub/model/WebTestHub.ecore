@@ -2,6 +2,15 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hub" nsURI="urn:org.nasdanika.webtest.hub" nsPrefix="org.nasdanika.webtest.hub">
   <eClassifiers xsi:type="ecore:EClass" name="Hub" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordProtectionDomain #//ApplicationOwner #//BreadcrumbsProvider">
+    <eOperations name="executeScript">
+      <eAnnotations source="org.nasdanika.cdo.web:getter"/>
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eGenericType>
+      <eParameters name="context" eType="#//HttpContext"/>
+      <eParameters name="script" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="Web Test Hub"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guest" eType="#//Guest"

@@ -167,7 +167,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HUB___AUTHENTICATE__OBJECT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN___AUTHENTICATE__OBJECT;
+	int HUB___AUTHENTICATE__OBJECT_1 = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN___AUTHENTICATE__OBJECT;
 
 	/**
 	 * The operation id for the '<em>Clear Permissions</em>' operation.
@@ -176,7 +176,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HUB___CLEAR_PERMISSIONS__EOBJECT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN___CLEAR_PERMISSIONS__EOBJECT;
+	int HUB___CLEAR_PERMISSIONS__EOBJECT_1 = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN___CLEAR_PERMISSIONS__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Get All Users</em>' operation.
@@ -194,7 +194,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HUB___SET_PASSWORD_HASH__LOGINPASSWORDHASHUSER_STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN___SET_PASSWORD_HASH__LOGINPASSWORDHASHUSER_STRING;
+	int HUB___SET_PASSWORD_HASH__LOGINPASSWORDHASHUSER_STRING_1 = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN___SET_PASSWORD_HASH__LOGINPASSWORDHASHUSER_STRING;
 
 	/**
 	 * The operation id for the '<em>Get User</em>' operation.
@@ -203,7 +203,16 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HUB___GET_USER__STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN___GET_USER__STRING;
+	int HUB___GET_USER__STRING_1 = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN___GET_USER__STRING;
+
+	/**
+	 * The operation id for the '<em>Execute Script</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Hub</em>' class.
@@ -212,7 +221,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HUB_OPERATION_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 0;
+	int HUB_OPERATION_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}' class.
@@ -304,7 +313,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUEST___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP = SecurityPackage.USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP;
+	int GUEST___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP_1 = SecurityPackage.USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP;
 
 	/**
 	 * The operation id for the '<em>Send Message</em>' operation.
@@ -313,7 +322,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT = SecurityPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT;
+	int GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT_1 = SecurityPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT;
 
 	/**
 	 * The operation id for the '<em>Send Message</em>' operation.
@@ -322,7 +331,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUEST___SEND_MESSAGE__PRINCIPAL_STRING_MAP = SecurityPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_MAP;
+	int GUEST___SEND_MESSAGE__PRINCIPAL_STRING_MAP_1 = SecurityPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_MAP;
 
 	/**
 	 * The operation id for the '<em>Send Message</em>' operation.
@@ -331,7 +340,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING = SecurityPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING;
+	int GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING_1 = SecurityPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING;
 
 	/**
 	 * The number of operations of the '<em>Guest</em>' class.
@@ -398,22 +407,22 @@ public interface HubPackage extends EPackage {
 	int USER__LOGIN = APPLICATION_OWNER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Password Hash</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USER__PASSWORD_HASH = APPLICATION_OWNER_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Disabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER__DISABLED = APPLICATION_OWNER_FEATURE_COUNT + 5;
+	int USER__DISABLED = APPLICATION_OWNER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Password Hash</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__PASSWORD_HASH = APPLICATION_OWNER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>User</em>' class.
@@ -431,7 +440,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP = APPLICATION_OWNER_OPERATION_COUNT + 0;
+	int USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP_1 = APPLICATION_OWNER_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Send Message</em>' operation.
@@ -440,7 +449,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT = APPLICATION_OWNER_OPERATION_COUNT + 1;
+	int USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT_1 = APPLICATION_OWNER_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Send Message</em>' operation.
@@ -449,7 +458,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER___SEND_MESSAGE__PRINCIPAL_STRING_MAP = APPLICATION_OWNER_OPERATION_COUNT + 2;
+	int USER___SEND_MESSAGE__PRINCIPAL_STRING_MAP_1 = APPLICATION_OWNER_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Send Message</em>' operation.
@@ -458,7 +467,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING = APPLICATION_OWNER_OPERATION_COUNT + 3;
+	int USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_1 = APPLICATION_OWNER_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>User</em>' class.
@@ -2909,6 +2918,34 @@ public interface HubPackage extends EPackage {
 	int LOCATOR_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.core.Deletable <em>Deletable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.core.Deletable
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getDeletable()
+	 * @generated
+	 */
+	int DELETABLE = 29;
+
+	/**
+	 * The number of structural features of the '<em>Deletable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Deletable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETABLE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2916,7 +2953,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getOperationStatus()
 	 * @generated
 	 */
-	int OPERATION_STATUS = 29;
+	int OPERATION_STATUS = 30;
 
 	/**
 	 * The meta object id for the '<em>Http Context</em>' data type.
@@ -2926,7 +2963,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getHttpContext()
 	 * @generated
 	 */
-	int HTTP_CONTEXT = 30;
+	int HTTP_CONTEXT = 31;
 
 	/**
 	 * The meta object id for the '<em>JSON Object</em>' data type.
@@ -2936,7 +2973,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONObject()
 	 * @generated
 	 */
-	int JSON_OBJECT = 31;
+	int JSON_OBJECT = 32;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -2946,7 +2983,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 32;
+	int EXCEPTION = 33;
 
 
 	/**
@@ -3013,6 +3050,16 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getHub_SlideWidth();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#executeScript(org.nasdanika.web.HttpContext, java.lang.String) <em>Execute Script</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Execute Script</em>' operation.
+	 * @see org.nasdanika.webtest.hub.Hub#executeScript(org.nasdanika.web.HttpContext, java.lang.String)
+	 * @generated
+	 */
+	EOperation getHub__ExecuteScript__HttpContext_String();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}'.
@@ -4132,6 +4179,17 @@ public interface HubPackage extends EPackage {
 	EClass getBreadcrumbsProvider();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.core.Deletable <em>Deletable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Deletable</em>'.
+	 * @see org.nasdanika.core.Deletable
+	 * @model instanceClass="org.nasdanika.core.Deletable"
+	 * @generated
+	 */
+	EClass getDeletable();
+
+	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4246,6 +4304,14 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute HUB__SLIDE_WIDTH = eINSTANCE.getHub_SlideWidth();
+
+		/**
+		 * The meta object literal for the '<em><b>Execute Script</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING = eINSTANCE.getHub__ExecuteScript__HttpContext_String();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}' class.
@@ -5134,6 +5200,16 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BREADCRUMBS_PROVIDER = eINSTANCE.getBreadcrumbsProvider();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.core.Deletable <em>Deletable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.core.Deletable
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getDeletable()
+		 * @generated
+		 */
+		EClass DELETABLE = eINSTANCE.getDeletable();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}' enum.

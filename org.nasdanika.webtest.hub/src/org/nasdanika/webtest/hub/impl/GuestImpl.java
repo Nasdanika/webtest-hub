@@ -189,15 +189,15 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case HubPackage.GUEST___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP:
+			case HubPackage.GUEST___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP_1:
 				return authorize((SecurityPolicy)arguments.get(0), (Context)arguments.get(1), arguments.get(2), (String)arguments.get(3), (String)arguments.get(4), (Map<String, Object>)arguments.get(5));
-			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT:
+			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT_1:
 				sendMessage((Principal)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), arguments.get(3));
 				return null;
-			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_MAP:
+			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_MAP_1:
 				sendMessage((Principal)arguments.get(0), (String)arguments.get(1), (Map<String, Object>)arguments.get(2));
 				return null;
-			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING:
+			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING_1:
 				sendMessage((Principal)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2));
 				return null;
 		}
@@ -389,7 +389,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 		try (BufferedReader reader = context.getRequest().getReader()) {
 			final JSONObject body = new JSONObject(new JSONTokener(reader));
 			@SuppressWarnings("unchecked")
-			Principal authenticatedPrincipal = ((CDOViewContext<?,LoginPasswordCredentials>) context).authenticate(new LoginPasswordCredentials() {
+			Principal authenticatedPrincipal = ((CDOViewContext<?,LoginPasswordCredentials,?>) context).authenticate(new LoginPasswordCredentials() {
 				
 				@Override
 				public String getPassword() throws Exception {
@@ -484,7 +484,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 					
 					//((UserImpl) newUser).init();
 					
-					Principal authenticatedUser = ((CDOViewContext<CDOView, LoginPasswordCredentials>) context).authenticate(new LoginPasswordCredentials() {
+					Principal authenticatedUser = ((CDOViewContext<CDOView, LoginPasswordCredentials, HttpContext>) context).authenticate(new LoginPasswordCredentials() {
 						
 						@Override
 						public String getPassword() {
