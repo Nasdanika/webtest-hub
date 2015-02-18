@@ -325,9 +325,20 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 		aRow.cell().ngBind("summaryRow.pages.elements").style("text-align", "center");
 		aRow.cell().ngBind("summaryRow.pages.coverage").style("text-align", "center");
 				
+		String rUrl = context.getRequest().getRequestURL().toString();
+		String pathInfo = context.getRequest().getPathInfo();
+		if (rUrl.endsWith(pathInfo)) {
+			rUrl = rUrl.substring(0, rUrl.length()-pathInfo.length());
+		}
+		String sPath = context.getRequest().getServletPath();
+		if (rUrl.endsWith(sPath)) {
+			rUrl = rUrl.substring(0, rUrl.length()-sPath.length());
+		}
+		
 		return	htmlFactory.div(createBreadcrumbs(context, true)).id("breadcrumbs-container").toString()+
 				htmlFactory.tag("H3", StringEscapeUtils.escapeHtml4(getName())) +
-				(getDescription()==null ? "" : getDescription()) +
+				htmlFactory.label(Style.DEFAULT, "Publish URL: "+rUrl+context.getObjectPath(this)+"/testSessions") +
+				(getDescription()==null ? "" : htmlFactory.div(getDescription())) +
 				htmlFactory.spinnerOverlay(Spinner.refresh).id("testSessionsOverlay") +
 				htmlFactory.panel(Style.INFO, "Test sessions", testSessionsTable, null).id("testSessionsPanel").ngController("TestSessionsController") +
 				htmlFactory.title(getName()) +

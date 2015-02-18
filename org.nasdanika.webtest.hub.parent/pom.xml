@@ -40,6 +40,11 @@
 			<layout>p2</layout>
 		</repository>
 		<repository>
+			<id>maven-osgi</id>
+			<url>http://www.nasdanika.org/maven-osgi</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
 			<id>nasdanika-server</id>
 			<url>http://www.nasdanika.org/server/repository</url>
 			<layout>p2</layout>
