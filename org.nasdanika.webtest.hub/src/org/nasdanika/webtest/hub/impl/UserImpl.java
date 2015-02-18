@@ -52,6 +52,7 @@ import org.nasdanika.webtest.hub.User;
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getLogin <em>Login</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#isDisabled <em>Disabled</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getPasswordHash <em>Password Hash</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -160,6 +161,24 @@ public class UserImpl extends CDOObjectImpl implements User {
 	 */
 	public void setPasswordHash(byte[] newPasswordHash) {
 		eSet(SecurityPackage.Literals.LOGIN_PASSWORD_HASH_USER__PASSWORD_HASH, newPasswordHash);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return (String)eGet(HubPackage.Literals.USER__NAME, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		eSet(HubPackage.Literals.USER__NAME, newName);
 	}
 
 	/**
@@ -294,10 +313,10 @@ public class UserImpl extends CDOObjectImpl implements User {
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == Principal.class) {
 			switch (baseOperationID) {
-				case SecurityPackage.PRINCIPAL___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP: return HubPackage.USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP_1;
-				case SecurityPackage.PRINCIPAL___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT: return HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT_1;
-				case SecurityPackage.PRINCIPAL___SEND_MESSAGE__PRINCIPAL_STRING_MAP: return HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_MAP_1;
-				case SecurityPackage.PRINCIPAL___SEND_MESSAGE__PRINCIPAL_STRING_STRING: return HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_1;
+				case SecurityPackage.PRINCIPAL___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP: return HubPackage.USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP;
+				case SecurityPackage.PRINCIPAL___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT: return HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT;
+				case SecurityPackage.PRINCIPAL___SEND_MESSAGE__PRINCIPAL_STRING_MAP: return HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_MAP;
+				case SecurityPackage.PRINCIPAL___SEND_MESSAGE__PRINCIPAL_STRING_STRING: return HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING;
 				default: return -1;
 			}
 		}
@@ -328,15 +347,15 @@ public class UserImpl extends CDOObjectImpl implements User {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case HubPackage.USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP_1:
+			case HubPackage.USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP:
 				return authorize((SecurityPolicy)arguments.get(0), (Context)arguments.get(1), arguments.get(2), (String)arguments.get(3), (String)arguments.get(4), (Map<String, Object>)arguments.get(5));
-			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT_1:
+			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT:
 				sendMessage((Principal)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), arguments.get(3));
 				return null;
-			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_MAP_1:
+			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_MAP:
 				sendMessage((Principal)arguments.get(0), (String)arguments.get(1), (Map<String, Object>)arguments.get(2));
 				return null;
-			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_1:
+			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING:
 				sendMessage((Principal)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2));
 				return null;
 		}
@@ -377,8 +396,17 @@ public class UserImpl extends CDOObjectImpl implements User {
 				.headerLink("/index.html");
 
 		String objectPath = context.getObjectPath(this);
-		Navbar navBar = htmlFactory.navbar(htmlFactory.span(StringEscapeUtils.escapeHtml4(getLogin())).id("banner"), objectPath+".html"); // Profile for authenticated user?		
-		navBar.item(htmlFactory.link(objectPath+"/logout", "Log out&nbsp;", htmlFactory.glyphicon(Glyphicon.log_out)).on(Event.click, "return confirm('Are you sure you want to log out?');"), false, true);
+		Navbar navBar = htmlFactory.navbar(htmlFactory.span(StringEscapeUtils.escapeHtml4(getName())).id("banner"), objectPath+".html"); // Profile for authenticated user?
+		
+		// Script console
+		Hub hub = HubUtil.getContainer(this, Hub.class);
+		if (context.authorize(hub, "invoke", "executeScript", null)) {
+			navBar.item(htmlFactory.routeLink("main", "/"+context.getObjectPath(hub)+"/scriptConsole", "Script console"), false, false);
+		}
+		
+		if (context.getRequest().getUserPrincipal()==null) { // NFS authentication
+			navBar.item(htmlFactory.link(objectPath+"/logout", "Log out&nbsp;", htmlFactory.glyphicon(Glyphicon.log_out)).on(Event.click, "return confirm('Are you sure you want to log out?');"), false, true);
+		}
 
 		//Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs();
 		//for (TraceEntry te: context.getPathTrace()) {

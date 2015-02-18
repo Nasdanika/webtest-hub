@@ -154,9 +154,9 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model contextDataType="org.nasdanika.webtest.hub.HttpContext"
+	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
 	 * @generated
 	 */
-	Map<String, String> executeScript(HttpContext context, String script);
+	Map<String, Object> executeScript(HttpContext context, String script) throws Exception;
 
 } // Hub

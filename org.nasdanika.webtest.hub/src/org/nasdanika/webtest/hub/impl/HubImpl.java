@@ -2,9 +2,22 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 import java.util.Map;
 
+import javax.script.ScriptContext;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -39,6 +52,7 @@ import org.nasdanika.webtest.hub.ApplicationOwner;
 import org.nasdanika.webtest.hub.BreadcrumbsProvider;
 import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
+import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.User;
 
@@ -61,6 +75,9 @@ import org.nasdanika.webtest.hub.User;
  * @generated
  */
 public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
+	private static final String SCRIPT_ENGINE_ATTRIBUTE_KEY = Hub.class.getName()+":scriptEngine";
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,10 +194,94 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Map<String, String> executeScript(HttpContext context, String script) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public Map<String, Object> executeScript(HttpContext context, String script) throws Exception {
+		ScriptEngine engine = (ScriptEngine) context.getRequest().getSession().getAttribute(SCRIPT_ENGINE_ATTRIBUTE_KEY);
+		if (engine == null) {
+			engine = new ScriptEngineManager(getClass().getClassLoader()).getEngineByMimeType("text/javascript");
+			context.getRequest().getSession().setAttribute(SCRIPT_ENGINE_ATTRIBUTE_KEY, engine);
+		}
+		synchronized (engine) {
+			ScriptContext scriptContext = engine.getContext();
+			scriptContext.setAttribute("hub", this, ScriptContext.ENGINE_SCOPE);
+			scriptContext.setAttribute("context", context, ScriptContext.ENGINE_SCOPE);
+			scriptContext.setAttribute("hubFactory", HubFactory.eINSTANCE, ScriptContext.ENGINE_SCOPE);
+			final StringBuilder[] errorBuilder = { null };
+			final StringBuilder outputBuilder = new StringBuilder();
+			scriptContext.setWriter(new Writer() {
+
+				@Override
+				public void write(char[] cbuf, int off, int len) throws IOException {
+					flush();
+					outputBuilder.append(StringEscapeUtils.escapeHtml4(new String(cbuf, off, len)));
+				}
+
+				@Override
+				public void flush() throws IOException {
+					if (errorBuilder[0]!=null) {
+						outputBuilder.append("<span style='color:red'>");
+						outputBuilder.append(StringEscapeUtils.escapeHtml4(errorBuilder[0].toString()));
+						outputBuilder.append("</span>");
+						errorBuilder[0] = null;
+					}
+				}
+
+				@Override
+				public void close() throws IOException {
+					flush();					
+				}
+				
+			});
+			
+			scriptContext.setErrorWriter(new Writer() {
+
+				@Override
+				public void write(char[] cbuf, int off, int len) throws IOException {
+					if (errorBuilder[0] == null) {
+						errorBuilder[0] = new StringBuilder();
+					}
+					
+					errorBuilder[0].append(cbuf, off, len);					 
+				}
+
+				@Override
+				public void flush() throws IOException {
+					if (errorBuilder[0]!=null) {
+						outputBuilder.append("<span style='color:red'>");
+						outputBuilder.append(StringEscapeUtils.escapeHtml4(errorBuilder[0].toString()));
+						outputBuilder.append("</span>");
+						errorBuilder[0] = null;
+					}
+				}
+
+				@Override
+				public void close() throws IOException {
+					flush();
+				}
+				
+			});
+			
+			Map<String, Object> ret = new HashMap<>();
+			
+			try {
+				Object result = engine.eval(new StringReader(script));
+				ret.put("result", result);
+			} catch (ScriptException e) {
+				Throwable th = e;
+				while (th.getCause()!=null) {
+					th = th.getCause();
+				}
+				StringWriter exw = new StringWriter();
+				th.printStackTrace(new PrintWriter(exw));
+				exw.close();
+				ret.put("exception", StringEscapeUtils.escapeHtml4(exw.toString()));
+			} finally {
+				scriptContext.getErrorWriter().close();
+				scriptContext.getWriter().close();
+				ret.put("output", outputBuilder.toString());
+			}
+			
+			return ret;
+		}
 	}
 
 	/**
@@ -234,7 +335,12 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case HubPackage.HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING:
-				return executeScript((HttpContext)arguments.get(0), (String)arguments.get(1));
+				try {
+					return executeScript((HttpContext)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -261,6 +367,34 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		@SuppressWarnings("unchecked")
 		Principal principal = ((CDOViewContext<?,?,HttpContext>) context).getPrincipal(context);
 		context.getResponse().sendRedirect(context.getObjectPath(principal)+".html");
+	}	
+	
+	
+	@RouteMethod
+	public String scriptConsole(HttpContext context) throws Exception {
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+		if (!context.authorize(this, "invoke", "executeScript", null)) {
+			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
+		}	
+		
+		Form scriptConsoleForm = htmlFactory.form().ngSubmit("executeScript()").id("scriptConsoleForm").ngController("HubScriptConsoleController");
+		Tag outputTag = htmlFactory.tag(TagName.pre)
+				.id("output")
+				.style("overflow", "scroll")
+				.style("width", "100%")
+				.style("height", "400px");
+				//.ngBind("output");
+		
+		scriptConsoleForm.formGroup("Output", outputTag.getId(), outputTag, null);
+		
+		TextArea inputTextArea = htmlFactory.textArea().rows(10).ngModel("script").id("input");
+		scriptConsoleForm.formGroup("Input", inputTextArea.getId(), inputTextArea, null);
+		scriptConsoleForm.button("Execute").type(Type.SUBMIT).style(Style.PRIMARY);
+		return htmlFactory.spinnerOverlay(Spinner.cog).id("scriptConsoleOverlay").toString() +
+				scriptConsoleForm +
+				htmlFactory.tag(TagName.script, new HubScriptConsoleControllerGenerator().generate(context.getObjectPath(this))) +
+				htmlFactory.tag(TagName.script, "jQuery('#scriptConsoleOverlay').width(jQuery('#scriptConsoleForm').width());") +
+				htmlFactory.tag(TagName.script, "jQuery('#scriptConsoleOverlay').height(jQuery('#scriptConsoleForm').height());");
 	}	
 	
 	@RouteMethod

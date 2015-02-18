@@ -1,0 +1,47 @@
+<%@ jet package="org.nasdanika.webtest.hub.impl" class="HubScriptConsoleControllerGenerator"%>
+
+require(["<%=argument%>.js", 'q', 'jquery'], function(hub, Q, jQuery) {
+	angular.module('hubScriptConsoleApp', ['ngSanitize']).controller('HubScriptConsoleController', ['$scope', '$sce', function ($scope, $sce) {  	 
+
+		var outputElement = jQuery('#scriptConsoleForm').find('#output');		
+
+		$scope.executeScript = function() {
+			var outputInnerHtml = outputElement.html();
+			console.log(outputInnerHtml);
+			outputElement.html(outputInnerHtml + "<div style='color:green'>"+$scope.script+"</div>");
+			var script = $scope.script;
+			$scope.script = "";
+			if (script === 'cls') {
+				outputElement.html("");
+			} else {			
+				jQuery('#scriptConsoleOverlay').width(jQuery('#scriptConsoleForm').width());
+				jQuery('#scriptConsoleOverlay').height(jQuery('#scriptConsoleForm').height());
+				jQuery("#scriptConsoleOverlay").css("display", "block");
+						
+				hub.executeScript(script).then(function(result) {
+					var oih = outputElement.html()+ "<div>"+result.output+"</div>";
+					if (result.hasOwnProperty('result')) {
+						oih+="<div style='color:blue'>"+result.result+"</div>";
+					}
+					if (result.hasOwnProperty('exception')) {
+						oih+="<div style='color:red'>"+result.exception+"</div>";
+					}
+					outputElement.html(oih);				
+					outputElement.scrollTop(outputElement[0].scrollHeight);
+		    		$scope.$apply();			
+					jQuery("#scriptConsoleOverlay").css("display", "none");
+				},
+				function(error) {
+					jQuery("#scriptConsoleOverlay").css("display", "none");
+					console.trace(error);
+					alert(error);			
+				}).done();
+			}
+		};      
+		
+		jQuery("#scriptConsoleOverlay").css("display", "none");
+      
+	}]);
+    
+	angular.bootstrap(jQuery("#scriptConsoleForm"), ['hubScriptConsoleApp']);
+});

@@ -34,7 +34,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//ApplicationOwner/applications"/>
     </genClasses>
     <genClasses ecoreClass="WebTestHub.ecore#//Guest"/>
-    <genClasses ecoreClass="WebTestHub.ecore#//User"/>
+    <genClasses ecoreClass="WebTestHub.ecore#//User">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//User/name"/>
+    </genClasses>
     <genClasses ecoreClass="WebTestHub.ecore#//Application">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//Application/testSessions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//Application/securityToken"/>

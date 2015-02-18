@@ -462,6 +462,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUser_Name() {
+		return (EAttribute)userEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getApplication() {
 		return applicationEClass;
 	}
@@ -1444,6 +1453,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		guestEClass = createEClass(GUEST);
 
 		userEClass = createEClass(USER);
+		createEAttribute(userEClass, USER__NAME);
 
 		applicationEClass = createEClass(APPLICATION);
 		createEReference(applicationEClass, APPLICATION__TEST_SESSIONS);
@@ -1657,10 +1667,11 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		EOperation op = initEOperation(getHub__ExecuteScript__HttpContext_String(), null, "executeScript", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "script", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEString());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
@@ -1670,6 +1681,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEClass(guestEClass, Guest.class, "Guest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(userEClass, User.class, "User", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUser_Name(), ecorePackage.getEString(), "name", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApplication_TestSessions(), this.getTestSession(), null, "testSessions", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1829,37 +1841,12 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createResource(eNS_URI);
 
 		// Create annotations
-		// org.nasdanika.cdo.web:getter
-		createOrgAnnotations();
 		// org.nasdanika.cdo.web:eager-obj
-		createOrg_1Annotations();
+		createOrgAnnotations();
 		// org.nasdanika.cdo.web:lenient
+		createOrg_1Annotations();
+		// org.nasdanika.cdo.web:getter
 		createOrg_2Annotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>org.nasdanika.cdo.web:getter</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createOrgAnnotations() {
-		String source = "org.nasdanika.cdo.web:getter";	
-		addAnnotation
-		  (getHub__ExecuteScript__HttpContext_String(), 
-		   source, 
-		   new String[] {
-		   });	
-		addAnnotation
-		  (getApplication__GetSummaryRow__HttpContext(), 
-		   source, 
-		   new String[] {
-		   });	
-		addAnnotation
-		  (getTestSession__GetSummaryRow__HttpContext(), 
-		   source, 
-		   new String[] {
-		   });
 	}
 
 	/**
@@ -1868,7 +1855,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_1Annotations() {
+	protected void createOrgAnnotations() {
 		String source = "org.nasdanika.cdo.web:eager-obj";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
@@ -1883,7 +1870,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_2Annotations() {
+	protected void createOrg_1Annotations() {
 		String source = "org.nasdanika.cdo.web:lenient";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
@@ -1892,6 +1879,26 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		   });	
 		addAnnotation
 		  (getApplication_TestSessions(), 
+		   source, 
+		   new String[] {
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo.web:getter</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrg_2Annotations() {
+		String source = "org.nasdanika.cdo.web:getter";	
+		addAnnotation
+		  (getApplication__GetSummaryRow__HttpContext(), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (getTestSession__GetSummaryRow__HttpContext(), 
 		   source, 
 		   new String[] {
 		   });

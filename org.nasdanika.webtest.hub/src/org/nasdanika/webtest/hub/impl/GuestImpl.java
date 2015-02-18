@@ -189,15 +189,15 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case HubPackage.GUEST___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP_1:
+			case HubPackage.GUEST___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP:
 				return authorize((SecurityPolicy)arguments.get(0), (Context)arguments.get(1), arguments.get(2), (String)arguments.get(3), (String)arguments.get(4), (Map<String, Object>)arguments.get(5));
-			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT_1:
+			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT:
 				sendMessage((Principal)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), arguments.get(3));
 				return null;
-			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_MAP_1:
+			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_MAP:
 				sendMessage((Principal)arguments.get(0), (String)arguments.get(1), (Map<String, Object>)arguments.get(2));
 				return null;
-			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING_1:
+			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING:
 				sendMessage((Principal)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2));
 				return null;
 		}
@@ -222,24 +222,26 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 		
 		
 		Navbar navBar = htmlFactory.navbar("Welcome!", objectPath+".html"); 	
-		createLoginForm(htmlFactory, navBar);		
-		navBar.item(htmlFactory.link("#", "Register").id("registerMenuItem").on(Event.click, "jQuery('#registration-form-modal').modal();"), false, true);
+		createLoginForm(htmlFactory, navBar);	
+		if (context.getRequest().getUserPrincipal()==null) { // NFS authentication
+			navBar.item(htmlFactory.link("#", "Register").id("registerMenuItem").on(Event.click, "jQuery('#registration-form-modal').modal();"), false, true);
+			
+			Modal authenticationFailedModal = htmlFactory.modal()
+					.id("authentication-failed-modal")
+					.small()
+					.title("Authentication failed")
+					.body("Invalid Login/Password combination");
+							
+			Tag guestAppDiv = htmlFactory.div(
+					navBar, 
+					createRegistrationFormModal(htmlFactory, objectPath), 
+					authenticationFailedModal).id("guestApp");		
 		
-		Modal authenticationFailedModal = htmlFactory.modal()
-				.id("authentication-failed-modal")
-				.small()
-				.title("Authentication failed")
-				.body("Invalid Login/Password combination");
-						
-		Tag guestAppDiv = htmlFactory.div(
-				navBar, 
-				createRegistrationFormModal(htmlFactory, objectPath), 
-				authenticationFailedModal).id("guestApp");		
-				
-		appPanel.navigation(
-				guestAppDiv,
-				htmlFactory.tag("script", new GuestAppControllersRenderer().generate(this, objectPath)),
-				htmlFactory.tag("script", "angular.bootstrap($('#guestApp'), ['guestApp']);"));		
+			appPanel.navigation(
+					guestAppDiv,
+					htmlFactory.tag("script", new GuestAppControllersRenderer().generate(this, objectPath)),
+					htmlFactory.tag("script", "angular.bootstrap($('#guestApp'), ['guestApp']);"));		
+		}
 		
 		ContentPanel mainPanel = appPanel.contentPanel().id("main");
 //			.width(DeviceSize.SMALL, 9)

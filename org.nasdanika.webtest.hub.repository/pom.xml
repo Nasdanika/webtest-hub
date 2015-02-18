@@ -40,6 +40,7 @@
 					<products>
 						<product>
 							<id>org.nasdanika.webtest.hub.product</id>
+							<id>org.nasdanika.webtest.hub.win_auth.product</id>
 						</product>
 					</products>
 					<!-- global optional parameters (with default values) -->

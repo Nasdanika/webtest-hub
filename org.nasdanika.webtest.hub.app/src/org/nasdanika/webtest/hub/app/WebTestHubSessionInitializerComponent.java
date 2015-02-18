@@ -57,11 +57,16 @@ public class WebTestHubSessionInitializerComponent implements CDOSessionInitiali
 				hub.setAdministrators(administrators);
 				hub.setSuperUsersGroup(administrators);
 				
-				User admin = HubFactory.eINSTANCE.createUser();
-				admin.setLogin(System.getProperty("hub.admin", "admin"));
-				hub.setPasswordHash(admin, "admin");
-				hub.getUsers().add(admin);
-				administrators.getMembers().add(admin);
+				String[] admins = System.getProperty("hub.admins", "admin").split(";");
+				for (String adminStr: admins) {
+					int idx = adminStr.indexOf(":");
+					User admin = HubFactory.eINSTANCE.createUser();
+					admin.setLogin((idx==-1 ? adminStr : adminStr.substring(0, idx)).trim());
+					admin.setName(admin.getLogin());
+					hub.setPasswordHash(admin, (idx==-1 ? adminStr : adminStr.substring(idx+1)).trim());
+					hub.getUsers().add(admin);
+					administrators.getMembers().add(admin);
+				}
 				
 				// For testing
 				final Application app = HubFactory.eINSTANCE.createApplication();
