@@ -68,31 +68,31 @@ public class WebTestHubSessionInitializerComponent implements CDOSessionInitiali
 					administrators.getMembers().add(admin);
 				}
 				
-				// For testing
-				final Application app = HubFactory.eINSTANCE.createApplication();
-				app.setSecurityToken("secret");
-				app.setName(System.getProperty("hub.app.name", "Nasdanika Bank Examples"));
-				app.setDescription("A sample NFS application for demonstration and testing");
-				hub.getApplications().add(app);
-				
-				transaction.addTransactionHandler(new CDOTransactionHandler2() {
-
-					@Override
-					public void committedTransaction(CDOTransaction transactions, CDOCommitContext context) {
-						System.out.println("Application ID: "+app.cdoID());						
-					}
-
-					@Override
-					public void committingTransaction(CDOTransaction transactions, CDOCommitContext context) {
-						// NOP						
-					}
-
-					@Override
-					public void rolledBackTransaction(CDOTransaction transactions) {
-						// NOP						
-					}
-					
-				});
+//				// For testing
+//				final Application app = HubFactory.eINSTANCE.createApplication();
+//				app.setSecurityToken("secret");
+//				app.setName(System.getProperty("hub.app.name", "Nasdanika Bank Examples"));
+//				app.setDescription("A sample NFS application for demonstration and testing");
+//				hub.getApplications().add(app);
+//				
+//				transaction.addTransactionHandler(new CDOTransactionHandler2() {
+//
+//					@Override
+//					public void committedTransaction(CDOTransaction transactions, CDOCommitContext context) {
+//						System.out.println("Application ID: "+app.cdoID());						
+//					}
+//
+//					@Override
+//					public void committingTransaction(CDOTransaction transactions, CDOCommitContext context) {
+//						// NOP						
+//					}
+//
+//					@Override
+//					public void rolledBackTransaction(CDOTransaction transactions) {
+//						// NOP						
+//					}
+//					
+//				});
 			}
 			
 			transaction.commit();
