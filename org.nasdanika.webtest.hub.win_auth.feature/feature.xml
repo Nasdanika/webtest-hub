@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.nasdanika.webtest.hub.win_auth.feature"
+      label="WebTest Hub Windows Authorization feature"
+      version="0.1.0.qualifier">
+
+   <includes
+         id="org.nasdanika.webtest.hub.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.nasdanika.waffle.feature"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.nasdanika.webtest.hub"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.nasdanika.webtest.hub.app"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

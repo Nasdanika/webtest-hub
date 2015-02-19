@@ -32,8 +32,7 @@
    </plugins>
 
    <features>
-      <feature id="org.nasdanika.webtest.hub.feature" version="0.1.0.qualifier"/>
-      <feature id="org.nasdanika.waffle.feature" version="0.1.0.qualifier"/>
+      <feature id="org.nasdanika.webtest.hub.win_auth.feature" version="0.1.0.qualifier"/>
    </features>
 
    <configurations>
