@@ -40,8 +40,11 @@
 					<products>
 						<product>
 							<id>org.nasdanika.webtest.hub.product</id>
-							<id>org.nasdanika.webtest.hub.win_auth.product</id>
 						</product>
+						<product>
+							<id>org.nasdanika.webtest.hub.win_auth.product</id>
+							<attachId>win_auth</attachId>
+						</product>						
 					</products>
 					<!-- global optional parameters (with default values) -->
 					<installFeatures>true</installFeatures>

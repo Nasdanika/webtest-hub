@@ -24,6 +24,7 @@
 
 	<modules>
 	
+		<!-- 
 		<module>../org.nasdanika.webtest.hub.ui.driver.actors</module>
 	
 		<module>../org.nasdanika.webtest.hub.ui.driver.pages</module>
@@ -31,17 +32,17 @@
 		<module>../org.nasdanika.webtest.hub.ui.driver.actors.impl</module>
 	
 		<module>../org.nasdanika.webtest.hub.ui.driver.pages.impl</module>
-	
+	 	-->
 		<module>../org.nasdanika.webtest.hub</module>
 	
 		<module>../org.nasdanika.webtest.hub.app</module>
 	
-		<module>../org.nasdanika.webtest.hub.tests</module>
+		<!-- <module>../org.nasdanika.webtest.hub.tests</module> -->
 	
 		<!-- <module>../org.nasdanika.webtest.hub.target</module> -->
 	
 		<module>../org.nasdanika.webtest.hub.feature</module>
-		<module>../org.nasdanika.webtest.hub.tests.feature</module>
+		<!-- <module>../org.nasdanika.webtest.hub.tests.feature</module> -->
 	
 		<module>../org.nasdanika.webtest.hub.repository</module>
 	
