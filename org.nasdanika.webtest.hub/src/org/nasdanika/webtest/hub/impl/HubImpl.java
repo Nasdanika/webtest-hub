@@ -4,23 +4,19 @@ package org.nasdanika.webtest.hub.impl;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
-import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.script.ScriptContext;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.mozilla.javascript.Context;
+import org.mozilla.javascript.Scriptable;
+import org.mozilla.javascript.ScriptableObject;
 import org.nasdanika.cdo.CDOViewContext;
 import org.nasdanika.cdo.security.Group;
 import org.nasdanika.cdo.security.Principal;
@@ -75,7 +71,7 @@ import org.nasdanika.webtest.hub.User;
  * @generated
  */
 public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
-	private static final String SCRIPT_ENGINE_ATTRIBUTE_KEY = Hub.class.getName()+":scriptEngine";
+	private static final String SCRIPT_SCOPE_ATTRIBUTE_KEY = Hub.class.getName()+":scriptScope";
 
 
 	/**
@@ -195,92 +191,98 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * @generated NOT
 	 */
 	public Map<String, Object> executeScript(HttpContext context, String script) throws Exception {
-		ScriptEngine engine = (ScriptEngine) context.getRequest().getSession().getAttribute(SCRIPT_ENGINE_ATTRIBUTE_KEY);
-		if (engine == null) {
-			engine = new ScriptEngineManager(getClass().getClassLoader()).getEngineByMimeType("text/javascript");
-			context.getRequest().getSession().setAttribute(SCRIPT_ENGINE_ATTRIBUTE_KEY, engine);
-		}
-		synchronized (engine) {
-			ScriptContext scriptContext = engine.getContext();
-			scriptContext.setAttribute("hub", this, ScriptContext.ENGINE_SCOPE);
-			scriptContext.setAttribute("context", context, ScriptContext.ENGINE_SCOPE);
-			scriptContext.setAttribute("hubFactory", HubFactory.eINSTANCE, ScriptContext.ENGINE_SCOPE);
-			final StringBuilder[] errorBuilder = { null };
-			final StringBuilder outputBuilder = new StringBuilder();
-			scriptContext.setWriter(new Writer() {
-
-				@Override
-				public void write(char[] cbuf, int off, int len) throws IOException {
-					flush();
-					outputBuilder.append(StringEscapeUtils.escapeHtml4(new String(cbuf, off, len)));
-				}
-
-				@Override
-				public void flush() throws IOException {
-					if (errorBuilder[0]!=null) {
-						outputBuilder.append("<span style='color:red'>");
-						outputBuilder.append(StringEscapeUtils.escapeHtml4(errorBuilder[0].toString()));
-						outputBuilder.append("</span>");
-						errorBuilder[0] = null;
+		org.mozilla.javascript.Context scriptContext = org.mozilla.javascript.Context.enter();
+		try {
+			Scriptable scope = (Scriptable) context.getRequest().getSession().getAttribute(SCRIPT_SCOPE_ATTRIBUTE_KEY);
+			if (scope == null) {
+				scope = scriptContext.initStandardObjects();
+				context.getRequest().getSession().setAttribute(SCRIPT_SCOPE_ATTRIBUTE_KEY, scope);
+			}
+			synchronized (scope) {
+				ScriptableObject.putProperty(scope, "hub", org.mozilla.javascript.Context.javaToJS(this, scope));
+				ScriptableObject.putProperty(scope, "context", org.mozilla.javascript.Context.javaToJS(context, scope));
+				ScriptableObject.putProperty(scope, "hubFactory", org.mozilla.javascript.Context.javaToJS(HubFactory.eINSTANCE, scope));
+				final StringBuilder[] errorBuilder = { null };
+				final StringBuilder outputBuilder = new StringBuilder();
+				PrintWriter out = new PrintWriter(new Writer() {
+	
+					@Override
+					public void write(char[] cbuf, int off, int len) throws IOException {
+						flush();
+						outputBuilder.append(StringEscapeUtils.escapeHtml4(new String(cbuf, off, len)));
 					}
-				}
-
-				@Override
-				public void close() throws IOException {
-					flush();					
-				}
-				
-			});
-			
-			scriptContext.setErrorWriter(new Writer() {
-
-				@Override
-				public void write(char[] cbuf, int off, int len) throws IOException {
-					if (errorBuilder[0] == null) {
-						errorBuilder[0] = new StringBuilder();
+	
+					@Override
+					public void flush() throws IOException {
+						if (errorBuilder[0]!=null) {
+							outputBuilder.append("<span style='color:red'>");
+							outputBuilder.append(StringEscapeUtils.escapeHtml4(errorBuilder[0].toString()));
+							outputBuilder.append("</span>");
+							errorBuilder[0] = null;
+						}
+					}
+	
+					@Override
+					public void close() throws IOException {
+						flush();					
 					}
 					
-					errorBuilder[0].append(cbuf, off, len);					 
-				}
-
-				@Override
-				public void flush() throws IOException {
-					if (errorBuilder[0]!=null) {
-						outputBuilder.append("<span style='color:red'>");
-						outputBuilder.append(StringEscapeUtils.escapeHtml4(errorBuilder[0].toString()));
-						outputBuilder.append("</span>");
-						errorBuilder[0] = null;
+				});
+				ScriptableObject.putProperty(scope, "out", org.mozilla.javascript.Context.javaToJS(out, scope));
+				
+				PrintWriter err = new PrintWriter(new Writer() {
+	
+					@Override
+					public void write(char[] cbuf, int off, int len) throws IOException {
+						if (errorBuilder[0] == null) {
+							errorBuilder[0] = new StringBuilder();
+						}
+						
+						errorBuilder[0].append(cbuf, off, len);					 
 					}
-				}
-
-				@Override
-				public void close() throws IOException {
-					flush();
+	
+					@Override
+					public void flush() throws IOException {
+						if (errorBuilder[0]!=null) {
+							outputBuilder.append("<span style='color:red'>");
+							outputBuilder.append(StringEscapeUtils.escapeHtml4(errorBuilder[0].toString()));
+							outputBuilder.append("</span>");
+							errorBuilder[0] = null;
+						}
+					}
+	
+					@Override
+					public void close() throws IOException {
+						flush();
+					}
+					
+				});
+				ScriptableObject.putProperty(scope, "err", org.mozilla.javascript.Context.javaToJS(err, scope));
+				
+				Map<String, Object> ret = new HashMap<>();
+				
+				try {
+					Object result = scriptContext.evaluateString(scope, script, "script", 1, null);
+					ret.put("result", Context.toString(result));
+				} catch (Exception e) {
+					Throwable th = e;
+					while (th.getCause()!=null) {
+						th = th.getCause();
+					}
+					StringWriter exw = new StringWriter();
+					th.printStackTrace(new PrintWriter(exw));
+					exw.close();
+					ret.put("exception", StringEscapeUtils.escapeHtml4(exw.toString()));
+				} finally {
+					out.close();
+					err.close();
+					ret.put("output", outputBuilder.toString());
 				}
 				
-			});
-			
-			Map<String, Object> ret = new HashMap<>();
-			
-			try {
-				Object result = engine.eval(new StringReader(script));
-				ret.put("result", result);
-			} catch (ScriptException e) {
-				Throwable th = e;
-				while (th.getCause()!=null) {
-					th = th.getCause();
-				}
-				StringWriter exw = new StringWriter();
-				th.printStackTrace(new PrintWriter(exw));
-				exw.close();
-				ret.put("exception", StringEscapeUtils.escapeHtml4(exw.toString()));
-			} finally {
-				scriptContext.getErrorWriter().close();
-				scriptContext.getWriter().close();
-				ret.put("output", outputBuilder.toString());
+				return ret;
 			}
-			
-			return ret;
+		} finally {
+			org.mozilla.javascript.Context.exit();
 		}
 	}
 

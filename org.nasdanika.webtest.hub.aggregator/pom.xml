@@ -42,7 +42,6 @@
 		<!-- <module>../org.nasdanika.webtest.hub.target</module> -->
 	
 		<module>../org.nasdanika.webtest.hub.feature</module>
-		<module>../org.nasdanika.webtest.hub.win_auth.feature</module>
 		<!-- <module>../org.nasdanika.webtest.hub.tests.feature</module> -->
 	
 		<module>../org.nasdanika.webtest.hub.repository</module>
