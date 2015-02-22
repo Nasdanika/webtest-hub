@@ -12,8 +12,4 @@ Require-Bundle: org.eclipse.emf.cdo,
  org.nasdanika.web,
  org.nasdanika.cdo,
  com.github.dblock.waffle.jna;bundle-version="1.7.3"
-Service-Component: OSGI-INF/webtest-hub-session-initializer.xml,
- OSGI-INF/webtest-hub-repository.xml,
- OSGI-INF/webtest-hub-server.xml,
- OSGI-INF/webtest-hub-cdo-transaction-context-provider.xml,
- OSGI-INF/webtest-hub-cdo-transaction-context-route.xml
+Service-Component: OSGI-INF/webtest-hub-session-initializer.xml,OSGI-INF/webtest-hub-repository.xml,OSGI-INF/webtest-hub-server.xml,OSGI-INF/webtest-hub-cdo-transaction-context-provider.xml,OSGI-INF/webtest-hub-cdo-transaction-context-route.xml

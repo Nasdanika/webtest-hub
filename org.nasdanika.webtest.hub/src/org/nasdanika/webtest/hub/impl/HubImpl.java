@@ -473,8 +473,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 					null).id("applicationPanel").ngController("ApplicationsController") +
 					htmlFactory.title(getName()) +
 					htmlFactory.tag(TagName.script, new ApplicationsControllerGenerator().generate(context.getObjectPath(this))) +
-					htmlFactory.tag(TagName.script, "jQuery('#applicationOverlay').width(jQuery('#applicationPanel').width());") +
-					htmlFactory.tag(TagName.script, "jQuery('#applicationOverlay').height(jQuery('#applicationPanel').height());");
+					htmlFactory.tag(TagName.script, htmlFactory.showOverlay("#applicationOverlay", "#applicationPanel"));
 	}
 	
 	private Modal createNewApplicationFormModal(HTMLFactory htmlFactory, String objectPath) throws Exception {

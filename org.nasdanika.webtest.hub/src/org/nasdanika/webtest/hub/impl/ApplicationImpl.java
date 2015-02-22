@@ -343,8 +343,7 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 				htmlFactory.panel(Style.INFO, "Test sessions", testSessionsTable, null).id("testSessionsPanel").ngController("TestSessionsController") +
 				htmlFactory.title(getName()) +
 				htmlFactory.tag(TagName.script, new TestSessionsControllerGenerator().generate(context.getObjectPath(this))) +
-				htmlFactory.tag(TagName.script, "jQuery('#testSessionsOverlay').width(jQuery('#testSessionsPanel').width());") +
-				htmlFactory.tag(TagName.script, "jQuery('#testSessionsOverlay').height(jQuery('#testSessionsPanel').height());")				;
+				htmlFactory.tag(TagName.script, htmlFactory.showOverlay("#testSessionsOverlay", "#testSessionsPanel"));
 	}
 	
 	@Override

@@ -62,6 +62,7 @@ import org.nasdanika.webtest.hub.PageResult;
 import org.nasdanika.webtest.hub.Screenshot;
 import org.nasdanika.webtest.hub.TestResult;
 import org.nasdanika.webtest.hub.TestSession;
+import org.osgi.framework.FrameworkUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -385,11 +386,11 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 			} else {			
 				context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire a write lock");
 			}
-			File out = new File("repo-dump-"+Long.toString(System.currentTimeMillis(), Character.MAX_RADIX)+".xml");
-			try (FileOutputStream fos = new FileOutputStream(out)) {
-				eResource().save(fos, null);
-				System.out.println("Repository dumped to "+out.getAbsolutePath());
-			}
+//			File out = new File("repo-dump-"+Long.toString(System.currentTimeMillis(), Character.MAX_RADIX)+".xml");
+//			try (FileOutputStream fos = new FileOutputStream(out)) {
+//				eResource().save(fos, null);
+//				System.out.println("Repository dumped to "+out.getAbsolutePath());
+//			}
 		}
 	}	
 	
