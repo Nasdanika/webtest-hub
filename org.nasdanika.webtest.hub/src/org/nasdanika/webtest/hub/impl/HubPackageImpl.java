@@ -22,6 +22,7 @@ import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
+import org.nasdanika.webtest.hub.AuthenticationMode;
 import org.nasdanika.webtest.hub.BreadcrumbsProvider;
 import org.nasdanika.webtest.hub.Coverage;
 import org.nasdanika.webtest.hub.Description;
@@ -270,6 +271,13 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum authenticationModeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum operationStatusEEnum = null;
 
 	/**
@@ -419,6 +427,33 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 */
 	public EOperation getHub__ExecuteScript__HttpContext_String() {
 		return hubEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getHub__UserList__HttpContext() {
+		return hubEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getHub__DeleteUser__HttpContext_String() {
+		return hubEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String() {
+		return hubEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -1380,6 +1415,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getAuthenticationMode() {
+		return authenticationModeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getOperationStatus() {
 		return operationStatusEEnum;
 	}
@@ -1446,6 +1490,9 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(hubEClass, HUB__ADMINISTRATORS);
 		createEAttribute(hubEClass, HUB__SLIDE_WIDTH);
 		createEOperation(hubEClass, HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING);
+		createEOperation(hubEClass, HUB___USER_LIST__HTTPCONTEXT);
+		createEOperation(hubEClass, HUB___DELETE_USER__HTTPCONTEXT_STRING);
+		createEOperation(hubEClass, HUB___CREATE_OR_UPDATE_USER__HTTPCONTEXT_STRING_STRING_STRING_BOOLEAN_BOOLEAN_AUTHENTICATIONMODE_STRING_STRING);
 
 		applicationOwnerEClass = createEClass(APPLICATION_OWNER);
 		createEReference(applicationOwnerEClass, APPLICATION_OWNER__APPLICATIONS);
@@ -1583,6 +1630,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		deletableEClass = createEClass(DELETABLE);
 
 		// Create enums
+		authenticationModeEEnum = createEEnum(AUTHENTICATION_MODE);
 		operationStatusEEnum = createEEnum(OPERATION_STATUS);
 
 		// Create data types
@@ -1670,6 +1718,45 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		addEException(op, this.getException());
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getHub__UserList__HttpContext(), null, "userList", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getHub__DeleteUser__HttpContext_String(), null, "deleteUser", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "userID", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String(), null, "createOrUpdateUser", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "userID", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "login", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "admin", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "disabled", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAuthenticationMode(), "authentication", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "password", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "passwordConfirmation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
@@ -1826,6 +1913,10 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEClass(deletableEClass, Deletable.class, "Deletable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
+		initEEnum(authenticationModeEEnum, AuthenticationMode.class, "AuthenticationMode");
+		addEEnumLiteral(authenticationModeEEnum, AuthenticationMode.PASSWORD);
+		addEEnumLiteral(authenticationModeEEnum, AuthenticationMode.NTLM);
+
 		initEEnum(operationStatusEEnum, OperationStatus.class, "OperationStatus");
 		addEEnumLiteral(operationStatusEEnum, OperationStatus.PASS);
 		addEEnumLiteral(operationStatusEEnum, OperationStatus.FAIL);
@@ -1841,12 +1932,93 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createResource(eNS_URI);
 
 		// Create annotations
-		// org.nasdanika.cdo.web:eager-obj
-		createOrgAnnotations();
-		// org.nasdanika.cdo.web:lenient
-		createOrg_1Annotations();
 		// org.nasdanika.cdo.web:getter
+		createOrgAnnotations();
+		// org.nasdanika.cdo.web.html.form-control
+		createOrg_1Annotations();
+		// org.nasdanika.cdo.web:eager-obj
 		createOrg_2Annotations();
+		// org.nasdanika.cdo.web:lenient
+		createOrg_3Annotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo.web:getter</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrgAnnotations() {
+		String source = "org.nasdanika.cdo.web:getter";	
+		addAnnotation
+		  (getHub__UserList__HttpContext(), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (getApplication__GetSummaryRow__HttpContext(), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (getTestSession__GetSummaryRow__HttpContext(), 
+		   source, 
+		   new String[] {
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo.web.html.form-control</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrg_1Annotations() {
+		String source = "org.nasdanika.cdo.web.html.form-control";	
+		addAnnotation
+		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(1), 
+		   source, 
+		   new String[] {
+			 "private", "true"
+		   });	
+		addAnnotation
+		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(2), 
+		   source, 
+		   new String[] {
+			 "required", "true"
+		   });	
+		addAnnotation
+		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(4), 
+		   source, 
+		   new String[] {
+			 "inline", "true"
+		   });	
+		addAnnotation
+		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(5), 
+		   source, 
+		   new String[] {
+			 "inline", "true"
+		   });	
+		addAnnotation
+		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(6), 
+		   source, 
+		   new String[] {
+			 "default", "PASSWORD"
+		   });	
+		addAnnotation
+		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(7), 
+		   source, 
+		   new String[] {
+			 "type", "password",
+			 "group-attribute:ng-hide", "userModel.data.authentication == \'NTLM\'"
+		   });	
+		addAnnotation
+		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(8), 
+		   source, 
+		   new String[] {
+			 "type", "password",
+			 "group-attribute:ng-hide", "userModel.data.authentication == \'NTLM\'"
+		   });
 	}
 
 	/**
@@ -1855,7 +2027,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrgAnnotations() {
+	protected void createOrg_2Annotations() {
 		String source = "org.nasdanika.cdo.web:eager-obj";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
@@ -1870,7 +2042,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_1Annotations() {
+	protected void createOrg_3Annotations() {
 		String source = "org.nasdanika.cdo.web:lenient";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
@@ -1879,26 +2051,6 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		   });	
 		addAnnotation
 		  (getApplication_TestSessions(), 
-		   source, 
-		   new String[] {
-		   });
-	}
-
-	/**
-	 * Initializes the annotations for <b>org.nasdanika.cdo.web:getter</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createOrg_2Annotations() {
-		String source = "org.nasdanika.cdo.web:getter";	
-		addAnnotation
-		  (getApplication__GetSummaryRow__HttpContext(), 
-		   source, 
-		   new String[] {
-		   });	
-		addAnnotation
-		  (getTestSession__GetSummaryRow__HttpContext(), 
 		   source, 
 		   new String[] {
 		   });

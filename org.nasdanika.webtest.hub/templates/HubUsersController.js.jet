@@ -1,0 +1,26 @@
+<%@ jet package="org.nasdanika.webtest.hub.impl" class="UsersControllerGenerator" skeleton="Arguments.skeleton" %>
+
+require(["<%=args[0]%>.js", 'q', 'jquery'], function(hub, Q, jQuery) {
+	angular.module('hubUsersApp', []).controller('UsersController', ['$scope', function ($scope) {  	 
+
+		function onError(error) {
+			jQuery("#usersAppOverlay").css("display", "none");
+			console.trace(error);
+			alert(error);
+		};
+		
+		function showOverlay() {
+			jQuery('#usersAppOverlay').width(jQuery('#usersApp').width()+12);
+			jQuery('#usersAppOverlay').height(jQuery('#usersApp').height()+12);
+			jQuery("#usersAppOverlay").show();		
+		};		
+		   		  		
+		$scope.$applyAsync(function($scope) {
+			jQuery("#usersAppOverlay").hide();
+			$scope.userModel = <%=args[1]%>; 		
+		});					
+      
+	}]);
+    
+	angular.bootstrap(jQuery("#usersApp"), ['hubUsersApp']);
+});

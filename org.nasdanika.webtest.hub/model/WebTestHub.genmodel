@@ -10,6 +10,10 @@
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Hub" basePackage="org.nasdanika.webtest" disposableProviderFactory="true"
       ecorePackage="WebTestHub.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="WebTestHub.ecore#//AuthenticationMode">
+      <genEnumLiterals ecoreEnumLiteral="WebTestHub.ecore#//AuthenticationMode/Password"/>
+      <genEnumLiterals ecoreEnumLiteral="WebTestHub.ecore#//AuthenticationMode/NTLM"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="WebTestHub.ecore#//OperationStatus">
       <genEnumLiterals ecoreEnumLiteral="WebTestHub.ecore#//OperationStatus/Pass"/>
       <genEnumLiterals ecoreEnumLiteral="WebTestHub.ecore#//OperationStatus/Fail"/>
@@ -28,6 +32,24 @@
       <genOperations ecoreOperation="WebTestHub.ecore#//Hub/executeScript">
         <genParameters ecoreParameter="WebTestHub.ecore#//Hub/executeScript/context"/>
         <genParameters ecoreParameter="WebTestHub.ecore#//Hub/executeScript/script"/>
+      </genOperations>
+      <genOperations ecoreOperation="WebTestHub.ecore#//Hub/userList">
+        <genParameters ecoreParameter="WebTestHub.ecore#//Hub/userList/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="WebTestHub.ecore#//Hub/deleteUser">
+        <genParameters ecoreParameter="WebTestHub.ecore#//Hub/deleteUser/context"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Hub/deleteUser/userID"/>
+      </genOperations>
+      <genOperations ecoreOperation="WebTestHub.ecore#//Hub/createOrUpdateUser">
+        <genParameters ecoreParameter="WebTestHub.ecore#//Hub/createOrUpdateUser/context"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Hub/createOrUpdateUser/userID"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Hub/createOrUpdateUser/login"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Hub/createOrUpdateUser/name"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Hub/createOrUpdateUser/admin"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Hub/createOrUpdateUser/disabled"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Hub/createOrUpdateUser/authentication"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Hub/createOrUpdateUser/password"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Hub/createOrUpdateUser/passwordConfirmation"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="WebTestHub.ecore#//ApplicationOwner">

@@ -6,14 +6,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
@@ -21,6 +22,7 @@ import org.nasdanika.cdo.CDOViewContext;
 import org.nasdanika.cdo.security.Group;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.impl.LoginPasswordProtectionDomainImpl;
+import org.nasdanika.cdo.web.html.AngularJsEOperationFormGenerator;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Button;
 import org.nasdanika.html.Button.Type;
@@ -36,6 +38,7 @@ import org.nasdanika.html.Input;
 import org.nasdanika.html.Modal;
 import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
+import org.nasdanika.html.Tabs;
 import org.nasdanika.html.Tag;
 import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.TextArea;
@@ -45,6 +48,7 @@ import org.nasdanika.web.HttpContext;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
+import org.nasdanika.webtest.hub.AuthenticationMode;
 import org.nasdanika.webtest.hub.BreadcrumbsProvider;
 import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
@@ -291,6 +295,39 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Map<String, Object>> userList(HttpContext context) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Map<String, Object>> deleteUser(HttpContext context, String userID) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Map<String, Object>> createOrUpdateUser(HttpContext context, String userID, String login, String name, boolean admin, boolean disabled, AuthenticationMode authentication, String password, String passwordConfirmation) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ApplicationOwner.class) {
@@ -339,6 +376,27 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 			case HubPackage.HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING:
 				try {
 					return executeScript((HttpContext)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case HubPackage.HUB___USER_LIST__HTTPCONTEXT:
+				try {
+					return userList((HttpContext)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case HubPackage.HUB___DELETE_USER__HTTPCONTEXT_STRING:
+				try {
+					return deleteUser((HttpContext)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case HubPackage.HUB___CREATE_OR_UPDATE_USER__HTTPCONTEXT_STRING_STRING_STRING_BOOLEAN_BOOLEAN_AUTHENTICATIONMODE_STRING_STRING:
+				try {
+					return createOrUpdateUser((HttpContext)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (String)arguments.get(3), (Boolean)arguments.get(4), (Boolean)arguments.get(5), (AuthenticationMode)arguments.get(6), (String)arguments.get(7), (String)arguments.get(8));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -464,6 +522,25 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 			appFragment.content(addButton);
 		}
 		
+		if (context.authorize(this, "manage", "users", null)) { // Tabs
+			Tabs tabs = htmlFactory.tabs();
+			tabs.item(
+					"Applications", 
+					htmlFactory.spinnerOverlay(Spinner.refresh).id("applicationOverlay"),
+					htmlFactory.div(
+							appFragment,
+							htmlFactory.tag(TagName.script, new ApplicationsControllerGenerator().generate(context.getObjectPath(this))),
+							htmlFactory.tag(TagName.script, htmlFactory.showOverlay("#applicationOverlay", "#applicationPanel", 12, 12)))
+							.id("applicationPanel")
+							.style("border", "1px solid silver")
+							.style("padding", "5px")
+							.ngController("ApplicationsController"));
+			
+			tabs.ajaxItem("Users", context.getObjectPath(this)+"/usersApp");
+			
+			return htmlFactory.div(createBreadcrumbs(context, true)).id("breadcrumbs-container").toString() + tabs + htmlFactory.title(getName());					
+		}
+		
 		return htmlFactory.div(createBreadcrumbs(context, true)).id("breadcrumbs-container").toString() +
 				htmlFactory.spinnerOverlay(Spinner.refresh).id("applicationOverlay") +
 				htmlFactory.panel(
@@ -473,7 +550,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 					null).id("applicationPanel").ngController("ApplicationsController") +
 					htmlFactory.title(getName()) +
 					htmlFactory.tag(TagName.script, new ApplicationsControllerGenerator().generate(context.getObjectPath(this))) +
-					htmlFactory.tag(TagName.script, htmlFactory.showOverlay("#applicationOverlay", "#applicationPanel"));
+					htmlFactory.tag(TagName.script, htmlFactory.showOverlay("#applicationOverlay", "#applicationPanel", 12, 12));
 	}
 	
 	private Modal createNewApplicationFormModal(HTMLFactory htmlFactory, String objectPath) throws Exception {
@@ -540,8 +617,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 				.title("Create application")
 				.body(newApplicationForm);
 	}
-	
-	
+		
 	@Override
 	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
@@ -549,5 +625,67 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		breadcrumbs.item(active ? null : htmlFactory.routeRef("main", "/"+context.getObjectPath(this))+"/summary", "Home");
 		return breadcrumbs;
 	}
+	
+	/**
+	 * Generates AngularJS application template for user management.
+	 * @param context
+	 * @return
+	 * @throws Exception
+	 */
+	@RouteMethod
+	public String usersApp(HttpContext context) throws Exception {
+		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+		if (!context.authorize(this, "manage", "users", null)) {
+			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
+		}	
+		
+		Table usersTable = htmlFactory.table().bordered();
+		Row hRow = usersTable.row().style(Style.INFO);
+		hRow.header("Login").style("text-align", "center").attribute("nowrap", "true");
+		hRow.header("Name").style("text-align", "center").attribute("nowrap", "true");
+		hRow.header("Authentication").style("text-align", "center").attribute("nowrap", "true");
+		hRow.header("Disabled").style("text-align", "center").attribute("nowrap", "true");
+		hRow.header("Admin").style("text-align", "center").attribute("nowrap", "true");
+		
+		Row userRow = usersTable.row().ngRepeat("userInfo in userList");
+		
+		Button editButton = htmlFactory.button(htmlFactory.fontAwesome().webApplication(WebApplication.pencil).getTarget());
+		editButton.ngClick("updateUser(userInfo)");
+		
+		Button deleteButton = htmlFactory.button(htmlFactory.fontAwesome().webApplication(WebApplication.trash).getTarget());
+		deleteButton.ngClick("deleteUser(userInfo)");
+				
+		userRow.cell(htmlFactory.span().ngBind("appSummary.name"), htmlFactory.div(editButton, "&nbsp;", deleteButton).style("float", "right"));		
+
+		userRow.cell().ngBind("userInfo.name");
+		userRow.cell().ngBind("userInfo.authentication").style("text-align", "center");
+		userRow.cell(htmlFactory.fontAwesome().webApplication(WebApplication.check).getTarget().ngShow("userInfo.disabled")).style("text-align", "center");
+		userRow.cell(htmlFactory.fontAwesome().webApplication(WebApplication.check).getTarget().ngShow("userInfo.admin")).style("text-align", "center");
+		
+		EOperation createOrUpdateUser = HubPackage.eINSTANCE.getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String();
+		AngularJsEOperationFormGenerator createUpdateUserFormGenerator = new AngularJsEOperationFormGenerator(createOrUpdateUser, "userModel", "createOrUpdateUser()");
+		
+		Modal createUpdateUserModal = htmlFactory.modal()
+				.id("createUpdateUserFormModal")
+				.small()
+				.title("User")
+				.body(createUpdateUserFormGenerator.generateForm(htmlFactory));
+		
+		Button addButton = htmlFactory.button("Add").style(Style.PRIMARY).ngClick("createUser()");
+		
+		Button testButton = htmlFactory.button("Test dialog").style(Style.PRIMARY);
+		createUpdateUserModal.bind(testButton);
+	
+		return htmlFactory.spinnerOverlay(Spinner.refresh).id("usersAppOverlay").toString() +
+				htmlFactory.div(usersTable, addButton, "&nbsp;", testButton, createUpdateUserModal)
+					.id("usersApp")
+					.style("border", "solid 1px silver")
+					.style("padding", "5px")
+					.ngController("UsersController") + 
+				htmlFactory.tag(TagName.script, new UsersControllerGenerator().generate(context.getObjectPath(this), createUpdateUserFormGenerator.generateModel())) + 
+				htmlFactory.tag(TagName.script, htmlFactory.showOverlay("#usersAppOverlay", "#usersApp", 12, 12));
+	}
+	
+	
 		
 } //HubImpl

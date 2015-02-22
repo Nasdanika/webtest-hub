@@ -3,8 +3,6 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
@@ -19,9 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.cdo.CDOObject;
@@ -62,7 +58,6 @@ import org.nasdanika.webtest.hub.PageResult;
 import org.nasdanika.webtest.hub.Screenshot;
 import org.nasdanika.webtest.hub.TestResult;
 import org.nasdanika.webtest.hub.TestSession;
-import org.osgi.framework.FrameworkUtil;
 
 /**
  * <!-- begin-user-doc -->

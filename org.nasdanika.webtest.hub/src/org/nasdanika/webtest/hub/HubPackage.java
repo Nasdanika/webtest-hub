@@ -215,13 +215,40 @@ public interface HubPackage extends EPackage {
 	int HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>User List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUB___USER_LIST__HTTPCONTEXT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Delete User</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUB___DELETE_USER__HTTPCONTEXT_STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Create Or Update User</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUB___CREATE_OR_UPDATE_USER__HTTPCONTEXT_STRING_STRING_STRING_BOOLEAN_BOOLEAN_AUTHENTICATIONMODE_STRING_STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Hub</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HUB_OPERATION_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 1;
+	int HUB_OPERATION_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}' class.
@@ -2955,6 +2982,16 @@ public interface HubPackage extends EPackage {
 	int DELETABLE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.AuthenticationMode <em>Authentication Mode</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.AuthenticationMode
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getAuthenticationMode()
+	 * @generated
+	 */
+	int AUTHENTICATION_MODE = 30;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2962,7 +2999,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getOperationStatus()
 	 * @generated
 	 */
-	int OPERATION_STATUS = 30;
+	int OPERATION_STATUS = 31;
 
 	/**
 	 * The meta object id for the '<em>Http Context</em>' data type.
@@ -2972,7 +3009,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getHttpContext()
 	 * @generated
 	 */
-	int HTTP_CONTEXT = 31;
+	int HTTP_CONTEXT = 32;
 
 	/**
 	 * The meta object id for the '<em>JSON Object</em>' data type.
@@ -2982,7 +3019,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONObject()
 	 * @generated
 	 */
-	int JSON_OBJECT = 32;
+	int JSON_OBJECT = 33;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -2992,7 +3029,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 33;
+	int EXCEPTION = 34;
 
 
 	/**
@@ -3069,6 +3106,36 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getHub__ExecuteScript__HttpContext_String();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#userList(org.nasdanika.web.HttpContext) <em>User List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>User List</em>' operation.
+	 * @see org.nasdanika.webtest.hub.Hub#userList(org.nasdanika.web.HttpContext)
+	 * @generated
+	 */
+	EOperation getHub__UserList__HttpContext();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#deleteUser(org.nasdanika.web.HttpContext, java.lang.String) <em>Delete User</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Delete User</em>' operation.
+	 * @see org.nasdanika.webtest.hub.Hub#deleteUser(org.nasdanika.web.HttpContext, java.lang.String)
+	 * @generated
+	 */
+	EOperation getHub__DeleteUser__HttpContext_String();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#createOrUpdateUser(org.nasdanika.web.HttpContext, java.lang.String, java.lang.String, java.lang.String, boolean, boolean, org.nasdanika.webtest.hub.AuthenticationMode, java.lang.String, java.lang.String) <em>Create Or Update User</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Or Update User</em>' operation.
+	 * @see org.nasdanika.webtest.hub.Hub#createOrUpdateUser(org.nasdanika.web.HttpContext, java.lang.String, java.lang.String, java.lang.String, boolean, boolean, org.nasdanika.webtest.hub.AuthenticationMode, java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}'.
@@ -4210,6 +4277,16 @@ public interface HubPackage extends EPackage {
 	EClass getDeletable();
 
 	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.webtest.hub.AuthenticationMode <em>Authentication Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Authentication Mode</em>'.
+	 * @see org.nasdanika.webtest.hub.AuthenticationMode
+	 * @generated
+	 */
+	EEnum getAuthenticationMode();
+
+	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4332,6 +4409,30 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING = eINSTANCE.getHub__ExecuteScript__HttpContext_String();
+
+		/**
+		 * The meta object literal for the '<em><b>User List</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation HUB___USER_LIST__HTTPCONTEXT = eINSTANCE.getHub__UserList__HttpContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Delete User</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation HUB___DELETE_USER__HTTPCONTEXT_STRING = eINSTANCE.getHub__DeleteUser__HttpContext_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Or Update User</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation HUB___CREATE_OR_UPDATE_USER__HTTPCONTEXT_STRING_STRING_STRING_BOOLEAN_BOOLEAN_AUTHENTICATIONMODE_STRING_STRING = eINSTANCE.getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}' class.
@@ -5238,6 +5339,16 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DELETABLE = eINSTANCE.getDeletable();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.AuthenticationMode <em>Authentication Mode</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.AuthenticationMode
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getAuthenticationMode()
+		 * @generated
+		 */
+		EEnum AUTHENTICATION_MODE = eINSTANCE.getAuthenticationMode();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}' enum.

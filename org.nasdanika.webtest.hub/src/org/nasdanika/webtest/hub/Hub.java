@@ -159,4 +159,28 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	 */
 	Map<String, Object> executeScript(HttpContext context, String script) throws Exception;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
+	 * @generated
+	 */
+	EList<Map<String, Object>> userList(HttpContext context) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
+	 * @generated
+	 */
+	EList<Map<String, Object>> deleteUser(HttpContext context, String userID) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext" userIDAnnotation="org.nasdanika.cdo.web.html.form-control private='true'" loginAnnotation="org.nasdanika.cdo.web.html.form-control required='true'" adminAnnotation="org.nasdanika.cdo.web.html.form-control inline='true'" disabledAnnotation="org.nasdanika.cdo.web.html.form-control inline='true'" authenticationAnnotation="org.nasdanika.cdo.web.html.form-control default='PASSWORD'" passwordAnnotation="org.nasdanika.cdo.web.html.form-control type='password' group-attribute:ng-hide='userModel.data.authentication == \'NTLM\''" passwordConfirmationAnnotation="org.nasdanika.cdo.web.html.form-control type='password' group-attribute:ng-hide='userModel.data.authentication == \'NTLM\''"
+	 * @generated
+	 */
+	EList<Map<String, Object>> createOrUpdateUser(HttpContext context, String userID, String login, String name, boolean admin, boolean disabled, AuthenticationMode authentication, String password, String passwordConfirmation) throws Exception;
+
 } // Hub

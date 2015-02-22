@@ -15,6 +15,7 @@ import org.nasdanika.web.HttpContext;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
+import org.nasdanika.webtest.hub.AuthenticationMode;
 import org.nasdanika.webtest.hub.Coverage;
 import org.nasdanika.webtest.hub.Description;
 import org.nasdanika.webtest.hub.Descriptor;
@@ -123,6 +124,8 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case HubPackage.AUTHENTICATION_MODE:
+				return createAuthenticationModeFromString(eDataType, initialValue);
 			case HubPackage.OPERATION_STATUS:
 				return createOperationStatusFromString(eDataType, initialValue);
 			case HubPackage.HTTP_CONTEXT:
@@ -144,6 +147,8 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case HubPackage.AUTHENTICATION_MODE:
+				return convertAuthenticationModeToString(eDataType, instanceValue);
 			case HubPackage.OPERATION_STATUS:
 				return convertOperationStatusToString(eDataType, instanceValue);
 			case HubPackage.HTTP_CONTEXT:
@@ -415,6 +420,26 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	public Locator createLocator() {
 		LocatorImpl locator = new LocatorImpl();
 		return locator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AuthenticationMode createAuthenticationModeFromString(EDataType eDataType, String initialValue) {
+		AuthenticationMode result = AuthenticationMode.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertAuthenticationModeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
