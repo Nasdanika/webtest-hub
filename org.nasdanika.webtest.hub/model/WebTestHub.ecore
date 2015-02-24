@@ -24,7 +24,7 @@
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
       <eParameters name="context" eType="#//HttpContext"/>
-      <eParameters name="userID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="login" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="createOrUpdateUser" upperBound="-1" eExceptions="#//Exception">
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
@@ -40,6 +40,8 @@
       <eParameters name="login" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eAnnotations source="org.nasdanika.cdo.web.html.form-control">
           <details key="required" value="true"/>
+          <details key="attribute:ng-disabled" value="userModel.data.userID"/>
+          <details key="validator" value="if (!this.data.userID) {&#xD;&#xA;&#x9;for (k in $scope.userList) {&#xD;&#xA;&#x9;&#x9;if (value===$scope.userList[k].login) {&#xD;&#xA;&#x9;&#x9;&#x9;return &quot;Duplicate login&quot;;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;}"/>
         </eAnnotations>
       </eParameters>
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -60,14 +62,17 @@
       </eParameters>
       <eParameters name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eAnnotations source="org.nasdanika.cdo.web.html.form-control">
-          <details key="type" value="password"/>
-          <details key="group-attribute:ng-hide" value="userModel.data.authentication == 'NTLM'"/>
+          <details key="input-type" value="password"/>
+          <details key="group-attribute:ng-hide" value="userModel.data.authentication === 'NTLM'"/>
+          <details key="attribute:ng-required" value="userModel.data.authentication === 'PASSWORD' &amp;&amp; !userModel.data.userID"/>
         </eAnnotations>
       </eParameters>
       <eParameters name="passwordConfirmation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eAnnotations source="org.nasdanika.cdo.web.html.form-control">
-          <details key="type" value="password"/>
-          <details key="group-attribute:ng-hide" value="userModel.data.authentication == 'NTLM'"/>
+          <details key="input-type" value="password"/>
+          <details key="group-attribute:ng-hide" value="userModel.data.authentication === 'NTLM'"/>
+          <details key="attribute:ng-required" value="userModel.data.authentication === 'PASSWORD' &amp;&amp; !userModel.data.userID"/>
+          <details key="validator" value="if (this.data.authentication === 'PASSWORD' &amp;&amp; value!==this.data.password) { return 'Passwords do not match'; }"/>
         </eAnnotations>
       </eParameters>
     </eOperations>

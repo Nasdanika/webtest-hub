@@ -36,7 +36,7 @@ public enum AuthenticationMode implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NTLM(1, "NTLM", "NTLM with spaces for testing");
+	NTLM(1, "NTLM", "NTLM");
 
 	/**
 	 * The '<em><b>Password</b></em>' literal value.
@@ -62,7 +62,7 @@ public enum AuthenticationMode implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NTLM
-	 * @model literal="NTLM with spaces for testing"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */

@@ -1985,7 +1985,9 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(2), 
 		   source, 
 		   new String[] {
-			 "required", "true"
+			 "required", "true",
+			 "attribute:ng-disabled", "userModel.data.userID",
+			 "validator", "if (!this.data.userID) {\r\n\tfor (k in $scope.userList) {\r\n\t\tif (value===$scope.userList[k].login) {\r\n\t\t\treturn \"Duplicate login\";\r\n\t\t}\r\n\t}\r\n}"
 		   });	
 		addAnnotation
 		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(4), 
@@ -2009,15 +2011,18 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(7), 
 		   source, 
 		   new String[] {
-			 "type", "password",
-			 "group-attribute:ng-hide", "userModel.data.authentication == \'NTLM\'"
+			 "input-type", "password",
+			 "group-attribute:ng-hide", "userModel.data.authentication === \'NTLM\'",
+			 "attribute:ng-required", "userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID"
 		   });	
 		addAnnotation
 		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(8), 
 		   source, 
 		   new String[] {
-			 "type", "password",
-			 "group-attribute:ng-hide", "userModel.data.authentication == \'NTLM\'"
+			 "input-type", "password",
+			 "group-attribute:ng-hide", "userModel.data.authentication === \'NTLM\'",
+			 "attribute:ng-required", "userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID",
+			 "validator", "if (this.data.authentication === \'PASSWORD\' && value!==this.data.password) { return \'Passwords do not match\'; }"
 		   });
 	}
 

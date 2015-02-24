@@ -1,24 +1,91 @@
 <%@ jet package="org.nasdanika.webtest.hub.impl" class="UsersControllerGenerator" skeleton="Arguments.skeleton" %>
 
 require(["<%=args[0]%>.js", 'q', 'jquery'], function(hub, Q, jQuery) {
-	angular.module('hubUsersApp', []).controller('UsersController', ['$scope', function ($scope) {  	 
+	angular.module('hubUsersApp', []).controller('UsersController', ['$scope', function ($scope) {  	
+	
+		function updateUserList(userList) {
+			$scope.$apply(function($scope) {
+				$scope.userList = userList;
+				hideOverlay();
+			});
+		} 
 
 		function onError(error) {
 			jQuery("#usersAppOverlay").css("display", "none");
 			console.trace(error);
 			alert(error);
 		};
-		
+						
 		function showOverlay() {
 			jQuery('#usersAppOverlay').width(jQuery('#usersApp').width()+12);
 			jQuery('#usersAppOverlay').height(jQuery('#usersApp').height()+12);
 			jQuery("#usersAppOverlay").show();		
-		};		
-		   		  		
-		$scope.$applyAsync(function($scope) {
+		};	
+		
+		function hideOverlay() {
 			jQuery("#usersAppOverlay").hide();
-			$scope.userModel = <%=args[1]%>; 		
-		});					
+		}
+						
+		function showFormOverlay() {
+			jQuery('#userFormOverlay').width(jQuery('#userForm').width());
+			jQuery('#userFormOverlay').height(jQuery('#userForm').height());
+			jQuery("#userFormOverlay").show();		
+		};	
+		
+		function hideFormOverlay() {
+			jQuery("#userFormOverlay").hide();
+		}
+		
+		hub.userList.then(function(userList) {
+			$scope.$apply(function($scope) {
+				$scope.userModel = <%=args[1]%>;
+				$scope.userList = userList;
+				
+				$scope.updateUser = function(userInfo) {
+					$scope.userModel.clear();
+					$scope.userModel.data = userInfo;
+					$scope.userDialogTitle = "Update user";
+					jQuery("#createUpdateUserFormModal").modal('show');
+				}
+				
+				$scope.createUser = function() {
+					$scope.userModel.clear();
+					$scope.userDialogTitle = "Create user";
+					jQuery("#createUpdateUserFormModal").modal('show');
+				}
+				
+				$scope.createOrUpdateUser = function() {
+					showFormOverlay();
+					
+					$scope.userModel.validateAndApply(hub.createOrUpdateUser).then(
+						function(userList) {
+							$scope.$apply(function($scope) {
+								$scope.userList = userList;
+								hideFormOverlay();
+								jQuery("#createUpdateUserFormModal").modal('hide');								
+							});						
+						},
+						function(reason) {
+						if (reason.validationFailed) {
+							$scope.$apply();
+						} else {
+							console.trace(reason);
+							alert(reason.targetInvocationError ? reason.targetInvocationError : reason);						
+						}					
+						hideFormOverlay();
+					}).done();
+				}
+				
+				$scope.deleteUser = function(userInfo) {
+					if (confirm("Do you really want to delete user "+userInfo.login+"?")) {
+						showOverlay();
+						hub.deleteUser(userInfo.login).then(updateUserList, onError).done();
+					}				
+				}
+				 	
+				hideOverlay();
+			});							
+		});			   		  		
       
 	}]);
     

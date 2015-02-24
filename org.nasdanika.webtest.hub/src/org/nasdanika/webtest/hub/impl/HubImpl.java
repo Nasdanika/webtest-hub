@@ -8,13 +8,18 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.eclipse.emf.cdo.common.id.CDOIDUtil;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
@@ -293,34 +298,86 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Map<String, Object>> userList(HttpContext context) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<Map<String, Object>> ret = new BasicEList<>();
+		for (User user: getUsers()) {
+			Map<String, Object> entry = new HashMap<>();
+			ret.add(entry);
+			entry.put("userID", HubUtil.cdoIDtoString(user.cdoID()));
+			entry.put("login", user.getLogin());
+			if (user.getName()!=null) {
+				entry.put("name", user.getName());
+			}
+			if (user.getPasswordHash()==null) {
+				entry.put("authentication",  AuthenticationMode.NTLM.name());
+				entry.put("authenticationLiteral",  AuthenticationMode.NTLM.toString());
+			} else {
+				entry.put("authentication",  AuthenticationMode.PASSWORD.name());
+				entry.put("authenticationLiteral",  AuthenticationMode.PASSWORD.toString());
+			}
+			entry.put("disabled", user.isDisabled());
+			entry.put("admin", getAdministrators().isMember(user));
+		}
+		Collections.sort(ret, new Comparator<Map<String, Object>>() {
+
+			@Override
+			public int compare(Map<String, Object> o1, Map<String, Object> o2) {
+				return ((String) o1.get("login")).compareTo((String) o2.get("login"));
+			}
+			
+		}); 
+		return ret;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public EList<Map<String, Object>> deleteUser(HttpContext context, String userID) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public EList<Map<String, Object>> deleteUser(HttpContext context, String login) throws Exception {
+		org.nasdanika.cdo.security.User toDelete = getUser(login);
+		if (toDelete!=null) {
+			EcoreUtil.delete(toDelete, true);
+		}
+		return userList(context);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public EList<Map<String, Object>> createOrUpdateUser(HttpContext context, String userID, String login, String name, boolean admin, boolean disabled, AuthenticationMode authentication, String password, String passwordConfirmation) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public EList<Map<String, Object>> createOrUpdateUser(
+			HttpContext context, 
+			String userID, 
+			String login, 
+			String name, 
+			boolean admin, 
+			boolean disabled, 
+			AuthenticationMode authentication, 
+			String password, 
+			String passwordConfirmation) throws Exception {
+				
+		User user = (User) (userID==null ? HubFactory.eINSTANCE.createUser() : cdoView().getObject(CDOIDUtil.read(userID)));
+		user.setLogin(login);
+		user.setName(name);
+		if (admin) {
+			getAdministrators().getMembers().add(user);
+		} else {
+			getAdministrators().getMembers().remove(user);
+		}
+		user.setDisabled(disabled);
+		if (AuthenticationMode.NTLM.equals(authentication)) {
+			user.setPasswordHash(null);
+		} else if (password!=null) {
+			setPasswordHash(user, password);
+		}
+		if (userID==null) {
+			getUsers().add(user);
+		}
+		return userList(context);
 	}
 
 	/**
@@ -532,7 +589,9 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 							htmlFactory.tag(TagName.script, new ApplicationsControllerGenerator().generate(context.getObjectPath(this))),
 							htmlFactory.tag(TagName.script, htmlFactory.showOverlay("#applicationOverlay", "#applicationPanel", 12, 12)))
 							.id("applicationPanel")
-							.style("border", "1px solid silver")
+							.style("border-left", "solid 1px #ddd")
+							.style("border-right", "solid 1px #ddd")
+							.style("border-bottom", "solid 1px #ddd")
 							.style("padding", "5px")
 							.ngController("ApplicationsController"));
 			
@@ -655,10 +714,10 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		Button deleteButton = htmlFactory.button(htmlFactory.fontAwesome().webApplication(WebApplication.trash).getTarget());
 		deleteButton.ngClick("deleteUser(userInfo)");
 				
-		userRow.cell(htmlFactory.span().ngBind("appSummary.name"), htmlFactory.div(editButton, "&nbsp;", deleteButton).style("float", "right"));		
+		userRow.cell(htmlFactory.span().ngBind("userInfo.login"), htmlFactory.div(editButton, "&nbsp;", deleteButton).style("float", "right"));		
 
 		userRow.cell().ngBind("userInfo.name");
-		userRow.cell().ngBind("userInfo.authentication").style("text-align", "center");
+		userRow.cell().ngBind("userInfo.authenticationLiteral").style("text-align", "center");
 		userRow.cell(htmlFactory.fontAwesome().webApplication(WebApplication.check).getTarget().ngShow("userInfo.disabled")).style("text-align", "center");
 		userRow.cell(htmlFactory.fontAwesome().webApplication(WebApplication.check).getTarget().ngShow("userInfo.admin")).style("text-align", "center");
 		
@@ -668,18 +727,18 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		Modal createUpdateUserModal = htmlFactory.modal()
 				.id("createUpdateUserFormModal")
 				.small()
-				.title("User")
-				.body(createUpdateUserFormGenerator.generateForm(htmlFactory));
+				.title("{{userDialogTitle}}")
+				.body(htmlFactory.spinnerOverlay(Spinner.spinner).id("userFormOverlay").style("display", "none"),
+						createUpdateUserFormGenerator.generateForm(htmlFactory).id("userForm"));
 		
 		Button addButton = htmlFactory.button("Add").style(Style.PRIMARY).ngClick("createUser()");
-		
-		Button testButton = htmlFactory.button("Test dialog").style(Style.PRIMARY);
-		createUpdateUserModal.bind(testButton);
 	
 		return htmlFactory.spinnerOverlay(Spinner.refresh).id("usersAppOverlay").toString() +
-				htmlFactory.div(usersTable, addButton, "&nbsp;", testButton, createUpdateUserModal)
+				htmlFactory.div(usersTable, addButton, createUpdateUserModal)
 					.id("usersApp")
-					.style("border", "solid 1px silver")
+					.style("border-left", "solid 1px #ddd")
+					.style("border-right", "solid 1px #ddd")
+					.style("border-bottom", "solid 1px #ddd")
 					.style("padding", "5px")
 					.ngController("UsersController") + 
 				htmlFactory.tag(TagName.script, new UsersControllerGenerator().generate(context.getObjectPath(this), createUpdateUserFormGenerator.generateModel())) + 
