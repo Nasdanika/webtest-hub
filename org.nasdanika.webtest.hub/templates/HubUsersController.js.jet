@@ -66,8 +66,6 @@ require(["<%=args[0]%>.js", 'q', 'jquery'], function(hub, Q, jQuery) {
 							});						
 						},
 						function(reason) {
-							console.dir(reason);
-							console.dir($scope.userModel);							
 							if (reason.validationFailed) {
 								$scope.$apply();
 							} else {
