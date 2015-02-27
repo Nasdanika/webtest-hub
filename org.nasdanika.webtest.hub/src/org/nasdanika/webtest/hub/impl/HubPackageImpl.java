@@ -1735,7 +1735,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 
 		op = initEOperation(getHub__DeleteUser__HttpContext_String(), null, "deleteUser", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "userID", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "login", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEString());
@@ -1936,10 +1936,12 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createOrgAnnotations();
 		// org.nasdanika.cdo.web.html.form-control
 		createOrg_1Annotations();
-		// org.nasdanika.cdo.web:eager-obj
+		// org.nasdanika.cdo.validator
 		createOrg_2Annotations();
-		// org.nasdanika.cdo.web:lenient
+		// org.nasdanika.cdo.web:eager-obj
 		createOrg_3Annotations();
+		// org.nasdanika.cdo.web:lenient
+		createOrg_4Annotations();
 	}
 
 	/**
@@ -2027,12 +2029,28 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	}
 
 	/**
-	 * Initializes the annotations for <b>org.nasdanika.cdo.web:eager-obj</b>.
+	 * Initializes the annotations for <b>org.nasdanika.cdo.validator</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void createOrg_2Annotations() {
+		String source = "org.nasdanika.cdo.validator";	
+		addAnnotation
+		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(8), 
+		   source, 
+		   new String[] {
+			 "server", "if (data.authentication.name() === \'PASSWORD\' && data.password!=value) {\r\n\treturn \"Passwords do not match\";\r\n}"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo.web:eager-obj</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrg_3Annotations() {
 		String source = "org.nasdanika.cdo.web:eager-obj";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
@@ -2047,7 +2065,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_3Annotations() {
+	protected void createOrg_4Annotations() {
 		String source = "org.nasdanika.cdo.web:lenient";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 

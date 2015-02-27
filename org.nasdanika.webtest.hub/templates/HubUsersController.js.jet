@@ -57,7 +57,7 @@ require(["<%=args[0]%>.js", 'q', 'jquery'], function(hub, Q, jQuery) {
 				$scope.createOrUpdateUser = function() {
 					showFormOverlay();
 					
-					$scope.userModel.validateAndApply(hub.createOrUpdateUser).then(
+					$scope.userModel.validateAndApply(hub).then(
 						function(userList) {
 							$scope.$apply(function($scope) {
 								$scope.userList = userList;
@@ -66,13 +66,25 @@ require(["<%=args[0]%>.js", 'q', 'jquery'], function(hub, Q, jQuery) {
 							});						
 						},
 						function(reason) {
-						if (reason.validationFailed) {
-							$scope.$apply();
-						} else {
-							console.trace(reason);
-							alert(reason.targetInvocationError ? reason.targetInvocationError : reason);						
-						}					
-						hideFormOverlay();
+							console.dir(reason);
+							console.dir($scope.userModel);							
+							if (reason.validationFailed) {
+								$scope.$apply();
+							} else {
+								if (reason.targetInvocationError) {
+									if (typeof reason.targetInvocationError === 'string') {
+										$scope.userModel.validationResults['$this'] = reason.targetInvocationError;
+									} else {
+										$scope.userModel.validationResult = JSON.stringify(reason.targetInvocationError);								
+									}						
+								} else if (typeof reason === 'string') {
+									$scope.userModel.validationResults['$this'] = reason;
+								} else {
+									$scope.userModel.validationResults['$this'] = JSON.stringify(reason);
+								}				
+								$scope.$apply();
+							}					
+							hideFormOverlay();
 					}).done();
 				}
 				

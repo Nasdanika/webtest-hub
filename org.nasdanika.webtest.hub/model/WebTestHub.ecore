@@ -74,6 +74,9 @@
           <details key="attribute:ng-required" value="userModel.data.authentication === 'PASSWORD' &amp;&amp; !userModel.data.userID"/>
           <details key="validator" value="if (this.data.authentication === 'PASSWORD' &amp;&amp; value!==this.data.password) { return 'Passwords do not match'; }"/>
         </eAnnotations>
+        <eAnnotations source="org.nasdanika.cdo.validator">
+          <details key="server" value="if (data.authentication.name() === 'PASSWORD' &amp;&amp; data.password!=value) {&#xD;&#xA;&#x9;return &quot;Passwords do not match&quot;;&#xD;&#xA;}"/>
+        </eAnnotations>
       </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

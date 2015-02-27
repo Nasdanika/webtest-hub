@@ -173,12 +173,13 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
 	 * @generated
 	 */
-	EList<Map<String, Object>> deleteUser(HttpContext context, String userID) throws Exception;
+	EList<Map<String, Object>> deleteUser(HttpContext context, String login) throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext" userIDAnnotation="org.nasdanika.cdo.web.html.form-control private='true'" loginAnnotation="org.nasdanika.cdo.web.html.form-control required='true' attribute:ng-disabled='userModel.data.userID' validator='if (!this.data.userID) {\r\n\tfor (k in $scope.userList) {\r\n\t\tif (value===$scope.userList[k].login) {\r\n\t\t\treturn \"Duplicate login\";\r\n\t\t}\r\n\t}\r\n}'" adminAnnotation="org.nasdanika.cdo.web.html.form-control inline='true'" disabledAnnotation="org.nasdanika.cdo.web.html.form-control inline='true'" authenticationAnnotation="org.nasdanika.cdo.web.html.form-control default='PASSWORD'" passwordAnnotation="org.nasdanika.cdo.web.html.form-control input-type='password' group-attribute:ng-hide='userModel.data.authentication === \'NTLM\'' attribute:ng-required='userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID'" passwordConfirmationAnnotation="org.nasdanika.cdo.web.html.form-control input-type='password' group-attribute:ng-hide='userModel.data.authentication === \'NTLM\'' attribute:ng-required='userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID' validator='if (this.data.authentication === \'PASSWORD\' && value!==this.data.password) { return \'Passwords do not match\'; }'"
+	 *        passwordConfirmationAnnotation="org.nasdanika.cdo.validator server='if (data.authentication.name() === \'PASSWORD\' && data.password!=value) {\r\n\treturn \"Passwords do not match\";\r\n}'"
 	 * @generated
 	 */
 	EList<Map<String, Object>> createOrUpdateUser(HttpContext context, String userID, String login, String name, boolean admin, boolean disabled, AuthenticationMode authentication, String password, String passwordConfirmation) throws Exception;
