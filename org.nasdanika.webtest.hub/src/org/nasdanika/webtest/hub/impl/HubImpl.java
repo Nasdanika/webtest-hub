@@ -28,6 +28,7 @@ import org.nasdanika.cdo.security.Group;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.impl.LoginPasswordProtectionDomainImpl;
 import org.nasdanika.cdo.web.html.AngularJsEOperationFormGenerator;
+import org.nasdanika.cdo.web.html.KnockoutJsEOperationFormGenerator;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Button;
 import org.nasdanika.html.Button.Type;
@@ -723,6 +724,11 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		
 		EOperation createOrUpdateUser = HubPackage.eINSTANCE.getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String();
 		AngularJsEOperationFormGenerator createUpdateUserFormGenerator = new AngularJsEOperationFormGenerator(createOrUpdateUser, "userModel", "createOrUpdateUser()");
+		
+//		KnockoutJsEOperationFormGenerator test = new KnockoutJsEOperationFormGenerator(createOrUpdateUser, "userModel", "createOrUpdateUser");
+//		System.out.println(test.generateForm(htmlFactory));
+//		System.out.println("----");
+//		System.out.println(test.generateModel());
 		
 		Modal createUpdateUserModal = htmlFactory.modal()
 				.id("createUpdateUserFormModal")
