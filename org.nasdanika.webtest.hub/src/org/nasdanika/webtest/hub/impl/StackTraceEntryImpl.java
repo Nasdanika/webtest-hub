@@ -5,7 +5,7 @@ package org.nasdanika.webtest.hub.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.json.JSONObject;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.StackTraceEntry;
 
@@ -147,7 +147,7 @@ public class StackTraceEntryImpl extends CDOObjectImpl implements StackTraceEntr
 	}
 	
 	@Override
-	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+	public void loadJSON(JSONObject json, Context context)	throws Exception {
 		if (json.has("className")) {
 			setClassName(json.getString("className"));
 		}

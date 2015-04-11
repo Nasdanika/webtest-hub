@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
-import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.Comparator;
@@ -28,7 +27,6 @@ import org.nasdanika.cdo.security.Group;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.impl.LoginPasswordProtectionDomainImpl;
 import org.nasdanika.cdo.web.html.AngularJsEOperationFormGenerator;
-import org.nasdanika.cdo.web.html.KnockoutJsEOperationFormGenerator;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Button;
 import org.nasdanika.html.Button.Type;
@@ -482,8 +480,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 */
 	@RouteMethod(pattern="L?[\\d]+\\.html")
 	public void home(HttpContext context) throws Exception {
-		@SuppressWarnings("unchecked")
-		Principal principal = ((CDOViewContext<?,?,HttpContext>) context).getPrincipal(context);
+		Principal principal = ((CDOViewContext<?,?>) context).getPrincipal();
 		context.getResponse().sendRedirect(context.getObjectPath(principal)+".html");
 	}	
 	

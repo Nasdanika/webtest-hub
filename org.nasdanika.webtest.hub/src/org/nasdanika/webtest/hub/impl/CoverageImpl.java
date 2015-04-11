@@ -4,7 +4,7 @@ package org.nasdanika.webtest.hub.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.webtest.hub.Coverage;
 import org.nasdanika.webtest.hub.HubPackage;
 
@@ -60,7 +60,7 @@ public class CoverageImpl extends DescriptorImpl implements Coverage {
 	}
 
 	@Override
-	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+	public void loadJSON(JSONObject json, Context context)	throws Exception {
 		super.loadJSON(json, context);
 		setInvocations(json.getInt("invocations"));
 	}

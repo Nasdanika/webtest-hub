@@ -30,7 +30,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.cdo.web.routes.CDOWebUtil;
 import org.nasdanika.core.Context;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.Fragment;
@@ -279,7 +279,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	}
 
 	@Override
-	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+	public void loadJSON(JSONObject json, Context context)	throws Exception {
 		super.loadJSON(json, context);
 		setSize(json.getInt("size"));
 		setNode(json.getString("node"));

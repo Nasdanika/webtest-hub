@@ -381,8 +381,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 			return "Access denied!"; 			
 		}
 		
-		@SuppressWarnings("unchecked")
-		Principal principal = ((CDOViewContext<?, ?, HttpContext>) context).getPrincipal(context);
+		Principal principal = ((CDOViewContext<?, ?>) context).getPrincipal();
 		if (this != principal) {
 			return "Access denied!"; 			
 		}

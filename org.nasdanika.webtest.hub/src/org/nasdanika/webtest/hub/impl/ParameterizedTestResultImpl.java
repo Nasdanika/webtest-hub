@@ -11,7 +11,7 @@ import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.HTMLFactory.Placement;
@@ -164,7 +164,7 @@ public class ParameterizedTestResultImpl extends TestSuiteResultImpl implements 
 	}	
 	
 	@Override
-	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+	public void loadJSON(JSONObject json, Context context)	throws Exception {
 		super.loadJSON(json, context);
 		if (json.has("parameterDescriptors")) {
 			JSONArray pda = json.getJSONArray("parameterDescriptors");

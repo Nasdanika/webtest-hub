@@ -5,7 +5,7 @@ package org.nasdanika.webtest.hub.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.json.JSONObject;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.webtest.hub.Description;
 import org.nasdanika.webtest.hub.Descriptor;
 import org.nasdanika.webtest.hub.HubFactory;
@@ -110,7 +110,7 @@ public class DescriptorImpl extends CDOObjectImpl implements Descriptor {
 		eSet(HubPackage.Literals.DESCRIPTOR__DESCRIPTION, newDescription);
 	}
 
-	public void loadJSON(JSONObject json, ConverterContext context) throws Exception {
+	public void loadJSON(JSONObject json, Context context) throws Exception {
 		if (json.has("qualifiedName")) { 
 			setQualifiedName(json.getString("qualifiedName"));
 		}

@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Carousel;
 import org.nasdanika.html.Carousel.Slide;
@@ -322,7 +322,7 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 	}
 
 	@Override
-	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+	public void loadJSON(JSONObject json, Context context)	throws Exception {
 		super.loadJSON(json, context);
 		if (json.has("operationName")) {
 			setOperationName(json.getString("operationName"));

@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
@@ -109,7 +109,7 @@ public class ThrowableImpl extends CDOObjectImpl implements org.nasdanika.webtes
 	}
 
 	@Override
-	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+	public void loadJSON(JSONObject json, Context context)	throws Exception {
 		setType(json.getString("type"));
 		if (json.has("message")) {
 			setMessage(json.getString("message"));

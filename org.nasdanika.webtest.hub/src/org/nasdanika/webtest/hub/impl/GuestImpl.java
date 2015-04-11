@@ -391,7 +391,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 		try (BufferedReader reader = context.getRequest().getReader()) {
 			final JSONObject body = new JSONObject(new JSONTokener(reader));
 			@SuppressWarnings("unchecked")
-			Principal authenticatedPrincipal = ((CDOViewContext<?,LoginPasswordCredentials,?>) context).authenticate(new LoginPasswordCredentials() {
+			Principal authenticatedPrincipal = ((CDOViewContext<?,LoginPasswordCredentials>) context).authenticate(new LoginPasswordCredentials() {
 				
 				@Override
 				public String getPassword() throws Exception {
@@ -486,7 +486,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 					
 					//((UserImpl) newUser).init();
 					
-					Principal authenticatedUser = ((CDOViewContext<CDOView, LoginPasswordCredentials, HttpContext>) context).authenticate(new LoginPasswordCredentials() {
+					Principal authenticatedUser = ((CDOViewContext<CDOView, LoginPasswordCredentials>) context).authenticate(new LoginPasswordCredentials() {
 						
 						@Override
 						public String getPassword() {

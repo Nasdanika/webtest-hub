@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.HTMLFactory;
@@ -122,7 +122,7 @@ public class TestResultImpl extends DescriptorImpl implements TestResult {
 	}	
 	
 	@Override
-	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+	public void loadJSON(JSONObject json, Context context)	throws Exception {
 		super.loadJSON(json, context);
 		HubUtil.sessionProgress(this);
 	}

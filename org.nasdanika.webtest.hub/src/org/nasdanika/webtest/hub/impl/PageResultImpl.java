@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Carousel;
 import org.nasdanika.html.HTMLFactory;
@@ -126,7 +126,7 @@ public class PageResultImpl extends DescriptorImpl implements PageResult {
 	}
 
 	@Override
-	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+	public void loadJSON(JSONObject json, Context context)	throws Exception {
 		super.loadJSON(json, context);
 		setProxy(json.getBoolean("isProxy"));
 		if (json.has("webElements")) {

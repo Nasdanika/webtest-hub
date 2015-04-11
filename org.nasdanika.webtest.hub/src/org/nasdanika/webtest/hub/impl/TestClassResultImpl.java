@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
@@ -90,7 +90,7 @@ public class TestClassResultImpl extends TestResultImpl implements TestClassResu
 	}	
 	
 	@Override
-	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+	public void loadJSON(JSONObject json, Context context)	throws Exception {
 		super.loadJSON(json, context);
 		if (json.has("stats")) {
 			JSONObject stats = json.getJSONObject("stats");

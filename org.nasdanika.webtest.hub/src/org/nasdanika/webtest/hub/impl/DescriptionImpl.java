@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.webtest.hub.Description;
 import org.nasdanika.webtest.hub.HubPackage;
 
@@ -104,7 +104,7 @@ public class DescriptionImpl extends CDOObjectImpl implements Description {
 	}
 
 	@Override
-	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+	public void loadJSON(JSONObject json, Context context)	throws Exception {
 		if (json.has("url")) {
 			setUrl(json.getString("url"));
 		}

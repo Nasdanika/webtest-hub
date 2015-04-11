@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.html.FontAwesome;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.HTMLFactory;
@@ -126,7 +126,7 @@ public class TestMethodResultImpl extends OperationResultImpl implements TestMet
 	}
 
 	@Override
-	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+	public void loadJSON(JSONObject json, Context context)	throws Exception {
 		super.loadJSON(json, context);
 		if (json.has("parameters")) {
 			JSONArray params = json.getJSONArray("parameters");

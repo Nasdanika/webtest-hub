@@ -8,7 +8,7 @@ import org.nasdanika.cdo.security.ProtectionDomain;
 import org.nasdanika.cdo.security.LoginPasswordCredentials;
 import org.nasdanika.web.HttpContext;
 
-public class WebTestHubCDOTransactionContextProviderComponent extends CDOTransactionContextProviderComponent<LoginPasswordCredentials, HttpContext> {
+public class WebTestHubCDOTransactionContextProviderComponent extends CDOTransactionContextProviderComponent<LoginPasswordCredentials> {
 
 	@SuppressWarnings("unchecked")
 	@Override

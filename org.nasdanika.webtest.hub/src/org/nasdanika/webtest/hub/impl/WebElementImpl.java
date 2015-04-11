@@ -6,7 +6,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.nasdanika.core.ConverterContext;
+import org.nasdanika.core.Context;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.Locator;
@@ -56,7 +56,7 @@ public class WebElementImpl extends DescriptorImpl implements WebElement {
 	}
 	
 	@Override
-	public void loadJSON(JSONObject json, ConverterContext context)	throws Exception {
+	public void loadJSON(JSONObject json, Context context)	throws Exception {
 		super.loadJSON(json, context);
 		if (json.has("locators")) {
 			JSONArray res = json.getJSONArray("locators");
