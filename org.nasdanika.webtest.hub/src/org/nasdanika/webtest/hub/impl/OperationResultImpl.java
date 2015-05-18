@@ -12,7 +12,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.GZIPInputStream;
+
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
@@ -23,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.core.Context;
+import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Carousel;
 import org.nasdanika.html.Carousel.Slide;
@@ -40,7 +43,7 @@ import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.BootstrapColor;
 import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.Style;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.ActorMethodResult;
@@ -372,7 +375,7 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 	}
 	
 	@RouteMethod(pattern="L[\\d]+", value=RequestMethod.PUT)
-	public void update(final HttpContext context) throws Exception {
+	public void update(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			CDOLock writeLock = cdoWriteLock();
 			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
@@ -394,7 +397,7 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 	}	
 
 	@RouteMethod(pattern="L[\\d]+/children", value=RequestMethod.POST)
-	public void createChild(final HttpContext context) throws Exception {
+	public void createChild(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			CDOLock writeLock = cdoWriteLock();
 			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
@@ -427,7 +430,7 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 	}
 	
 	@RouteMethod(pattern="L[\\d]+/screenshots", value=RequestMethod.POST)
-	public void createScreenshot(final HttpContext context) throws Exception {
+	public void createScreenshot(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			Screenshot screenshot = HubFactory.eINSTANCE.createScreenshot();
 			screenshot.setContentType(context.getRequest().getHeader("Content-Type"));
@@ -463,7 +466,7 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 		}
 	}
 	
-	protected Object routeLink(HttpContext context, boolean doStyle) throws Exception {
+	protected Object routeLink(HttpServletRequestContext context, boolean doStyle) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);		
 		String methodDetailsLocation = "/"+context.getObjectPath(this) + ".html";
 		if (OperationStatus.FAIL.equals(getStatus())) {
@@ -506,7 +509,7 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 	}
 		
 	@Override
-	public void genRow(HttpContext context, Table methodTable) throws Exception {
+	public void genRow(HttpServletRequestContext context, Table methodTable) throws Exception {
 		Row row = methodTable.row();
 		switch (getStatus()) {
 		case ERROR:
@@ -620,7 +623,7 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 //	}	
 	
 	@RouteMethod(pattern="L?[\\d]+\\.html")
-	public String home(HttpContext context) throws Exception {
+	public String home(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		if (!context.authorize(this, "read", null, null)) {
 			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
@@ -751,7 +754,7 @@ public class OperationResultImpl extends DescriptorImpl implements OperationResu
 	}
 	
 	@Override
-	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+	public Breadcrumbs createBreadcrumbs(HttpServletRequestContext context, boolean active) throws Exception {
 		Breadcrumbs ret = ((BreadcrumbsProvider) eContainer()).createBreadcrumbs(context, false);		
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		ret.item(active ? null : htmlFactory.routeRef("right-panel", "/"+context.getObjectPath(this))+".html",

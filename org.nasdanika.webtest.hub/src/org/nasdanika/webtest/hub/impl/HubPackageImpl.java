@@ -3,7 +3,7 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.util.Map;
-
+import javax.servlet.http.HttpServletResponse;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -14,10 +14,13 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.json.JSONObject;
+import org.nasdanika.cdo.CDOViewContext;
+import org.nasdanika.cdo.security.LoginPasswordCredentials;
 import org.nasdanika.cdo.security.SecurityPackage;
+import org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext;
 import org.nasdanika.core.Deletable;
 import org.nasdanika.core.JSONLoader;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
@@ -285,7 +288,28 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType httpContextEDataType = null;
+	private EDataType httpServletResponseEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType cdoViewContextEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType httpServletRequestContextEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType webSocketContextEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -300,6 +324,13 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * @generated
 	 */
 	private EDataType exceptionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType loginPasswordCredentialsEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -425,7 +456,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getHub__ExecuteScript__HttpContext_String() {
+	public EOperation getHub__ExecuteScript__WebSocketContext_String() {
 		return hubEClass.getEOperations().get(0);
 	}
 
@@ -434,7 +465,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getHub__UserList__HttpContext() {
+	public EOperation getHub__UserList() {
 		return hubEClass.getEOperations().get(1);
 	}
 
@@ -443,7 +474,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getHub__DeleteUser__HttpContext_String() {
+	public EOperation getHub__DeleteUser__String() {
 		return hubEClass.getEOperations().get(2);
 	}
 
@@ -452,8 +483,17 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String() {
+	public EOperation getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String() {
 		return hubEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getHub__Home__CDOViewContext_HttpServletRequestContext() {
+		return hubEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -560,7 +600,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplication__GetSummaryRow__HttpContext() {
+	public EOperation getApplication__GetSummaryRow__WebSocketContext() {
 		return applicationEClass.getEOperations().get(0);
 	}
 
@@ -722,7 +762,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTestSession__GetSummaryRow__HttpContext() {
+	public EOperation getTestSession__GetSummaryRow__WebSocketContext() {
 		return testSessionEClass.getEOperations().get(0);
 	}
 
@@ -1433,8 +1473,35 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getHttpContext() {
-		return httpContextEDataType;
+	public EDataType getHttpServletResponse() {
+		return httpServletResponseEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getCDOViewContext() {
+		return cdoViewContextEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getHttpServletRequestContext() {
+		return httpServletRequestContextEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getWebSocketContext() {
+		return webSocketContextEDataType;
 	}
 
 	/**
@@ -1453,6 +1520,15 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 */
 	public EDataType getException() {
 		return exceptionEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getLoginPasswordCredentials() {
+		return loginPasswordCredentialsEDataType;
 	}
 
 	/**
@@ -1489,10 +1565,11 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(hubEClass, HUB__USERS);
 		createEReference(hubEClass, HUB__ADMINISTRATORS);
 		createEAttribute(hubEClass, HUB__SLIDE_WIDTH);
-		createEOperation(hubEClass, HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING);
-		createEOperation(hubEClass, HUB___USER_LIST__HTTPCONTEXT);
-		createEOperation(hubEClass, HUB___DELETE_USER__HTTPCONTEXT_STRING);
-		createEOperation(hubEClass, HUB___CREATE_OR_UPDATE_USER__HTTPCONTEXT_STRING_STRING_STRING_BOOLEAN_BOOLEAN_AUTHENTICATIONMODE_STRING_STRING);
+		createEOperation(hubEClass, HUB___EXECUTE_SCRIPT__WEBSOCKETCONTEXT_STRING);
+		createEOperation(hubEClass, HUB___USER_LIST);
+		createEOperation(hubEClass, HUB___DELETE_USER__STRING);
+		createEOperation(hubEClass, HUB___CREATE_OR_UPDATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN_AUTHENTICATIONMODE_STRING_STRING);
+		createEOperation(hubEClass, HUB___HOME__CDOVIEWCONTEXT_HTTPSERVLETREQUESTCONTEXT);
 
 		applicationOwnerEClass = createEClass(APPLICATION_OWNER);
 		createEReference(applicationOwnerEClass, APPLICATION_OWNER__APPLICATIONS);
@@ -1508,7 +1585,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEReference(applicationEClass, APPLICATION__SCREENSHOTS);
 		createEAttribute(applicationEClass, APPLICATION__NAME);
 		createEAttribute(applicationEClass, APPLICATION__DESCRIPTION);
-		createEOperation(applicationEClass, APPLICATION___GET_SUMMARY_ROW__HTTPCONTEXT);
+		createEOperation(applicationEClass, APPLICATION___GET_SUMMARY_ROW__WEBSOCKETCONTEXT);
 
 		descriptorEClass = createEClass(DESCRIPTOR);
 		createEAttribute(descriptorEClass, DESCRIPTOR__QUALIFIED_NAME);
@@ -1529,7 +1606,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createEAttribute(testSessionEClass, TEST_SESSION__PROGRESS);
 		createEAttribute(testSessionEClass, TEST_SESSION__TIMESTAMP);
 		createEAttribute(testSessionEClass, TEST_SESSION__NODE);
-		createEOperation(testSessionEClass, TEST_SESSION___GET_SUMMARY_ROW__HTTPCONTEXT);
+		createEOperation(testSessionEClass, TEST_SESSION___GET_SUMMARY_ROW__WEBSOCKETCONTEXT);
 
 		testResultEClass = createEClass(TEST_RESULT);
 		createEReference(testResultEClass, TEST_RESULT__PAGE_RESULTS);
@@ -1634,9 +1711,13 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		operationStatusEEnum = createEEnum(OPERATION_STATUS);
 
 		// Create data types
-		httpContextEDataType = createEDataType(HTTP_CONTEXT);
+		httpServletResponseEDataType = createEDataType(HTTP_SERVLET_RESPONSE);
+		cdoViewContextEDataType = createEDataType(CDO_VIEW_CONTEXT);
+		httpServletRequestContextEDataType = createEDataType(HTTP_SERVLET_REQUEST_CONTEXT);
+		webSocketContextEDataType = createEDataType(WEB_SOCKET_CONTEXT);
 		jsonObjectEDataType = createEDataType(JSON_OBJECT);
 		exceptionEDataType = createEDataType(EXCEPTION);
+		loginPasswordCredentialsEDataType = createEDataType(LOGIN_PASSWORD_CREDENTIALS);
 	}
 
 	/**
@@ -1667,6 +1748,9 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		PerformancePackage thePerformancePackage = (PerformancePackage)EPackage.Registry.INSTANCE.getEPackage(PerformancePackage.eNS_URI);
 
 		// Create type parameters
+		addETypeParameter(cdoViewContextEDataType, "V");
+		addETypeParameter(cdoViewContextEDataType, "CR");
+		addETypeParameter(webSocketContextEDataType, "CR");
 
 		// Set bounds for type parameters
 
@@ -1712,19 +1796,12 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEReference(getHub_Administrators(), theSecurityPackage.getGroup(), null, "administrators", null, 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHub_SlideWidth(), ecorePackage.getEInt(), "slideWidth", "800", 0, 1, Hub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getHub__ExecuteScript__HttpContext_String(), null, "executeScript", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getHub__ExecuteScript__WebSocketContext_String(), null, "executeScript", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(this.getWebSocketContext());
+		EGenericType g2 = createEGenericType(theSecurityPackage.getLoginPasswordCredentials());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "script", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getException());
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEString());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
-
-		op = initEOperation(getHub__UserList__HttpContext(), null, "userList", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEString());
@@ -1733,8 +1810,16 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		op = initEOperation(getHub__DeleteUser__HttpContext_String(), null, "deleteUser", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getHub__UserList(), null, "userList", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getHub__DeleteUser__String(), null, "deleteUser", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "login", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 		g1 = createEGenericType(ecorePackage.getEMap());
@@ -1744,8 +1829,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		op = initEOperation(getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String(), null, "createOrUpdateUser", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String(), null, "createOrUpdateUser", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "userID", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "login", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1762,6 +1846,16 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
+		op = initEOperation(getHub__Home__CDOViewContext_HttpServletRequestContext(), null, "home", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getCDOViewContext());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "viewContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getHttpServletRequestContext(), "requestContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePerformancePackage.getException());
+
 		initEClass(applicationOwnerEClass, ApplicationOwner.class, "ApplicationOwner", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApplicationOwner_Applications(), this.getApplication(), null, "applications", null, 0, -1, ApplicationOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1777,8 +1871,11 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getApplication_Name(), ecorePackage.getEString(), "name", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_Description(), ecorePackage.getEString(), "description", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getApplication__GetSummaryRow__HttpContext(), thePerformancePackage.getJSONObject(), "getSummaryRow", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getApplication__GetSummaryRow__WebSocketContext(), thePerformancePackage.getJSONObject(), "getSummaryRow", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getWebSocketContext());
+		g2 = createEGenericType(theSecurityPackage.getLoginPasswordCredentials());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
 		initEClass(descriptorEClass, org.nasdanika.webtest.hub.Descriptor.class, "Descriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1801,8 +1898,11 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		initEAttribute(getTestSession_Timestamp(), ecorePackage.getELong(), "timestamp", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestSession_Node(), ecorePackage.getEString(), "node", null, 0, 1, TestSession.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getTestSession__GetSummaryRow__HttpContext(), null, "getSummaryRow", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getHttpContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTestSession__GetSummaryRow__WebSocketContext(), null, "getSummaryRow", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getWebSocketContext());
+		g2 = createEGenericType(theSecurityPackage.getLoginPasswordCredentials());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEString());
@@ -1924,24 +2024,67 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		addEEnumLiteral(operationStatusEEnum, OperationStatus.PENDING);
 
 		// Initialize data types
-		initEDataType(httpContextEDataType, HttpContext.class, "HttpContext", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(httpServletResponseEDataType, HttpServletResponse.class, "HttpServletResponse", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(cdoViewContextEDataType, CDOViewContext.class, "CDOViewContext", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(httpServletRequestContextEDataType, HttpServletRequestContext.class, "HttpServletRequestContext", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(webSocketContextEDataType, WebSocketContext.class, "WebSocketContext", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(jsonObjectEDataType, JSONObject.class, "JSONObject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(exceptionEDataType, Exception.class, "Exception", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(loginPasswordCredentialsEDataType, LoginPasswordCredentials.class, "LoginPasswordCredentials", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
 
 		// Create annotations
-		// org.nasdanika.cdo.web:getter
+		// org.nasdanika.cdo:context-parameter
 		createOrgAnnotations();
-		// org.nasdanika.cdo.web.html.form-control
+		// org.nasdanika.cdo.web:getter
 		createOrg_1Annotations();
-		// org.nasdanika.cdo.validator
+		// org.nasdanika.cdo.web.html.form-control
 		createOrg_2Annotations();
-		// org.nasdanika.cdo.web:eager-obj
+		// org.nasdanika.cdo.validator
 		createOrg_3Annotations();
-		// org.nasdanika.cdo.web:lenient
+		// org.nasdanika.cdo.web:home-route
 		createOrg_4Annotations();
+		// org.nasdanika.cdo.web:eager-obj
+		createOrg_5Annotations();
+		// org.nasdanika.cdo.web:lenient
+		createOrg_6Annotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo:context-parameter</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrgAnnotations() {
+		String source = "org.nasdanika.cdo:context-parameter";	
+		addAnnotation
+		  ((getHub__ExecuteScript__WebSocketContext_String()).getEParameters().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  ((getHub__Home__CDOViewContext_HttpServletRequestContext()).getEParameters().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  ((getHub__Home__CDOViewContext_HttpServletRequestContext()).getEParameters().get(1), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  ((getApplication__GetSummaryRow__WebSocketContext()).getEParameters().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  ((getTestSession__GetSummaryRow__WebSocketContext()).getEParameters().get(0), 
+		   source, 
+		   new String[] {
+		   });
 	}
 
 	/**
@@ -1950,20 +2093,20 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrgAnnotations() {
+	protected void createOrg_1Annotations() {
 		String source = "org.nasdanika.cdo.web:getter";	
 		addAnnotation
-		  (getHub__UserList__HttpContext(), 
+		  (getHub__UserList(), 
 		   source, 
 		   new String[] {
 		   });	
 		addAnnotation
-		  (getApplication__GetSummaryRow__HttpContext(), 
+		  (getApplication__GetSummaryRow__WebSocketContext(), 
 		   source, 
 		   new String[] {
 		   });	
 		addAnnotation
-		  (getTestSession__GetSummaryRow__HttpContext(), 
+		  (getTestSession__GetSummaryRow__WebSocketContext(), 
 		   source, 
 		   new String[] {
 		   });
@@ -1975,16 +2118,16 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_1Annotations() {
+	protected void createOrg_2Annotations() {
 		String source = "org.nasdanika.cdo.web.html.form-control";	
 		addAnnotation
-		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(1), 
+		  ((getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(0), 
 		   source, 
 		   new String[] {
 			 "private", "true"
 		   });	
 		addAnnotation
-		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(2), 
+		  ((getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(1), 
 		   source, 
 		   new String[] {
 			 "required", "true",
@@ -1992,25 +2135,25 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 			 "validator", "if (!this.data.userID) {\r\n\tfor (k in $scope.userList) {\r\n\t\tif (value===$scope.userList[k].login) {\r\n\t\t\treturn \"Duplicate login\";\r\n\t\t}\r\n\t}\r\n}"
 		   });	
 		addAnnotation
-		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(4), 
+		  ((getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(3), 
 		   source, 
 		   new String[] {
 			 "inline", "true"
 		   });	
 		addAnnotation
-		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(5), 
+		  ((getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(4), 
 		   source, 
 		   new String[] {
 			 "inline", "true"
 		   });	
 		addAnnotation
-		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(6), 
+		  ((getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(5), 
 		   source, 
 		   new String[] {
 			 "default", "PASSWORD"
 		   });	
 		addAnnotation
-		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(7), 
+		  ((getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(6), 
 		   source, 
 		   new String[] {
 			 "input-type", "password",
@@ -2018,7 +2161,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 			 "attribute:ng-required", "userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID"
 		   });	
 		addAnnotation
-		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(8), 
+		  ((getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(7), 
 		   source, 
 		   new String[] {
 			 "input-type", "password",
@@ -2034,13 +2177,29 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_2Annotations() {
+	protected void createOrg_3Annotations() {
 		String source = "org.nasdanika.cdo.validator";	
 		addAnnotation
-		  ((getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(8), 
+		  ((getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(7), 
 		   source, 
 		   new String[] {
 			 "server", "if (data.authentication.name() === \'PASSWORD\' && data.password!=value) {\r\n\treturn \"Passwords do not match\";\r\n}"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo.web:home-route</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrg_4Annotations() {
+		String source = "org.nasdanika.cdo.web:home-route";	
+		addAnnotation
+		  (getHub__Home__CDOViewContext_HttpServletRequestContext(), 
+		   source, 
+		   new String[] {
+			 "action", "read"
 		   });
 	}
 
@@ -2050,7 +2209,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_3Annotations() {
+	protected void createOrg_5Annotations() {
 		String source = "org.nasdanika.cdo.web:eager-obj";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
@@ -2065,7 +2224,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_4Annotations() {
+	protected void createOrg_6Annotations() {
 		String source = "org.nasdanika.cdo.web:lenient";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 

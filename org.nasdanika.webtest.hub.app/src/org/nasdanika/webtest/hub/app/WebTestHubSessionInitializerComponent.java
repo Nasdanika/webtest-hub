@@ -16,6 +16,7 @@ import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubFactory;
 import org.nasdanika.webtest.hub.HubPackage;
+import org.nasdanika.webtest.hub.TestSession;
 import org.nasdanika.webtest.hub.User;
 
 public class WebTestHubSessionInitializerComponent implements CDOSessionInitializer {
@@ -102,6 +103,14 @@ public class WebTestHubSessionInitializerComponent implements CDOSessionInitiali
 //				});
 			}
 			
+//			// For testing
+//			Hub hub = (Hub) cRes.getContents().get(0);
+//			for (Application app: hub.getApplications()) {
+//				TestSession ts = HubFactory.eINSTANCE.createTestSession();
+//				ts.setTitle("My session");
+//				app.getTestSessions().add(ts);
+//			}
+						
 			transaction.commit();
 		} catch (CommitException e) {
 			e.printStackTrace();

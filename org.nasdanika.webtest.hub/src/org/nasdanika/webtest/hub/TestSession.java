@@ -4,8 +4,9 @@ package org.nasdanika.webtest.hub;
 
 import java.util.Map;
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.cdo.security.LoginPasswordCredentials;
+import org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext;
 import org.nasdanika.core.Deletable;
-import org.nasdanika.web.HttpContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -212,10 +213,10 @@ public interface TestSession extends Descriptor, BreadcrumbsProvider, Deletable 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
+	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.WebSocketContext<org.nasdanika.cdo.security.LoginPasswordCredentials>"
 	 * @generated
 	 */
-	Map<String, Object> getSummaryRow(HttpContext context) throws Exception;
+	Map<String, Object> getSummaryRow(WebSocketContext<LoginPasswordCredentials> context) throws Exception;
 
 	interface Totals {
 		int getPass();

@@ -1,0 +1,1084 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_DV5VIP0EEeSpvf_YXTcOkA" selectedViews="_IHWR8P0EEeSpvf_YXTcOkA _IHeNwP0EEeSpvf_YXTcOkA _IHfb4P0EEeSpvf_YXTcOkA" version="8.1.1">
+  <models xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+  <models xmi:type="ecore:EPackage" href="platform:/resource/org.nasdanika.cdo.security/model/security.ecore#/"/>
+  <models xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  <models xmi:type="ecore:EPackage" href="platform:/resource/org.nasdanika.webtest.performance/model/performance.ecore#/"/>
+  <models xmi:type="genmodel:GenModel" href="model/WebTestHub.genmodel#/"/>
+  <models xmi:type="genmodel:GenModel" href="platform:/resource/org.nasdanika.webtest.performance/model/performance.genmodel#/"/>
+  <models xmi:type="genmodel:GenModel" href="platform:/resource/org.nasdanika.cdo.security/model/security.genmodel#/"/>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_IHWR8P0EEeSpvf_YXTcOkA" initialized="true">
+    <ownedRepresentations xmi:type="table:DTable" xmi:id="_M6vvgP0EEeSpvf_YXTcOkA" name="hub documentation table" headerColumnWidth="249">
+      <target xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+      <lines xmi:type="table:DLine" xmi:id="_M6vvgf0EEeSpvf_YXTcOkA" label="EClass : Hub">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Hub"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWkP0EEeSpvf_YXTcOkA" label="EAttribute : name">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Hub/name"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Hub/name"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWkf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWkv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWk_0EEeSpvf_YXTcOkA" label="EReference : guest">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/guest"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/guest"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWlP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWlf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWlv0EEeSpvf_YXTcOkA" label="EReference : users">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/users"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/users"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWl_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWmP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWmf0EEeSpvf_YXTcOkA" label="EReference : administrators">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/administrators"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/administrators"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWmv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWm_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWnP0EEeSpvf_YXTcOkA" label="EAttribute : slideWidth">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Hub/slideWidth"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Hub/slideWidth"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWnf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWnv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Hub"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWn_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWoP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wWof0EEeSpvf_YXTcOkA" label="EEnum : AuthenticationMode">
+        <target xmi:type="ecore:EEnum" href="model/WebTestHub.ecore#//AuthenticationMode"/>
+        <semanticElements xmi:type="ecore:EEnum" href="model/WebTestHub.ecore#//AuthenticationMode"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWov0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWo_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wWpP0EEeSpvf_YXTcOkA" label="EClass : ApplicationOwner">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ApplicationOwner"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWpf0EEeSpvf_YXTcOkA" label="EReference : applications">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ApplicationOwner/applications"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ApplicationOwner/applications"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWpv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWp_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ApplicationOwner"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWqP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWqf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wWqv0EEeSpvf_YXTcOkA" label="EClass : Guest">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Guest"/>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Guest"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWq_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWrP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wWrf0EEeSpvf_YXTcOkA" label="EClass : User">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//User"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWrv0EEeSpvf_YXTcOkA" label="EAttribute : name">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//User/name"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//User/name"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWr_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWsP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//User"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWsf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWsv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wWs_0EEeSpvf_YXTcOkA" label="EClass : Application">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Application"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWtP0EEeSpvf_YXTcOkA" label="EReference : testSessions">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Application/testSessions"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Application/testSessions"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWtf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWtv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWt_0EEeSpvf_YXTcOkA" label="EAttribute : securityToken">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Application/securityToken"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Application/securityToken"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWuP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWuf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWuv0EEeSpvf_YXTcOkA" label="EReference : screenshots">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Application/screenshots"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Application/screenshots"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWu_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWvP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWvf0EEeSpvf_YXTcOkA" label="EAttribute : name">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Application/name"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Application/name"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWvv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWv_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWwP0EEeSpvf_YXTcOkA" label="EAttribute : description">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Application/description"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Application/description"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWwf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWwv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Application"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWw_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWxP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wWxf0EEeSpvf_YXTcOkA" label="EDataType : WebSocketContext">
+        <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//WebSocketContext"/>
+        <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//WebSocketContext"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWxv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWx_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wWyP0EEeSpvf_YXTcOkA" label="EClass : Descriptor">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Descriptor"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWyf0EEeSpvf_YXTcOkA" label="EAttribute : qualifiedName">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Descriptor/qualifiedName"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Descriptor/qualifiedName"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWyv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWy_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWzP0EEeSpvf_YXTcOkA" label="EAttribute : title">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Descriptor/title"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Descriptor/title"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wWzf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wWzv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wWz_0EEeSpvf_YXTcOkA" label="EReference : description">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Descriptor/description"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Descriptor/description"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW0P0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW0f0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Descriptor"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW0v0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW0_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wW1P0EEeSpvf_YXTcOkA" label="EClass : Description">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Description"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wW1f0EEeSpvf_YXTcOkA" label="EAttribute : url">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Description/url"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Description/url"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW1v0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW1_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wW2P0EEeSpvf_YXTcOkA" label="EAttribute : value">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Description/value"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Description/value"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW2f0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW2v0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wW2_0EEeSpvf_YXTcOkA" label="EAttribute : html">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Description/html"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Description/html"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW3P0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW3f0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Description"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW3v0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW3_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wW4P0EEeSpvf_YXTcOkA" label="EClass : TestSession">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestSession"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wW4f0EEeSpvf_YXTcOkA" label="EReference : testResults">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSession/testResults"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSession/testResults"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW4v0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW4_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wW5P0EEeSpvf_YXTcOkA" label="EReference : pageResults">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSession/pageResults"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSession/pageResults"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW5f0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW5v0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wW5_0EEeSpvf_YXTcOkA" label="EReference : actorResults">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSession/actorResults"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSession/actorResults"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW6P0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW6f0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wW6v0EEeSpvf_YXTcOkA" label="EAttribute : published">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/published"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/published"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW6_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW7P0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wW7f0EEeSpvf_YXTcOkA" label="EAttribute : size">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/size"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/size"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW7v0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW7_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wW8P0EEeSpvf_YXTcOkA" label="EAttribute : progress">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/progress"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/progress"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW8f0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW8v0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wW8_0EEeSpvf_YXTcOkA" label="EAttribute : timestamp">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/timestamp"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/timestamp"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW9P0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW9f0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wW9v0EEeSpvf_YXTcOkA" label="EAttribute : node">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/node"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/node"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW9_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW-P0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestSession"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW-f0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW-v0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wW-_0EEeSpvf_YXTcOkA" label="EEnum : OperationStatus">
+        <target xmi:type="ecore:EEnum" href="model/WebTestHub.ecore#//OperationStatus"/>
+        <semanticElements xmi:type="ecore:EEnum" href="model/WebTestHub.ecore#//OperationStatus"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wW_P0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wW_f0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wW_v0EEeSpvf_YXTcOkA" label="EClass : TestResult">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestResult"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wW__0EEeSpvf_YXTcOkA" label="EReference : pageResults">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestResult/pageResults"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestResult/pageResults"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXAP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXAf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXAv0EEeSpvf_YXTcOkA" label="EReference : actorResults">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestResult/actorResults"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestResult/actorResults"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXA_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXBP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestResult"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXBf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXBv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wXB_0EEeSpvf_YXTcOkA" label="EClass : TestClassResult">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestClassResult"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXCP0EEeSpvf_YXTcOkA" label="EReference : methodResults">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestClassResult/methodResults"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestClassResult/methodResults"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXCf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXCv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXC_0EEeSpvf_YXTcOkA" label="EReference : stats">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestClassResult/stats"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestClassResult/stats"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXDP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXDf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestClassResult"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXDv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXD_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wXEP0EEeSpvf_YXTcOkA" label="EClass : StatsEntry">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//StatsEntry"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXEf0EEeSpvf_YXTcOkA" label="EAttribute : key">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StatsEntry/key"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StatsEntry/key"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXEv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXE_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXFP0EEeSpvf_YXTcOkA" label="EAttribute : value">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StatsEntry/value"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StatsEntry/value"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXFf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXFv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//StatsEntry"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXF_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXGP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wXGf0EEeSpvf_YXTcOkA" label="EClass : TestSuiteResult">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestSuiteResult"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXGv0EEeSpvf_YXTcOkA" label="EReference : children">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSuiteResult/children"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSuiteResult/children"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXG_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXHP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestSuiteResult"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXHf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXHv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wXH_0EEeSpvf_YXTcOkA" label="EClass : ParameterizedTestResult">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ParameterizedTestResult"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXIP0EEeSpvf_YXTcOkA" label="EReference : parameterDescriptors">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ParameterizedTestResult/parameterDescriptors"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ParameterizedTestResult/parameterDescriptors"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXIf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXIv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ParameterizedTestResult"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXI_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXJP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wXJf0EEeSpvf_YXTcOkA" label="EClass : Screenshot">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Screenshot"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXJv0EEeSpvf_YXTcOkA" label="EAttribute : content">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/content"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/content"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXJ_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXKP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXKf0EEeSpvf_YXTcOkA" label="EAttribute : timestamp">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/timestamp"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/timestamp"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXKv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXK_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXLP0EEeSpvf_YXTcOkA" label="EAttribute : height">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/height"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/height"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXLf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXLv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXL_0EEeSpvf_YXTcOkA" label="EAttribute : width">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/width"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/width"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXMP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXMf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXMv0EEeSpvf_YXTcOkA" label="EAttribute : contentType">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/contentType"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/contentType"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXM_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXNP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXNf0EEeSpvf_YXTcOkA" label="EAttribute : length">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/length"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/length"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXNv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXN_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXOP0EEeSpvf_YXTcOkA" label="EAttribute : digest">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/digest"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/digest"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXOf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXOv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXO_0EEeSpvf_YXTcOkA" label="EReference : beforeOperations">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Screenshot/beforeOperations"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Screenshot/beforeOperations"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXPP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXPf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXPv0EEeSpvf_YXTcOkA" label="EReference : afterOperations">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Screenshot/afterOperations"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Screenshot/afterOperations"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXP_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXQP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Screenshot"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXQf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXQv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wXQ_0EEeSpvf_YXTcOkA" label="EClass : OperationResult">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//OperationResult"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXRP0EEeSpvf_YXTcOkA" label="EReference : screenshots">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/screenshots"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/screenshots"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXRf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXRv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXR_0EEeSpvf_YXTcOkA" label="EReference : children">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/children"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/children"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXSP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXSf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXSv0EEeSpvf_YXTcOkA" label="EAttribute : operationName">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/operationName"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/operationName"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXS_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXTP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXTf0EEeSpvf_YXTcOkA" label="EAttribute : arguments">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/arguments"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/arguments"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXTv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXT_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXUP0EEeSpvf_YXTcOkA" label="EReference : beforeTiming">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/beforeTiming"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/beforeTiming"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXUf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXUv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXU_0EEeSpvf_YXTcOkA" label="EReference : beforeScreenshot">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/beforeScreenshot"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/beforeScreenshot"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXVP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXVf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXVv0EEeSpvf_YXTcOkA" label="EReference : afterTiming">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/afterTiming"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/afterTiming"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXV_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXWP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXWf0EEeSpvf_YXTcOkA" label="EReference : afterScreenshot">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/afterScreenshot"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/afterScreenshot"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXWv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXW_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXXP0EEeSpvf_YXTcOkA" label="EReference : failure">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/failure"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/failure"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXXf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXXv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXX_0EEeSpvf_YXTcOkA" label="EReference : error">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/error"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/error"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXYP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXYf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXYv0EEeSpvf_YXTcOkA" label="EAttribute : start">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/start"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/start"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXY_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXZP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXZf0EEeSpvf_YXTcOkA" label="EAttribute : finish">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/finish"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/finish"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXZv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXZ_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXaP0EEeSpvf_YXTcOkA" label="EAttribute : status">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/status"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/status"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXaf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXav0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//OperationResult"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXa_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXbP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wXbf0EEeSpvf_YXTcOkA" label="EClass : Throwable">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Throwable"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXbv0EEeSpvf_YXTcOkA" label="EAttribute : type">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Throwable/type"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Throwable/type"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXb_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXcP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXcf0EEeSpvf_YXTcOkA" label="EAttribute : message">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Throwable/message"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Throwable/message"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXcv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXc_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXdP0EEeSpvf_YXTcOkA" label="EReference : stackTrace">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Throwable/stackTrace"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Throwable/stackTrace"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXdf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXdv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Throwable"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXd_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXeP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wXef0EEeSpvf_YXTcOkA" label="EClass : StackTraceEntry">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//StackTraceEntry"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXev0EEeSpvf_YXTcOkA" label="EAttribute : className">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/className"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/className"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXe_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXfP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXff0EEeSpvf_YXTcOkA" label="EAttribute : fileName">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/fileName"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/fileName"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXfv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXf_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXgP0EEeSpvf_YXTcOkA" label="EAttribute : methodName">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/methodName"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/methodName"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXgf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXgv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXg_0EEeSpvf_YXTcOkA" label="EAttribute : lineNumber">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/lineNumber"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/lineNumber"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXhP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXhf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6wXhv0EEeSpvf_YXTcOkA" label="EAttribute : native">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/native"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/native"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXh_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXiP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//StackTraceEntry"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXif0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXiv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wXi_0EEeSpvf_YXTcOkA" label="EClass : InitializationResult">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//InitializationResult"/>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//InitializationResult"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXjP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXjf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6wXjv0EEeSpvf_YXTcOkA" label="EClass : MethodResult">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//MethodResult"/>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//MethodResult"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6wXj_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6wXkP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w9oP0EEeSpvf_YXTcOkA" label="EClass : ActorMethodResult">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ActorMethodResult"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6w9of0EEeSpvf_YXTcOkA" label="EReference : actorResult">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ActorMethodResult/actorResult"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ActorMethodResult/actorResult"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9ov0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9o_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ActorMethodResult"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9pP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9pf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w9pv0EEeSpvf_YXTcOkA" label="EClass : PageMethodResult">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//PageMethodResult"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6w9p_0EEeSpvf_YXTcOkA" label="EReference : pageResult">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageMethodResult/pageResult"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageMethodResult/pageResult"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9qP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9qf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//PageMethodResult"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9qv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9q_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w9rP0EEeSpvf_YXTcOkA" label="EClass : TestMethodResult">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestMethodResult"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6w9rf0EEeSpvf_YXTcOkA" label="EAttribute : parameters">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestMethodResult/parameters"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestMethodResult/parameters"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9rv0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9r_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6w9sP0EEeSpvf_YXTcOkA" label="EReference : navigationTiming">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestMethodResult/navigationTiming"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestMethodResult/navigationTiming"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9sf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9sv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestMethodResult"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9s_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9tP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w9tf0EEeSpvf_YXTcOkA" label="EClass : Coverage">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Coverage"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6w9tv0EEeSpvf_YXTcOkA" label="EAttribute : invocations">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Coverage/invocations"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Coverage/invocations"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9t_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9uP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Coverage"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9uf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9uv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w9u_0EEeSpvf_YXTcOkA" label="EClass : ActorResult">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ActorResult"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6w9vP0EEeSpvf_YXTcOkA" label="EReference : results">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ActorResult/results"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ActorResult/results"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9vf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9vv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6w9v_0EEeSpvf_YXTcOkA" label="EReference : coverage">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ActorResult/coverage"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ActorResult/coverage"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9wP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9wf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6w9wv0EEeSpvf_YXTcOkA" label="EAttribute : proxy">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//ActorResult/proxy"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//ActorResult/proxy"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9w_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9xP0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ActorResult"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9xf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9xv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w9x_0EEeSpvf_YXTcOkA" label="EClass : PageResult">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//PageResult"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6w9yP0EEeSpvf_YXTcOkA" label="EReference : results">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageResult/results"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageResult/results"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9yf0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9yv0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6w9y_0EEeSpvf_YXTcOkA" label="EReference : coverage">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageResult/coverage"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageResult/coverage"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9zP0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w9zf0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6w9zv0EEeSpvf_YXTcOkA" label="EReference : webElements">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageResult/webElements"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageResult/webElements"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w9z_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w90P0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6w90f0EEeSpvf_YXTcOkA" label="EAttribute : proxy">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//PageResult/proxy"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//PageResult/proxy"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w90v0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w90_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//PageResult"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w91P0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w91f0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w91v0EEeSpvf_YXTcOkA" label="EClass : WebElement">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//WebElement"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6w91_0EEeSpvf_YXTcOkA" label="EReference : locators">
+          <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//WebElement/locators"/>
+          <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//WebElement/locators"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w92P0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w92f0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//WebElement"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w92v0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w92_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w93P0EEeSpvf_YXTcOkA" label="EClass : Locator">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Locator"/>
+        <lines xmi:type="table:DLine" xmi:id="_M6w93f0EEeSpvf_YXTcOkA" label="EAttribute : how">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Locator/how"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Locator/how"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w93v0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w93_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_M6w94P0EEeSpvf_YXTcOkA" label="EAttribute : using">
+          <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Locator/using"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Locator/using"/>
+          <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w94f0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w94v0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Locator"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w94_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w95P0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w95f0EEeSpvf_YXTcOkA" label="EDataType : JSONObject">
+        <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//JSONObject"/>
+        <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//JSONObject"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w95v0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w95_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w96P0EEeSpvf_YXTcOkA" label="EClass : JSONLoader">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//JSONLoader"/>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//JSONLoader"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w96f0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w96v0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w96_0EEeSpvf_YXTcOkA" label="EClass : BreadcrumbsProvider">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//BreadcrumbsProvider"/>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//BreadcrumbsProvider"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w97P0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w97f0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w97v0EEeSpvf_YXTcOkA" label="EDataType : Exception">
+        <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//Exception"/>
+        <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//Exception"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w97_0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w98P0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w98f0EEeSpvf_YXTcOkA" label="EClass : Deletable">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Deletable"/>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Deletable"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w98v0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w98_0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_M6w99P0EEeSpvf_YXTcOkA" label="EDataType : LoginPasswordCredentials">
+        <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//LoginPasswordCredentials"/>
+        <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//LoginPasswordCredentials"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w99f0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w99v0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <columns xmi:type="table:DTargetColumn" xmi:id="_M6w99_0EEeSpvf_YXTcOkA" label="Domain Documentation" width="171">
+        <target xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+        <semanticElements xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+        <originMapping xmi:type="description:ElementColumnMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedColumnMappings.0"/>
+      </columns>
+      <description xmi:type="description:CrossTableDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description_1:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_IHeNwP0EEeSpvf_YXTcOkA" initialized="true">
+    <viewpoint xmi:type="description_1:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_IHfb4P0EEeSpvf_YXTcOkA" initialized="true">
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_IY4t4P0EEeSpvf_YXTcOkA" name="hub class diagram">
+      <ownedAnnotationEntries xmi:type="description_1:AnnotationEntry" xmi:id="_IbIJkP0EEeSpvf_YXTcOkA" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_IbIJkf0EEeSpvf_YXTcOkA" type="Sirius" element="_IY4t4P0EEeSpvf_YXTcOkA" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_IcL5gP0EEeSpvf_YXTcOkA" type="2001" element="_IY4t4f0EEeSpvf_YXTcOkA">
+            <children xmi:type="notation:Node" xmi:id="_IeaHEP0EEeSpvf_YXTcOkA" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_IeaHEf0EEeSpvf_YXTcOkA" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_I91OAP0EEeSpvf_YXTcOkA" type="3005" element="_IY5U8P0EEeSpvf_YXTcOkA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_I91OAf0EEeSpvf_YXTcOkA" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I91OAv0EEeSpvf_YXTcOkA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_IcL5gf0EEeSpvf_YXTcOkA" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IcL5gv0EEeSpvf_YXTcOkA" width="672" height="67"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_IbIJkv0EEeSpvf_YXTcOkA"/>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_IY4t4f0EEeSpvf_YXTcOkA" width="-1" height="-1">
+        <target xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+        <semanticElements xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_IY5U8P0EEeSpvf_YXTcOkA" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_IY5U8f0EEeSpvf_YXTcOkA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_IY5U8v0EEeSpvf_YXTcOkA"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_2:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_IY5U8_0EEeSpvf_YXTcOkA"/>
+      <activatedLayers xmi:type="description_2:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+      <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+      <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+      <target xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+    </ownedRepresentations>
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_I-kN0P0EEeSpvf_YXTcOkA" name="security class diagram">
+      <ownedAnnotationEntries xmi:type="description_1:AnnotationEntry" xmi:id="_I-k04P0EEeSpvf_YXTcOkA" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_I-k04f0EEeSpvf_YXTcOkA" type="Sirius" element="_I-kN0P0EEeSpvf_YXTcOkA" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_I-lb8P0EEeSpvf_YXTcOkA" type="2001" element="_I-kN0f0EEeSpvf_YXTcOkA">
+            <children xmi:type="notation:Node" xmi:id="_I-mDAP0EEeSpvf_YXTcOkA" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_I-mDAf0EEeSpvf_YXTcOkA" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_I-nRIP0EEeSpvf_YXTcOkA" type="3005" element="_I-kN0v0EEeSpvf_YXTcOkA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_I-nRIf0EEeSpvf_YXTcOkA" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I-nRIv0EEeSpvf_YXTcOkA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_I-lb8f0EEeSpvf_YXTcOkA" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I-lb8v0EEeSpvf_YXTcOkA" width="672" height="67"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_I-k04v0EEeSpvf_YXTcOkA"/>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I-kN0f0EEeSpvf_YXTcOkA" width="-1" height="-1">
+        <target xmi:type="ecore:EPackage" href="platform:/resource/org.nasdanika.cdo.security/model/security.ecore#/"/>
+        <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.nasdanika.cdo.security/model/security.ecore#/"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_I-kN0v0EEeSpvf_YXTcOkA" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_I-kN0_0EEeSpvf_YXTcOkA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_I-kN1P0EEeSpvf_YXTcOkA"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_2:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_I-kN1f0EEeSpvf_YXTcOkA"/>
+      <activatedLayers xmi:type="description_2:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+      <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+      <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+      <target xmi:type="ecore:EPackage" href="platform:/resource/org.nasdanika.cdo.security/model/security.ecore#/"/>
+    </ownedRepresentations>
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_I--dgP0EEeSpvf_YXTcOkA" name="ecore class diagram">
+      <ownedAnnotationEntries xmi:type="description_1:AnnotationEntry" xmi:id="_I_ASsP0EEeSpvf_YXTcOkA" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_I_ASsf0EEeSpvf_YXTcOkA" type="Sirius" element="_I--dgP0EEeSpvf_YXTcOkA" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_I_A5wP0EEeSpvf_YXTcOkA" type="2001" element="_I--dgf0EEeSpvf_YXTcOkA">
+            <children xmi:type="notation:Node" xmi:id="_I_Bg0P0EEeSpvf_YXTcOkA" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_I_Bg0f0EEeSpvf_YXTcOkA" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_I_CH4P0EEeSpvf_YXTcOkA" type="3005" element="_I--dgv0EEeSpvf_YXTcOkA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_I_CH4f0EEeSpvf_YXTcOkA" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I_CH4v0EEeSpvf_YXTcOkA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_I_A5wf0EEeSpvf_YXTcOkA" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I_A5wv0EEeSpvf_YXTcOkA" width="672" height="67"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_I_ASsv0EEeSpvf_YXTcOkA"/>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I--dgf0EEeSpvf_YXTcOkA" width="-1" height="-1">
+        <target xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+        <semanticElements xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_I--dgv0EEeSpvf_YXTcOkA" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_I--dg_0EEeSpvf_YXTcOkA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_I--dhP0EEeSpvf_YXTcOkA"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_2:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_I--dhf0EEeSpvf_YXTcOkA"/>
+      <activatedLayers xmi:type="description_2:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+      <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+      <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+      <target xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+    </ownedRepresentations>
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_I_WQ8P0EEeSpvf_YXTcOkA" name="performance class diagram">
+      <ownedAnnotationEntries xmi:type="description_1:AnnotationEntry" xmi:id="_I_W4AP0EEeSpvf_YXTcOkA" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_I_W4Af0EEeSpvf_YXTcOkA" type="Sirius" element="_I_WQ8P0EEeSpvf_YXTcOkA" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_I_XfEP0EEeSpvf_YXTcOkA" type="2001" element="_I_WQ8f0EEeSpvf_YXTcOkA">
+            <children xmi:type="notation:Node" xmi:id="_I_YtMP0EEeSpvf_YXTcOkA" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_I_YtMf0EEeSpvf_YXTcOkA" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_I_Z7UP0EEeSpvf_YXTcOkA" type="3005" element="_I_WQ8v0EEeSpvf_YXTcOkA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_I_Z7Uf0EEeSpvf_YXTcOkA" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I_Z7Uv0EEeSpvf_YXTcOkA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_I_XfEf0EEeSpvf_YXTcOkA" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I_XfEv0EEeSpvf_YXTcOkA" width="672" height="67"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_I_W4Av0EEeSpvf_YXTcOkA"/>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I_WQ8f0EEeSpvf_YXTcOkA" width="-1" height="-1">
+        <target xmi:type="ecore:EPackage" href="platform:/resource/org.nasdanika.webtest.performance/model/performance.ecore#/"/>
+        <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.nasdanika.webtest.performance/model/performance.ecore#/"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_I_WQ8v0EEeSpvf_YXTcOkA" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_I_WQ8_0EEeSpvf_YXTcOkA"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_I_WQ9P0EEeSpvf_YXTcOkA"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_2:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_I_WQ9f0EEeSpvf_YXTcOkA"/>
+      <activatedLayers xmi:type="description_2:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+      <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+      <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+      <target xmi:type="ecore:EPackage" href="platform:/resource/org.nasdanika.webtest.performance/model/performance.ecore#/"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description_1:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>

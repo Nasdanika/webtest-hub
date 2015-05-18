@@ -4,9 +4,12 @@ package org.nasdanika.webtest.hub;
 
 import java.util.Map;
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.cdo.CDOViewContext;
 import org.nasdanika.cdo.security.Group;
+import org.nasdanika.cdo.security.LoginPasswordCredentials;
 import org.nasdanika.cdo.security.LoginPasswordProtectionDomain;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext;
+import org.nasdanika.web.HttpServletRequestContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -154,34 +157,43 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
+	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.WebSocketContext<org.nasdanika.cdo.security.LoginPasswordCredentials>"
 	 * @generated
 	 */
-	Map<String, Object> executeScript(HttpContext context, String script) throws Exception;
+	Map<String, Object> executeScript(WebSocketContext<LoginPasswordCredentials> context, String script) throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
+	 * @model exceptions="org.nasdanika.webtest.hub.Exception"
 	 * @generated
 	 */
-	EList<Map<String, Object>> userList(HttpContext context) throws Exception;
+	EList<Map<String, Object>> userList() throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
+	 * @model exceptions="org.nasdanika.webtest.hub.Exception"
 	 * @generated
 	 */
-	EList<Map<String, Object>> deleteUser(HttpContext context, String login) throws Exception;
+	EList<Map<String, Object>> deleteUser(String login) throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext" userIDAnnotation="org.nasdanika.cdo.web.html.form-control private='true'" loginAnnotation="org.nasdanika.cdo.web.html.form-control required='true' attribute:ng-disabled='userModel.data.userID' validator='if (!this.data.userID) {\r\n\tfor (k in $scope.userList) {\r\n\t\tif (value===$scope.userList[k].login) {\r\n\t\t\treturn \"Duplicate login\";\r\n\t\t}\r\n\t}\r\n}'" adminAnnotation="org.nasdanika.cdo.web.html.form-control inline='true'" disabledAnnotation="org.nasdanika.cdo.web.html.form-control inline='true'" authenticationAnnotation="org.nasdanika.cdo.web.html.form-control default='PASSWORD'" passwordAnnotation="org.nasdanika.cdo.web.html.form-control input-type='password' group-attribute:ng-hide='userModel.data.authentication === \'NTLM\'' attribute:ng-required='userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID'" passwordConfirmationAnnotation="org.nasdanika.cdo.web.html.form-control input-type='password' group-attribute:ng-hide='userModel.data.authentication === \'NTLM\'' attribute:ng-required='userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID' validator='if (this.data.authentication === \'PASSWORD\' && value!==this.data.password) { return \'Passwords do not match\'; }'"
+	 * @model exceptions="org.nasdanika.webtest.hub.Exception" userIDAnnotation="org.nasdanika.cdo.web.html.form-control private='true'" loginAnnotation="org.nasdanika.cdo.web.html.form-control required='true' attribute:ng-disabled='userModel.data.userID' validator='if (!this.data.userID) {\r\n\tfor (k in $scope.userList) {\r\n\t\tif (value===$scope.userList[k].login) {\r\n\t\t\treturn \"Duplicate login\";\r\n\t\t}\r\n\t}\r\n}'" adminAnnotation="org.nasdanika.cdo.web.html.form-control inline='true'" disabledAnnotation="org.nasdanika.cdo.web.html.form-control inline='true'" authenticationAnnotation="org.nasdanika.cdo.web.html.form-control default='PASSWORD'" passwordAnnotation="org.nasdanika.cdo.web.html.form-control input-type='password' group-attribute:ng-hide='userModel.data.authentication === \'NTLM\'' attribute:ng-required='userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID'" passwordConfirmationAnnotation="org.nasdanika.cdo.web.html.form-control input-type='password' group-attribute:ng-hide='userModel.data.authentication === \'NTLM\'' attribute:ng-required='userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID' validator='if (this.data.authentication === \'PASSWORD\' && value!==this.data.password) { return \'Passwords do not match\'; }'"
 	 *        passwordConfirmationAnnotation="org.nasdanika.cdo.validator server='if (data.authentication.name() === \'PASSWORD\' && data.password!=value) {\r\n\treturn \"Passwords do not match\";\r\n}'"
 	 * @generated
 	 */
-	EList<Map<String, Object>> createOrUpdateUser(HttpContext context, String userID, String login, String name, boolean admin, boolean disabled, AuthenticationMode authentication, String password, String passwordConfirmation) throws Exception;
+	EList<Map<String, Object>> createOrUpdateUser(String userID, String login, String name, boolean admin, boolean disabled, AuthenticationMode authentication, String password, String passwordConfirmation) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.nasdanika.webtest.performance.Exception" viewContextDataType="org.nasdanika.webtest.hub.CDOViewContext<?, ?>" requestContextDataType="org.nasdanika.webtest.hub.HttpServletRequestContext"
+	 *        annotation="org.nasdanika.cdo.web:home-route action='read'"
+	 * @generated
+	 */
+	void home(CDOViewContext<?, ?> viewContext, HttpServletRequestContext requestContext) throws Exception;
 
 } // Hub

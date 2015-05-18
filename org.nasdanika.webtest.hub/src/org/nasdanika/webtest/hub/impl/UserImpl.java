@@ -21,6 +21,7 @@ import org.nasdanika.cdo.security.SecurityPackage;
 import org.nasdanika.cdo.security.SecurityPolicy;
 import org.nasdanika.core.AuthorizationProvider.AccessDecision;
 import org.nasdanika.core.Context;
+import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.ApplicationPanel;
 import org.nasdanika.html.ApplicationPanel.ContentPanel;
 import org.nasdanika.html.FontAwesome.Spinner;
@@ -31,7 +32,7 @@ import org.nasdanika.html.Theme;
 import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.Style;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.Hub;
@@ -375,7 +376,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 	}
 
 	@RouteMethod(pattern="[^/]+\\.html")
-	public String home(HttpContext context) throws Exception {
+	public String home(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		if (!context.authorize(this, "read", null, null)) {
 			return "Access denied!"; 			
@@ -432,7 +433,7 @@ public class UserImpl extends CDOObjectImpl implements User {
 	}
 		
 	@RouteMethod()
-	public void logout(final HttpContext context) throws Exception {
+	public void logout(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		context.getRequest().getSession().invalidate();
 		context.getResponse().sendRedirect(context.getObjectPath(eContainer())+".html");
 	}	

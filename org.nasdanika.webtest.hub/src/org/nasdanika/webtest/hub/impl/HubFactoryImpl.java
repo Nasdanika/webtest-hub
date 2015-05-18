@@ -3,7 +3,6 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.util.Map;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -11,7 +10,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.json.JSONObject;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.cdo.CDOViewContext;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
@@ -128,8 +127,8 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 				return createAuthenticationModeFromString(eDataType, initialValue);
 			case HubPackage.OPERATION_STATUS:
 				return createOperationStatusFromString(eDataType, initialValue);
-			case HubPackage.HTTP_CONTEXT:
-				return createHttpContextFromString(eDataType, initialValue);
+			case HubPackage.CDO_VIEW_CONTEXT:
+				return createCDOViewContextFromString(eDataType, initialValue);
 			case HubPackage.JSON_OBJECT:
 				return createJSONObjectFromString(eDataType, initialValue);
 			case HubPackage.EXCEPTION:
@@ -151,8 +150,8 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 				return convertAuthenticationModeToString(eDataType, instanceValue);
 			case HubPackage.OPERATION_STATUS:
 				return convertOperationStatusToString(eDataType, instanceValue);
-			case HubPackage.HTTP_CONTEXT:
-				return convertHttpContextToString(eDataType, instanceValue);
+			case HubPackage.CDO_VIEW_CONTEXT:
+				return convertCDOViewContextToString(eDataType, instanceValue);
 			case HubPackage.JSON_OBJECT:
 				return convertJSONObjectToString(eDataType, instanceValue);
 			case HubPackage.EXCEPTION:
@@ -467,8 +466,8 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HttpContext createHttpContextFromString(EDataType eDataType, String initialValue) {
-		return (HttpContext)super.createFromString(eDataType, initialValue);
+	public CDOViewContext<?, ?> createCDOViewContextFromString(EDataType eDataType, String initialValue) {
+		return (CDOViewContext<?, ?>)super.createFromString(initialValue);
 	}
 
 	/**
@@ -476,8 +475,8 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertHttpContextToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+	public String convertCDOViewContextToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
 	}
 
 	/**

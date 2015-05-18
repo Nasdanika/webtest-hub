@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.nasdanika.core.Context;
+import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.HTMLFactory.Placement;
@@ -21,7 +22,7 @@ import org.nasdanika.html.Tag;
 import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.Descriptor;
 import org.nasdanika.webtest.hub.HubFactory;
@@ -80,7 +81,7 @@ public class ParameterizedTestResultImpl extends TestSuiteResultImpl implements 
 	}	
 	
 	@RouteMethod(pattern="L?[\\d]+\\.html")
-	public String home(HttpContext context) throws Exception {
+	public String home(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		if (!context.authorize(this, "read", null, null)) {
 			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 

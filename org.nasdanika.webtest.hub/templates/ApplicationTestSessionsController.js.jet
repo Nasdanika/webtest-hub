@@ -6,10 +6,8 @@ require(["<%=argument%>.js", 'q', 'jquery'], function(app, Q, jQuery) {
 					
 			app.testSessions.then(function(testSessions) {	
 				var summaryRowPromises = testSessions.map(
-		    			function(tsAccessor) {
-		    				return tsAccessor().then(function(ts) {
-		    					return ts.summaryRow;
-		    				});
+		    			function(ts) {
+	    					return ts.summaryRow;
 		    			});
 		    			 						
 		    	Q.all(summaryRowPromises).then(function(summaryRows) {

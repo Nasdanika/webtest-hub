@@ -7,7 +7,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.Table;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.webtest.performance.TimingBase;
 
 /**
@@ -359,7 +359,7 @@ public interface OperationResult extends Descriptor, BreadcrumbsProvider {
 	 * @param htmlFactory
 	 * @param methodTable
 	 */
-	void genRow(HttpContext context, Table methodTable) throws Exception;
+	void genRow(HttpServletRequestContext context, Table methodTable) throws Exception;
 	
 	Object getIcon(HTMLFactory htmlFactory) throws Exception;
 

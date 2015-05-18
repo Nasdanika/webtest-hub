@@ -5,7 +5,7 @@
          point="org.eclipse.equinox.http.registry.servlets">
       <servlet
             alias="/router"
-            class="org.nasdanika.web.RoutingServlet">
+            class="org.nasdanika.cdo.web.CDOTransactionRoutingServlet">
          <init-param
                name="json-pretty-print"
                value="true">
@@ -13,6 +13,10 @@
          <init-param
                name="default-access-decision"
                value="deny">
+         </init-param>
+         <init-param
+               name="ws-session-path"
+               value="session">
          </init-param>
       </servlet>
       <servlet
@@ -25,6 +29,14 @@
          <init-param
                name="default-access-decision"
                value="deny">
+         </init-param>
+      </servlet>
+      <servlet
+            alias="/session"
+            class="org.nasdanika.cdo.web.SessionWebSocketServlet">
+         <init-param
+               name="view-path"
+               value="/router">
          </init-param>
       </servlet>
    </extension>

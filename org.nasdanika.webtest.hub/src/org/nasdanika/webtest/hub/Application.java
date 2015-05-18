@@ -5,7 +5,8 @@ package org.nasdanika.webtest.hub;
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
 import org.json.JSONObject;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.cdo.security.LoginPasswordCredentials;
+import org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -142,10 +143,10 @@ public interface Application extends CDOObject, BreadcrumbsProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.nasdanika.webtest.performance.JSONObject" exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpContext"
+	 * @model dataType="org.nasdanika.webtest.performance.JSONObject" exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.WebSocketContext<org.nasdanika.cdo.security.LoginPasswordCredentials>"
 	 * @generated
 	 */
-	JSONObject getSummaryRow(HttpContext context) throws Exception;
+	JSONObject getSummaryRow(WebSocketContext<LoginPasswordCredentials> context) throws Exception;
 
 	//void summaryRow(HttpContext context, Row row) throws Exception;
 	

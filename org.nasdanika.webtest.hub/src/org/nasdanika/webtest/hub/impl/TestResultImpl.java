@@ -14,10 +14,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.core.Context;
+import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.ActorResult;
@@ -82,7 +83,7 @@ public class TestResultImpl extends DescriptorImpl implements TestResult {
 	}
 	
 	@RouteMethod(pattern="L[\\d]+/pageResults", value=RequestMethod.POST)
-	public void createPageResult(final HttpContext context) throws Exception {
+	public void createPageResult(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			CDOLock writeLock = cdoWriteLock();
 			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
@@ -102,7 +103,7 @@ public class TestResultImpl extends DescriptorImpl implements TestResult {
 	}	
 		
 	@RouteMethod(pattern="L[\\d]+/actorResults", value=RequestMethod.POST)
-	public void createActorResult(final HttpContext context) throws Exception {
+	public void createActorResult(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			CDOLock writeLock = cdoWriteLock();
 			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
@@ -133,7 +134,7 @@ public class TestResultImpl extends DescriptorImpl implements TestResult {
 	}
 	
 	@Override
-	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+	public Breadcrumbs createBreadcrumbs(HttpServletRequestContext context, boolean active) throws Exception {
 		Breadcrumbs ret = ((BreadcrumbsProvider) eContainer()).createBreadcrumbs(context, false);		
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		ret.item(active ? null : htmlFactory.routeRef("right-panel", "/"+context.getObjectPath(this))+".html",

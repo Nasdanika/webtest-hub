@@ -19,7 +19,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.nasdanika.cdo.security.LoginPasswordCredentials;
+import org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext;
 import org.nasdanika.cdo.web.routes.CDOWebUtil;
+import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.FontAwesome.Spinner;
 import org.nasdanika.html.FontAwesome.WebApplication;
@@ -30,7 +33,7 @@ import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.Application;
@@ -168,7 +171,7 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public JSONObject getSummaryRow(HttpContext context) throws Exception {
+	public JSONObject getSummaryRow(WebSocketContext<LoginPasswordCredentials> context) throws Exception {
 		JSONObject ret = new JSONObject();
 		
 		ret.put("name", CDOWebUtil.marshalValue(getName()));
@@ -213,11 +216,12 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case HubPackage.APPLICATION___GET_SUMMARY_ROW__HTTPCONTEXT:
+			case HubPackage.APPLICATION___GET_SUMMARY_ROW__WEBSOCKETCONTEXT:
 				try {
-					return getSummaryRow((HttpContext)arguments.get(0));
+					return getSummaryRow((WebSocketContext<LoginPasswordCredentials>)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -227,7 +231,7 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 	}
 
 	@RouteMethod(pattern="L[\\d]+/testSessions", value=RequestMethod.POST)
-	public void createTestSession(final HttpContext context) throws Exception {
+	public void createTestSession(final @ContextParameter HttpServletRequestContext context) throws Exception {
 		if (authorize(context)) {
 			final TestSession testSession = HubFactory.eINSTANCE.createTestSession();
 			CDOLock writeLock = cdoWriteLock();
@@ -247,7 +251,7 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 		}
 	}
 
-	boolean authorize(final HttpContext context) throws IOException {
+	boolean authorize(final HttpServletRequestContext context) throws IOException {
 		if (getSecurityToken()==null) {
 			return true;
 		}
@@ -270,7 +274,7 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 	}
 	
 	@RouteMethod(pattern="L?[\\d]+\\.html")
-	public String home(HttpContext context) throws Exception {
+	public String home(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		if (!context.authorize(this, "read", null, null)) {
 			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
@@ -347,7 +351,7 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 	}
 	
 	@Override
-	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+	public Breadcrumbs createBreadcrumbs(HttpServletRequestContext context, boolean active) throws Exception {
 		Breadcrumbs ret = ((Hub) eContainer()).createBreadcrumbs(context, false);
 		ret.item(active ? null : context.adapt(HTMLFactory.class).routeRef("main", "/"+context.getObjectPath(this))+".html", StringEscapeUtils.escapeHtml4(getName()));		
 		return ret;

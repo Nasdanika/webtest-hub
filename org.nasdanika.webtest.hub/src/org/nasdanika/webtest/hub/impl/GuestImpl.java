@@ -32,6 +32,7 @@ import org.nasdanika.cdo.security.SecurityPolicy;
 import org.nasdanika.cdo.security.User;
 import org.nasdanika.core.AuthorizationProvider.AccessDecision;
 import org.nasdanika.core.Context;
+import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.ApplicationPanel;
 import org.nasdanika.html.ApplicationPanel.ContentPanel;
 import org.nasdanika.html.Button.Type;
@@ -53,7 +54,7 @@ import org.nasdanika.html.Theme;
 import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.Action;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.Guest;
@@ -207,8 +208,8 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 	
 	// --- Route methods ---
 	
-	@RouteMethod(pattern="[^/]+\\.html")
-	public String home(HttpContext context) throws Exception {
+	@RouteMethod(pattern="[^/]+\\.html", action="read")
+	public String home(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		String objectPath = context.getObjectPath(this);
 		ApplicationPanel appPanel = htmlFactory.applicationPanel()
@@ -387,7 +388,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 	}
 	
 	@RouteMethod(value=RequestMethod.POST)
-	public Object login(final HttpContext context) throws Exception {
+	public Object login(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		try (BufferedReader reader = context.getRequest().getReader()) {
 			final JSONObject body = new JSONObject(new JSONTokener(reader));
 			@SuppressWarnings("unchecked")
@@ -413,7 +414,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 	
 	@SuppressWarnings("unchecked")
 	@RouteMethod(value=RequestMethod.POST)
-	public Object register(final HttpContext context) throws Exception {
+	public Object register(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		try (BufferedReader reader = context.getRequest().getReader()) {
 			final JSONObject body = new JSONObject(new JSONTokener(reader));
 			

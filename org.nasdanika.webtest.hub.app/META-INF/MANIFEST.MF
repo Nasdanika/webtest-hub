@@ -4,13 +4,11 @@ Bundle-Name: org.nasdanika.webtest.hub.app
 Bundle-SymbolicName: org.nasdanika.webtest.hub.app; singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.eclipse.emf.cdo,
+Require-Bundle: org.nasdanika.webtest.hub,
+ org.eclipse.emf.cdo,
  org.eclipse.emf.ecore,
  org.eclipse.equinox.http.registry,
- org.nasdanika.webtest.hub,
  org.nasdanika.cdo.h2,
- org.nasdanika.web,
- org.nasdanika.cdo,
  com.github.dblock.waffle.jna;bundle-version="1.7.3"
-Service-Component: OSGI-INF/webtest-hub-session-initializer.xml,OSGI-INF/webtest-hub-repository.xml,OSGI-INF/webtest-hub-server.xml,OSGI-INF/webtest-hub-cdo-transaction-context-provider.xml,OSGI-INF/webtest-hub-cdo-transaction-context-route.xml,
+Service-Component: OSGI-INF/webtest-hub-session-initializer.xml,OSGI-INF/webtest-hub-repository.xml,OSGI-INF/webtest-hub-server.xml,OSGI-INF/webtest-hub-cdo-transaction-context-provider.xml,
  OSGI-INF/framework-stopper.xml

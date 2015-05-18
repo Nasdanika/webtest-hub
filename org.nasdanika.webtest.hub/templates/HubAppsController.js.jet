@@ -3,7 +3,7 @@
 require(["<%=argument%>.js", 'q', 'jquery'], function(hub, Q, jQuery) {
 	angular.module('hubApp', ['ngSanitize']).controller('ApplicationsController', ['$scope', '$sce', function ($scope, $sce) {  	 
 		function applyModelChanges() {
-	    	Q.all(hub.applications.map(function(app) { return app().summaryRow })).then(function (summaryRows) {
+	    	Q.all(hub.applications.map(function(app) { return app().summaryRow; })).then(function (summaryRows) {
 	    		for (var i in summaryRows) {
 	    			summaryRows[i].name = $sce.trustAsHtml(summaryRows[i].name);
 	    		}

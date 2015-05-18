@@ -6,7 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.cdo.CDOTransactionContextProviderComponent;
 import org.nasdanika.cdo.security.ProtectionDomain;
 import org.nasdanika.cdo.security.LoginPasswordCredentials;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 
 public class WebTestHubCDOTransactionContextProviderComponent extends CDOTransactionContextProviderComponent<LoginPasswordCredentials> {
 

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.nasdanika.core.Context;
+import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
@@ -21,7 +22,7 @@ import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.Style;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
@@ -125,7 +126,7 @@ public class ActorResultImpl extends DescriptorImpl implements ActorResult {
 	}
 
 	@RouteMethod(pattern="L?[\\d]+\\.html")
-	public String home(HttpContext context) throws Exception {
+	public String home(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		if (!context.authorize(this, "read", null, null)) {
 			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
@@ -168,7 +169,7 @@ public class ActorResultImpl extends DescriptorImpl implements ActorResult {
 	}	
 	
 	@Override
-	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+	public Breadcrumbs createBreadcrumbs(HttpServletRequestContext context, boolean active) throws Exception {
 		Breadcrumbs ret = ((BreadcrumbsProvider) eContainer()).createBreadcrumbs(context, false);		
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		ret.item(active ? null : htmlFactory.routeRef("right-panel", "/"+context.getObjectPath(this))+".html",

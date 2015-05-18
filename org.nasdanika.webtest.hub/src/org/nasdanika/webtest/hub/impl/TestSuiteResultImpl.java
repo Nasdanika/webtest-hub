@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
 import org.nasdanika.html.Table;
@@ -26,7 +27,7 @@ import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Table.Row.Cell;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.HubFactory;
@@ -78,7 +79,7 @@ public class TestSuiteResultImpl extends TestResultImpl implements TestSuiteResu
 	}
 
 	@RouteMethod(pattern="L[\\d]+/children", value=RequestMethod.POST)
-	public void createTestResult(final HttpContext context) throws Exception {
+	public void createTestResult(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			CDOLock writeLock = cdoWriteLock();
 			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
@@ -124,7 +125,7 @@ public class TestSuiteResultImpl extends TestResultImpl implements TestSuiteResu
 	}
 		
 	@RouteMethod(pattern="L?[\\d]+\\.html")
-	public String home(HttpContext context) throws Exception {
+	public String home(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		if (!context.authorize(this, "read", null, null)) {
 			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 

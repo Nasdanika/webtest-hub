@@ -212,7 +212,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 0;
+	int HUB___EXECUTE_SCRIPT__WEBSOCKETCONTEXT_STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>User List</em>' operation.
@@ -221,7 +221,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HUB___USER_LIST__HTTPCONTEXT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 1;
+	int HUB___USER_LIST = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Delete User</em>' operation.
@@ -230,7 +230,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HUB___DELETE_USER__HTTPCONTEXT_STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 2;
+	int HUB___DELETE_USER__STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Create Or Update User</em>' operation.
@@ -239,7 +239,16 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HUB___CREATE_OR_UPDATE_USER__HTTPCONTEXT_STRING_STRING_STRING_BOOLEAN_BOOLEAN_AUTHENTICATIONMODE_STRING_STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 3;
+	int HUB___CREATE_OR_UPDATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN_AUTHENTICATIONMODE_STRING_STRING = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Home</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUB___HOME__CDOVIEWCONTEXT_HTTPSERVLETREQUESTCONTEXT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Hub</em>' class.
@@ -248,7 +257,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HUB_OPERATION_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 4;
+	int HUB_OPERATION_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}' class.
@@ -614,7 +623,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION___GET_SUMMARY_ROW__HTTPCONTEXT = BREADCRUMBS_PROVIDER_OPERATION_COUNT + 0;
+	int APPLICATION___GET_SUMMARY_ROW__WEBSOCKETCONTEXT = BREADCRUMBS_PROVIDER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Application</em>' class.
@@ -888,7 +897,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_SESSION___GET_SUMMARY_ROW__HTTPCONTEXT = DESCRIPTOR_OPERATION_COUNT + 0;
+	int TEST_SESSION___GET_SUMMARY_ROW__WEBSOCKETCONTEXT = DESCRIPTOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Test Session</em>' class.
@@ -3002,14 +3011,44 @@ public interface HubPackage extends EPackage {
 	int OPERATION_STATUS = 31;
 
 	/**
-	 * The meta object id for the '<em>Http Context</em>' data type.
+	 * The meta object id for the '<em>Http Servlet Response</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.web.HttpContext
-	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getHttpContext()
+	 * @see javax.servlet.http.HttpServletResponse
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getHttpServletResponse()
 	 * @generated
 	 */
-	int HTTP_CONTEXT = 32;
+	int HTTP_SERVLET_RESPONSE = 32;
+
+	/**
+	 * The meta object id for the '<em>CDO View Context</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.cdo.CDOViewContext
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCDOViewContext()
+	 * @generated
+	 */
+	int CDO_VIEW_CONTEXT = 33;
+
+	/**
+	 * The meta object id for the '<em>Http Servlet Request Context</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.web.HttpServletRequestContext
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getHttpServletRequestContext()
+	 * @generated
+	 */
+	int HTTP_SERVLET_REQUEST_CONTEXT = 34;
+
+	/**
+	 * The meta object id for the '<em>Web Socket Context</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getWebSocketContext()
+	 * @generated
+	 */
+	int WEB_SOCKET_CONTEXT = 35;
 
 	/**
 	 * The meta object id for the '<em>JSON Object</em>' data type.
@@ -3019,7 +3058,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONObject()
 	 * @generated
 	 */
-	int JSON_OBJECT = 33;
+	int JSON_OBJECT = 36;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -3029,7 +3068,18 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 34;
+	int EXCEPTION = 37;
+
+
+	/**
+	 * The meta object id for the '<em>Login Password Credentials</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.cdo.security.LoginPasswordCredentials
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getLoginPasswordCredentials()
+	 * @generated
+	 */
+	int LOGIN_PASSWORD_CREDENTIALS = 38;
 
 
 	/**
@@ -3098,44 +3148,54 @@ public interface HubPackage extends EPackage {
 	EAttribute getHub_SlideWidth();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#executeScript(org.nasdanika.web.HttpContext, java.lang.String) <em>Execute Script</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#executeScript(org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext, java.lang.String) <em>Execute Script</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Execute Script</em>' operation.
-	 * @see org.nasdanika.webtest.hub.Hub#executeScript(org.nasdanika.web.HttpContext, java.lang.String)
+	 * @see org.nasdanika.webtest.hub.Hub#executeScript(org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext, java.lang.String)
 	 * @generated
 	 */
-	EOperation getHub__ExecuteScript__HttpContext_String();
+	EOperation getHub__ExecuteScript__WebSocketContext_String();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#userList(org.nasdanika.web.HttpContext) <em>User List</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#userList() <em>User List</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>User List</em>' operation.
-	 * @see org.nasdanika.webtest.hub.Hub#userList(org.nasdanika.web.HttpContext)
+	 * @see org.nasdanika.webtest.hub.Hub#userList()
 	 * @generated
 	 */
-	EOperation getHub__UserList__HttpContext();
+	EOperation getHub__UserList();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#deleteUser(org.nasdanika.web.HttpContext, java.lang.String) <em>Delete User</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#deleteUser(java.lang.String) <em>Delete User</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Delete User</em>' operation.
-	 * @see org.nasdanika.webtest.hub.Hub#deleteUser(org.nasdanika.web.HttpContext, java.lang.String)
+	 * @see org.nasdanika.webtest.hub.Hub#deleteUser(java.lang.String)
 	 * @generated
 	 */
-	EOperation getHub__DeleteUser__HttpContext_String();
+	EOperation getHub__DeleteUser__String();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#createOrUpdateUser(org.nasdanika.web.HttpContext, java.lang.String, java.lang.String, java.lang.String, boolean, boolean, org.nasdanika.webtest.hub.AuthenticationMode, java.lang.String, java.lang.String) <em>Create Or Update User</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#createOrUpdateUser(java.lang.String, java.lang.String, java.lang.String, boolean, boolean, org.nasdanika.webtest.hub.AuthenticationMode, java.lang.String, java.lang.String) <em>Create Or Update User</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Create Or Update User</em>' operation.
-	 * @see org.nasdanika.webtest.hub.Hub#createOrUpdateUser(org.nasdanika.web.HttpContext, java.lang.String, java.lang.String, java.lang.String, boolean, boolean, org.nasdanika.webtest.hub.AuthenticationMode, java.lang.String, java.lang.String)
+	 * @see org.nasdanika.webtest.hub.Hub#createOrUpdateUser(java.lang.String, java.lang.String, java.lang.String, boolean, boolean, org.nasdanika.webtest.hub.AuthenticationMode, java.lang.String, java.lang.String)
 	 * @generated
 	 */
-	EOperation getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String();
+	EOperation getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#home(org.nasdanika.cdo.CDOViewContext, org.nasdanika.web.HttpServletRequestContext) <em>Home</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Home</em>' operation.
+	 * @see org.nasdanika.webtest.hub.Hub#home(org.nasdanika.cdo.CDOViewContext, org.nasdanika.web.HttpServletRequestContext)
+	 * @generated
+	 */
+	EOperation getHub__Home__CDOViewContext_HttpServletRequestContext();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}'.
@@ -3255,14 +3315,14 @@ public interface HubPackage extends EPackage {
 	EAttribute getApplication_Description();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Application#getSummaryRow(org.nasdanika.web.HttpContext) <em>Get Summary Row</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Application#getSummaryRow(org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext) <em>Get Summary Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Summary Row</em>' operation.
-	 * @see org.nasdanika.webtest.hub.Application#getSummaryRow(org.nasdanika.web.HttpContext)
+	 * @see org.nasdanika.webtest.hub.Application#getSummaryRow(org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext)
 	 * @generated
 	 */
-	EOperation getApplication__GetSummaryRow__HttpContext();
+	EOperation getApplication__GetSummaryRow__WebSocketContext();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.Descriptor <em>Descriptor</em>}'.
@@ -3449,14 +3509,14 @@ public interface HubPackage extends EPackage {
 	EAttribute getTestSession_Node();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.TestSession#getSummaryRow(org.nasdanika.web.HttpContext) <em>Get Summary Row</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.TestSession#getSummaryRow(org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext) <em>Get Summary Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Summary Row</em>' operation.
-	 * @see org.nasdanika.webtest.hub.TestSession#getSummaryRow(org.nasdanika.web.HttpContext)
+	 * @see org.nasdanika.webtest.hub.TestSession#getSummaryRow(org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext)
 	 * @generated
 	 */
-	EOperation getTestSession__GetSummaryRow__HttpContext();
+	EOperation getTestSession__GetSummaryRow__WebSocketContext();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.TestResult <em>Test Result</em>}'.
@@ -4297,15 +4357,48 @@ public interface HubPackage extends EPackage {
 	EEnum getOperationStatus();
 
 	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.web.HttpContext <em>Http Context</em>}'.
+	 * Returns the meta object for data type '{@link javax.servlet.http.HttpServletResponse <em>Http Servlet Response</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Http Context</em>'.
-	 * @see org.nasdanika.web.HttpContext
-	 * @model instanceClass="org.nasdanika.web.HttpContext"
+	 * @return the meta object for data type '<em>Http Servlet Response</em>'.
+	 * @see javax.servlet.http.HttpServletResponse
+	 * @model instanceClass="javax.servlet.http.HttpServletResponse" serializeable="false"
 	 * @generated
 	 */
-	EDataType getHttpContext();
+	EDataType getHttpServletResponse();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.cdo.CDOViewContext <em>CDO View Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>CDO View Context</em>'.
+	 * @see org.nasdanika.cdo.CDOViewContext
+	 * @model instanceClass="org.nasdanika.cdo.CDOViewContext" typeParameters="V CR"
+	 * @generated
+	 */
+	EDataType getCDOViewContext();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.web.HttpServletRequestContext <em>Http Servlet Request Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Http Servlet Request Context</em>'.
+	 * @see org.nasdanika.web.HttpServletRequestContext
+	 * @model instanceClass="org.nasdanika.web.HttpServletRequestContext" serializeable="false"
+	 * @generated
+	 */
+	EDataType getHttpServletRequestContext();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext <em>Web Socket Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Web Socket Context</em>'.
+	 * @see org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext
+	 * @model instanceClass="org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext" serializeable="false" typeParameters="CR"
+	 * @generated
+	 */
+	EDataType getWebSocketContext();
 
 	/**
 	 * Returns the meta object for data type '{@link org.json.JSONObject <em>JSON Object</em>}'.
@@ -4328,6 +4421,17 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getException();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.cdo.security.LoginPasswordCredentials <em>Login Password Credentials</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Login Password Credentials</em>'.
+	 * @see org.nasdanika.cdo.security.LoginPasswordCredentials
+	 * @model instanceClass="org.nasdanika.cdo.security.LoginPasswordCredentials" serializeable="false"
+	 * @generated
+	 */
+	EDataType getLoginPasswordCredentials();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -4408,7 +4512,7 @@ public interface HubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING = eINSTANCE.getHub__ExecuteScript__HttpContext_String();
+		EOperation HUB___EXECUTE_SCRIPT__WEBSOCKETCONTEXT_STRING = eINSTANCE.getHub__ExecuteScript__WebSocketContext_String();
 
 		/**
 		 * The meta object literal for the '<em><b>User List</b></em>' operation.
@@ -4416,7 +4520,7 @@ public interface HubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation HUB___USER_LIST__HTTPCONTEXT = eINSTANCE.getHub__UserList__HttpContext();
+		EOperation HUB___USER_LIST = eINSTANCE.getHub__UserList();
 
 		/**
 		 * The meta object literal for the '<em><b>Delete User</b></em>' operation.
@@ -4424,7 +4528,7 @@ public interface HubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation HUB___DELETE_USER__HTTPCONTEXT_STRING = eINSTANCE.getHub__DeleteUser__HttpContext_String();
+		EOperation HUB___DELETE_USER__STRING = eINSTANCE.getHub__DeleteUser__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Or Update User</b></em>' operation.
@@ -4432,7 +4536,15 @@ public interface HubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation HUB___CREATE_OR_UPDATE_USER__HTTPCONTEXT_STRING_STRING_STRING_BOOLEAN_BOOLEAN_AUTHENTICATIONMODE_STRING_STRING = eINSTANCE.getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String();
+		EOperation HUB___CREATE_OR_UPDATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN_AUTHENTICATIONMODE_STRING_STRING = eINSTANCE.getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Home</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation HUB___HOME__CDOVIEWCONTEXT_HTTPSERVLETREQUESTCONTEXT = eINSTANCE.getHub__Home__CDOViewContext_HttpServletRequestContext();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.ApplicationOwner <em>Application Owner</em>}' class.
@@ -4536,7 +4648,7 @@ public interface HubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation APPLICATION___GET_SUMMARY_ROW__HTTPCONTEXT = eINSTANCE.getApplication__GetSummaryRow__HttpContext();
+		EOperation APPLICATION___GET_SUMMARY_ROW__WEBSOCKETCONTEXT = eINSTANCE.getApplication__GetSummaryRow__WebSocketContext();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.DescriptorImpl <em>Descriptor</em>}' class.
@@ -4686,7 +4798,7 @@ public interface HubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TEST_SESSION___GET_SUMMARY_ROW__HTTPCONTEXT = eINSTANCE.getTestSession__GetSummaryRow__HttpContext();
+		EOperation TEST_SESSION___GET_SUMMARY_ROW__WEBSOCKETCONTEXT = eINSTANCE.getTestSession__GetSummaryRow__WebSocketContext();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.TestResultImpl <em>Test Result</em>}' class.
@@ -5361,14 +5473,44 @@ public interface HubPackage extends EPackage {
 		EEnum OPERATION_STATUS = eINSTANCE.getOperationStatus();
 
 		/**
-		 * The meta object literal for the '<em>Http Context</em>' data type.
+		 * The meta object literal for the '<em>Http Servlet Response</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.web.HttpContext
-		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getHttpContext()
+		 * @see javax.servlet.http.HttpServletResponse
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getHttpServletResponse()
 		 * @generated
 		 */
-		EDataType HTTP_CONTEXT = eINSTANCE.getHttpContext();
+		EDataType HTTP_SERVLET_RESPONSE = eINSTANCE.getHttpServletResponse();
+
+		/**
+		 * The meta object literal for the '<em>CDO View Context</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.cdo.CDOViewContext
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCDOViewContext()
+		 * @generated
+		 */
+		EDataType CDO_VIEW_CONTEXT = eINSTANCE.getCDOViewContext();
+
+		/**
+		 * The meta object literal for the '<em>Http Servlet Request Context</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.web.HttpServletRequestContext
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getHttpServletRequestContext()
+		 * @generated
+		 */
+		EDataType HTTP_SERVLET_REQUEST_CONTEXT = eINSTANCE.getHttpServletRequestContext();
+
+		/**
+		 * The meta object literal for the '<em>Web Socket Context</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getWebSocketContext()
+		 * @generated
+		 */
+		EDataType WEB_SOCKET_CONTEXT = eINSTANCE.getWebSocketContext();
 
 		/**
 		 * The meta object literal for the '<em>JSON Object</em>' data type.
@@ -5389,6 +5531,16 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType EXCEPTION = eINSTANCE.getException();
+
+		/**
+		 * The meta object literal for the '<em>Login Password Credentials</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.cdo.security.LoginPasswordCredentials
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getLoginPasswordCredentials()
+		 * @generated
+		 */
+		EDataType LOGIN_PASSWORD_CREDENTIALS = eINSTANCE.getLoginPasswordCredentials();
 
 	}
 

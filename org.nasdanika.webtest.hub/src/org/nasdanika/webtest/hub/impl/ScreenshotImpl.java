@@ -7,7 +7,8 @@ import java.io.OutputStream;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.core.ContextParameter;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.OperationResult;
@@ -216,7 +217,7 @@ public class ScreenshotImpl extends CDOObjectImpl implements Screenshot {
 	 * @throws Exception
 	 */
 	@RouteMethod(pattern="L[\\d]+\\.png")
-	public void img(HttpContext context) throws Exception {
+	public void img(@ContextParameter HttpServletRequestContext context) throws Exception {
 		context.getResponse().setContentType(getContentType());
 		try (OutputStream out=context.getResponse().getOutputStream()) {
 			out.write(getContent());

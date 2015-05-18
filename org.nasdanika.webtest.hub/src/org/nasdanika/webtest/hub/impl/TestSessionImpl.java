@@ -28,9 +28,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.nasdanika.cdo.security.LoginPasswordCredentials;
+import org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext;
 import org.nasdanika.cdo.web.routes.CDOWebUtil;
 import org.nasdanika.core.Context;
-import org.nasdanika.core.Context;
+import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.Fragment;
@@ -45,7 +47,7 @@ import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.DeviceSize;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.ActorResult;
@@ -226,7 +228,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Map<String, Object> getSummaryRow(HttpContext context) throws Exception {
+	public Map<String, Object> getSummaryRow(WebSocketContext<LoginPasswordCredentials> context) throws Exception {
 		Map<String, Object> ret = new HashMap<>();
 		ret.put(CDOWebUtil.PATH_KEY, context.getObjectPath(this));
 		ret.put("$delete", context.authorize(this, "delete", null, null));
@@ -265,11 +267,12 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case HubPackage.TEST_SESSION___GET_SUMMARY_ROW__HTTPCONTEXT:
+			case HubPackage.TEST_SESSION___GET_SUMMARY_ROW__WEBSOCKETCONTEXT:
 				try {
-					return getSummaryRow((HttpContext)arguments.get(0));
+					return getSummaryRow((WebSocketContext<LoginPasswordCredentials>)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -288,7 +291,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	}
 
 	@RouteMethod(pattern="L[\\d]+/testResults", value=RequestMethod.POST)
-	public void createTestResult(final HttpContext context) throws Exception {
+	public void createTestResult(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			CDOLock writeLock = cdoWriteLock();
 			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
@@ -329,7 +332,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	}	
 	
 	@RouteMethod(pattern="L[\\d]+/pageResults", value=RequestMethod.POST)
-	public void createPageResult(final HttpContext context) throws Exception {
+	public void createPageResult(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			CDOLock writeLock = cdoWriteLock();
 			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
@@ -349,7 +352,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	}	
 		
 	@RouteMethod(pattern="L[\\d]+/actorResults", value=RequestMethod.POST)
-	public void createActorResult(final HttpContext context) throws Exception {
+	public void createActorResult(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			CDOLock writeLock = cdoWriteLock();
 			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
@@ -369,7 +372,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	}	
 	
 	@RouteMethod(pattern="L[\\d]+", value=RequestMethod.PUT)
-	public void uploadFinished(final HttpContext context) throws Exception {
+	public void uploadFinished(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			CDOLock writeLock = cdoWriteLock();
 			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
@@ -390,7 +393,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	}	
 	
 	@RouteMethod(pattern="L[\\d]+", value=RequestMethod.DELETE)
-	public void uploadFailed(final HttpContext context) throws Exception {
+	public void uploadFailed(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			CDOLock writeLock = ((CDOObject) eContainer()).cdoWriteLock();
 			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
@@ -426,7 +429,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	}	
 	
 	@RouteMethod(pattern="L?[\\d]+\\.html")
-	public String home(HttpContext context) throws Exception {
+	public String home(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		if (!context.authorize(this, "read", null, null)) {
 			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
@@ -463,14 +466,14 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	}
 	
 	@Override
-	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+	public Breadcrumbs createBreadcrumbs(HttpServletRequestContext context, boolean active) throws Exception {
 		Breadcrumbs ret = ((Application) eContainer()).createBreadcrumbs(context, false);
 		String title = StringEscapeUtils.escapeHtml4(getTitle())+" "+new SimpleDateFormat(DATE_PATTERN).format(new Date(getTimestamp()));
 		ret.item(active ? null : context.adapt(HTMLFactory.class).routeRef("main", "/"+context.getObjectPath(this))+".html", title);		
 		return ret;
 	}
 	
-	private Object pagesLeftPanel(HttpContext context, HTMLFactory htmlFactory) throws Exception {
+	private Object pagesLeftPanel(HttpServletRequestContext context, HTMLFactory htmlFactory) throws Exception {
 		List<PageResult> prs = new ArrayList<>(getPageResults());
 		if (prs.isEmpty()) {
 			return null;
@@ -496,7 +499,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		return linkGroup.length()==0 ? null : linkGroup;
 	}
 
-	private Object actorsLeftPanel(HttpContext context, HTMLFactory htmlFactory) throws Exception {
+	private Object actorsLeftPanel(HttpServletRequestContext context, HTMLFactory htmlFactory) throws Exception {
 		List<ActorResult> ars = new ArrayList<>(getActorResults());
 		if (ars.isEmpty()) {
 			return null;
@@ -523,7 +526,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	}
 
 	@RouteMethod
-	public String summary(HttpContext context) throws Exception {
+	public String summary(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		if (!context.authorize(this, "read", null, null)) {
 			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
@@ -555,7 +558,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 				body;		
 	}
 
-	private String testsSummary(HttpContext context) throws Exception {
+	private String testsSummary(HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		Table testResultsTable = htmlFactory.table().bordered();
 		Row hRow = testResultsTable.row().style(Style.INFO);
@@ -648,7 +651,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		return testResultsTable.toString();
 	}
 	
-	private String actorsSummary(HttpContext context) throws Exception {		
+	private String actorsSummary(HttpServletRequestContext context) throws Exception {		
 		List<ActorResult> ars = new ArrayList<>(getActorResults());
 		if (ars.isEmpty()) {
 			return null;
@@ -702,7 +705,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		return actorTable.rows().isEmpty() ? null : actorTable.toString();
 	}
 	
-	private String pagesSummary(HttpContext context) throws Exception {
+	private String pagesSummary(HttpServletRequestContext context) throws Exception {
 		List<PageResult> prs = new ArrayList<>(getPageResults());
 		if (prs.isEmpty()) {
 			return null;
@@ -760,7 +763,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 		return pageTable.rows().isEmpty() ? null : pageTable.toString();
 	}
 	
-	private Object testsLeftPanel(HttpContext context, HTMLFactory htmlFactory) throws Exception {
+	private Object testsLeftPanel(HttpServletRequestContext context, HTMLFactory htmlFactory) throws Exception {
 		List<TestResult> sortedResults = new ArrayList<>(getTestResults());
 		Collections.sort(sortedResults, new Comparator<TestResult>() {
 

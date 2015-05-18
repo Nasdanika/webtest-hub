@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.nasdanika.core.Context;
+import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
@@ -24,7 +25,7 @@ import org.nasdanika.html.Table;
 import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.UIElement.Style;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.BreadcrumbsProvider;
@@ -103,7 +104,7 @@ public class TestClassResultImpl extends TestResultImpl implements TestClassResu
 	}
 
 	@RouteMethod(pattern="L[\\d]+/methodResults", value=RequestMethod.POST)
-	public void createTestResult(final HttpContext context) throws Exception {
+	public void createTestResult(@ContextParameter final HttpServletRequestContext context) throws Exception {
 		if (HubUtil.authorize(context, this)) {
 			CDOLock writeLock = cdoWriteLock();
 			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
@@ -123,7 +124,7 @@ public class TestClassResultImpl extends TestResultImpl implements TestClassResu
 	}	
 		
 	@RouteMethod(pattern="L?[\\d]+\\.html")
-	public String home(HttpContext context) throws Exception {
+	public String home(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		if (!context.authorize(this, "read", null, null)) {
 			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
@@ -175,7 +176,7 @@ public class TestClassResultImpl extends TestResultImpl implements TestClassResu
 	}	
 		
 	@Override
-	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+	public Breadcrumbs createBreadcrumbs(HttpServletRequestContext context, boolean active) throws Exception {
 		if (eContainer() instanceof ParameterizedTestResult) {
 			Breadcrumbs ret = ((BreadcrumbsProvider) eContainer()).createBreadcrumbs(context, false);		
 			HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);

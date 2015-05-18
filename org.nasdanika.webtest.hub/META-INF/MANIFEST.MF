@@ -14,10 +14,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.cdo;visibility:=reexport,
  org.nasdanika.cdo.security;visibility:=reexport,
- org.nasdanika.web,
- org.nasdanika.cdo,
  org.nasdanika.webtest.performance;visibility:=reexport,
  org.apache.commons.lang3;bundle-version="3.3.2",
  org.json,
- org.mozilla.rhino;bundle-version="1.0.0"
+ org.mozilla.rhino;bundle-version="1.0.0",
+ org.nasdanika.cdo.web;bundle-version="0.1.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

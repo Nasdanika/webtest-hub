@@ -6,11 +6,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.common.id.CDOIDUtil;
@@ -24,9 +27,12 @@ import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
 import org.nasdanika.cdo.CDOViewContext;
 import org.nasdanika.cdo.security.Group;
+import org.nasdanika.cdo.security.LoginPasswordCredentials;
 import org.nasdanika.cdo.security.Principal;
 import org.nasdanika.cdo.security.impl.LoginPasswordProtectionDomainImpl;
+import org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext;
 import org.nasdanika.cdo.web.html.AngularJsEOperationFormGenerator;
+import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.Breadcrumbs;
 import org.nasdanika.html.Button;
 import org.nasdanika.html.Button.Type;
@@ -48,7 +54,7 @@ import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.TextArea;
 import org.nasdanika.html.UIElement.HTMLColor;
 import org.nasdanika.html.UIElement.Style;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
@@ -198,13 +204,13 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Map<String, Object> executeScript(HttpContext context, String script) throws Exception {
+	public Map<String, Object> executeScript(WebSocketContext<LoginPasswordCredentials> context, String script) throws Exception {
 		org.mozilla.javascript.Context scriptContext = org.mozilla.javascript.Context.enter();
 		try {
-			Scriptable scope = (Scriptable) context.getRequest().getSession().getAttribute(SCRIPT_SCOPE_ATTRIBUTE_KEY);
+			Scriptable scope = (Scriptable) context.getAttribute(SCRIPT_SCOPE_ATTRIBUTE_KEY);
 			if (scope == null) {
 				scope = scriptContext.initStandardObjects();
-				context.getRequest().getSession().setAttribute(SCRIPT_SCOPE_ATTRIBUTE_KEY, scope);
+				context.setAttribute(SCRIPT_SCOPE_ATTRIBUTE_KEY, scope);
 			}
 			synchronized (scope) {
 				ScriptableObject.putProperty(scope, "hub", org.mozilla.javascript.Context.javaToJS(this, scope));
@@ -299,7 +305,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<Map<String, Object>> userList(HttpContext context) throws Exception {
+	public EList<Map<String, Object>> userList() throws Exception {
 		EList<Map<String, Object>> ret = new BasicEList<>();
 		for (User user: getUsers()) {
 			Map<String, Object> entry = new HashMap<>();
@@ -335,12 +341,12 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<Map<String, Object>> deleteUser(HttpContext context, String login) throws Exception {
+	public EList<Map<String, Object>> deleteUser(String login) throws Exception {
 		org.nasdanika.cdo.security.User toDelete = getUser(login);
 		if (toDelete!=null) {
 			EcoreUtil.delete(toDelete, true);
 		}
-		return userList(context);
+		return userList();
 	}
 
 	/**
@@ -349,7 +355,6 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * @generated NOT
 	 */
 	public EList<Map<String, Object>> createOrUpdateUser(
-			HttpContext context, 
 			String userID, 
 			String login, 
 			String name, 
@@ -376,7 +381,17 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		if (userID==null) {
 			getUsers().add(user);
 		}
-		return userList(context);
+		return userList();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void home(CDOViewContext<?, ?> viewContext, HttpServletRequestContext requestContext) throws Exception {
+		Principal principal = viewContext.getPrincipal();
+		requestContext.getResponse().sendRedirect(requestContext.getObjectPath(principal)+".html");
 	}
 
 	/**
@@ -427,32 +442,41 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case HubPackage.HUB___EXECUTE_SCRIPT__HTTPCONTEXT_STRING:
+			case HubPackage.HUB___EXECUTE_SCRIPT__WEBSOCKETCONTEXT_STRING:
 				try {
-					return executeScript((HttpContext)arguments.get(0), (String)arguments.get(1));
+					return executeScript((WebSocketContext<LoginPasswordCredentials>)arguments.get(0), (String)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case HubPackage.HUB___USER_LIST__HTTPCONTEXT:
+			case HubPackage.HUB___USER_LIST:
 				try {
-					return userList((HttpContext)arguments.get(0));
+					return userList();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case HubPackage.HUB___DELETE_USER__HTTPCONTEXT_STRING:
+			case HubPackage.HUB___DELETE_USER__STRING:
 				try {
-					return deleteUser((HttpContext)arguments.get(0), (String)arguments.get(1));
+					return deleteUser((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case HubPackage.HUB___CREATE_OR_UPDATE_USER__HTTPCONTEXT_STRING_STRING_STRING_BOOLEAN_BOOLEAN_AUTHENTICATIONMODE_STRING_STRING:
+			case HubPackage.HUB___CREATE_OR_UPDATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN_AUTHENTICATIONMODE_STRING_STRING:
 				try {
-					return createOrUpdateUser((HttpContext)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (String)arguments.get(3), (Boolean)arguments.get(4), (Boolean)arguments.get(5), (AuthenticationMode)arguments.get(6), (String)arguments.get(7), (String)arguments.get(8));
+					return createOrUpdateUser((String)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Boolean)arguments.get(3), (Boolean)arguments.get(4), (AuthenticationMode)arguments.get(5), (String)arguments.get(6), (String)arguments.get(7));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case HubPackage.HUB___HOME__CDOVIEWCONTEXT_HTTPSERVLETREQUESTCONTEXT:
+				try {
+					home((CDOViewContext<?, ?>)arguments.get(0), (HttpServletRequestContext)arguments.get(1));
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -478,15 +502,16 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * @param context
 	 * @throws Exception
 	 */
-	@RouteMethod(pattern="L?[\\d]+\\.html")
-	public void home(HttpContext context) throws Exception {
+	//@RouteMethod(pattern="L?[\\d]+\\.html")
+	public void home(@ContextParameter HttpServletRequestContext context) throws Exception {
 		Principal principal = ((CDOViewContext<?,?>) context).getPrincipal();
-		context.getResponse().sendRedirect(context.getObjectPath(principal)+".html");
+		HttpServletResponse response = context.getResponse();
+		response.sendRedirect(context.getObjectPath(principal)+".html");
 	}	
 	
 	
 	@RouteMethod
-	public String scriptConsole(HttpContext context) throws Exception {
+	public String scriptConsole(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		if (!context.authorize(this, "invoke", "executeScript", null)) {
 			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
@@ -513,7 +538,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	}	
 	
 	@RouteMethod
-	public String summary(HttpContext context) throws Exception {
+	public String summary(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		if (!context.authorize(this, "read", null, null)) {
 			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
@@ -676,7 +701,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	}
 		
 	@Override
-	public Breadcrumbs createBreadcrumbs(HttpContext context, boolean active) throws Exception {
+	public Breadcrumbs createBreadcrumbs(HttpServletRequestContext context, boolean active) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		Breadcrumbs breadcrumbs = htmlFactory.breadcrumbs();
 		breadcrumbs.item(active ? null : htmlFactory.routeRef("main", "/"+context.getObjectPath(this))+"/summary", "Home");
@@ -690,7 +715,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 * @throws Exception
 	 */
 	@RouteMethod
-	public String usersApp(HttpContext context) throws Exception {
+	public String usersApp(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		if (!context.authorize(this, "manage", "users", null)) {
 			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
@@ -719,7 +744,7 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 		userRow.cell(htmlFactory.fontAwesome().webApplication(WebApplication.check).getTarget().ngShow("userInfo.disabled")).style("text-align", "center");
 		userRow.cell(htmlFactory.fontAwesome().webApplication(WebApplication.check).getTarget().ngShow("userInfo.admin")).style("text-align", "center");
 		
-		EOperation createOrUpdateUser = HubPackage.eINSTANCE.getHub__CreateOrUpdateUser__HttpContext_String_String_String_boolean_boolean_AuthenticationMode_String_String();
+		EOperation createOrUpdateUser = HubPackage.eINSTANCE.getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String();
 		AngularJsEOperationFormGenerator createUpdateUserFormGenerator = new AngularJsEOperationFormGenerator(createOrUpdateUser, "userModel", "createOrUpdateUser()");
 		
 //		KnockoutJsEOperationFormGenerator test = new KnockoutJsEOperationFormGenerator(createOrUpdateUser, "userModel", "createOrUpdateUser");

@@ -1,36 +1,22 @@
 package org.nasdanika.webtest.hub.app;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.nasdanika.html.Accordion;
 import org.nasdanika.html.ApplicationPanel;
 import org.nasdanika.html.Breadcrumbs;
-import org.nasdanika.html.Button;
-import org.nasdanika.html.Carousel;
-import org.nasdanika.html.Form;
-import org.nasdanika.html.Theme;
-import org.nasdanika.html.FormGroup.Status;
-import org.nasdanika.html.FormInputGroup;
 import org.nasdanika.html.Fragment;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.HTMLFactory.Glyphicon;
-import org.nasdanika.html.HTMLFactory.InputType;
-import org.nasdanika.html.HTMLFactory.Placement;
-import org.nasdanika.html.Modal;
 import org.nasdanika.html.Navbar;
-import org.nasdanika.html.Table;
-import org.nasdanika.html.Table.Row;
-import org.nasdanika.html.UIElement.BootstrapColor;
+import org.nasdanika.html.Theme;
 import org.nasdanika.html.UIElement.DeviceSize;
 import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.Size;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.Action;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.Route;
-import org.nasdanika.web.WebContext;
 
 /**
  * Route to demonstrate/test HTMLFactory capabilities
@@ -39,9 +25,9 @@ import org.nasdanika.web.WebContext;
 public class WebTestHubRoute implements Route {
 
 	@Override
-	public Action execute(WebContext context, Object... args) throws Exception {
+	public Action execute(HttpServletRequestContext context, Object... args) throws Exception {
 		
-		System.out.println(((HttpContext) context).getRequest().getHeader("Authorization"));
+		System.out.println(context.getRequest().getHeader("Authorization"));
 		
 		final HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		
@@ -180,7 +166,7 @@ public class WebTestHubRoute implements Route {
 						}, 						 
 						null));
 		
-		String themeName = ((HttpContext) context).getRequest().getParameter("theme");
+		String themeName = ((HttpServletRequestContext) context).getRequest().getParameter("theme");
 		
 		final AutoCloseable app = 
 			htmlFactory.bootstrapRouterApplication(

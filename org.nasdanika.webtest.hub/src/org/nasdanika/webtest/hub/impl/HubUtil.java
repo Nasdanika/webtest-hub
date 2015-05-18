@@ -20,7 +20,7 @@ import org.nasdanika.html.FormInputGroup;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.InputBase;
 import org.nasdanika.html.Tag;
-import org.nasdanika.web.HttpContext;
+import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.TestClassResult;
 import org.nasdanika.webtest.hub.TestResult;
@@ -33,7 +33,7 @@ class HubUtil {
 		// Utility class
 	}
 	
-	static boolean authorize(HttpContext context, EObject obj) throws IOException {
+	static boolean authorize(HttpServletRequestContext context, EObject obj) throws IOException {
 		if (obj instanceof ApplicationImpl) {
 			return ((ApplicationImpl) obj).authorize(context);
 		}
@@ -51,7 +51,7 @@ class HubUtil {
 		}
 	}
 	
-	static void respondWithLocationAndObjectIdOnCommit(final HttpContext context, final CDOObject obj) {
+	static void respondWithLocationAndObjectIdOnCommit(final HttpServletRequestContext context, final CDOObject obj) {
 		((CDOTransaction) obj.cdoView()).addTransactionHandler(new CDOTransactionHandler2() {
 
 			@Override
