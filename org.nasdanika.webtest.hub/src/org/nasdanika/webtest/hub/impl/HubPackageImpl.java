@@ -2036,20 +2036,38 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createResource(eNS_URI);
 
 		// Create annotations
-		// org.nasdanika.cdo:context-parameter
+		// org.nasdanika.cdo.security:permissions
 		createOrgAnnotations();
-		// org.nasdanika.cdo.web:getter
+		// org.nasdanika.cdo:context-parameter
 		createOrg_1Annotations();
-		// org.nasdanika.cdo.web.html.form-control
+		// org.nasdanika.cdo.web:getter
 		createOrg_2Annotations();
-		// org.nasdanika.cdo.validator
+		// org.nasdanika.cdo.web.html.form-control
 		createOrg_3Annotations();
-		// org.nasdanika.cdo.web:home-route
+		// org.nasdanika.cdo.validator
 		createOrg_4Annotations();
-		// org.nasdanika.cdo.web:eager-obj
+		// org.nasdanika.cdo.web:home-route
 		createOrg_5Annotations();
-		// org.nasdanika.cdo.web:lenient
+		// org.nasdanika.cdo.web:eager-obj
 		createOrg_6Annotations();
+		// org.nasdanika.cdo.web:lenient
+		createOrg_7Annotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo.security:permissions</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrgAnnotations() {
+		String source = "org.nasdanika.cdo.security:permissions";	
+		addAnnotation
+		  (hubEClass, 
+		   source, 
+		   new String[] {
+			 "story/landing", "extension/js\r\nread/home\r\nread/summary\r\nread/applications\r\nread/applications/getSummaryRow\r\nextension/applications/js"
+		   });
 	}
 
 	/**
@@ -2058,7 +2076,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrgAnnotations() {
+	protected void createOrg_1Annotations() {
 		String source = "org.nasdanika.cdo:context-parameter";	
 		addAnnotation
 		  ((getHub__ExecuteScript__WebSocketContext_String()).getEParameters().get(0), 
@@ -2093,7 +2111,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_1Annotations() {
+	protected void createOrg_2Annotations() {
 		String source = "org.nasdanika.cdo.web:getter";	
 		addAnnotation
 		  (getHub__UserList(), 
@@ -2118,7 +2136,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_2Annotations() {
+	protected void createOrg_3Annotations() {
 		String source = "org.nasdanika.cdo.web.html.form-control";	
 		addAnnotation
 		  ((getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(0), 
@@ -2177,7 +2195,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_3Annotations() {
+	protected void createOrg_4Annotations() {
 		String source = "org.nasdanika.cdo.validator";	
 		addAnnotation
 		  ((getHub__CreateOrUpdateUser__String_String_String_boolean_boolean_AuthenticationMode_String_String()).getEParameters().get(7), 
@@ -2193,7 +2211,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_4Annotations() {
+	protected void createOrg_5Annotations() {
 		String source = "org.nasdanika.cdo.web:home-route";	
 		addAnnotation
 		  (getHub__Home__CDOViewContext_HttpServletRequestContext(), 
@@ -2209,7 +2227,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_5Annotations() {
+	protected void createOrg_6Annotations() {
 		String source = "org.nasdanika.cdo.web:eager-obj";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 
@@ -2224,7 +2242,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_6Annotations() {
+	protected void createOrg_7Annotations() {
 		String source = "org.nasdanika.cdo.web:lenient";	
 		addAnnotation
 		  (getApplicationOwner_Applications(), 

@@ -10,6 +10,9 @@
   <eClassifiers xsi:type="ecore:EDataType" name="HttpServletRequestContext" instanceClassName="org.nasdanika.web.HttpServletRequestContext"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EClass" name="Hub" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordProtectionDomain #//ApplicationOwner #//BreadcrumbsProvider">
+    <eAnnotations source="org.nasdanika.cdo.security:permissions">
+      <details key="story/landing" value="extension/js&#xD;&#xA;read/home&#xD;&#xA;read/summary&#xD;&#xA;read/applications&#xD;&#xA;read/applications/getSummaryRow&#xD;&#xA;extension/applications/js"/>
+    </eAnnotations>
     <eOperations name="executeScript" eExceptions="#//Exception">
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

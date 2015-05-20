@@ -9,6 +9,7 @@ Require-Bundle: org.nasdanika.webtest.hub,
  org.eclipse.emf.ecore,
  org.eclipse.equinox.http.registry,
  org.nasdanika.cdo.h2,
- com.github.dblock.waffle.jna;bundle-version="1.7.3"
+ com.github.dblock.waffle.jna;bundle-version="1.7.3",
+ org.eclipse.help.webapp;bundle-version="3.6.300"
 Service-Component: OSGI-INF/webtest-hub-session-initializer.xml,OSGI-INF/webtest-hub-repository.xml,OSGI-INF/webtest-hub-server.xml,OSGI-INF/webtest-hub-cdo-transaction-context-provider.xml,
  OSGI-INF/framework-stopper.xml

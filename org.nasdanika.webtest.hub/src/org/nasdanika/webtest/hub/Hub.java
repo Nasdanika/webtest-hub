@@ -29,6 +29,7 @@ import org.nasdanika.web.HttpServletRequestContext;
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getHub()
  * @model superTypes="org.nasdanika.cdo.security.LoginPasswordProtectionDomain org.nasdanika.webtest.hub.ApplicationOwner org.nasdanika.webtest.hub.BreadcrumbsProvider"
+ *        annotation="org.nasdanika.cdo.security:permissions story/landing='extension/js\r\nread/home\r\nread/summary\r\nread/applications\r\nread/applications/getSummaryRow\r\nextension/applications/js'"
  * @generated
  */
 public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, BreadcrumbsProvider {

@@ -12,9 +12,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.common.id.CDOIDUtil;
 import org.eclipse.emf.common.util.BasicEList;
@@ -497,19 +494,6 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	
 	// --- Route methods ---
 	
-	/**
-	 * Redirects to the principal home page.
-	 * @param context
-	 * @throws Exception
-	 */
-	//@RouteMethod(pattern="L?[\\d]+\\.html")
-	public void home(@ContextParameter HttpServletRequestContext context) throws Exception {
-		Principal principal = ((CDOViewContext<?,?>) context).getPrincipal();
-		HttpServletResponse response = context.getResponse();
-		response.sendRedirect(context.getObjectPath(principal)+".html");
-	}	
-	
-	
 	@RouteMethod
 	public String scriptConsole(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
@@ -537,12 +521,9 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 				htmlFactory.tag(TagName.script, "jQuery('#scriptConsoleOverlay').height(jQuery('#scriptConsoleForm').height());");
 	}	
 	
-	@RouteMethod
+	@RouteMethod(action="read")
 	public String summary(@ContextParameter HttpServletRequestContext context) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
-		if (!context.authorize(this, "read", null, null)) {
-			return htmlFactory.alert(Style.DANGER, false, "Access Denied!").toString(); 
-		}	
 		Table applicationsTable = htmlFactory.table().bordered();
 		Row hRow = applicationsTable.row().style(Style.INFO);
 		hRow.header("Name").rowspan(2).style("text-align", "center").attribute("nowrap", "true");

@@ -7,6 +7,7 @@ import org.eclipse.emf.cdo.transaction.CDOCommitContext;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.transaction.CDOTransactionHandler2;
 import org.eclipse.emf.cdo.util.CommitException;
+import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.cdo.CDOSessionInitializer;
 import org.nasdanika.cdo.security.Group;
 import org.nasdanika.cdo.security.Permission;
@@ -44,14 +45,20 @@ public class WebTestHubSessionInitializerComponent implements CDOSessionInitiali
 				hub.setGuest(guest);
 				hub.setUnauthenticatedPrincipal(guest);
 
-				// Read permission on Hub to Guest
-				Permission permission = SecurityFactory.eINSTANCE.createPermission();
-				permission.setTarget(hub); // self-target
-				permission.setAllow(true);
-				permission.setName("read");
-				permission.setTargetClass("Hub");
-				permission.setTargetNamespaceURI("urn:org.nasdanika.webtest.hub");
-				guest.getPermissions().add(permission);								
+				// Read permission on Hub.home() to Guest
+//				permission.setTargetClass("Hub");
+//				permission.setTargetNamespaceURI("urn:org.nasdanika.webtest.hub");
+												
+//				guest.getPermissions().add(createPermission("read", hub, "/home", true));
+//				
+//				guest.getPermissions().add(createPermission("read", hub, "/summary", true));
+//				guest.getPermissions().add(createPermission("read", hub, "/home", true));
+//				guest.getPermissions().add(createPermission("extension", hub, ".*/js", true));
+
+				guest.getPermissions().add(createPermission("story", hub, "/landing", true));				
+				
+				guest.getPermissions().add(createPermission("*", guest, ".+", true)); // All permissions on self.								
+				
 				
 				Group administrators = SecurityFactory.eINSTANCE.createGroup();
 				administrators.setName("Administrators");
@@ -76,12 +83,12 @@ public class WebTestHubSessionInitializerComponent implements CDOSessionInitiali
 					administrators.getMembers().add(admin);
 				}
 				
-//				// For testing
-//				final Application app = HubFactory.eINSTANCE.createApplication();
-//				app.setSecurityToken("secret");
-//				app.setName(System.getProperty("hub.app.name", "Nasdanika Bank Examples"));
-//				app.setDescription("A sample NFS application for demonstration and testing");
-//				hub.getApplications().add(app);
+				// For testing
+				final Application app = HubFactory.eINSTANCE.createApplication();
+				app.setSecurityToken("secret");
+				app.setName(System.getProperty("hub.app.name", "Nasdanika Bank Examples"));
+				app.setDescription("A sample NFS application for demonstration and testing");
+				hub.getApplications().add(app);
 //				
 //				transaction.addTransactionHandler(new CDOTransactionHandler2() {
 //
@@ -103,18 +110,29 @@ public class WebTestHubSessionInitializerComponent implements CDOSessionInitiali
 //				});
 			}
 			
-//			// For testing
-//			Hub hub = (Hub) cRes.getContents().get(0);
-//			for (Application app: hub.getApplications()) {
-//				TestSession ts = HubFactory.eINSTANCE.createTestSession();
-//				ts.setTitle("My session");
-//				app.getTestSessions().add(ts);
-//			}
+			// For testing
+			Hub hub = (Hub) cRes.getContents().get(0);
+			for (Application app: hub.getApplications()) {
+				TestSession ts = HubFactory.eINSTANCE.createTestSession();
+				ts.setTitle("My session");
+				app.getTestSessions().add(ts);
+			}
 						
 			transaction.commit();
 		} catch (CommitException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private static Permission createPermission(String name, EObject target, String qualifier, boolean allow) {
+		Permission permission = SecurityFactory.eINSTANCE.createPermission();
+		permission.setName(name);
+		permission.setTarget(target); 
+		permission.setQualifier(qualifier);
+		permission.setAllow(allow);
+//		permission.setTargetClass("Hub");
+//		permission.setTargetNamespaceURI("urn:org.nasdanika.webtest.hub");
+		return permission;
 	}
 
 }
