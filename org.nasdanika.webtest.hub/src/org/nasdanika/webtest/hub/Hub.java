@@ -192,7 +192,6 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model exceptions="org.nasdanika.webtest.performance.Exception" viewContextDataType="org.nasdanika.webtest.hub.CDOViewContext<?, ?>" requestContextDataType="org.nasdanika.webtest.hub.HttpServletRequestContext"
-	 *        annotation="org.nasdanika.cdo.web:home-route action='read'"
 	 * @generated
 	 */
 	void home(CDOViewContext<?, ?> viewContext, HttpServletRequestContext requestContext) throws Exception;

@@ -2,9 +2,9 @@
  */
 package org.nasdanika.webtest.hub.impl;
 
+import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
-
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -20,6 +20,7 @@ import org.nasdanika.cdo.security.ProtectionDomain;
 import org.nasdanika.cdo.security.SecurityPackage;
 import org.nasdanika.cdo.security.SecurityPolicy;
 import org.nasdanika.core.AuthorizationProvider.AccessDecision;
+import org.nasdanika.core.Command;
 import org.nasdanika.core.Context;
 import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.ApplicationPanel;
@@ -35,6 +36,7 @@ import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RouteMethod;
 import org.nasdanika.webtest.hub.Application;
+import org.nasdanika.webtest.hub.ApplicationRenderer;
 import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubPackage;
 import org.nasdanika.webtest.hub.User;
@@ -187,6 +189,17 @@ public class UserImpl extends CDOObjectImpl implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Object renderApplication(HttpServletRequestContext context, Command<HttpServletRequestContext, ApplicationPanel, Void> configurator) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isDisabled() {
 		return (Boolean)eGet(SecurityPackage.Literals.LOGIN_USER__DISABLED, true);
 	}
@@ -266,6 +279,11 @@ public class UserImpl extends CDOObjectImpl implements User {
 				default: return -1;
 			}
 		}
+		if (baseClass == ApplicationRenderer.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -299,6 +317,11 @@ public class UserImpl extends CDOObjectImpl implements User {
 		if (baseClass == LoginPasswordHashUser.class) {
 			switch (baseFeatureID) {
 				case SecurityPackage.LOGIN_PASSWORD_HASH_USER__PASSWORD_HASH: return HubPackage.USER__PASSWORD_HASH;
+				default: return -1;
+			}
+		}
+		if (baseClass == ApplicationRenderer.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}
@@ -336,6 +359,12 @@ public class UserImpl extends CDOObjectImpl implements User {
 				default: return -1;
 			}
 		}
+		if (baseClass == ApplicationRenderer.class) {
+			switch (baseOperationID) {
+				case HubPackage.APPLICATION_RENDERER___RENDER_APPLICATION__HTTPSERVLETREQUESTCONTEXT_COMMAND: return HubPackage.USER___RENDER_APPLICATION__HTTPSERVLETREQUESTCONTEXT_COMMAND;
+				default: return -1;
+			}
+		}
 		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
@@ -348,6 +377,13 @@ public class UserImpl extends CDOObjectImpl implements User {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case HubPackage.USER___RENDER_APPLICATION__HTTPSERVLETREQUESTCONTEXT_COMMAND:
+				try {
+					return renderApplication((HttpServletRequestContext)arguments.get(0), (Command<HttpServletRequestContext, ApplicationPanel, Void>)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case HubPackage.USER___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP:
 				return authorize((SecurityPolicy)arguments.get(0), (Context)arguments.get(1), arguments.get(2), (String)arguments.get(3), (String)arguments.get(4), (Map<String, Object>)arguments.get(5));
 			case HubPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT:

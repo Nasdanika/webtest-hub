@@ -379,13 +379,49 @@ public interface HubPackage extends EPackage {
 	int GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING = SecurityPackage.USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING;
 
 	/**
+	 * The operation id for the '<em>Render Application</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUEST___RENDER_APPLICATION__HTTPSERVLETREQUESTCONTEXT_COMMAND = SecurityPackage.USER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Registration Form</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUEST___REGISTRATION_FORM__CDOTRANSACTIONHTTPSERVLETREQUESTCONTEXT = SecurityPackage.USER_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Home</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUEST___HOME__HTTPSERVLETREQUESTCONTEXT = SecurityPackage.USER_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Register</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUEST___REGISTER__STRING_STRING_STRING_STRING_STRING = SecurityPackage.USER_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Guest</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GUEST_OPERATION_COUNT = SecurityPackage.USER_OPERATION_COUNT + 0;
+	int GUEST_OPERATION_COUNT = SecurityPackage.USER_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.impl.UserImpl <em>User</em>}' class.
@@ -515,13 +551,22 @@ public interface HubPackage extends EPackage {
 	int USER___SEND_MESSAGE__PRINCIPAL_STRING_STRING = APPLICATION_OWNER_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Render Application</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER___RENDER_APPLICATION__HTTPSERVLETREQUESTCONTEXT_COMMAND = APPLICATION_OWNER_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>User</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_OPERATION_COUNT = APPLICATION_OWNER_OPERATION_COUNT + 4;
+	int USER_OPERATION_COUNT = APPLICATION_OWNER_OPERATION_COUNT + 5;
 
 
 	/**
@@ -2991,6 +3036,43 @@ public interface HubPackage extends EPackage {
 	int DELETABLE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.webtest.hub.ApplicationRenderer <em>Application Renderer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.webtest.hub.ApplicationRenderer
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getApplicationRenderer()
+	 * @generated
+	 */
+	int APPLICATION_RENDERER = 30;
+
+	/**
+	 * The number of structural features of the '<em>Application Renderer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_RENDERER_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Render Application</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_RENDERER___RENDER_APPLICATION__HTTPSERVLETREQUESTCONTEXT_COMMAND = 0;
+
+	/**
+	 * The number of operations of the '<em>Application Renderer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_RENDERER_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.AuthenticationMode <em>Authentication Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2998,7 +3080,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getAuthenticationMode()
 	 * @generated
 	 */
-	int AUTHENTICATION_MODE = 30;
+	int AUTHENTICATION_MODE = 31;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.webtest.hub.OperationStatus <em>Operation Status</em>}' enum.
@@ -3008,7 +3090,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getOperationStatus()
 	 * @generated
 	 */
-	int OPERATION_STATUS = 31;
+	int OPERATION_STATUS = 32;
 
 	/**
 	 * The meta object id for the '<em>Http Servlet Response</em>' data type.
@@ -3018,7 +3100,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getHttpServletResponse()
 	 * @generated
 	 */
-	int HTTP_SERVLET_RESPONSE = 32;
+	int HTTP_SERVLET_RESPONSE = 33;
 
 	/**
 	 * The meta object id for the '<em>CDO View Context</em>' data type.
@@ -3028,7 +3110,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCDOViewContext()
 	 * @generated
 	 */
-	int CDO_VIEW_CONTEXT = 33;
+	int CDO_VIEW_CONTEXT = 34;
 
 	/**
 	 * The meta object id for the '<em>Http Servlet Request Context</em>' data type.
@@ -3038,7 +3120,17 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getHttpServletRequestContext()
 	 * @generated
 	 */
-	int HTTP_SERVLET_REQUEST_CONTEXT = 34;
+	int HTTP_SERVLET_REQUEST_CONTEXT = 35;
+
+	/**
+	 * The meta object id for the '<em>CDO Transaction Http Servlet Request Context</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCDOTransactionHttpServletRequestContext()
+	 * @generated
+	 */
+	int CDO_TRANSACTION_HTTP_SERVLET_REQUEST_CONTEXT = 36;
 
 	/**
 	 * The meta object id for the '<em>Web Socket Context</em>' data type.
@@ -3048,7 +3140,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getWebSocketContext()
 	 * @generated
 	 */
-	int WEB_SOCKET_CONTEXT = 35;
+	int WEB_SOCKET_CONTEXT = 37;
 
 	/**
 	 * The meta object id for the '<em>JSON Object</em>' data type.
@@ -3058,7 +3150,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONObject()
 	 * @generated
 	 */
-	int JSON_OBJECT = 36;
+	int JSON_OBJECT = 38;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -3068,7 +3160,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 37;
+	int EXCEPTION = 39;
 
 
 	/**
@@ -3079,7 +3171,38 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getLoginPasswordCredentials()
 	 * @generated
 	 */
-	int LOGIN_PASSWORD_CREDENTIALS = 38;
+	int LOGIN_PASSWORD_CREDENTIALS = 40;
+
+
+	/**
+	 * The meta object id for the '<em>Void</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Void
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getVoid()
+	 * @generated
+	 */
+	int VOID = 41;
+
+	/**
+	 * The meta object id for the '<em>Command</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.core.Command
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCommand()
+	 * @generated
+	 */
+	int COMMAND = 42;
+
+	/**
+	 * The meta object id for the '<em>Application Panel</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.html.ApplicationPanel
+	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getApplicationPanel()
+	 * @generated
+	 */
+	int APPLICATION_PANEL = 43;
 
 
 	/**
@@ -3227,6 +3350,36 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGuest();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Guest#registrationForm(org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext) <em>Registration Form</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Registration Form</em>' operation.
+	 * @see org.nasdanika.webtest.hub.Guest#registrationForm(org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext)
+	 * @generated
+	 */
+	EOperation getGuest__RegistrationForm__CDOTransactionHttpServletRequestContext();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Guest#home(org.nasdanika.web.HttpServletRequestContext) <em>Home</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Home</em>' operation.
+	 * @see org.nasdanika.webtest.hub.Guest#home(org.nasdanika.web.HttpServletRequestContext)
+	 * @generated
+	 */
+	EOperation getGuest__Home__HttpServletRequestContext();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Guest#register(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) <em>Register</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Register</em>' operation.
+	 * @see org.nasdanika.webtest.hub.Guest#register(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getGuest__Register__String_String_String_String_String();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.User <em>User</em>}'.
@@ -4337,6 +4490,26 @@ public interface HubPackage extends EPackage {
 	EClass getDeletable();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.ApplicationRenderer <em>Application Renderer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Application Renderer</em>'.
+	 * @see org.nasdanika.webtest.hub.ApplicationRenderer
+	 * @generated
+	 */
+	EClass getApplicationRenderer();
+
+	/**
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.ApplicationRenderer#renderApplication(org.nasdanika.web.HttpServletRequestContext, org.nasdanika.core.Command) <em>Render Application</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Render Application</em>' operation.
+	 * @see org.nasdanika.webtest.hub.ApplicationRenderer#renderApplication(org.nasdanika.web.HttpServletRequestContext, org.nasdanika.core.Command)
+	 * @generated
+	 */
+	EOperation getApplicationRenderer__RenderApplication__HttpServletRequestContext_Command();
+
+	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.webtest.hub.AuthenticationMode <em>Authentication Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4390,6 +4563,17 @@ public interface HubPackage extends EPackage {
 	EDataType getHttpServletRequestContext();
 
 	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext <em>CDO Transaction Http Servlet Request Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>CDO Transaction Http Servlet Request Context</em>'.
+	 * @see org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext
+	 * @model instanceClass="org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext" serializeable="false" typeParameters="CR"
+	 * @generated
+	 */
+	EDataType getCDOTransactionHttpServletRequestContext();
+
+	/**
 	 * Returns the meta object for data type '{@link org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext <em>Web Socket Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4432,6 +4616,39 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getLoginPasswordCredentials();
+
+	/**
+	 * Returns the meta object for data type '{@link java.lang.Void <em>Void</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Void</em>'.
+	 * @see java.lang.Void
+	 * @model instanceClass="java.lang.Void" serializeable="false"
+	 * @generated
+	 */
+	EDataType getVoid();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.core.Command <em>Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Command</em>'.
+	 * @see org.nasdanika.core.Command
+	 * @model instanceClass="org.nasdanika.core.Command" serializeable="false" typeParameters="C T R"
+	 * @generated
+	 */
+	EDataType getCommand();
+
+	/**
+	 * Returns the meta object for data type '{@link org.nasdanika.html.ApplicationPanel <em>Application Panel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Application Panel</em>'.
+	 * @see org.nasdanika.html.ApplicationPanel
+	 * @model instanceClass="org.nasdanika.html.ApplicationPanel" serializeable="false"
+	 * @generated
+	 */
+	EDataType getApplicationPanel();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -4573,6 +4790,30 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GUEST = eINSTANCE.getGuest();
+
+		/**
+		 * The meta object literal for the '<em><b>Registration Form</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GUEST___REGISTRATION_FORM__CDOTRANSACTIONHTTPSERVLETREQUESTCONTEXT = eINSTANCE.getGuest__RegistrationForm__CDOTransactionHttpServletRequestContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Home</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GUEST___HOME__HTTPSERVLETREQUESTCONTEXT = eINSTANCE.getGuest__Home__HttpServletRequestContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Register</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GUEST___REGISTER__STRING_STRING_STRING_STRING_STRING = eINSTANCE.getGuest__Register__String_String_String_String_String();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.UserImpl <em>User</em>}' class.
@@ -5453,6 +5694,24 @@ public interface HubPackage extends EPackage {
 		EClass DELETABLE = eINSTANCE.getDeletable();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.ApplicationRenderer <em>Application Renderer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.webtest.hub.ApplicationRenderer
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getApplicationRenderer()
+		 * @generated
+		 */
+		EClass APPLICATION_RENDERER = eINSTANCE.getApplicationRenderer();
+
+		/**
+		 * The meta object literal for the '<em><b>Render Application</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation APPLICATION_RENDERER___RENDER_APPLICATION__HTTPSERVLETREQUESTCONTEXT_COMMAND = eINSTANCE.getApplicationRenderer__RenderApplication__HttpServletRequestContext_Command();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.AuthenticationMode <em>Authentication Mode</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5503,6 +5762,16 @@ public interface HubPackage extends EPackage {
 		EDataType HTTP_SERVLET_REQUEST_CONTEXT = eINSTANCE.getHttpServletRequestContext();
 
 		/**
+		 * The meta object literal for the '<em>CDO Transaction Http Servlet Request Context</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCDOTransactionHttpServletRequestContext()
+		 * @generated
+		 */
+		EDataType CDO_TRANSACTION_HTTP_SERVLET_REQUEST_CONTEXT = eINSTANCE.getCDOTransactionHttpServletRequestContext();
+
+		/**
 		 * The meta object literal for the '<em>Web Socket Context</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5541,6 +5810,36 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType LOGIN_PASSWORD_CREDENTIALS = eINSTANCE.getLoginPasswordCredentials();
+
+		/**
+		 * The meta object literal for the '<em>Void</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.Void
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getVoid()
+		 * @generated
+		 */
+		EDataType VOID = eINSTANCE.getVoid();
+
+		/**
+		 * The meta object literal for the '<em>Command</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.core.Command
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCommand()
+		 * @generated
+		 */
+		EDataType COMMAND = eINSTANCE.getCommand();
+
+		/**
+		 * The meta object literal for the '<em>Application Panel</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.html.ApplicationPanel
+		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getApplicationPanel()
+		 * @generated
+		 */
+		EDataType APPLICATION_PANEL = eINSTANCE.getApplicationPanel();
 
 	}
 

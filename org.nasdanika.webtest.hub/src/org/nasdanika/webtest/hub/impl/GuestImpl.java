@@ -3,6 +3,7 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
+import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.nasdanika.cdo.CDOTransactionContext;
 import org.nasdanika.cdo.CDOViewContext;
 import org.nasdanika.cdo.security.AuthorizationHelper;
 import org.nasdanika.cdo.security.Group;
@@ -30,14 +32,15 @@ import org.nasdanika.cdo.security.SecurityFactory;
 import org.nasdanika.cdo.security.SecurityPackage;
 import org.nasdanika.cdo.security.SecurityPolicy;
 import org.nasdanika.cdo.security.User;
+import org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext;
 import org.nasdanika.core.AuthorizationProvider.AccessDecision;
+import org.nasdanika.core.AbstractCommand;
+import org.nasdanika.core.Command;
 import org.nasdanika.core.Context;
 import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.ApplicationPanel;
-import org.nasdanika.html.ApplicationPanel.ContentPanel;
 import org.nasdanika.html.Button.Type;
 import org.nasdanika.html.FontAwesome.Rotate;
-import org.nasdanika.html.FontAwesome.Spinner;
 import org.nasdanika.html.FontAwesome.WebApplication;
 import org.nasdanika.html.Form;
 import org.nasdanika.html.Form.Method;
@@ -51,12 +54,12 @@ import org.nasdanika.html.Navbar;
 import org.nasdanika.html.Tag;
 import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.Theme;
-import org.nasdanika.html.UIElement.Event;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.Action;
 import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
+import org.nasdanika.webtest.hub.ApplicationRenderer;
 import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
 import org.nasdanika.webtest.hub.HubFactory;
@@ -142,6 +145,22 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public Object registrationForm(CDOTransactionHttpServletRequestContext<LoginPasswordCredentials> context) throws Exception {
+		return renderApplication(context, new AbstractCommand<HttpServletRequestContext, ApplicationPanel, Void>() {
+
+			@Override
+			public Void execute(HttpServletRequestContext context, ApplicationPanel... args) throws Exception {
+				args[0].contentPanel("Registration form, believe it or not!");
+				return null;
+			}
+		});
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public void sendMessage(Principal from, String subject, String bodyMimeType, Object body) {
 		// NOP
 	}
@@ -162,6 +181,22 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 	 */
 	public void sendMessage(Principal from, String subject, String body) {
 		// NOP
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == ApplicationRenderer.class) {
+			switch (baseOperationID) {
+				case HubPackage.APPLICATION_RENDERER___RENDER_APPLICATION__HTTPSERVLETREQUESTCONTEXT_COMMAND: return HubPackage.GUEST___RENDER_APPLICATION__HTTPSERVLETREQUESTCONTEXT_COMMAND;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	private AuthorizationHelper authorizationHelper = new AuthorizationHelper(this);
@@ -190,6 +225,34 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case HubPackage.GUEST___REGISTRATION_FORM__CDOTRANSACTIONHTTPSERVLETREQUESTCONTEXT:
+				try {
+					return registrationForm((CDOTransactionHttpServletRequestContext<LoginPasswordCredentials>)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case HubPackage.GUEST___HOME__HTTPSERVLETREQUESTCONTEXT:
+				try {
+					return home((HttpServletRequestContext)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case HubPackage.GUEST___REGISTER__STRING_STRING_STRING_STRING_STRING:
+				try {
+					return register((String)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (String)arguments.get(3), (String)arguments.get(4));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case HubPackage.GUEST___RENDER_APPLICATION__HTTPSERVLETREQUESTCONTEXT_COMMAND:
+				try {
+					return renderApplication((HttpServletRequestContext)arguments.get(0), (Command<HttpServletRequestContext, ApplicationPanel, Void>)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case HubPackage.GUEST___AUTHORIZE__SECURITYPOLICY_CONTEXT_OBJECT_STRING_STRING_MAP:
 				return authorize((SecurityPolicy)arguments.get(0), (Context)arguments.get(1), arguments.get(2), (String)arguments.get(3), (String)arguments.get(4), (Map<String, Object>)arguments.get(5));
 			case HubPackage.GUEST___SEND_MESSAGE__PRINCIPAL_STRING_STRING_OBJECT:
@@ -205,11 +268,45 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 		return super.eInvoke(operationID, arguments);
 	}
 	
-	
-	// --- Route methods ---
-	
-	@RouteMethod(pattern="[^/]+\\.html", action="read")
-	public String home(@ContextParameter HttpServletRequestContext context) throws Exception {
+	public Object home(HttpServletRequestContext context) throws Exception {
+		return renderApplication(context, new AbstractCommand<HttpServletRequestContext, ApplicationPanel, Void>() {
+
+			@Override
+			public Void execute(final HttpServletRequestContext context, ApplicationPanel... args) throws Exception {
+				args[0].contentPanel(new Object() {
+					
+					@Override
+					public String toString() {
+						try {
+							return "Coming soon "+context.adapt(CDOTransactionContext.class).getView().isClosed();
+						} catch (Exception e) {
+							return e.toString();
+						}
+					}
+					
+				});
+				return null;
+			}
+		});
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JSONObject register(String login, String name, String eMail, String password, String passwordConfirmation) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Object renderApplication(HttpServletRequestContext context, Command<HttpServletRequestContext, ApplicationPanel, Void> configurator) throws Exception {
 		HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
 		String objectPath = context.getObjectPath(this);
 		ApplicationPanel appPanel = htmlFactory.applicationPanel()
@@ -220,43 +317,29 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.headerLink("/index.html")
 				.id("guestAppPanel")
 				.footer(htmlFactory.link("#", "Documentation"));		
-		
-		
+				
 		Navbar navBar = htmlFactory.navbar("Welcome!", objectPath+".html"); 	
-		createLoginForm(htmlFactory, navBar);	
-		if (context.getRequest().getUserPrincipal()==null) { // NFS authentication
-			navBar.item(htmlFactory.link("#", "Register").id("registerMenuItem").on(Event.click, "jQuery('#registration-form-modal').modal();"), false, true);
-			
-			Modal authenticationFailedModal = htmlFactory.modal()
-					.id("authentication-failed-modal")
-					.small()
-					.title("Authentication failed")
-					.body("Invalid Login/Password combination");
-							
-			Tag guestAppDiv = htmlFactory.div(
-					navBar, 
-					createRegistrationFormModal(htmlFactory, objectPath), 
-					authenticationFailedModal).id("guestApp");		
 		
-			appPanel.navigation(
-					guestAppDiv,
-					htmlFactory.tag("script", new GuestAppControllersRenderer().generate(this, objectPath)),
-					htmlFactory.tag("script", "angular.bootstrap($('#guestApp'), ['guestApp']);"));		
+		// TODO - Login form on the right using knockout form and login operation.
+		
+		if (context.getRequest().getUserPrincipal()==null) { // NFS authentication
+			navBar.item(htmlFactory.link(context.getObjectPath(this)+"/registrationForm", "Register"), false, true);
 		}
 		
-		ContentPanel mainPanel = appPanel.contentPanel().id("main");
+		appPanel.navigation(navBar);
+		
+		configurator.execute(context, appPanel);
+		
 //			.width(DeviceSize.SMALL, 9)
 //			.width(DeviceSize.MEDIUM, 10)
 //			.width(DeviceSize.LARGE, 11);
 		
-		mainPanel.content(htmlFactory.fontAwesome().spinner(Spinner.spinner).spin()+"&nbsp;Loading summary");//HubUtil.getContainer(this, HubImpl.class).summary(context));
-				
 		return htmlFactory.bootstrapRouterApplication(
 				Theme.Default,
 				StringEscapeUtils.escapeHtml4(((Hub) eContainer()).getName()), 
-				"main/"+context.getObjectPath(eContainer())+"/summary", 
+				null, 
 				htmlFactory.tag(TagName.script, getClass().getResource("RequireJSConfig.js")), 
-				appPanel).toString();
+				appPanel);
 		
 	}
 

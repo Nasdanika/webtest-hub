@@ -17,6 +17,7 @@ import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
+import org.nasdanika.webtest.hub.ApplicationRenderer;
 import org.nasdanika.webtest.hub.BreadcrumbsProvider;
 import org.nasdanika.webtest.hub.Coverage;
 import org.nasdanika.webtest.hub.Description;
@@ -118,6 +119,7 @@ public class HubSwitch<T> extends Switch<T> {
 				Guest guest = (Guest)theEObject;
 				T result = caseGuest(guest);
 				if (result == null) result = caseSecurity_User(guest);
+				if (result == null) result = caseApplicationRenderer(guest);
 				if (result == null) result = casePrincipal(guest);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -127,6 +129,7 @@ public class HubSwitch<T> extends Switch<T> {
 				T result = caseUser(user);
 				if (result == null) result = caseApplicationOwner(user);
 				if (result == null) result = caseLoginPasswordHashUser(user);
+				if (result == null) result = caseApplicationRenderer(user);
 				if (result == null) result = caseLoginUser(user);
 				if (result == null) result = caseSecurity_User(user);
 				if (result == null) result = casePrincipal(user);
@@ -348,6 +351,12 @@ public class HubSwitch<T> extends Switch<T> {
 			case HubPackage.DELETABLE: {
 				Deletable deletable = (Deletable)theEObject;
 				T result = caseDeletable(deletable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HubPackage.APPLICATION_RENDERER: {
+				ApplicationRenderer applicationRenderer = (ApplicationRenderer)theEObject;
+				T result = caseApplicationRenderer(applicationRenderer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -802,6 +811,21 @@ public class HubSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDeletable(Deletable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Application Renderer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Application Renderer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseApplicationRenderer(ApplicationRenderer object) {
 		return null;
 	}
 

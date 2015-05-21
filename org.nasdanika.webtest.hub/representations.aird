@@ -10,6 +10,38 @@
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_IHWR8P0EEeSpvf_YXTcOkA" initialized="true">
     <ownedRepresentations xmi:type="table:DTable" xmi:id="_M6vvgP0EEeSpvf_YXTcOkA" name="hub documentation table" headerColumnWidth="249">
       <target xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+      <lines xmi:type="table:DLine" xmi:id="_65Hm0P9YEeSnFb8Hg-WaTA" label="EDataType : HttpServletResponse">
+        <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//HttpServletResponse"/>
+        <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//HttpServletResponse"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_65VpQP9YEeSnFb8Hg-WaTA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_65VpQf9YEeSnFb8Hg-WaTA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_65VpQv9YEeSnFb8Hg-WaTA" label="EDataType : CDOViewContext">
+        <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//CDOViewContext"/>
+        <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//CDOViewContext"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_65W3YP9YEeSnFb8Hg-WaTA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_65W3Yf9YEeSnFb8Hg-WaTA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_65W3Yv9YEeSnFb8Hg-WaTA" label="EDataType : HttpServletRequestContext">
+        <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//HttpServletRequestContext"/>
+        <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//HttpServletRequestContext"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_65XecP9YEeSnFb8Hg-WaTA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_65Xecf9YEeSnFb8Hg-WaTA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_65Xecv9YEeSnFb8Hg-WaTA" label="EDataType : CDOTransactionHttpServletRequestContext">
+        <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//CDOTransactionHttpServletRequestContext"/>
+        <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//CDOTransactionHttpServletRequestContext"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_65YskP9YEeSnFb8Hg-WaTA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_65Yskf9YEeSnFb8Hg-WaTA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
       <lines xmi:type="table:DLine" xmi:id="_M6vvgf0EEeSpvf_YXTcOkA" label="EClass : Hub">
         <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Hub"/>
         <lines xmi:type="table:DLine" xmi:id="_M6wWkP0EEeSpvf_YXTcOkA" label="EAttribute : name">
@@ -928,6 +960,38 @@
         <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
         <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_M6w99f0EEeSpvf_YXTcOkA" defaultBackgroundStyle="true">
           <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_M6w99v0EEeSpvf_YXTcOkA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_66EpEP9YEeSnFb8Hg-WaTA" label="EClass : ApplicationRenderer">
+        <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ApplicationRenderer"/>
+        <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ApplicationRenderer"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_66FQIP9YEeSnFb8Hg-WaTA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_66FQIf9YEeSnFb8Hg-WaTA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_ZULgcP9sEeSnFb8Hg-WaTA" label="EDataType : Void">
+        <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//Void"/>
+        <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//Void"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_ZUMHgP9sEeSnFb8Hg-WaTA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_ZUMHgf9sEeSnFb8Hg-WaTA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_ZUMHgv9sEeSnFb8Hg-WaTA" label="EDataType : Command">
+        <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//Command"/>
+        <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//Command"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_ZUMukP9sEeSnFb8Hg-WaTA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_ZUMukf9sEeSnFb8Hg-WaTA" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_m5_14P9sEeSnFb8Hg-WaTA" label="EDataType : ApplicationPanel">
+        <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//ApplicationPanel"/>
+        <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//ApplicationPanel"/>
+        <originMapping xmi:type="description:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_m6Ac8P9sEeSnFb8Hg-WaTA" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_m6Ac8f9sEeSnFb8Hg-WaTA" red="255" green="255" blue="255"/>
         </currentStyle>
       </lines>
       <columns xmi:type="table:DTargetColumn" xmi:id="_M6w99_0EEeSpvf_YXTcOkA" label="Domain Documentation" width="171">

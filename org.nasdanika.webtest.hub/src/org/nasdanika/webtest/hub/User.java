@@ -20,7 +20,7 @@ import org.nasdanika.cdo.security.LoginPasswordHashUser;
  * @model
  * @generated
  */
-public interface User extends ApplicationOwner, LoginPasswordHashUser {
+public interface User extends ApplicationOwner, LoginPasswordHashUser, ApplicationRenderer {
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

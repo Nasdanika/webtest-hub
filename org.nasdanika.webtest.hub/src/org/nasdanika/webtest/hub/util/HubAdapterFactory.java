@@ -18,6 +18,7 @@ import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
 import org.nasdanika.webtest.hub.Application;
 import org.nasdanika.webtest.hub.ApplicationOwner;
+import org.nasdanika.webtest.hub.ApplicationRenderer;
 import org.nasdanika.webtest.hub.BreadcrumbsProvider;
 import org.nasdanika.webtest.hub.Coverage;
 import org.nasdanika.webtest.hub.Description;
@@ -217,6 +218,10 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDeletable(Deletable object) {
 				return createDeletableAdapter();
+			}
+			@Override
+			public Adapter caseApplicationRenderer(ApplicationRenderer object) {
+				return createApplicationRendererAdapter();
 			}
 			@Override
 			public <CR> Adapter caseProtectionDomain(ProtectionDomain<CR> object) {
@@ -679,6 +684,20 @@ public class HubAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDeletableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.webtest.hub.ApplicationRenderer <em>Application Renderer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.webtest.hub.ApplicationRenderer
+	 * @generated
+	 */
+	public Adapter createApplicationRendererAdapter() {
 		return null;
 	}
 

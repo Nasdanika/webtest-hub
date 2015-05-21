@@ -3,8 +3,8 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.nasdanika.webtest.hub/src" modelPluginID="org.nasdanika.webtest.hub"
     modelName="WebTestHub" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     reflectiveDelegation="true" importerID="org.eclipse.emf.importer.cdo" featureDelegation="Reflective"
-    complianceLevel="7.0" copyrightFields="false" providerRootExtendsClass="org.eclipse.emf.cdo.edit.CDOItemProviderAdapter"
-    usedGenPackages="../../org.nasdanika.webtest.performance/model/performance.genmodel#//performance ../../org.nasdanika.cdo.security/model/security.genmodel#//security"
+    complianceLevel="7.0" suppressGenModelAnnotations="false" copyrightFields="false"
+    providerRootExtendsClass="org.eclipse.emf.cdo.edit.CDOItemProviderAdapter" usedGenPackages="../../org.nasdanika.webtest.performance/model/performance.genmodel#//performance ../../org.nasdanika.cdo.security/model/security.genmodel#//security"
     operationReflection="true" importOrganizing="true">
   <foreignModel>WebTestHub.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
@@ -26,12 +26,22 @@
       <genTypeParameters ecoreTypeParameter="WebTestHub.ecore#//CDOViewContext/CR"/>
     </genDataTypes>
     <genDataTypes ecoreDataType="WebTestHub.ecore#//HttpServletRequestContext"/>
+    <genDataTypes ecoreDataType="WebTestHub.ecore#//CDOTransactionHttpServletRequestContext">
+      <genTypeParameters ecoreTypeParameter="WebTestHub.ecore#//CDOTransactionHttpServletRequestContext/CR"/>
+    </genDataTypes>
     <genDataTypes ecoreDataType="WebTestHub.ecore#//WebSocketContext">
       <genTypeParameters ecoreTypeParameter="WebTestHub.ecore#//WebSocketContext/CR"/>
     </genDataTypes>
     <genDataTypes ecoreDataType="WebTestHub.ecore#//JSONObject"/>
     <genDataTypes ecoreDataType="WebTestHub.ecore#//Exception"/>
     <genDataTypes ecoreDataType="WebTestHub.ecore#//LoginPasswordCredentials"/>
+    <genDataTypes ecoreDataType="WebTestHub.ecore#//Void"/>
+    <genDataTypes ecoreDataType="WebTestHub.ecore#//Command">
+      <genTypeParameters ecoreTypeParameter="WebTestHub.ecore#//Command/C"/>
+      <genTypeParameters ecoreTypeParameter="WebTestHub.ecore#//Command/T"/>
+      <genTypeParameters ecoreTypeParameter="WebTestHub.ecore#//Command/R"/>
+    </genDataTypes>
+    <genDataTypes ecoreDataType="WebTestHub.ecore#//ApplicationPanel"/>
     <genClasses ecoreClass="WebTestHub.ecore#//Hub">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//Hub/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//Hub/guest"/>
@@ -64,7 +74,21 @@
     <genClasses image="false" ecoreClass="WebTestHub.ecore#//ApplicationOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//ApplicationOwner/applications"/>
     </genClasses>
-    <genClasses ecoreClass="WebTestHub.ecore#//Guest"/>
+    <genClasses ecoreClass="WebTestHub.ecore#//Guest">
+      <genOperations ecoreOperation="WebTestHub.ecore#//Guest/registrationForm">
+        <genParameters ecoreParameter="WebTestHub.ecore#//Guest/registrationForm/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="WebTestHub.ecore#//Guest/home">
+        <genParameters ecoreParameter="WebTestHub.ecore#//Guest/home/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="WebTestHub.ecore#//Guest/register">
+        <genParameters ecoreParameter="WebTestHub.ecore#//Guest/register/login"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Guest/register/name"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Guest/register/eMail"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Guest/register/password"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//Guest/register/passwordConfirmation"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="WebTestHub.ecore#//User">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//User/name"/>
     </genClasses>
@@ -196,5 +220,11 @@
     <genClasses image="false" ecoreClass="WebTestHub.ecore#//JSONLoader"/>
     <genClasses image="false" ecoreClass="WebTestHub.ecore#//BreadcrumbsProvider"/>
     <genClasses image="false" ecoreClass="WebTestHub.ecore#//Deletable"/>
+    <genClasses image="false" ecoreClass="WebTestHub.ecore#//ApplicationRenderer">
+      <genOperations ecoreOperation="WebTestHub.ecore#//ApplicationRenderer/renderApplication">
+        <genParameters ecoreParameter="WebTestHub.ecore#//ApplicationRenderer/renderApplication/context"/>
+        <genParameters ecoreParameter="WebTestHub.ecore#//ApplicationRenderer/renderApplication/configurator"/>
+      </genOperations>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

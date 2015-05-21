@@ -9,6 +9,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="HttpServletRequestContext" instanceClassName="org.nasdanika.web.HttpServletRequestContext"
       serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="CDOTransactionHttpServletRequestContext"
+      instanceClassName="org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext"
+      serializable="false">
+    <eTypeParameters name="CR"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Hub" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordProtectionDomain #//ApplicationOwner #//BreadcrumbsProvider">
     <eAnnotations source="org.nasdanika.cdo.security:permissions">
       <details key="story/landing" value="extension/js&#xD;&#xA;read/home&#xD;&#xA;read/summary&#xD;&#xA;read/applications&#xD;&#xA;read/applications/getSummaryRow&#xD;&#xA;extension/applications/js"/>
@@ -93,9 +98,7 @@
       </eParameters>
     </eOperations>
     <eOperations name="home" eExceptions="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//Exception">
-      <eAnnotations source="org.nasdanika.cdo.web:home-route">
-        <details key="action" value="read"/>
-      </eAnnotations>
+      <eAnnotations source="org.nasdanika.cdo.web:home-route"/>
       <eParameters name="viewContext">
         <eAnnotations source="org.nasdanika.cdo:context-parameter"/>
         <eGenericType eClassifier="#//CDOViewContext">
@@ -129,8 +132,36 @@
       <eAnnotations source="org.nasdanika.cdo.web:lenient"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Guest" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//User"/>
-  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//ApplicationOwner ../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordHashUser">
+  <eClassifiers xsi:type="ecore:EClass" name="Guest" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//User #//ApplicationRenderer">
+    <eAnnotations source="org.nasdanika.cdo.security:permissions">
+      <details key="story/registration" value="GET/registrationForm&#xD;&#xA;invoke/register"/>
+    </eAnnotations>
+    <eOperations name="registrationForm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        eExceptions="#//Exception">
+      <eAnnotations source="org.nasdanika.cdo.web:route"/>
+      <eParameters name="context">
+        <eAnnotations source="org.nasdanika.cdo:context-parameter"/>
+        <eGenericType eClassifier="#//CDOTransactionHttpServletRequestContext">
+          <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordCredentials"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="home" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        eExceptions="#//Exception">
+      <eAnnotations source="org.nasdanika.cdo.web:home-route"/>
+      <eParameters name="context" eType="#//HttpServletRequestContext">
+        <eAnnotations source="org.nasdanika.cdo:context-parameter"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="register" eType="#//JSONObject" eExceptions="#//Exception">
+      <eParameters name="login" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="eMail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="passwordConfirmation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//ApplicationOwner ../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordHashUser #//ApplicationRenderer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Application" eSuperTypes="#//BreadcrumbsProvider">
@@ -331,5 +362,29 @@
   <eClassifiers xsi:type="ecore:EClass" name="Deletable" instanceClassName="org.nasdanika.core.Deletable"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="LoginPasswordCredentials" instanceClassName="org.nasdanika.cdo.security.LoginPasswordCredentials"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationRenderer" abstract="true"
+      interface="true">
+    <eOperations name="renderApplication" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        eExceptions="#//Exception">
+      <eParameters name="context" eType="#//HttpServletRequestContext"/>
+      <eParameters name="configurator">
+        <eGenericType eClassifier="#//Command">
+          <eTypeArguments eClassifier="#//HttpServletRequestContext"/>
+          <eTypeArguments eClassifier="#//ApplicationPanel"/>
+          <eTypeArguments eClassifier="#//Void"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Void" instanceClassName="java.lang.Void"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Command" instanceClassName="org.nasdanika.core.Command"
+      serializable="false">
+    <eTypeParameters name="C"/>
+    <eTypeParameters name="T"/>
+    <eTypeParameters name="R"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ApplicationPanel" instanceClassName="org.nasdanika.html.ApplicationPanel"
       serializable="false"/>
 </ecore:EPackage>
