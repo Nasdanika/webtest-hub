@@ -1,0 +1,38 @@
+<%@ jet package="org.nasdanika.webtest.hub.impl" class="GuestRegistrationGenerator" skeleton="Command.skeleton"%>
+
+<%
+	T moduleName = args[0];
+	T formHandler = args[1];
+	T applyId = args[2];
+%>
+
+require(["<%=moduleName%>.js", 'q', 'jquery', 'knockout', 'domReady!'], function(guest, Q, jQuery, ko, doc) {
+	ko.applyBindings({
+		model: new <%=formHandler%>(undefined, guest),
+		submitHandler: function(form) {
+			var overlay = jQuery('#registrationFormOverlay')
+			overlay.width(form.offsetWidth);
+			overlay.height(form.offsetHeight);
+			overlay.css("display", "block");		
+
+			this.model.validateAndApply().then(function(value) {
+				if (value.validationResults) {
+					this.validationResults = value.validationResults;
+				} else {
+					window.location.href = value;
+				}
+				overlay.css("display", "none");
+			}.bind(this.model),
+			function(reason) {
+				if (reason.targetInvocationError) {
+					this.validationResults['$this'] = reason.targetInvocationError;
+				}
+				overlay.css("display", "none");
+			}.bind(this.model));
+		},
+		cancelHandler: function() {
+			window.history.back();
+		}		
+	}, doc.getElementById('<%=applyId%>'));
+
+});

@@ -24,6 +24,7 @@ import org.nasdanika.web.HttpServletRequestContext;
  *   <li>{@link org.nasdanika.webtest.hub.Hub#getUsers <em>Users</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Hub#getAdministrators <em>Administrators</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Hub#getSlideWidth <em>Slide Width</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.Hub#getEveryone <em>Everyone</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,6 +43,9 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * some doc
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.nasdanika.webtest.hub.HubPackage#getHub_Name()
@@ -156,9 +160,40 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	void setSlideWidth(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Everyone</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Everyone</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Everyone</em>' containment reference.
+	 * @see #setEveryone(Group)
+	 * @see org.nasdanika.webtest.hub.HubPackage#getHub_Everyone()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Group getEveryone();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.webtest.hub.Hub#getEveryone <em>Everyone</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.WebSocketContext<org.nasdanika.cdo.security.LoginPasswordCredentials>"
+	 * @param value the new value of the '<em>Everyone</em>' containment reference.
+	 * @see #getEveryone()
+	 * @generated
+	 */
+	void setEveryone(Group value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * nu i
+	 * @param context 
+	 * @param script sobstvenno script
+	 * <!-- end-model-doc -->
+	 * @model exceptions="org.nasdanika.webtest.performance.Exception" contextDataType="org.nasdanika.webtest.hub.WebSocketContext<org.nasdanika.cdo.security.LoginPasswordCredentials>"
 	 * @generated
 	 */
 	Map<String, Object> executeScript(WebSocketContext<LoginPasswordCredentials> context, String script) throws Exception;
@@ -166,7 +201,7 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception"
+	 * @model exceptions="org.nasdanika.webtest.performance.Exception"
 	 * @generated
 	 */
 	EList<Map<String, Object>> userList() throws Exception;
@@ -174,7 +209,7 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception"
+	 * @model exceptions="org.nasdanika.webtest.performance.Exception"
 	 * @generated
 	 */
 	EList<Map<String, Object>> deleteUser(String login) throws Exception;
@@ -182,7 +217,7 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception" userIDAnnotation="org.nasdanika.cdo.web.html.form-control private='true'" loginAnnotation="org.nasdanika.cdo.web.html.form-control required='true' attribute:ng-disabled='userModel.data.userID' validator='if (!this.data.userID) {\r\n\tfor (k in $scope.userList) {\r\n\t\tif (value===$scope.userList[k].login) {\r\n\t\t\treturn \"Duplicate login\";\r\n\t\t}\r\n\t}\r\n}'" adminAnnotation="org.nasdanika.cdo.web.html.form-control inline='true'" disabledAnnotation="org.nasdanika.cdo.web.html.form-control inline='true'" authenticationAnnotation="org.nasdanika.cdo.web.html.form-control default='PASSWORD'" passwordAnnotation="org.nasdanika.cdo.web.html.form-control input-type='password' group-attribute:ng-hide='userModel.data.authentication === \'NTLM\'' attribute:ng-required='userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID'" passwordConfirmationAnnotation="org.nasdanika.cdo.web.html.form-control input-type='password' group-attribute:ng-hide='userModel.data.authentication === \'NTLM\'' attribute:ng-required='userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID' validator='if (this.data.authentication === \'PASSWORD\' && value!==this.data.password) { return \'Passwords do not match\'; }'"
+	 * @model exceptions="org.nasdanika.webtest.performance.Exception" userIDAnnotation="org.nasdanika.cdo.web.html.form-control private='true'" loginAnnotation="org.nasdanika.cdo.web.html.form-control required='true' attribute:ng-disabled='userModel.data.userID' validator='if (!this.data.userID) {\r\n\tfor (k in $scope.userList) {\r\n\t\tif (value===$scope.userList[k].login) {\r\n\t\t\treturn \"Duplicate login\";\r\n\t\t}\r\n\t}\r\n}'" adminAnnotation="org.nasdanika.cdo.web.html.form-control inline='true'" disabledAnnotation="org.nasdanika.cdo.web.html.form-control inline='true'" authenticationAnnotation="org.nasdanika.cdo.web.html.form-control default='PASSWORD'" passwordAnnotation="org.nasdanika.cdo.web.html.form-control input-type='password' group-attribute:ng-hide='userModel.data.authentication === \'NTLM\'' attribute:ng-required='userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID'" passwordConfirmationAnnotation="org.nasdanika.cdo.web.html.form-control input-type='password' group-attribute:ng-hide='userModel.data.authentication === \'NTLM\'' attribute:ng-required='userModel.data.authentication === \'PASSWORD\' && !userModel.data.userID' validator='if (this.data.authentication === \'PASSWORD\' && value!==this.data.password) { return \'Passwords do not match\'; }'"
 	 *        passwordConfirmationAnnotation="org.nasdanika.cdo.validator server='if (data.authentication.name() === \'PASSWORD\' && data.password!=value) {\r\n\treturn \"Passwords do not match\";\r\n}'"
 	 * @generated
 	 */

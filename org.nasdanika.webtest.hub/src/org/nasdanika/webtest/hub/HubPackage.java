@@ -152,13 +152,22 @@ public interface HubPackage extends EPackage {
 	int HUB__SLIDE_WIDTH = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Everyone</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUB__EVERYONE = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Hub</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HUB_FEATURE_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_FEATURE_COUNT + 6;
+	int HUB_FEATURE_COUNT = SecurityPackage.LOGIN_PASSWORD_PROTECTION_DOMAIN_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Authenticate</em>' operation.
@@ -412,7 +421,7 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUEST___REGISTER__STRING_STRING_STRING_STRING_STRING = SecurityPackage.USER_OPERATION_COUNT + 3;
+	int GUEST___REGISTER__WEBSOCKETCONTEXT_STRING_STRING_STRING_STRING_STRING = SecurityPackage.USER_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Guest</em>' class.
@@ -3143,38 +3152,6 @@ public interface HubPackage extends EPackage {
 	int WEB_SOCKET_CONTEXT = 37;
 
 	/**
-	 * The meta object id for the '<em>JSON Object</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.json.JSONObject
-	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONObject()
-	 * @generated
-	 */
-	int JSON_OBJECT = 38;
-
-	/**
-	 * The meta object id for the '<em>Exception</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.Exception
-	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getException()
-	 * @generated
-	 */
-	int EXCEPTION = 39;
-
-
-	/**
-	 * The meta object id for the '<em>Login Password Credentials</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.cdo.security.LoginPasswordCredentials
-	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getLoginPasswordCredentials()
-	 * @generated
-	 */
-	int LOGIN_PASSWORD_CREDENTIALS = 40;
-
-
-	/**
 	 * The meta object id for the '<em>Void</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3182,7 +3159,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getVoid()
 	 * @generated
 	 */
-	int VOID = 41;
+	int VOID = 38;
 
 	/**
 	 * The meta object id for the '<em>Command</em>' data type.
@@ -3192,7 +3169,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getCommand()
 	 * @generated
 	 */
-	int COMMAND = 42;
+	int COMMAND = 39;
 
 	/**
 	 * The meta object id for the '<em>Application Panel</em>' data type.
@@ -3202,7 +3179,7 @@ public interface HubPackage extends EPackage {
 	 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getApplicationPanel()
 	 * @generated
 	 */
-	int APPLICATION_PANEL = 43;
+	int APPLICATION_PANEL = 40;
 
 
 	/**
@@ -3269,6 +3246,17 @@ public interface HubPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getHub_SlideWidth();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.webtest.hub.Hub#getEveryone <em>Everyone</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Everyone</em>'.
+	 * @see org.nasdanika.webtest.hub.Hub#getEveryone()
+	 * @see #getHub()
+	 * @generated
+	 */
+	EReference getHub_Everyone();
 
 	/**
 	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Hub#executeScript(org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext, java.lang.String) <em>Execute Script</em>}' operation.
@@ -3372,14 +3360,14 @@ public interface HubPackage extends EPackage {
 	EOperation getGuest__Home__HttpServletRequestContext();
 
 	/**
-	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Guest#register(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) <em>Register</em>}' operation.
+	 * Returns the meta object for the '{@link org.nasdanika.webtest.hub.Guest#register(org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) <em>Register</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register</em>' operation.
-	 * @see org.nasdanika.webtest.hub.Guest#register(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+	 * @see org.nasdanika.webtest.hub.Guest#register(org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
 	 * @generated
 	 */
-	EOperation getGuest__Register__String_String_String_String_String();
+	EOperation getGuest__Register__WebSocketContext_String_String_String_String_String();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.webtest.hub.User <em>User</em>}'.
@@ -4585,39 +4573,6 @@ public interface HubPackage extends EPackage {
 	EDataType getWebSocketContext();
 
 	/**
-	 * Returns the meta object for data type '{@link org.json.JSONObject <em>JSON Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>JSON Object</em>'.
-	 * @see org.json.JSONObject
-	 * @model instanceClass="org.json.JSONObject"
-	 * @generated
-	 */
-	EDataType getJSONObject();
-
-	/**
-	 * Returns the meta object for data type '{@link java.lang.Exception <em>Exception</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Exception</em>'.
-	 * @see java.lang.Exception
-	 * @model instanceClass="java.lang.Exception"
-	 * @generated
-	 */
-	EDataType getException();
-
-	/**
-	 * Returns the meta object for data type '{@link org.nasdanika.cdo.security.LoginPasswordCredentials <em>Login Password Credentials</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Login Password Credentials</em>'.
-	 * @see org.nasdanika.cdo.security.LoginPasswordCredentials
-	 * @model instanceClass="org.nasdanika.cdo.security.LoginPasswordCredentials" serializeable="false"
-	 * @generated
-	 */
-	EDataType getLoginPasswordCredentials();
-
-	/**
 	 * Returns the meta object for data type '{@link java.lang.Void <em>Void</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4724,6 +4679,14 @@ public interface HubPackage extends EPackage {
 		EAttribute HUB__SLIDE_WIDTH = eINSTANCE.getHub_SlideWidth();
 
 		/**
+		 * The meta object literal for the '<em><b>Everyone</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference HUB__EVERYONE = eINSTANCE.getHub_Everyone();
+
+		/**
 		 * The meta object literal for the '<em><b>Execute Script</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4813,7 +4776,7 @@ public interface HubPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GUEST___REGISTER__STRING_STRING_STRING_STRING_STRING = eINSTANCE.getGuest__Register__String_String_String_String_String();
+		EOperation GUEST___REGISTER__WEBSOCKETCONTEXT_STRING_STRING_STRING_STRING_STRING = eINSTANCE.getGuest__Register__WebSocketContext_String_String_String_String_String();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.webtest.hub.impl.UserImpl <em>User</em>}' class.
@@ -5780,36 +5743,6 @@ public interface HubPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType WEB_SOCKET_CONTEXT = eINSTANCE.getWebSocketContext();
-
-		/**
-		 * The meta object literal for the '<em>JSON Object</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.json.JSONObject
-		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getJSONObject()
-		 * @generated
-		 */
-		EDataType JSON_OBJECT = eINSTANCE.getJSONObject();
-
-		/**
-		 * The meta object literal for the '<em>Exception</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.Exception
-		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getException()
-		 * @generated
-		 */
-		EDataType EXCEPTION = eINSTANCE.getException();
-
-		/**
-		 * The meta object literal for the '<em>Login Password Credentials</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.cdo.security.LoginPasswordCredentials
-		 * @see org.nasdanika.webtest.hub.impl.HubPackageImpl#getLoginPasswordCredentials()
-		 * @generated
-		 */
-		EDataType LOGIN_PASSWORD_CREDENTIALS = eINSTANCE.getLoginPasswordCredentials();
 
 		/**
 		 * The meta object literal for the '<em>Void</em>' data type.

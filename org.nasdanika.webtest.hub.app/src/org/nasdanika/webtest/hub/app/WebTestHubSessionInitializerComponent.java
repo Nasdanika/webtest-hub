@@ -58,7 +58,12 @@ public class WebTestHubSessionInitializerComponent implements CDOSessionInitiali
 				guest.getPermissions().add(createPermission("GET", hub, "/home", true)); // Redirect to the principal home.				
 				
 				guest.getPermissions().add(createPermission("GET", guest, "/home", true)); // Home page								
-				guest.getPermissions().add(createPermission("story", guest, "/registration", true)); // Registration												
+				guest.getPermissions().add(createPermission("story", guest, "/registration", true)); // Registration	
+				
+				Group everyone = SecurityFactory.eINSTANCE.createGroup();
+				hub.setEveryoneGroup(everyone);
+				hub.setEveryone(everyone);
+				everyone.getPermissions().add(createPermission("GET", hub, "/home", true));
 				
 				Group administrators = SecurityFactory.eINSTANCE.createGroup();
 				administrators.setName("Administrators");

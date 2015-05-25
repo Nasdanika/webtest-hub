@@ -2,7 +2,11 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hub" nsURI="urn:org.nasdanika.webtest.hub" nsPrefix="org.nasdanika.webtest.hub">
   <eClassifiers xsi:type="ecore:EDataType" name="HttpServletResponse" instanceClassName="javax.servlet.http.HttpServletResponse"
-      serializable="false"/>
+      serializable="false">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="some doc"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="CDOViewContext" instanceClassName="org.nasdanika.cdo.CDOViewContext">
     <eTypeParameters name="V"/>
     <eTypeParameters name="CR"/>
@@ -14,38 +18,66 @@
       serializable="false">
     <eTypeParameters name="CR"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="WebSocketContext" instanceClassName="org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext"
+      serializable="false">
+    <eTypeParameters name="CR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Void" instanceClassName="java.lang.Void"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Command" instanceClassName="org.nasdanika.core.Command"
+      serializable="false">
+    <eTypeParameters name="C"/>
+    <eTypeParameters name="T"/>
+    <eTypeParameters name="R"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ApplicationPanel" instanceClassName="org.nasdanika.html.ApplicationPanel"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="AuthenticationMode">
+    <eLiterals name="Password"/>
+    <eLiterals name="NTLM" value="1" literal="NTLM"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Hub" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordProtectionDomain #//ApplicationOwner #//BreadcrumbsProvider">
     <eAnnotations source="org.nasdanika.cdo.security:permissions">
       <details key="story/landing" value="extension/js&#xD;&#xA;read/home&#xD;&#xA;read/summary&#xD;&#xA;read/applications&#xD;&#xA;read/applications/getSummaryRow&#xD;&#xA;extension/applications/js"/>
     </eAnnotations>
-    <eOperations name="executeScript" eExceptions="#//Exception">
+    <eOperations name="executeScript" eExceptions="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//Exception">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="nu i"/>
+      </eAnnotations>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
       <eParameters name="context">
         <eAnnotations source="org.nasdanika.cdo:context-parameter"/>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value=""/>
+        </eAnnotations>
         <eGenericType eClassifier="#//WebSocketContext">
           <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordCredentials"/>
         </eGenericType>
       </eParameters>
-      <eParameters name="script" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="script" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="sobstvenno script"/>
+        </eAnnotations>
+      </eParameters>
     </eOperations>
-    <eOperations name="userList" upperBound="-1" eExceptions="#//Exception">
+    <eOperations name="userList" upperBound="-1" eExceptions="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//Exception">
       <eAnnotations source="org.nasdanika.cdo.web:getter"/>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eOperations>
-    <eOperations name="deleteUser" upperBound="-1" eExceptions="#//Exception">
+    <eOperations name="deleteUser" upperBound="-1" eExceptions="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//Exception">
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
       <eParameters name="login" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="createOrUpdateUser" upperBound="-1" eExceptions="#//Exception">
+    <eOperations name="createOrUpdateUser" upperBound="-1" eExceptions="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//Exception">
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
@@ -111,7 +143,11 @@
       </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="Web Test Hub"/>
+        defaultValueLiteral="Web Test Hub">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="some doc"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guest" eType="#//Guest"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
@@ -120,10 +156,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="slideWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="800"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="AuthenticationMode">
-    <eLiterals name="Password"/>
-    <eLiterals name="NTLM" value="1" literal="NTLM"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="everyone" eType="ecore:EClass ../../org.nasdanika.cdo.security/model/security.ecore#//Group"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationOwner" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="applications" upperBound="-1"
@@ -134,10 +168,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Guest" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//User #//ApplicationRenderer">
     <eAnnotations source="org.nasdanika.cdo.security:permissions">
-      <details key="story/registration" value="GET/registrationForm&#xD;&#xA;invoke/register"/>
+      <details key="story/registration" value="GET/registrationForm&#xD;&#xA;invoke/register&#xD;&#xA;extension/js"/>
     </eAnnotations>
     <eOperations name="registrationForm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        eExceptions="#//Exception">
+        eExceptions="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//Exception">
       <eAnnotations source="org.nasdanika.cdo.web:route"/>
       <eParameters name="context">
         <eAnnotations source="org.nasdanika.cdo:context-parameter"/>
@@ -147,26 +181,62 @@
       </eParameters>
     </eOperations>
     <eOperations name="home" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        eExceptions="#//Exception">
+        eExceptions="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//Exception">
       <eAnnotations source="org.nasdanika.cdo.web:home-route"/>
       <eParameters name="context" eType="#//HttpServletRequestContext">
         <eAnnotations source="org.nasdanika.cdo:context-parameter"/>
       </eParameters>
     </eOperations>
-    <eOperations name="register" eType="#//JSONObject" eExceptions="#//Exception">
-      <eParameters name="login" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="eMail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="passwordConfirmation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="register" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        eExceptions="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//Exception">
+      <eParameters name="context">
+        <eAnnotations source="org.nasdanika.cdo:context-parameter"/>
+        <eGenericType eClassifier="#//WebSocketContext">
+          <eTypeArguments eClassifier="ecore:EClass ../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordCredentials"/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="login" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="org.nasdanika.cdo.web.html.form-control">
+          <details key="required" value="true"/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="org.nasdanika.cdo.web.html.form-control">
+          <details key="label" value="Real name"/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="eMail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="email"/>
+        </eAnnotations>
+        <eAnnotations source="org.nasdanika.cdo.web.html.form-control">
+          <details key="input-type" value="email"/>
+          <details key="label" value="E-Mail"/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="org.nasdanika.cdo.web.html.form-control">
+          <details key="input-type" value="password"/>
+          <details key="required" value="true"/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="passwordConfirmation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="org.nasdanika.cdo.web.html.form-control">
+          <details key="input-type" value="password"/>
+          <details key="validator" value="if (value!==this.data.password) { return 'Passwords do not match'; }"/>
+          <details key="required" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="org.nasdanika.cdo.validator">
+          <details key="server" value="if (data.password!=value) {&#xD;&#xA;&#x9;return &quot;Passwords do not match&quot;;&#xD;&#xA;}"/>
+        </eAnnotations>
+      </eParameters>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//ApplicationOwner ../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordHashUser #//ApplicationRenderer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Application" eSuperTypes="#//BreadcrumbsProvider">
-    <eOperations name="getSummaryRow" eType="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//JSONObject"
-        eExceptions="#//Exception">
+    <eOperations name="getSummaryRow" eType="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//JSONObject">
       <eAnnotations source="org.nasdanika.cdo.web:getter"/>
       <eParameters name="context">
         <eAnnotations source="org.nasdanika.cdo:context-parameter"/>
@@ -185,13 +255,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="WebSocketContext" instanceClassName="org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext"
-      serializable="false">
-    <eTypeParameters name="CR"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Descriptor" eSuperTypes="#//JSONLoader">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="org.nasdanika.cdo.web.html.form-control">
+        <details key="input-type" value="f"/>
+        <details key="label" value="lbl"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//Description"
         containment="true"/>
   </eClassifiers>
@@ -202,7 +273,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="html" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestSession" eSuperTypes="#//Descriptor #//BreadcrumbsProvider #//Deletable">
-    <eOperations name="getSummaryRow" eExceptions="#//Exception">
+    <eOperations name="getSummaryRow">
       <eAnnotations source="org.nasdanika.cdo.web:getter"/>
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -259,7 +330,20 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Screenshot">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+      <eAnnotations source="org.nasdanika.cdo.web.html.form-control">
+        <details key="input-type" value=""/>
+        <details key="label" value="ts"/>
+        <details key="required" value="rq"/>
+        <details key="private" value="prvt"/>
+        <details key="default" value="dflt"/>
+        <details key="placeholder" value="plhldr"/>
+        <details key="help-text" value="hlptxt"/>
+        <details key="inline" value="inl"/>
+        <details key="control-id" value="ctrlid"/>
+        <details key="validator" value="if (x) { something }"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -316,9 +400,8 @@
         eOpposite="#//PageResult/results"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestMethodResult" eSuperTypes="#//OperationResult">
-    <eOperations name="loadTiming" eType="ecore:EClass ../../org.nasdanika.webtest.performance/model/performance.ecore#//TimingBase"
-        eExceptions="#//Exception">
-      <eParameters name="json" eType="#//JSONObject"/>
+    <eOperations name="loadTiming" eType="ecore:EClass ../../org.nasdanika.webtest.performance/model/performance.ecore#//TimingBase">
+      <eParameters name="json" eType="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//JSONObject"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameters" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -353,20 +436,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="how" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="using" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="JSONObject" instanceClassName="org.json.JSONObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="JSONLoader" instanceClassName="org.nasdanika.core.JSONLoader"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="BreadcrumbsProvider" instanceClassName="org.nasdanika.webtest.hub.BreadcrumbsProvider"
       abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
   <eClassifiers xsi:type="ecore:EClass" name="Deletable" instanceClassName="org.nasdanika.core.Deletable"
       abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="LoginPasswordCredentials" instanceClassName="org.nasdanika.cdo.security.LoginPasswordCredentials"
-      serializable="false"/>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationRenderer" abstract="true"
       interface="true">
     <eOperations name="renderApplication" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        eExceptions="#//Exception">
+        eExceptions="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//Exception">
       <eParameters name="context" eType="#//HttpServletRequestContext"/>
       <eParameters name="configurator">
         <eGenericType eClassifier="#//Command">
@@ -377,14 +456,4 @@
       </eParameters>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Void" instanceClassName="java.lang.Void"
-      serializable="false"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="Command" instanceClassName="org.nasdanika.core.Command"
-      serializable="false">
-    <eTypeParameters name="C"/>
-    <eTypeParameters name="T"/>
-    <eTypeParameters name="R"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="ApplicationPanel" instanceClassName="org.nasdanika.html.ApplicationPanel"
-      serializable="false"/>
 </ecore:EPackage>

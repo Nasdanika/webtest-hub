@@ -76,6 +76,7 @@ import org.nasdanika.webtest.hub.User;
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getUsers <em>Users</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getAdministrators <em>Administrators</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getSlideWidth <em>Slide Width</em>}</li>
+ *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getEveryone <em>Everyone</em>}</li>
  * </ul>
  * </p>
  *
@@ -194,6 +195,24 @@ public class HubImpl extends LoginPasswordProtectionDomainImpl implements Hub {
 	 */
 	public void setSlideWidth(int newSlideWidth) {
 		eSet(HubPackage.Literals.HUB__SLIDE_WIDTH, newSlideWidth);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Group getEveryone() {
+		return (Group)eGet(HubPackage.Literals.HUB__EVERYONE, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEveryone(Group newEveryone) {
+		eSet(HubPackage.Literals.HUB__EVERYONE, newEveryone);
 	}
 
 	/**

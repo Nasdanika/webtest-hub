@@ -32,9 +32,6 @@
     <genDataTypes ecoreDataType="WebTestHub.ecore#//WebSocketContext">
       <genTypeParameters ecoreTypeParameter="WebTestHub.ecore#//WebSocketContext/CR"/>
     </genDataTypes>
-    <genDataTypes ecoreDataType="WebTestHub.ecore#//JSONObject"/>
-    <genDataTypes ecoreDataType="WebTestHub.ecore#//Exception"/>
-    <genDataTypes ecoreDataType="WebTestHub.ecore#//LoginPasswordCredentials"/>
     <genDataTypes ecoreDataType="WebTestHub.ecore#//Void"/>
     <genDataTypes ecoreDataType="WebTestHub.ecore#//Command">
       <genTypeParameters ecoreTypeParameter="WebTestHub.ecore#//Command/C"/>
@@ -48,6 +45,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//Hub/users"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//Hub/administrators"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebTestHub.ecore#//Hub/slideWidth"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebTestHub.ecore#//Hub/everyone"/>
       <genOperations ecoreOperation="WebTestHub.ecore#//Hub/executeScript">
         <genParameters ecoreParameter="WebTestHub.ecore#//Hub/executeScript/context"/>
         <genParameters ecoreParameter="WebTestHub.ecore#//Hub/executeScript/script"/>
@@ -82,6 +80,7 @@
         <genParameters ecoreParameter="WebTestHub.ecore#//Guest/home/context"/>
       </genOperations>
       <genOperations ecoreOperation="WebTestHub.ecore#//Guest/register">
+        <genParameters ecoreParameter="WebTestHub.ecore#//Guest/register/context"/>
         <genParameters ecoreParameter="WebTestHub.ecore#//Guest/register/login"/>
         <genParameters ecoreParameter="WebTestHub.ecore#//Guest/register/name"/>
         <genParameters ecoreParameter="WebTestHub.ecore#//Guest/register/eMail"/>

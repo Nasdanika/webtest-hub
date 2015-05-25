@@ -22,7 +22,7 @@ public interface ApplicationRenderer extends CDOObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.HttpServletRequestContext" configuratorDataType="org.nasdanika.webtest.hub.Command<org.nasdanika.webtest.hub.HttpServletRequestContext, org.nasdanika.webtest.hub.ApplicationPanel, org.nasdanika.webtest.hub.Void>"
+	 * @model exceptions="org.nasdanika.webtest.performance.Exception" contextDataType="org.nasdanika.webtest.hub.HttpServletRequestContext" configuratorDataType="org.nasdanika.webtest.hub.Command<org.nasdanika.webtest.hub.HttpServletRequestContext, org.nasdanika.webtest.hub.ApplicationPanel, org.nasdanika.webtest.hub.Void>"
 	 * @generated
 	 */
 	Object renderApplication(HttpServletRequestContext context, Command<HttpServletRequestContext, ApplicationPanel, Void> configurator) throws Exception;

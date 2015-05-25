@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.json.JSONObject;
 import org.nasdanika.cdo.CDOViewContext;
 import org.nasdanika.webtest.hub.ActorMethodResult;
 import org.nasdanika.webtest.hub.ActorResult;
@@ -129,10 +128,6 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 				return createOperationStatusFromString(eDataType, initialValue);
 			case HubPackage.CDO_VIEW_CONTEXT:
 				return createCDOViewContextFromString(eDataType, initialValue);
-			case HubPackage.JSON_OBJECT:
-				return createJSONObjectFromString(eDataType, initialValue);
-			case HubPackage.EXCEPTION:
-				return createExceptionFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -152,10 +147,6 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 				return convertOperationStatusToString(eDataType, instanceValue);
 			case HubPackage.CDO_VIEW_CONTEXT:
 				return convertCDOViewContextToString(eDataType, instanceValue);
-			case HubPackage.JSON_OBJECT:
-				return convertJSONObjectToString(eDataType, instanceValue);
-			case HubPackage.EXCEPTION:
-				return convertExceptionToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -477,42 +468,6 @@ public class HubFactoryImpl extends EFactoryImpl implements HubFactory {
 	 */
 	public String convertCDOViewContextToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JSONObject createJSONObjectFromString(EDataType eDataType, String initialValue) {
-		return (JSONObject)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertJSONObjectToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Exception createExceptionFromString(EDataType eDataType, String initialValue) {
-		return (Exception)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertExceptionToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

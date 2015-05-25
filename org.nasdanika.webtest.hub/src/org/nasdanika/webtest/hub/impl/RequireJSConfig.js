@@ -1,7 +1,7 @@
 require.config({
     baseUrl: '/js',
     paths: {
-        jquery: 'jquery-global' // 'jquery-1.11.1.min'
-        // TODO - Knockout
+        jquery: 'jquery-global', // 'jquery-1.11.1.min'
+        knockout: 'knockout-3.3.0'
     }
 });

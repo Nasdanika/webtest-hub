@@ -33,23 +33,17 @@ import org.nasdanika.cdo.security.SecurityPackage;
 import org.nasdanika.cdo.security.SecurityPolicy;
 import org.nasdanika.cdo.security.User;
 import org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext;
-import org.nasdanika.core.AuthorizationProvider.AccessDecision;
+import org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext;
+import org.nasdanika.cdo.web.html.KnockoutJsEOperationFormGenerator;
 import org.nasdanika.core.AbstractCommand;
+import org.nasdanika.core.AuthorizationProvider.AccessDecision;
 import org.nasdanika.core.Command;
 import org.nasdanika.core.Context;
 import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.ApplicationPanel;
-import org.nasdanika.html.Button.Type;
-import org.nasdanika.html.FontAwesome.Rotate;
-import org.nasdanika.html.FontAwesome.WebApplication;
+import org.nasdanika.html.FontAwesome.Spinner;
 import org.nasdanika.html.Form;
-import org.nasdanika.html.Form.Method;
-import org.nasdanika.html.FormInputGroup;
 import org.nasdanika.html.HTMLFactory;
-import org.nasdanika.html.HTMLFactory.Glyphicon;
-import org.nasdanika.html.HTMLFactory.InputType;
-import org.nasdanika.html.Input;
-import org.nasdanika.html.Modal;
 import org.nasdanika.html.Navbar;
 import org.nasdanika.html.Tag;
 import org.nasdanika.html.Tag.TagName;
@@ -59,6 +53,7 @@ import org.nasdanika.web.Action;
 import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.RequestMethod;
 import org.nasdanika.web.RouteMethod;
+import org.nasdanika.web.ServerException;
 import org.nasdanika.webtest.hub.ApplicationRenderer;
 import org.nasdanika.webtest.hub.Guest;
 import org.nasdanika.webtest.hub.Hub;
@@ -150,7 +145,28 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 
 			@Override
 			public Void execute(HttpServletRequestContext context, ApplicationPanel... args) throws Exception {
-				args[0].contentPanel("Registration form, believe it or not!");
+				KnockoutJsEOperationFormGenerator formGenerator = new KnockoutJsEOperationFormGenerator(
+						HubPackage.eINSTANCE.getGuest__Register__WebSocketContext_String_String_String_String_String(), 
+						"model", 
+						"submitHandler",
+						"cancelHandler") {
+					
+				};
+							
+				HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
+				Form form = formGenerator.generateForm(htmlFactory);
+				GuestRegistrationGenerator<Context, String> viewModelGenerator = new GuestRegistrationGenerator<Context, String>();
+				String script = viewModelGenerator.execute(
+						context, 
+						context.getObjectPath(GuestImpl.this), 
+						formGenerator.generateModel(),
+						"registrationContainer");
+												
+				args[0].contentPanel(
+						htmlFactory.div(
+								htmlFactory.spinnerOverlay(Spinner.spinner).id("registrationFormOverlay").style("display", "none"),
+								form).id("registrationContainer"),
+						htmlFactory.tag(Tag.TagName.script, script));
 				return null;
 			}
 		});
@@ -239,9 +255,9 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case HubPackage.GUEST___REGISTER__STRING_STRING_STRING_STRING_STRING:
+			case HubPackage.GUEST___REGISTER__WEBSOCKETCONTEXT_STRING_STRING_STRING_STRING_STRING:
 				try {
-					return register((String)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (String)arguments.get(3), (String)arguments.get(4));
+					return register((WebSocketContext<LoginPasswordCredentials>)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (String)arguments.get(3), (String)arguments.get(4), (String)arguments.get(5));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -293,12 +309,99 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public JSONObject register(String login, String name, String eMail, String password, String passwordConfirmation) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public Object register(
+			WebSocketContext<LoginPasswordCredentials> context, 
+			final String login, 
+			String name, 
+			String eMail, 
+			final String password, 
+			String passwordConfirmation) throws Exception {
+		
+		Map<String, Object> ret = new HashMap<>();
+		Map<String, Object> validationResults = new HashMap<>();
+
+		// Server-side explicit validation.
+		if (login==null || login.trim().length()==0) {
+			validationResults.put("login", "Login is blank");
+		}
+		
+//		if (eMail==null || eMail.trim().length()==0) {
+//			validationResults.put("eMail", "E-Mail is blank");
+//		}
+		
+		if (password==null || password.trim().length()==0) {
+			validationResults.put("password", "Password is blank");
+		}
+		
+		if (passwordConfirmation==null || passwordConfirmation.trim().length()==0) {
+			validationResults.put("passwordConfirm", "Password confirm is blank");
+		} else if (password!=null && !password.equals(passwordConfirmation)) {
+			validationResults.put("passwordConfirm", "Passwords don't match");
+		}
+		
+		// TODO - min length, strength checks.
+		
+		if (!validationResults.isEmpty()) {
+			ret.put("validationResults", validationResults);
+			return ret;
+		}		
+		
+		Hub hub = (Hub) eContainer();
+		CDOLock writeLock = hub.cdoWriteLock();
+		if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
+			try {
+				for (User u: hub.getAllUsers()) {
+					if (u instanceof LoginPasswordHashUser) {
+						LoginPasswordHashUser lphUser = (LoginPasswordHashUser) u;
+						if (lphUser.getLogin()!=null && lphUser.getLogin().equalsIgnoreCase(login)) {
+							validationResults.put("login", "Login already exists");							
+							ret.put("validationResults", validationResults);
+							return ret;
+						}
+					}
+				}
+				org.nasdanika.webtest.hub.User newUser = HubFactory.eINSTANCE.createUser();
+				newUser.setLogin(login);
+				//newUser.setName(name); - later
+				hub.setPasswordHash(newUser, password);
+				hub.getUsers().add(newUser);
+				
+				// Permission				
+				Permission permission = SecurityFactory.eINSTANCE.createPermission();
+				permission.setTarget(newUser); // self-target
+				permission.setAllow(true);
+				permission.setName("GET");
+				permission.setQualifier("/home");
+				newUser.getPermissions().add(permission);				
+				
+				//((UserImpl) newUser).init();
+				
+				Principal authenticatedUser = context.authenticate(new LoginPasswordCredentials() {
+					
+					@Override
+					public String getPassword() {
+						return password;
+					}
+					
+					@Override
+					public String getLogin() {
+						return login;
+					}
+				});
+				
+				if (newUser!=authenticatedUser) {
+					throw new ServerException("Registration failed - server error");
+				}
+				
+				return context.getObjectPath(hub)+".html"; 
+			} finally {
+				writeLock.unlock();
+			}
+		} 
+		
+		throw new org.nasdanika.web.ServerException("Cannot acquire write lock");		
 	}
 
 	/**
@@ -342,133 +445,6 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				appPanel);
 		
 	}
-
-	private Modal createRegistrationFormModal(HTMLFactory htmlFactory, String objectPath) throws Exception {
-		Form registrationForm = htmlFactory.form()
-				.method(Method.post)
-				//.action(objectPath+"/register")
-				.id("registration-form")
-				.ngController("registrationController")
-				.ngSubmit("register()");
-		
-		registrationForm.content(htmlFactory.div("").style("color", "red").id("registrationErrorMessage"));
-		
-		Input rLogin = htmlFactory.input(InputType.text)
-				.name("rLogin")
-				.id("rLogin")
-				.placeholder("Login")
-				.autofocus()
-				.required()
-				.ngModel("registrationData.login");
-		
-		Tag loginErrorMessage = htmlFactory.span()
-				.ngBind("errorData.login")
-				.ngShow("errorData.login")
-				.style("color", "red")
-				.id("rLoginErrorMessage");
-		registrationForm.formInputGroup("Login", "rLogin", rLogin, loginErrorMessage)
-			.ngClass("{ 'has-error' : errorData.login }")
-			.leftAddOn(htmlFactory.fontAwesome().webApplication(WebApplication.user).fixedWidth());
-		registrationForm.content(" ");
-		
-		Input rEMail = htmlFactory.input(InputType.email)
-				.name("eMail")
-				.id("rEMail")
-				.placeholder("E-Mail")
-				.required()
-				.ngModel("registrationData.eMail");
-		
-		Tag eMailErrorMessage = htmlFactory.span()
-				.ngBind("errorData.eMail")
-				.ngShow("errorData.eMail")
-				.style("color", "red")
-				.id("rEMailErrorMessage");
-		FormInputGroup eMailFormInputGroup = registrationForm.formInputGroup("E-Mail", "rEMail", rEMail, eMailErrorMessage).ngClass("{ 'has-error' : errorData.eMail }");			
-		eMailFormInputGroup.leftAddOn(htmlFactory.fontAwesome().webApplication(WebApplication.envelope).fixedWidth()); 		
-		
-		registrationForm.content(" ");
-		
-		Input rPassword = htmlFactory.input(InputType.password)
-				.name("password")
-				.id("rPassword")
-				.placeholder("Password")
-				.required()
-				.ngModel("registrationData.password");
-		
-		Tag passwordErrorMessage = htmlFactory.span()
-				.ngBind("errorData.password")
-				.ngShow("errorData.password")
-				.style("color", "red")
-				.id("rPasswordErrorMessage");
-		registrationForm.formInputGroup("Password", "rPassword", rPassword, passwordErrorMessage)
-			.ngClass("{ 'has-error' : errorData.password }")
-			.leftAddOn(htmlFactory.fontAwesome().webApplication(WebApplication.key).fixedWidth());
-		registrationForm.content(" ");
-		
-		Input rPasswordConfirm = htmlFactory.input(InputType.password)
-				.name("passwordConfirm")
-				.id("rPasswordConfirm")
-				.placeholder("Confirm password")
-				.required()
-				.ngModel("registrationData.passwordConfirm");
-		
-		Tag passwordConfirmErrorMessage = htmlFactory.span()
-				.ngBind("errorData.passwordConfirm")
-				.ngShow("errorData.passwordConfirm")
-				.style("color", "red")
-				.id("rPasswordConfirmErrorMessage");
-		
-		registrationForm.formInputGroup(
-				"Confirm password", 
-				"rPasswordConfirm", 
-				rPasswordConfirm, 
-				passwordConfirmErrorMessage)
-			.ngClass("{ 'has-error' : errorData.passwordConfirm }")
-			.leftAddOn(htmlFactory.fontAwesome().webApplication(WebApplication.key).fixedWidth().rotate(Rotate.R90));
-		
-		registrationForm.content(" ");
-		
-		registrationForm.button("Register").type(Type.SUBMIT).style(Style.PRIMARY).id("registrationSubmitButton");
-		registrationForm.content("&nbsp;");
-		registrationForm.button("Cancel").attribute("data-dismiss", "modal").id("registrationCancelButton");
-		
-		return htmlFactory.modal()
-				.id("registration-form-modal")
-				.small()
-				.title("Register")
-				.body(registrationForm);
-	}
-
-	private void createLoginForm(HTMLFactory htmlFactory, Navbar navBar) {
-		Form loginForm = navBar.form(true)
-				.method(Method.post)
-				//.action(objectPath+"/signin")
-				.ngController("loginController")
-				.ngSubmit("login()");
-		
-		Input login = htmlFactory.input(InputType.text)
-				.name("login")
-				.id("login")
-				.placeholder("Login")
-				.required()
-				.ngModel("loginData.login");
-		
-		loginForm.formGroup("Login", "login", login, null).ngClass("{ 'has-error' : error }");
-
-		loginForm.content(" ");
-		
-		Input password = htmlFactory.input(InputType.password)
-				.name("password")
-				.id("password")
-				.placeholder("Password")
-				.required()
-				.ngModel("loginData.password");
-		
-		loginForm.formGroup(null, "password", password, null).ngClass("{ 'has-error' : error }");
-		loginForm.content(" ");
-		
-		loginForm.button("Log in&nbsp;", htmlFactory.glyphicon(Glyphicon.log_in)).type(Type.SUBMIT).id("loginButton");
-	}
 	
 	@RouteMethod(value=RequestMethod.POST)
 	public Object login(@ContextParameter final HttpServletRequestContext context) throws Exception {
@@ -494,111 +470,5 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 			return context.getObjectPath(authenticatedPrincipal)+".html";
 		}
 	}	
-	
-	@SuppressWarnings("unchecked")
-	@RouteMethod(value=RequestMethod.POST)
-	public Object register(@ContextParameter final HttpServletRequestContext context) throws Exception {
-		try (BufferedReader reader = context.getRequest().getReader()) {
-			final JSONObject body = new JSONObject(new JSONTokener(reader));
-			
-			Map<String, String> registrationResults = new HashMap<>();
-			// Server-side validation
-			final String login = body.getString("login");
-			if (login==null || login.trim().length()==0) {
-				registrationResults.put("login", "Login is blank");
-			}
-			
-			final String eMail = body.getString("eMail");
-			if (eMail==null || eMail.trim().length()==0) {
-				registrationResults.put("eMail", "E-Mail is blank");
-			}
-			
-			final String password = body.getString("password");
-			if (password==null || password.trim().length()==0) {
-				registrationResults.put("password", "Password is blank");
-			}
-			
-			String passwordConfirm = body.getString("passwordConfirm");
-			if (passwordConfirm==null || passwordConfirm.trim().length()==0) {
-				registrationResults.put("passwordConfirm", "Password confirm is blank");
-			} else if (password!=null && !password.equals(passwordConfirm)) {
-				registrationResults.put("passwordConfirm", "Passwords don't match");
-			}
-			
-			if (!registrationResults.isEmpty()) {
-				return new JSONObject(registrationResults).toString();
-			}
-			
-			// TODO - min length, strength checks.
-			
-			Hub hub = (Hub) eContainer();
-			CDOLock writeLock = hub.cdoWriteLock();
-			if (writeLock.tryLock(5, TimeUnit.SECONDS)) {
-				try {
-					for (User u: hub.getAllUsers()) {
-						if (u instanceof LoginPasswordHashUser) {
-							LoginPasswordHashUser lphUser = (LoginPasswordHashUser) u;
-							if (lphUser.getLogin()!=null && lphUser.getLogin().equalsIgnoreCase(login)) {
-								registrationResults.put("login", "Login already exists");							
-								return new JSONObject(registrationResults).toString();
-							}
-						}
-					}
-					org.nasdanika.webtest.hub.User newUser = HubFactory.eINSTANCE.createUser();
-					newUser.setLogin(login);
-					//newUser.setName(name); - later
-					hub.setPasswordHash(newUser, password);
-					hub.getUsers().add(newUser);
-					
-//					// Permission				
-//					Permission permission = SecurityFactory.eINSTANCE.createPermission();
-//					permission.setTarget(newUser); // self-target
-//					permission.setAllow(true);
-//					permission.setName("*");
-//					permission.setTargetClass("User");
-//					permission.setTargetNamespaceURI("urn:org.nasdanika.cdo.security");
-//					newUser.getPermissions().add(permission);				
-
-					// Read permission on Hub to the new user.
-					Permission permission = SecurityFactory.eINSTANCE.createPermission();
-					permission.setTarget(hub); // self-target
-					permission.setAllow(true);
-					permission.setName("read");
-					permission.setTargetClass("Hub");
-					permission.setTargetNamespaceURI("urn:org.nasdanika.webtest.hub");
-					newUser.getPermissions().add(permission);													
-					
-					//((UserImpl) newUser).init();
-					
-					Principal authenticatedUser = ((CDOViewContext<CDOView, LoginPasswordCredentials>) context).authenticate(new LoginPasswordCredentials() {
-						
-						@Override
-						public String getPassword() {
-							return password;
-						}
-						
-						@Override
-						public String getLogin() {
-							return login;
-						}
-					});
-					
-					if (newUser!=authenticatedUser) {
-						context.getResponse().sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Registration failed - server error");
-						return Action.NOP;
-					}
-					
-					registrationResults.put("target", context.getObjectPath(hub)+".html"); 
-					return new JSONObject(registrationResults).toString();
-				} finally {
-					writeLock.unlock();
-				}
-			} 
-			
-			context.getResponse().sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Cannot acquire write lock");
-			return Action.NOP;
-		}
-	}	
-	
 
 } //GuestImpl
