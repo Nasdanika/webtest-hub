@@ -3,17 +3,13 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
-import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
-import org.eclipse.emf.cdo.view.CDOView;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
@@ -34,7 +30,7 @@ import org.nasdanika.cdo.security.SecurityPolicy;
 import org.nasdanika.cdo.security.User;
 import org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext;
 import org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext;
-import org.nasdanika.cdo.web.html.KnockoutJsEOperationFormGenerator;
+import org.nasdanika.cdo.web.html.KnockoutJsOverlaidFormGenerator;
 import org.nasdanika.core.AbstractCommand;
 import org.nasdanika.core.AuthorizationProvider.AccessDecision;
 import org.nasdanika.core.Command;
@@ -42,10 +38,8 @@ import org.nasdanika.core.Context;
 import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.ApplicationPanel;
 import org.nasdanika.html.FontAwesome.Spinner;
-import org.nasdanika.html.Form;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.Navbar;
-import org.nasdanika.html.Tag;
 import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.Theme;
 import org.nasdanika.html.UIElement.Style;
@@ -144,29 +138,16 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 		return renderApplication(context, new AbstractCommand<HttpServletRequestContext, ApplicationPanel, Void>() {
 
 			@Override
-			public Void execute(HttpServletRequestContext context, ApplicationPanel... args) throws Exception {
-				KnockoutJsEOperationFormGenerator formGenerator = new KnockoutJsEOperationFormGenerator(
-						HubPackage.eINSTANCE.getGuest__Register__WebSocketContext_String_String_String_String_String(), 
-						"model", 
-						"submitHandler",
-						"cancelHandler") {
-					
-				};
-							
+			public Void execute(HttpServletRequestContext context, ApplicationPanel... args) throws Exception {							
 				HTMLFactory htmlFactory = context.adapt(HTMLFactory.class);
-				Form form = formGenerator.generateForm(htmlFactory);
-				GuestRegistrationGenerator<Context, String> viewModelGenerator = new GuestRegistrationGenerator<Context, String>();
-				String script = viewModelGenerator.execute(
-						context, 
+				KnockoutJsOverlaidFormGenerator generator = new KnockoutJsOverlaidFormGenerator(
+						HubPackage.eINSTANCE.getGuest__Register__WebSocketContext_String_String_String_String_String(), 
+						htmlFactory, 
 						context.getObjectPath(GuestImpl.this), 
-						formGenerator.generateModel(),
-						"registrationContainer");
+						"window.location.href = value;", 
+						"window.history.back();");
 												
-				args[0].contentPanel(
-						htmlFactory.div(
-								htmlFactory.spinnerOverlay(Spinner.spinner).id("registrationFormOverlay").style("display", "none"),
-								form).id("registrationContainer"),
-						htmlFactory.tag(Tag.TagName.script, script));
+				args[0].contentPanel(generator.generateSpinnerOverlaidFormContainer(Spinner.spinner));
 				return null;
 			}
 		});

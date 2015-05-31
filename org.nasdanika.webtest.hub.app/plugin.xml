@@ -56,6 +56,11 @@
                value="2">
          </property>
       </object_route>
+      <root_route
+            class="org.nasdanika.webtest.hub.app.WebTestHubDocRoute"
+            method="GET"
+            pattern="doc/.+">
+      </root_route>
    </extension>
    <extension
          point="org.eclipse.equinox.http.registry.resources">

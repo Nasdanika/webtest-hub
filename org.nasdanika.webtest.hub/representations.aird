@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_DV5VIP0EEeSpvf_YXTcOkA" selectedViews="_IHWR8P0EEeSpvf_YXTcOkA _IHeNwP0EEeSpvf_YXTcOkA _IHfb4P0EEeSpvf_YXTcOkA _l2ub8AAlEeWbz9Lbeak2kg" version="8.1.1">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_DV5VIP0EEeSpvf_YXTcOkA" selectedViews="_IHWR8P0EEeSpvf_YXTcOkA _IHeNwP0EEeSpvf_YXTcOkA _IHfb4P0EEeSpvf_YXTcOkA _l2ub8AAlEeWbz9Lbeak2kg _PwfV4AKcEeWyUsY5MPw5HQ" version="8.1.1">
   <models xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
   <models xmi:type="ecore:EPackage" href="platform:/resource/org.nasdanika.cdo.security/model/security.ecore#/"/>
   <models xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/2002/Ecore#/"/>
@@ -1652,10 +1652,27 @@
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_l2ub8AAlEeWbz9Lbeak2kg" initialized="true">
     <ownedRepresentations xmi:type="table:DTable" xmi:id="_btDLUAAnEeWbz9Lbeak2kg" name="register UI form" headerColumnWidth="235">
       <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Guest/register"/>
+      <lines xmi:type="table:DLine" xmi:id="_hrZLUAKTEeWyUsY5MPw5HQ" label="EParameter : context">
+        <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/context"/>
+        <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/context"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@ownedLineMappings[name='Form%20EParameters']"/>
+        <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_h2iEUAKTEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_h2iEUQKTEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+        </currentStyle>
+      </lines>
       <lines xmi:type="table:DLine" xmi:id="_btDLUQAnEeWbz9Lbeak2kg" label="EParameter : login">
         <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/login"/>
         <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/login"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@ownedLineMappings[name='Form%20EParameters']"/>
+        <cells xmi:type="table:DCell" xmi:id="_h69RUAKTEeWyUsY5MPw5HQ" label="true" column="_btDLZQAnEeWbz9Lbeak2kg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Guest/register/login/%org.nasdanika.cdo.web.html.form-control%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Guest/register/login/%org.nasdanika.cdo.web.html.form-control%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_h694YAKTEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_h694YQKTEeWyUsY5MPw5HQ" red="220" green="234" blue="183"/>
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@intersection.2"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@intersection.2"/>
+        </cells>
         <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_btDLUgAnEeWbz9Lbeak2kg" defaultBackgroundStyle="true">
           <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_btDLUwAnEeWbz9Lbeak2kg" red="255" green="255" blue="255"/>
         </currentStyle>
@@ -1716,6 +1733,15 @@
           </currentStyle>
           <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@intersection.0"/>
         </cells>
+        <cells xmi:type="table:DCell" xmi:id="_h6-fcAKTEeWyUsY5MPw5HQ" label="true" column="_btDLZQAnEeWbz9Lbeak2kg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Guest/register/password/%org.nasdanika.cdo.web.html.form-control%/@details.1"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Guest/register/password/%org.nasdanika.cdo.web.html.form-control%/@details.1"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_h6-fcQKTEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_h6-fcgKTEeWyUsY5MPw5HQ" red="220" green="234" blue="183"/>
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@intersection.2"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@intersection.2"/>
+        </cells>
         <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_btDLXgAnEeWbz9Lbeak2kg" defaultBackgroundStyle="true">
           <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_btDLXwAnEeWbz9Lbeak2kg" red="255" green="255" blue="255"/>
         </currentStyle>
@@ -1733,6 +1759,24 @@
           </currentStyle>
           <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@intersection.0"/>
         </cells>
+        <cells xmi:type="table:DCell" xmi:id="_h6_GgAKTEeWyUsY5MPw5HQ" label="true" column="_btDLZQAnEeWbz9Lbeak2kg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Guest/register/passwordConfirmation/%org.nasdanika.cdo.web.html.form-control%/@details.2"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Guest/register/passwordConfirmation/%org.nasdanika.cdo.web.html.form-control%/@details.2"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_h6_GgQKTEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_h6_GggKTEeWyUsY5MPw5HQ" red="220" green="234" blue="183"/>
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@intersection.2"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@intersection.2"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_h8oFQAKTEeWyUsY5MPw5HQ" label="if (value!==this.data.password) { return 'Passwords do not match'; }" column="_btDLbAAnEeWbz9Lbeak2kg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Guest/register/passwordConfirmation/%org.nasdanika.cdo.web.html.form-control%/@details.1"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Guest/register/passwordConfirmation/%org.nasdanika.cdo.web.html.form-control%/@details.1"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_h8osUAKTEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_h8osUQKTEeWyUsY5MPw5HQ" red="220" green="234" blue="183"/>
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@intersection.9"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@intersection.9"/>
+        </cells>
         <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_btDLYQAnEeWbz9Lbeak2kg" defaultBackgroundStyle="true">
           <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_btDLYgAnEeWbz9Lbeak2kg" red="255" green="255" blue="255"/>
         </currentStyle>
@@ -1747,12 +1791,12 @@
         <semanticElements xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
         <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@ownedColumnMappings.1"/>
       </columns>
-      <columns xmi:type="table:DTargetColumn" xmi:id="_btDLZQAnEeWbz9Lbeak2kg" label="Required" width="90">
+      <columns xmi:type="table:DTargetColumn" xmi:id="_btDLZQAnEeWbz9Lbeak2kg" label="Required" cells="_h69RUAKTEeWyUsY5MPw5HQ _h6-fcAKTEeWyUsY5MPw5HQ _h6_GgAKTEeWyUsY5MPw5HQ" width="90">
         <target xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
         <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@ownedColumnMappings.2"/>
       </columns>
-      <columns xmi:type="table:DTargetColumn" xmi:id="_btDLZgAnEeWbz9Lbeak2kg" label="Private" width="79">
+      <columns xmi:type="table:DTargetColumn" xmi:id="_btDLZgAnEeWbz9Lbeak2kg" label="Private" width="84">
         <target xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
         <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@ownedColumnMappings.3"/>
@@ -1782,7 +1826,7 @@
         <semanticElements xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
         <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@ownedColumnMappings.8"/>
       </columns>
-      <columns xmi:type="table:DTargetColumn" xmi:id="_btDLbAAnEeWbz9Lbeak2kg" label="Validator" width="90">
+      <columns xmi:type="table:DTargetColumn" xmi:id="_btDLbAAnEeWbz9Lbeak2kg" label="Validator" cells="_h8oFQAKTEeWyUsY5MPw5HQ" width="351">
         <target xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
         <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Operation%20Form']/@ownedColumnMappings.9"/>
@@ -1989,6 +2033,1358 @@
       </columns>
       <description xmi:type="description_2:CrossTableDescription" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Class%20Form']"/>
     </ownedRepresentations>
+    <ownedRepresentations xmi:type="table:DTable" xmi:id="_4gf9AAKiEeWyUsY5MPw5HQ" name="hub extended documentation table" headerColumnWidth="339">
+      <target xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+      <lines xmi:type="table:DLine" xmi:id="_d9MA8AKjEeWyUsY5MPw5HQ" label="EPackage : hub">
+        <target xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+        <lines xmi:type="table:DLine" xmi:id="_sq7AsAKjEeWyUsY5MPw5HQ" label="EDataType : HttpServletResponse">
+          <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//HttpServletResponse"/>
+          <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//HttpServletResponse"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <cells xmi:type="table:DCell" xmi:id="_ssBz8AKjEeWyUsY5MPw5HQ" label="some doc" column="_4gglygKiEeWyUsY5MPw5HQ">
+            <target xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//HttpServletResponse/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+            <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//HttpServletResponse/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+            <currentStyle xmi:type="table:DCellStyle" xmi:id="_ssCbAAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_ssCbAQKjEeWyUsY5MPw5HQ" red="220" green="234" blue="183"/>
+              <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+            </currentStyle>
+            <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </cells>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sq7nwAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sq7nwQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_sq8O0AKjEeWyUsY5MPw5HQ" label="EDataType : CDOViewContext">
+          <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//CDOViewContext"/>
+          <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//CDOViewContext"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sq8O0QKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sq8O0gKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_sq8O0wKjEeWyUsY5MPw5HQ" label="EDataType : HttpServletRequestContext">
+          <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//HttpServletRequestContext"/>
+          <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//HttpServletRequestContext"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sq814AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sq814QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_sq814gKjEeWyUsY5MPw5HQ" label="EDataType : CDOTransactionHttpServletRequestContext">
+          <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//CDOTransactionHttpServletRequestContext"/>
+          <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//CDOTransactionHttpServletRequestContext"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sq814wKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sq815AKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_sq9c8AKjEeWyUsY5MPw5HQ" label="EDataType : WebSocketContext">
+          <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//WebSocketContext"/>
+          <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//WebSocketContext"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sq9c8QKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sq9c8gKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_sq9c8wKjEeWyUsY5MPw5HQ" label="EDataType : Void">
+          <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//Void"/>
+          <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//Void"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sq-EAAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sq-EAQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_sq-EAgKjEeWyUsY5MPw5HQ" label="EDataType : Command">
+          <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//Command"/>
+          <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//Command"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sq-EAwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sq-EBAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_sq-EBQKjEeWyUsY5MPw5HQ" label="EDataType : ApplicationPanel">
+          <target xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//ApplicationPanel"/>
+          <semanticElements xmi:type="ecore:EDataType" href="model/WebTestHub.ecore#//ApplicationPanel"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sq-rEAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sq-rEQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_sq-rEgKjEeWyUsY5MPw5HQ" label="EEnum : AuthenticationMode">
+          <target xmi:type="ecore:EEnum" href="model/WebTestHub.ecore#//AuthenticationMode"/>
+          <semanticElements xmi:type="ecore:EEnum" href="model/WebTestHub.ecore#//AuthenticationMode"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sq-rEwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sq-rFAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_sq_SIAKjEeWyUsY5MPw5HQ" label="EClass : Hub">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Hub"/>
+          <lines xmi:type="table:DLine" xmi:id="_srMGcAKjEeWyUsY5MPw5HQ" label="EAttribute : name">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Hub/name"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Hub/name"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <cells xmi:type="table:DCell" xmi:id="_ssDCFQKjEeWyUsY5MPw5HQ" label="Attribute doc" column="_4gglygKiEeWyUsY5MPw5HQ">
+              <target xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Hub/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+              <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Hub/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+              <currentStyle xmi:type="table:DCellStyle" xmi:id="_ssDpIAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_ssDpIQKjEeWyUsY5MPw5HQ" red="220" green="234" blue="183"/>
+                <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+              </currentStyle>
+              <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+            </cells>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srMtgAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srMtgQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srMtggKjEeWyUsY5MPw5HQ" label="EReference : guest">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/guest"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/guest"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srNUkAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srNUkQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srNUkgKjEeWyUsY5MPw5HQ" label="EReference : users">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/users"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/users"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srN7oAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srN7oQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srN7ogKjEeWyUsY5MPw5HQ" label="EReference : administrators">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/administrators"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/administrators"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srN7owKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srN7pAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srN7pQKjEeWyUsY5MPw5HQ" label="EAttribute : slideWidth">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Hub/slideWidth"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Hub/slideWidth"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srOisAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srOisQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srOisgKjEeWyUsY5MPw5HQ" label="EReference : everyone">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/everyone"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Hub/everyone"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srPJwAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srPJwQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srPJwgKjEeWyUsY5MPw5HQ" label="EOperation : executeScript">
+            <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Hub/executeScript"/>
+            <lines xmi:type="table:DLine" xmi:id="_srQ-8wKjEeWyUsY5MPw5HQ" label="EParameter : context">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/executeScript/context"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/executeScript/context"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <cells xmi:type="table:DCell" xmi:id="_ssCbBQKjEeWyUsY5MPw5HQ" label="" column="_4gglygKiEeWyUsY5MPw5HQ">
+                <target xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Hub/executeScript/context/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+                <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Hub/executeScript/context/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+                <currentStyle xmi:type="table:DCellStyle" xmi:id="_ssDCEAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                  <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_ssDCEQKjEeWyUsY5MPw5HQ" red="220" green="234" blue="183"/>
+                  <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+                </currentStyle>
+                <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+              </cells>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srRmAAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srRmAQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srRmAgKjEeWyUsY5MPw5HQ" label="EParameter : script">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/executeScript/script"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/executeScript/script"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <cells xmi:type="table:DCell" xmi:id="_ssDCEgKjEeWyUsY5MPw5HQ" label="Parameter documentation" column="_4gglygKiEeWyUsY5MPw5HQ">
+                <target xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Hub/executeScript/script/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+                <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Hub/executeScript/script/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+                <currentStyle xmi:type="table:DCellStyle" xmi:id="_ssDCEwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                  <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_ssDCFAKjEeWyUsY5MPw5HQ" red="220" green="234" blue="183"/>
+                  <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+                </currentStyle>
+                <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+              </cells>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srRmAwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srRmBAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <semanticElements xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Hub/executeScript"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']"/>
+            <cells xmi:type="table:DCell" xmi:id="_ssCbAgKjEeWyUsY5MPw5HQ" label="Operation documentation" column="_4gglygKiEeWyUsY5MPw5HQ">
+              <target xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Hub/executeScript/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+              <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Hub/executeScript/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+              <currentStyle xmi:type="table:DCellStyle" xmi:id="_ssCbAwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_ssCbBAKjEeWyUsY5MPw5HQ" red="220" green="234" blue="183"/>
+                <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+              </currentStyle>
+              <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+            </cells>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srPw0AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srPw0QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srPw0gKjEeWyUsY5MPw5HQ" label="EOperation : userList">
+            <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Hub/userList"/>
+            <semanticElements xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Hub/userList"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srPw0wKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srPw1AKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srQX4AKjEeWyUsY5MPw5HQ" label="EOperation : deleteUser">
+            <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Hub/deleteUser"/>
+            <lines xmi:type="table:DLine" xmi:id="_srSNEAKjEeWyUsY5MPw5HQ" label="EParameter : login">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/deleteUser/login"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/deleteUser/login"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srSNEQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srSNEgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <semanticElements xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Hub/deleteUser"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srQX4QKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srQX4gKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srQX4wKjEeWyUsY5MPw5HQ" label="EOperation : createOrUpdateUser">
+            <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser"/>
+            <lines xmi:type="table:DLine" xmi:id="_srSNEwKjEeWyUsY5MPw5HQ" label="EParameter : userID">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/userID"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/userID"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srS0IAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srS0IQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srS0IgKjEeWyUsY5MPw5HQ" label="EParameter : login">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/login"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/login"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srS0IwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srS0JAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srS0JQKjEeWyUsY5MPw5HQ" label="EParameter : name">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/name"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/name"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srS0JgKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srS0JwKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srS0KAKjEeWyUsY5MPw5HQ" label="EParameter : admin">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/admin"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/admin"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srS0KQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srS0KgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srS0KwKjEeWyUsY5MPw5HQ" label="EParameter : disabled">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/disabled"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/disabled"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srTbMAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srTbMQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srTbMgKjEeWyUsY5MPw5HQ" label="EParameter : authentication">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/authentication"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/authentication"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srTbMwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srTbNAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srTbNQKjEeWyUsY5MPw5HQ" label="EParameter : password">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/password"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/password"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srTbNgKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srTbNwKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srTbOAKjEeWyUsY5MPw5HQ" label="EParameter : passwordConfirmation">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/passwordConfirmation"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser/passwordConfirmation"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srTbOQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srTbOgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <semanticElements xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Hub/createOrUpdateUser"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srQX5AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srQX5QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srQ-8AKjEeWyUsY5MPw5HQ" label="EOperation : home">
+            <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Hub/home"/>
+            <lines xmi:type="table:DLine" xmi:id="_srUCQAKjEeWyUsY5MPw5HQ" label="EParameter : viewContext">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/home/viewContext"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/home/viewContext"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srUCQQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srUCQgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srUCQwKjEeWyUsY5MPw5HQ" label="EParameter : requestContext">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/home/requestContext"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Hub/home/requestContext"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srUCRAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srUCRQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <semanticElements xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Hub/home"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srQ-8QKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srQ-8gKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Hub"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sq_SIQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sq_SIgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_sq_SIwKjEeWyUsY5MPw5HQ" label="EClass : ApplicationOwner">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ApplicationOwner"/>
+          <lines xmi:type="table:DLine" xmi:id="_srUCRgKjEeWyUsY5MPw5HQ" label="EReference : applications">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ApplicationOwner/applications"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ApplicationOwner/applications"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srUpUAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srUpUQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ApplicationOwner"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sq_5MAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sq_5MQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_sq_5MgKjEeWyUsY5MPw5HQ" label="EClass : Guest">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Guest"/>
+          <lines xmi:type="table:DLine" xmi:id="_srUpUgKjEeWyUsY5MPw5HQ" label="EOperation : registrationForm">
+            <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Guest/registrationForm"/>
+            <lines xmi:type="table:DLine" xmi:id="_srV3dQKjEeWyUsY5MPw5HQ" label="EParameter : context">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/registrationForm/context"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/registrationForm/context"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srWegAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srWegQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <semanticElements xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Guest/registrationForm"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srVQYAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srVQYQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srVQYgKjEeWyUsY5MPw5HQ" label="EOperation : home">
+            <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Guest/home"/>
+            <lines xmi:type="table:DLine" xmi:id="_srWeggKjEeWyUsY5MPw5HQ" label="EParameter : context">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/home/context"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/home/context"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srXFkAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srXFkQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <semanticElements xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Guest/home"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srV3cAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srV3cQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srV3cgKjEeWyUsY5MPw5HQ" label="EOperation : register">
+            <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Guest/register"/>
+            <lines xmi:type="table:DLine" xmi:id="_srXFkgKjEeWyUsY5MPw5HQ" label="EParameter : context">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/context"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/context"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srXsoAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srXsoQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srXsogKjEeWyUsY5MPw5HQ" label="EParameter : login">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/login"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/login"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srYTsAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srYTsQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srYTsgKjEeWyUsY5MPw5HQ" label="EParameter : name">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/name"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/name"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srY6wAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srY6wQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srY6wgKjEeWyUsY5MPw5HQ" label="EParameter : eMail">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/eMail"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/eMail"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <cells xmi:type="table:DCell" xmi:id="_ssDpIgKjEeWyUsY5MPw5HQ" label="email" column="_4gglygKiEeWyUsY5MPw5HQ">
+                <target xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Guest/register/eMail/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+                <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//Guest/register/eMail/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+                <currentStyle xmi:type="table:DCellStyle" xmi:id="_ssDpIwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                  <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_ssDpJAKjEeWyUsY5MPw5HQ" red="220" green="234" blue="183"/>
+                  <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+                </currentStyle>
+                <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+              </cells>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srY6wwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srY6xAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srY6xQKjEeWyUsY5MPw5HQ" label="EParameter : password">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/password"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/password"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srZh0AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srZh0QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_srZh0gKjEeWyUsY5MPw5HQ" label="EParameter : passwordConfirmation">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/passwordConfirmation"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Guest/register/passwordConfirmation"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srZh0wKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sraI4AKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <semanticElements xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Guest/register"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srV3cwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srV3dAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Guest"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sq_5MwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sq_5NAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_sq_5NQKjEeWyUsY5MPw5HQ" label="EClass : User">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//User"/>
+          <lines xmi:type="table:DLine" xmi:id="_sraI4QKjEeWyUsY5MPw5HQ" label="EAttribute : name">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//User/name"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//User/name"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sraI4gKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sraI4wKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//User"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srAgQAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srAgQQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srAgQgKjEeWyUsY5MPw5HQ" label="EClass : Application">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Application"/>
+          <lines xmi:type="table:DLine" xmi:id="_srav8AKjEeWyUsY5MPw5HQ" label="EReference : testSessions">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Application/testSessions"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Application/testSessions"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srav8QKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srav8gKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srav8wKjEeWyUsY5MPw5HQ" label="EAttribute : securityToken">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Application/securityToken"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Application/securityToken"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srb-EAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srb-EQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srb-EgKjEeWyUsY5MPw5HQ" label="EReference : screenshots">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Application/screenshots"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Application/screenshots"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srclIAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srclIQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srclIgKjEeWyUsY5MPw5HQ" label="EAttribute : name">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Application/name"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Application/name"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srclIwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srclJAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srdMMAKjEeWyUsY5MPw5HQ" label="EAttribute : description">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Application/description"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Application/description"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srfBYAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srfBYQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srfBYgKjEeWyUsY5MPw5HQ" label="EOperation : getSummaryRow">
+            <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Application/getSummaryRow"/>
+            <lines xmi:type="table:DLine" xmi:id="_srfocgKjEeWyUsY5MPw5HQ" label="EParameter : context">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Application/getSummaryRow/context"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//Application/getSummaryRow/context"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srgPgAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srgPgQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <semanticElements xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//Application/getSummaryRow"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srfocAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srfocQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Application"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srAgQwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srAgRAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srAgRQKjEeWyUsY5MPw5HQ" label="EClass : Descriptor">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Descriptor"/>
+          <lines xmi:type="table:DLine" xmi:id="_srgPggKjEeWyUsY5MPw5HQ" label="EAttribute : qualifiedName">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Descriptor/qualifiedName"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Descriptor/qualifiedName"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srg2kAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srg2kQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srg2kgKjEeWyUsY5MPw5HQ" label="EAttribute : title">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Descriptor/title"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Descriptor/title"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srg2kwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srg2lAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srg2lQKjEeWyUsY5MPw5HQ" label="EReference : description">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Descriptor/description"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Descriptor/description"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srhdoAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srhdoQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Descriptor"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srBHUAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srBHUQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srBHUgKjEeWyUsY5MPw5HQ" label="EClass : Description">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Description"/>
+          <lines xmi:type="table:DLine" xmi:id="_srhdogKjEeWyUsY5MPw5HQ" label="EAttribute : url">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Description/url"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Description/url"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sriEsAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sriEsQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sriEsgKjEeWyUsY5MPw5HQ" label="EAttribute : value">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Description/value"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Description/value"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sriEswKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sriEtAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sriEtQKjEeWyUsY5MPw5HQ" label="EAttribute : html">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Description/html"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Description/html"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srirwAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srirwQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Description"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srBHUwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srBHVAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srBHVQKjEeWyUsY5MPw5HQ" label="EClass : TestSession">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestSession"/>
+          <lines xmi:type="table:DLine" xmi:id="_srirwgKjEeWyUsY5MPw5HQ" label="EReference : testResults">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSession/testResults"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSession/testResults"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srjS0AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srjS0QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srjS0gKjEeWyUsY5MPw5HQ" label="EReference : pageResults">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSession/pageResults"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSession/pageResults"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srjS0wKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srjS1AKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srjS1QKjEeWyUsY5MPw5HQ" label="EReference : actorResults">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSession/actorResults"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSession/actorResults"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srj54AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srj54QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srj54gKjEeWyUsY5MPw5HQ" label="EAttribute : published">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/published"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/published"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srkg8AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srkg8QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srkg8gKjEeWyUsY5MPw5HQ" label="EAttribute : size">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/size"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/size"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srkg8wKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srkg9AKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srkg9QKjEeWyUsY5MPw5HQ" label="EAttribute : progress">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/progress"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/progress"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srlIAAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srlIAQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srlIAgKjEeWyUsY5MPw5HQ" label="EAttribute : timestamp">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/timestamp"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/timestamp"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srlIAwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srlIBAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srlIBQKjEeWyUsY5MPw5HQ" label="EAttribute : node">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/node"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestSession/node"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srlIBgKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srlIBwKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srlvEAKjEeWyUsY5MPw5HQ" label="EOperation : getSummaryRow">
+            <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//TestSession/getSummaryRow"/>
+            <lines xmi:type="table:DLine" xmi:id="_srlvEwKjEeWyUsY5MPw5HQ" label="EParameter : context">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//TestSession/getSummaryRow/context"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//TestSession/getSummaryRow/context"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srmWIAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srmWIQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <semanticElements xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//TestSession/getSummaryRow"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srlvEQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srlvEgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestSession"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srBuYAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srBuYQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srBuYgKjEeWyUsY5MPw5HQ" label="EEnum : OperationStatus">
+          <target xmi:type="ecore:EEnum" href="model/WebTestHub.ecore#//OperationStatus"/>
+          <semanticElements xmi:type="ecore:EEnum" href="model/WebTestHub.ecore#//OperationStatus"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srBuYwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srBuZAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srBuZQKjEeWyUsY5MPw5HQ" label="EClass : TestResult">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestResult"/>
+          <lines xmi:type="table:DLine" xmi:id="_srmWIgKjEeWyUsY5MPw5HQ" label="EReference : pageResults">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestResult/pageResults"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestResult/pageResults"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srm9MAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srm9MQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srm9MgKjEeWyUsY5MPw5HQ" label="EReference : actorResults">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestResult/actorResults"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestResult/actorResults"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srnkQAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srnkQQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestResult"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srCVcAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srCVcQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srCVcgKjEeWyUsY5MPw5HQ" label="EClass : TestClassResult">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestClassResult"/>
+          <lines xmi:type="table:DLine" xmi:id="_srnkQgKjEeWyUsY5MPw5HQ" label="EReference : methodResults">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestClassResult/methodResults"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestClassResult/methodResults"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srnkQwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srnkRAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srnkRQKjEeWyUsY5MPw5HQ" label="EReference : stats">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestClassResult/stats"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestClassResult/stats"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sroLUAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sroLUQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestClassResult"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srCVcwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srCVdAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srCVdQKjEeWyUsY5MPw5HQ" label="EClass : StatsEntry">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//StatsEntry"/>
+          <lines xmi:type="table:DLine" xmi:id="_sroLUgKjEeWyUsY5MPw5HQ" label="EAttribute : key">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StatsEntry/key"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StatsEntry/key"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sroyYAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sroyYQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sroyYgKjEeWyUsY5MPw5HQ" label="EAttribute : value">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StatsEntry/value"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StatsEntry/value"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sroyYwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sroyZAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//StatsEntry"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srC8gAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srC8gQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srC8ggKjEeWyUsY5MPw5HQ" label="EClass : TestSuiteResult">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestSuiteResult"/>
+          <lines xmi:type="table:DLine" xmi:id="_srpZcAKjEeWyUsY5MPw5HQ" label="EReference : children">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSuiteResult/children"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestSuiteResult/children"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srqAgAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srqAgQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestSuiteResult"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srC8gwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srC8hAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srC8hQKjEeWyUsY5MPw5HQ" label="EClass : ParameterizedTestResult">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ParameterizedTestResult"/>
+          <lines xmi:type="table:DLine" xmi:id="_srqAggKjEeWyUsY5MPw5HQ" label="EReference : parameterDescriptors">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ParameterizedTestResult/parameterDescriptors"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ParameterizedTestResult/parameterDescriptors"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srqAgwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srqnkAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ParameterizedTestResult"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srDjkAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srDjkQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srDjkgKjEeWyUsY5MPw5HQ" label="EClass : Screenshot">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Screenshot"/>
+          <lines xmi:type="table:DLine" xmi:id="_srqnkQKjEeWyUsY5MPw5HQ" label="EAttribute : content">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/content"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/content"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srrOoAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srrOoQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srrOogKjEeWyUsY5MPw5HQ" label="EAttribute : timestamp">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/timestamp"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/timestamp"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srrOowKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srrOpAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srrOpQKjEeWyUsY5MPw5HQ" label="EAttribute : height">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/height"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/height"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srr1sAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srr1sQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srr1sgKjEeWyUsY5MPw5HQ" label="EAttribute : width">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/width"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/width"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srr1swKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srr1tAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srr1tQKjEeWyUsY5MPw5HQ" label="EAttribute : contentType">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/contentType"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/contentType"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srscwAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srscwQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srscwgKjEeWyUsY5MPw5HQ" label="EAttribute : length">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/length"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/length"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srscwwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srscxAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srscxQKjEeWyUsY5MPw5HQ" label="EAttribute : digest">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/digest"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Screenshot/digest"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srtD0AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srtD0QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srtD0gKjEeWyUsY5MPw5HQ" label="EReference : beforeOperations">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Screenshot/beforeOperations"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Screenshot/beforeOperations"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srtD0wKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srtD1AKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srtD1QKjEeWyUsY5MPw5HQ" label="EReference : afterOperations">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Screenshot/afterOperations"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Screenshot/afterOperations"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srtq4AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srtq4QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Screenshot"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srDjkwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srDjlAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srDjlQKjEeWyUsY5MPw5HQ" label="EClass : OperationResult">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//OperationResult"/>
+          <lines xmi:type="table:DLine" xmi:id="_sruR8AKjEeWyUsY5MPw5HQ" label="EReference : screenshots">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/screenshots"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/screenshots"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sruR8QKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sruR8gKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sruR8wKjEeWyUsY5MPw5HQ" label="EReference : children">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/children"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/children"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sru5AAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sru5AQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sru5AgKjEeWyUsY5MPw5HQ" label="EAttribute : operationName">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/operationName"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/operationName"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sru5AwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sru5BAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sru5BQKjEeWyUsY5MPw5HQ" label="EAttribute : arguments">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/arguments"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/arguments"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srvgEAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srvgEQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srvgEgKjEeWyUsY5MPw5HQ" label="EReference : beforeTiming">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/beforeTiming"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/beforeTiming"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srvgEwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srvgFAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srvgFQKjEeWyUsY5MPw5HQ" label="EReference : beforeScreenshot">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/beforeScreenshot"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/beforeScreenshot"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srwHIAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srwHIQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srwHIgKjEeWyUsY5MPw5HQ" label="EReference : afterTiming">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/afterTiming"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/afterTiming"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srwHIwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srwHJAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srwHJQKjEeWyUsY5MPw5HQ" label="EReference : afterScreenshot">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/afterScreenshot"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/afterScreenshot"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srwuMAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srwuMQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srwuMgKjEeWyUsY5MPw5HQ" label="EReference : failure">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/failure"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/failure"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srwuMwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srwuNAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srwuNQKjEeWyUsY5MPw5HQ" label="EReference : error">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/error"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//OperationResult/error"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srwuNgKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srwuNwKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srxVQAKjEeWyUsY5MPw5HQ" label="EAttribute : start">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/start"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/start"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srxVQQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srxVQgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srxVQwKjEeWyUsY5MPw5HQ" label="EAttribute : finish">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/finish"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/finish"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srx8UAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srx8UQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srx8UgKjEeWyUsY5MPw5HQ" label="EAttribute : status">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/status"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//OperationResult/status"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srx8UwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srx8VAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//OperationResult"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srDjlgKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srDjlwKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srEKoAKjEeWyUsY5MPw5HQ" label="EClass : Throwable">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Throwable"/>
+          <lines xmi:type="table:DLine" xmi:id="_srx8VQKjEeWyUsY5MPw5HQ" label="EAttribute : type">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Throwable/type"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Throwable/type"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sryjYAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sryjYQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sryjYgKjEeWyUsY5MPw5HQ" label="EAttribute : message">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Throwable/message"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Throwable/message"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sryjYwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sryjZAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sryjZQKjEeWyUsY5MPw5HQ" label="EReference : stackTrace">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Throwable/stackTrace"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//Throwable/stackTrace"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srzKcAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srzKcQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Throwable"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srEKoQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srEKogKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srEKowKjEeWyUsY5MPw5HQ" label="EClass : StackTraceEntry">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//StackTraceEntry"/>
+          <lines xmi:type="table:DLine" xmi:id="_srzKcgKjEeWyUsY5MPw5HQ" label="EAttribute : className">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/className"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/className"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srzxgAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srzxgQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srzxggKjEeWyUsY5MPw5HQ" label="EAttribute : fileName">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/fileName"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/fileName"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srzxgwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srzxhAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_srzxhQKjEeWyUsY5MPw5HQ" label="EAttribute : methodName">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/methodName"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/methodName"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr0YkAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr0YkQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sr0YkgKjEeWyUsY5MPw5HQ" label="EAttribute : lineNumber">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/lineNumber"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/lineNumber"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr0YkwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr0YlAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sr0YlQKjEeWyUsY5MPw5HQ" label="EAttribute : native">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/native"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//StackTraceEntry/native"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr0_oAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr0_oQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//StackTraceEntry"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srEKpAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srEKpQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srExsAKjEeWyUsY5MPw5HQ" label="EClass : InitializationResult">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//InitializationResult"/>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//InitializationResult"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srExsQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srExsgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srExswKjEeWyUsY5MPw5HQ" label="EClass : MethodResult">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//MethodResult"/>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//MethodResult"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srFYwAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srFYwQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srFYwgKjEeWyUsY5MPw5HQ" label="EClass : ActorMethodResult">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ActorMethodResult"/>
+          <lines xmi:type="table:DLine" xmi:id="_sr0_ogKjEeWyUsY5MPw5HQ" label="EReference : actorResult">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ActorMethodResult/actorResult"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ActorMethodResult/actorResult"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr1msAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr1msQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ActorMethodResult"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srFYwwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srFYxAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srFYxQKjEeWyUsY5MPw5HQ" label="EClass : PageMethodResult">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//PageMethodResult"/>
+          <lines xmi:type="table:DLine" xmi:id="_sr1msgKjEeWyUsY5MPw5HQ" label="EReference : pageResult">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageMethodResult/pageResult"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageMethodResult/pageResult"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr1mswKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr1mtAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//PageMethodResult"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srF_0AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srF_0QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srF_0gKjEeWyUsY5MPw5HQ" label="EClass : TestMethodResult">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestMethodResult"/>
+          <lines xmi:type="table:DLine" xmi:id="_sr2NwAKjEeWyUsY5MPw5HQ" label="EAttribute : parameters">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestMethodResult/parameters"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//TestMethodResult/parameters"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr2NwQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr2NwgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sr2NwwKjEeWyUsY5MPw5HQ" label="EReference : navigationTiming">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestMethodResult/navigationTiming"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//TestMethodResult/navigationTiming"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr200AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr200QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sr200gKjEeWyUsY5MPw5HQ" label="EOperation : loadTiming">
+            <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//TestMethodResult/loadTiming"/>
+            <lines xmi:type="table:DLine" xmi:id="_sr4C8AKjEeWyUsY5MPw5HQ" label="EParameter : json">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//TestMethodResult/loadTiming/json"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//TestMethodResult/loadTiming/json"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr4C8QKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr4C8gKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <semanticElements xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//TestMethodResult/loadTiming"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr3b4AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr3b4QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//TestMethodResult"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srGm4AKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srGm4QKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srGm4gKjEeWyUsY5MPw5HQ" label="EClass : Coverage">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Coverage"/>
+          <lines xmi:type="table:DLine" xmi:id="_sr4qAAKjEeWyUsY5MPw5HQ" label="EAttribute : invocations">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Coverage/invocations"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Coverage/invocations"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr4qAQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr4qAgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Coverage"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srGm4wKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srGm5AKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srHN8AKjEeWyUsY5MPw5HQ" label="EClass : ActorResult">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ActorResult"/>
+          <lines xmi:type="table:DLine" xmi:id="_sr5REAKjEeWyUsY5MPw5HQ" label="EReference : results">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ActorResult/results"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ActorResult/results"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr5REQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr5REgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sr5REwKjEeWyUsY5MPw5HQ" label="EReference : coverage">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ActorResult/coverage"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//ActorResult/coverage"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr54IAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr54IQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sr54IgKjEeWyUsY5MPw5HQ" label="EAttribute : proxy">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//ActorResult/proxy"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//ActorResult/proxy"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr54IwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr54JAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ActorResult"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srHN8QKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srHN8gKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srHN8wKjEeWyUsY5MPw5HQ" label="EClass : PageResult">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//PageResult"/>
+          <lines xmi:type="table:DLine" xmi:id="_sr6fMAKjEeWyUsY5MPw5HQ" label="EReference : results">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageResult/results"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageResult/results"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr6fMQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr6fMgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sr6fMwKjEeWyUsY5MPw5HQ" label="EReference : coverage">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageResult/coverage"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageResult/coverage"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr7GQAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr7GQQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sr7GQgKjEeWyUsY5MPw5HQ" label="EReference : webElements">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageResult/webElements"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//PageResult/webElements"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr7GQwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr7GRAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sr7GRQKjEeWyUsY5MPw5HQ" label="EAttribute : proxy">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//PageResult/proxy"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//PageResult/proxy"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr7tUAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr7tUQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//PageResult"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srH1AAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srH1AQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srH1AgKjEeWyUsY5MPw5HQ" label="EClass : WebElement">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//WebElement"/>
+          <lines xmi:type="table:DLine" xmi:id="_sr7tUgKjEeWyUsY5MPw5HQ" label="EReference : locators">
+            <target xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//WebElement/locators"/>
+            <semanticElements xmi:type="ecore:EReference" href="model/WebTestHub.ecore#//WebElement/locators"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr8UYAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr8UYQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//WebElement"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srH1AwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srH1BAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srH1BQKjEeWyUsY5MPw5HQ" label="EClass : Locator">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Locator"/>
+          <lines xmi:type="table:DLine" xmi:id="_sr8UYgKjEeWyUsY5MPw5HQ" label="EAttribute : how">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Locator/how"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Locator/how"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr8UYwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr8UZAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <lines xmi:type="table:DLine" xmi:id="_sr87cAKjEeWyUsY5MPw5HQ" label="EAttribute : using">
+            <target xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Locator/using"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="model/WebTestHub.ecore#//Locator/using"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr87cQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr87cgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Locator"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srIcEAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srIcEQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srIcEgKjEeWyUsY5MPw5HQ" label="EClass : JSONLoader">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//JSONLoader"/>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//JSONLoader"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srIcEwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srIcFAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srJDIAKjEeWyUsY5MPw5HQ" label="EClass : BreadcrumbsProvider">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//BreadcrumbsProvider"/>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//BreadcrumbsProvider"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srJqMAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srJqMQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srJqMgKjEeWyUsY5MPw5HQ" label="EClass : Deletable">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Deletable"/>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//Deletable"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srJqMwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srJqNAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_srKRQAKjEeWyUsY5MPw5HQ" label="EClass : ApplicationRenderer">
+          <target xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ApplicationRenderer"/>
+          <lines xmi:type="table:DLine" xmi:id="_sr87cwKjEeWyUsY5MPw5HQ" label="EOperation : renderApplication">
+            <target xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//ApplicationRenderer/renderApplication"/>
+            <lines xmi:type="table:DLine" xmi:id="_sr9iggKjEeWyUsY5MPw5HQ" label="EParameter : context">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//ApplicationRenderer/renderApplication/context"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//ApplicationRenderer/renderApplication/context"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr9igwKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr9ihAKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <lines xmi:type="table:DLine" xmi:id="_sr9ihQKjEeWyUsY5MPw5HQ" label="EParameter : configurator">
+              <target xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//ApplicationRenderer/renderApplication/configurator"/>
+              <semanticElements xmi:type="ecore:EParameter" href="model/WebTestHub.ecore#//ApplicationRenderer/renderApplication/configurator"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']/@ownedSubLines[name='Doc%20EParameter']"/>
+              <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr-JkAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+                <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr-JkQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+              </currentStyle>
+            </lines>
+            <semanticElements xmi:type="ecore:EOperation" href="model/WebTestHub.ecore#//ApplicationRenderer/renderApplication"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EOperations']"/>
+            <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_sr9igAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sr9igQKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+            </currentStyle>
+          </lines>
+          <semanticElements xmi:type="ecore:EClass" href="model/WebTestHub.ecore#//ApplicationRenderer"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']/@ownedSubLines[name='Doc%20EClassifiers']"/>
+          <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_srKRQQKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_srKRQgKjEeWyUsY5MPw5HQ" red="255" green="255" blue="255"/>
+          </currentStyle>
+        </lines>
+        <semanticElements xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EPackage']"/>
+        <cells xmi:type="table:DCell" xmi:id="_oA2eQAKjEeWyUsY5MPw5HQ" label="Package documentation" column="_4gglygKiEeWyUsY5MPw5HQ">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="model/WebTestHub.ecore#//%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_oA-aEAKjEeWyUsY5MPw5HQ" defaultBackgroundStyle="true">
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_oA-aEQKjEeWyUsY5MPw5HQ" red="220" green="234" blue="183"/>
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <columns xmi:type="table:DTargetColumn" xmi:id="_4gglygKiEeWyUsY5MPw5HQ" label="Domain Documentation" cells="_oA2eQAKjEeWyUsY5MPw5HQ _ssBz8AKjEeWyUsY5MPw5HQ _ssCbAgKjEeWyUsY5MPw5HQ _ssCbBQKjEeWyUsY5MPw5HQ _ssDCEgKjEeWyUsY5MPw5HQ _ssDCFQKjEeWyUsY5MPw5HQ _ssDpIgKjEeWyUsY5MPw5HQ" width="171">
+        <target xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+        <semanticElements xmi:type="ecore:EPackage" href="model/WebTestHub.ecore#/"/>
+        <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']/@ownedColumnMappings.0"/>
+      </columns>
+      <description xmi:type="description_2:CrossTableDescription" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']/@ownedRepresentations[name='Documentation']"/>
+    </ownedRepresentations>
     <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.nasdanika.tools.design/description/Tools.odesign#//@ownedViewpoints[name='Nasdanika']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_PwfV4AKcEeWyUsY5MPw5HQ" initialized="true">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']"/>
   </ownedViews>
 </viewpoint:DAnalysis>
