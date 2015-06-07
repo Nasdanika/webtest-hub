@@ -4,14 +4,11 @@ package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
@@ -165,7 +162,6 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 		eSet(HubPackage.Literals.APPLICATION__DESCRIPTION, newDescription);
 	}
 
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -220,12 +216,7 @@ public class ApplicationImpl extends CDOObjectImpl implements Application {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case HubPackage.APPLICATION___GET_SUMMARY_ROW__WEBSOCKETCONTEXT:
-				try {
-					return getSummaryRow((WebSocketContext<LoginPasswordCredentials>)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getSummaryRow((WebSocketContext<LoginPasswordCredentials>)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

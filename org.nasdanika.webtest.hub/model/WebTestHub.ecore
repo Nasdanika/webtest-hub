@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hub" nsURI="urn:org.nasdanika.webtest.hub" nsPrefix="org.nasdanika.webtest.hub">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-    <details key="documentation" value="Package documentation"/>
+    <details key="documentation" value="Nasdanika WebTest Hub is a web application for hosting [Nasdanika WebTest](https://github.com/Nasdanika/server/wiki/webtest) reports.&#xD;&#xA;"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EDataType" name="HttpServletResponse" instanceClassName="javax.servlet.http.HttpServletResponse"
       serializable="false">
@@ -42,6 +42,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="Hub" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordProtectionDomain #//ApplicationOwner #//BreadcrumbsProvider">
     <eAnnotations source="org.nasdanika.cdo.security:permissions">
       <details key="story/landing" value="extension/js&#xD;&#xA;read/home&#xD;&#xA;read/summary&#xD;&#xA;read/applications&#xD;&#xA;read/applications/getSummaryRow&#xD;&#xA;extension/applications/js"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Hub is the root of the object model."/>
     </eAnnotations>
     <eOperations name="executeScript" eExceptions="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//Exception">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -192,6 +195,7 @@
     </eOperations>
     <eOperations name="register" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="ecore:EDataType ../../org.nasdanika.webtest.performance/model/performance.ecore#//Exception">
+      <eAnnotations source="org.nasdanika.cdo.web.html.form"/>
       <eParameters name="context">
         <eAnnotations source="org.nasdanika.cdo:context-parameter"/>
         <eGenericType eClassifier="#//WebSocketContext">

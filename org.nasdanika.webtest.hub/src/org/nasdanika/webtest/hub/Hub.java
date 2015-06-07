@@ -16,6 +16,10 @@ import org.nasdanika.web.HttpServletRequestContext;
  * A representation of the model object '<em><b>Hub</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Hub is the root of the object model.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -44,7 +48,7 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * some doc
+	 * Attribute doc
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -189,9 +193,9 @@ public interface Hub extends LoginPasswordProtectionDomain, ApplicationOwner, Br
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * nu i
+	 * Operation documentation
 	 * @param context 
-	 * @param script sobstvenno script
+	 * @param script Parameter documentation
 	 * <!-- end-model-doc -->
 	 * @model exceptions="org.nasdanika.webtest.performance.Exception" contextDataType="org.nasdanika.webtest.hub.WebSocketContext<org.nasdanika.cdo.security.LoginPasswordCredentials>"
 	 * @generated

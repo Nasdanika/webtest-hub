@@ -3,6 +3,7 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
+import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;

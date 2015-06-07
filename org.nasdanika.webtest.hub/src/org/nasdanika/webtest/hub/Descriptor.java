@@ -63,7 +63,7 @@ public interface Descriptor extends CDOObject, JSONLoader {
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
 	 * @see org.nasdanika.webtest.hub.HubPackage#getDescriptor_Title()
-	 * @model
+	 * @model annotation="org.nasdanika.cdo.web.html.form-control input-type='f' label='lbl'"
 	 * @generated
 	 */
 	String getTitle();

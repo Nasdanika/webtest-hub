@@ -213,7 +213,7 @@ public interface TestSession extends Descriptor, BreadcrumbsProvider, Deletable 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.WebSocketContext<org.nasdanika.cdo.security.LoginPasswordCredentials>"
+	 * @model contextDataType="org.nasdanika.webtest.hub.WebSocketContext<org.nasdanika.cdo.security.LoginPasswordCredentials>"
 	 * @generated
 	 */
 	Map<String, Object> getSummaryRow(WebSocketContext<LoginPasswordCredentials> context) throws Exception;

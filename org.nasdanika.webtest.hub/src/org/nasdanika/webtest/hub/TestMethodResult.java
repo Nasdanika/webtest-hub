@@ -60,7 +60,7 @@ public interface TestMethodResult extends OperationResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.nasdanika.webtest.hub.Exception" jsonDataType="org.nasdanika.webtest.hub.JSONObject"
+	 * @model jsonDataType="org.nasdanika.webtest.performance.JSONObject"
 	 * @generated
 	 */
 	TimingBase loadTiming(JSONObject json) throws Exception;

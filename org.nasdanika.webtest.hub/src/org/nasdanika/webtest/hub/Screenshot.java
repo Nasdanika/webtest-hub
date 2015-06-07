@@ -68,7 +68,7 @@ public interface Screenshot extends CDOObject {
 	 * @return the value of the '<em>Timestamp</em>' attribute.
 	 * @see #setTimestamp(long)
 	 * @see org.nasdanika.webtest.hub.HubPackage#getScreenshot_Timestamp()
-	 * @model
+	 * @model annotation="org.nasdanika.cdo.web.html.form-control input-type='' label='ts' required='rq' private='prvt' default='dflt' placeholder='plhldr' help-text='hlptxt' inline='inl' control-id='ctrlid' validator='if (x) { something }'"
 	 * @generated
 	 */
 	long getTimestamp();

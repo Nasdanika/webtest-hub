@@ -2185,6 +2185,8 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		createOrg_7Annotations();
 		// org.nasdanika.cdo.web:route
 		createOrg_8Annotations();
+		// org.nasdanika.cdo.web.html.form
+		createOrg_9Annotations();
 	}
 
 	/**
@@ -2196,16 +2198,28 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 	protected void createGenModelAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/GenModel";	
 		addAnnotation
+		  (this, 
+		   source, 
+		   new String[] {
+			 "documentation", "Nasdanika WebTest Hub is a web application for hosting [Nasdanika WebTest](https://github.com/Nasdanika/server/wiki/webtest) reports.\r\n"
+		   });	
+		addAnnotation
 		  (httpServletResponseEDataType, 
 		   source, 
 		   new String[] {
 			 "documentation", "some doc"
 		   });	
 		addAnnotation
+		  (hubEClass, 
+		   source, 
+		   new String[] {
+			 "documentation", "Hub is the root of the object model."
+		   });	
+		addAnnotation
 		  (getHub__ExecuteScript__WebSocketContext_String(), 
 		   source, 
 		   new String[] {
-			 "documentation", "nu i"
+			 "documentation", "Operation documentation"
 		   });	
 		addAnnotation
 		  ((getHub__ExecuteScript__WebSocketContext_String()).getEParameters().get(0), 
@@ -2217,13 +2231,13 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		  ((getHub__ExecuteScript__WebSocketContext_String()).getEParameters().get(1), 
 		   source, 
 		   new String[] {
-			 "documentation", "sobstvenno script"
+			 "documentation", "Parameter documentation"
 		   });	
 		addAnnotation
 		  (getHub_Name(), 
 		   source, 
 		   new String[] {
-			 "documentation", "some doc"
+			 "documentation", "Attribute doc"
 		   });	
 		addAnnotation
 		  ((getGuest__Register__WebSocketContext_String_String_String_String_String()).getEParameters().get(3), 
@@ -2532,6 +2546,21 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		String source = "org.nasdanika.cdo.web:route";	
 		addAnnotation
 		  (getGuest__RegistrationForm__CDOTransactionHttpServletRequestContext(), 
+		   source, 
+		   new String[] {
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>org.nasdanika.cdo.web.html.form</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOrg_9Annotations() {
+		String source = "org.nasdanika.cdo.web.html.form";	
+		addAnnotation
+		  (getGuest__Register__WebSocketContext_String_String_String_String_String(), 
 		   source, 
 		   new String[] {
 		   });

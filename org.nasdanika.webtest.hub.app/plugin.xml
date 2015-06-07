@@ -59,7 +59,7 @@
       <root_route
             class="org.nasdanika.webtest.hub.app.WebTestHubDocRoute"
             method="GET"
-            pattern="doc/.+">
+            pattern="doc\.html">
       </root_route>
    </extension>
    <extension
@@ -85,6 +85,9 @@
             </script>
             <script>
                /js/require.js
+            </script>
+            <script>
+               /js/require-config.js
             </script>
             <script>
                /js/angular.min.js

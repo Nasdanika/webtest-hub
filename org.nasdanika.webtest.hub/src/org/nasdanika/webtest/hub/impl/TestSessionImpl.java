@@ -3,7 +3,6 @@
 package org.nasdanika.webtest.hub.impl;
 
 import java.io.BufferedReader;
-import java.lang.Throwable;
 import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
@@ -271,12 +270,7 @@ public class TestSessionImpl extends DescriptorImpl implements TestSession {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case HubPackage.TEST_SESSION___GET_SUMMARY_ROW__WEBSOCKETCONTEXT:
-				try {
-					return getSummaryRow((WebSocketContext<LoginPasswordCredentials>)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getSummaryRow((WebSocketContext<LoginPasswordCredentials>)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -143,7 +143,7 @@ public interface Application extends CDOObject, BreadcrumbsProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.nasdanika.webtest.performance.JSONObject" exceptions="org.nasdanika.webtest.hub.Exception" contextDataType="org.nasdanika.webtest.hub.WebSocketContext<org.nasdanika.cdo.security.LoginPasswordCredentials>"
+	 * @model dataType="org.nasdanika.webtest.performance.JSONObject" contextDataType="org.nasdanika.webtest.hub.WebSocketContext<org.nasdanika.cdo.security.LoginPasswordCredentials>"
 	 * @generated
 	 */
 	JSONObject getSummaryRow(WebSocketContext<LoginPasswordCredentials> context) throws Exception;
