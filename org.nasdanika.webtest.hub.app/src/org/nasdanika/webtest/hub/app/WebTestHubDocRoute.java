@@ -1,20 +1,19 @@
 package org.nasdanika.webtest.hub.app;
 
 import org.apache.commons.lang3.StringEscapeUtils;
-import org.nasdanika.cdo.web.doc.DocRoute;
 import org.nasdanika.cdo.web.doc.DocumentationPanelFactory;
-import org.nasdanika.cdo.web.doc.EModelElementDocumentationGenerator;
 import org.nasdanika.html.ApplicationPanel;
 import org.nasdanika.html.HTMLFactory;
 import org.nasdanika.html.Navbar;
+import org.nasdanika.html.Table;
+import org.nasdanika.html.Table.Row;
 import org.nasdanika.html.Tag.TagName;
 import org.nasdanika.html.Theme;
-import org.nasdanika.html.UIElement.DeviceSize;
+import org.nasdanika.html.UIElement.BootstrapColor;
 import org.nasdanika.html.UIElement.Style;
 import org.nasdanika.web.Action;
 import org.nasdanika.web.HttpServletRequestContext;
 import org.nasdanika.web.Route;
-import org.osgi.framework.FrameworkUtil;
 
 /**
  * Route to demonstrate/test HTMLFactory capabilities
@@ -44,9 +43,21 @@ public class WebTestHubDocRoute implements Route {
 		}
 		
 		appPanel.navigation(navBar);
-		DocumentationPanelFactory documentationPanel = new DocumentationPanelFactory(htmlFactory, context.getContextURL()+"/doc");
-		appPanel.contentPanel(documentationPanel.leftPanel()).width(DeviceSize.LARGE, 3).style("overflow", "auto");
-		appPanel.contentPanel(documentationPanel.rightPanel()).width(DeviceSize.LARGE, 9).style("border-left", "solid gray 1px");
+		Table table = htmlFactory.table();
+		Row row = table.row();
+		DocumentationPanelFactory documentationPanelFactory = new DocumentationPanelFactory(htmlFactory, context.getContextURL()+"/doc");
+		row.cell(documentationPanelFactory.leftPanel()).id("left-panel");
+		row.cell("")
+			.id("splitter")
+			.style("width", "5px")
+			.style("padding", "0px")
+			.background(BootstrapColor.INFO)
+			.style("cursor", "col-resize");
+		row.cell(documentationPanelFactory.rightPanel()).id("right-panel");
+		appPanel.contentPanel(table, htmlFactory.tag(TagName.script, getClass().getResource("Splitter.js")));
+		
+//		appPanel.contentPanel(documentationPanelFactory.leftPanel()).width(DeviceSize.LARGE, 3).style("overflow", "auto");
+//		appPanel.contentPanel(documentationPanelFactory.rightPanel()).width(DeviceSize.LARGE, 9).style("border-left", "solid gray 1px");
 		
 //			.width(DeviceSize.SMALL, 9)
 //			.width(DeviceSize.MEDIUM, 10)
