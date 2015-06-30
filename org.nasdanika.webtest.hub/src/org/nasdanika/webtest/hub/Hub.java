@@ -18,6 +18,9 @@ import org.nasdanika.web.HttpServletRequestContext;
  *
  * <!-- begin-model-doc -->
  * Hub is the root of the object model.
+ * 
+ * Image wiki link for testing [[image:https://github.com/Nasdanika/server/wiki/webtest-hub-update-user-dialog.png|User dialog.]]. Some content.
+ * 
  * <!-- end-model-doc -->
  *
  * <p>

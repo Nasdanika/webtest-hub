@@ -122,4 +122,39 @@
          </init-param>
       </filter>
    </extension>
+   <extension
+         point="org.nasdanika.toc">
+      <toc
+            classifier="Hub"
+            location="doc/test.md"
+            name="WebTest Hub"
+            nsURI="urn:org.nasdanika.webtest.hub">
+      </toc>
+   </extension>
+   <extension
+         point="org.nasdanika.cdo.web.doc.extensions">
+       <wiki-link-resolver
+            class="org.nasdanika.cdo.web.doc.JavadocWikiLinkResolver"
+            name="javadoc">
+          <property
+                name="packageMap.org.nasdanika.webtest.hub.*"
+                value="http://www.nasdanika.org/webtesthub/apidocs">
+          </property>
+          <property
+          name="packageMap.org.nasdanika.*"
+                value="http://www.nasdanika.org/server/apidocs/">
+          </property>    <property
+               name="packageMap.org.nasdanika.*"
+               value="http://www.nasdanika.org/server/apidocs/">
+         </property>
+         <property
+               name="packageMap.java.*"
+               value="http://docs.oracle.com/javase/8/docs/api">
+         </property>
+         <property
+               name="packageMap.javax.*"
+               value="http://docs.oracle.com/javase/8/docs/api">
+         </property>
+      </wiki-link-resolver>
+   </extension>
 </plugin>

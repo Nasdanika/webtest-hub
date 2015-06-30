@@ -30,7 +30,7 @@ public class WebTestHubDocRoute implements Route {
 				.header("Documentation")
 //				.width(1024)
 				.minHeight(600)
-				.headerLink("/router/doc.html")
+				.headerLink(context.getRequest().getContextPath()+"/router/doc.html")
 				.id("docAppPanel")
 				.footer(htmlFactory.link("#", "Documentation"));		
 				

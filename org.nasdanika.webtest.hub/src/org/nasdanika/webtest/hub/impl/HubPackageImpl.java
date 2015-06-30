@@ -2213,7 +2213,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		  (hubEClass, 
 		   source, 
 		   new String[] {
-			 "documentation", "Hub is the root of the object model."
+			 "documentation", "Hub is the root of the object model.\r\n\r\nImage wiki link for testing [[image:https://github.com/Nasdanika/server/wiki/webtest-hub-update-user-dialog.png|User dialog.]]. Some content.\r\n"
 		   });	
 		addAnnotation
 		  (getHub__ExecuteScript__WebSocketContext_String(), 
