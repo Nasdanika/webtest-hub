@@ -23,12 +23,12 @@ import org.nasdanika.webtest.hub.StackTraceEntry;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ThrowableImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ThrowableImpl#getMessage <em>Message</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ThrowableImpl#getStackTrace <em>Stack Trace</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

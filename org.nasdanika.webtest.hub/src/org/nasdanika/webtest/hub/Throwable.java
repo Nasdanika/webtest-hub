@@ -15,12 +15,12 @@ import org.nasdanika.html.UIElement.Style;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.Throwable#getType <em>Type</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Throwable#getMessage <em>Message</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Throwable#getStackTrace <em>Stack Trace</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getThrowable()
  * @model superTypes="org.nasdanika.webtest.hub.JSONLoader"

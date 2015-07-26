@@ -25,6 +25,7 @@ import org.nasdanika.web.HttpServletRequestContext;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.Hub#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Hub#getGuest <em>Guest</em>}</li>
@@ -33,7 +34,6 @@ import org.nasdanika.web.HttpServletRequestContext;
  *   <li>{@link org.nasdanika.webtest.hub.Hub#getSlideWidth <em>Slide Width</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Hub#getEveryone <em>Everyone</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getHub()
  * @model superTypes="org.nasdanika.cdo.security.LoginPasswordProtectionDomain org.nasdanika.webtest.hub.ApplicationOwner org.nasdanika.webtest.hub.BreadcrumbsProvider"

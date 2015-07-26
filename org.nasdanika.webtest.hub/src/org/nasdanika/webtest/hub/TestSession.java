@@ -15,6 +15,7 @@ import org.nasdanika.core.Deletable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.TestSession#getTestResults <em>Test Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.TestSession#getPageResults <em>Page Results</em>}</li>
@@ -25,7 +26,6 @@ import org.nasdanika.core.Deletable;
  *   <li>{@link org.nasdanika.webtest.hub.TestSession#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.TestSession#getNode <em>Node</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getTestSession()
  * @model superTypes="org.nasdanika.webtest.hub.Descriptor org.nasdanika.webtest.hub.BreadcrumbsProvider org.nasdanika.webtest.hub.Deletable"

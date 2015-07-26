@@ -12,10 +12,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.ApplicationOwner#getApplications <em>Applications</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getApplicationOwner()
  * @model interface="true" abstract="true"

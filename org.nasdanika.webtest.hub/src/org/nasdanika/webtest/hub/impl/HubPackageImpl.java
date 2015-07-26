@@ -2201,7 +2201,7 @@ public class HubPackageImpl extends EPackageImpl implements HubPackage {
 		  (this, 
 		   source, 
 		   new String[] {
-			 "documentation", "Nasdanika WebTest Hub is a web application for hosting [Nasdanika WebTest](https://github.com/Nasdanika/server/wiki/webtest) reports.\r\n"
+			 "documentation", "Nasdanika WebTest Hub is a web application for hosting [Nasdanika WebTest](https://github.com/Nasdanika/server/wiki/webtest) reports.\r\n\r\n"
 		   });	
 		addAnnotation
 		  (httpServletResponseEDataType, 

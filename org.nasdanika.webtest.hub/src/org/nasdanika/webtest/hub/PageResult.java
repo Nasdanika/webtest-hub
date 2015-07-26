@@ -11,13 +11,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.PageResult#getResults <em>Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.PageResult#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.PageResult#getWebElements <em>Web Elements</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.PageResult#isProxy <em>Proxy</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getPageResult()
  * @model superTypes="org.nasdanika.webtest.hub.Descriptor org.nasdanika.webtest.hub.BreadcrumbsProvider"

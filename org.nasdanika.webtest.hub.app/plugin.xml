@@ -5,7 +5,8 @@
          point="org.eclipse.equinox.http.registry.servlets">
       <servlet
             alias="/router"
-            class="org.nasdanika.cdo.web.CDOTransactionRoutingServlet">
+            class="org.nasdanika.cdo.web.CDOTransactionRoutingServlet"
+            httpcontextId="org.nasdanika.webtest.hub.app.httpcontext">
          <init-param
                name="json-pretty-print"
                value="true">
@@ -21,7 +22,8 @@
       </servlet>
       <servlet
             alias="/ntlm/router"
-            class="org.nasdanika.web.RoutingServlet">
+            class="org.nasdanika.web.RoutingServlet"
+            httpcontextId="org.nasdanika.webtest.hub.app.httpcontext">
          <init-param
                name="json-pretty-print"
                value="true">
@@ -33,7 +35,8 @@
       </servlet>
       <servlet
             alias="/session"
-            class="org.nasdanika.cdo.web.SessionWebSocketServlet">
+            class="org.nasdanika.cdo.web.SessionWebSocketServlet"
+            httpcontextId="org.nasdanika.webtest.hub.app.httpcontext">
          <init-param
                name="view-path"
                value="/router">
@@ -155,6 +158,18 @@
                name="packageMap.javax.*"
                value="http://docs.oracle.com/javase/8/docs/api">
          </property>
+         <description>
+            Resolves JavaDoc URL from the class/package name. Usage: ``[[javadoc&gt;fully qualified class name|text]]``. Text is optional. Examples: 
+
+* ``[[javadoc&gt;java.lang.String]]`` is rendered as [[javadoc&gt;java.lang.String]]
+* ``[[javadoc&gt;java.lang.String|java.lang.String]]`` is rendered as [[javadoc&gt;java.lang.String|java.lang.String]]
+         </description>
       </wiki-link-resolver>
+   </extension>
+   <extension
+         point="org.eclipse.equinox.http.registry.httpcontexts">
+      <httpcontext
+            id="org.nasdanika.webtest.hub.app.httpcontext">
+      </httpcontext>
    </extension>
 </plugin>

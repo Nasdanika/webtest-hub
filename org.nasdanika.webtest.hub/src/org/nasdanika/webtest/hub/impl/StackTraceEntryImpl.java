@@ -15,6 +15,7 @@ import org.nasdanika.webtest.hub.StackTraceEntry;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.StackTraceEntryImpl#getClassName <em>Class Name</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.StackTraceEntryImpl#getFileName <em>File Name</em>}</li>
@@ -22,7 +23,6 @@ import org.nasdanika.webtest.hub.StackTraceEntry;
  *   <li>{@link org.nasdanika.webtest.hub.impl.StackTraceEntryImpl#getLineNumber <em>Line Number</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.StackTraceEntryImpl#isNative <em>Native</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

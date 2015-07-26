@@ -12,11 +12,11 @@ import org.nasdanika.html.HTMLFactory;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.TestResult#getPageResults <em>Page Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.TestResult#getActorResults <em>Actor Results</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getTestResult()
  * @model superTypes="org.nasdanika.webtest.hub.Descriptor org.nasdanika.webtest.hub.BreadcrumbsProvider"

@@ -41,10 +41,10 @@ import org.nasdanika.webtest.hub.TestSuiteResult;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestSuiteResultImpl#getChildren <em>Children</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

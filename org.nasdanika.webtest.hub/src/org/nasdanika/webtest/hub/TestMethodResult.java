@@ -14,11 +14,11 @@ import org.nasdanika.webtest.performance.TimingBase;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.TestMethodResult#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.TestMethodResult#getNavigationTiming <em>Navigation Timing</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getTestMethodResult()
  * @model

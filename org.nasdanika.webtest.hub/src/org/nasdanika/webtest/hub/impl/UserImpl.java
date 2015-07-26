@@ -47,6 +47,7 @@ import org.nasdanika.webtest.hub.User;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getApplications <em>Applications</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getMemberOf <em>Member Of</em>}</li>
@@ -57,7 +58,6 @@ import org.nasdanika.webtest.hub.User;
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getPasswordHash <em>Password Hash</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.UserImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

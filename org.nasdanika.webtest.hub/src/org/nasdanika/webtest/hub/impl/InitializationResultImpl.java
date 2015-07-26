@@ -12,8 +12,6 @@ import org.nasdanika.webtest.hub.InitializationResult;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Initialization Result</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

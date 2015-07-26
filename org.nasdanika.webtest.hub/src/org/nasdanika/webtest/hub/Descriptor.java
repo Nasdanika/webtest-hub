@@ -13,12 +13,12 @@ import org.nasdanika.core.JSONLoader;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.Descriptor#getQualifiedName <em>Qualified Name</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Descriptor#getTitle <em>Title</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Descriptor#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getDescriptor()
  * @model superTypes="org.nasdanika.webtest.hub.JSONLoader"

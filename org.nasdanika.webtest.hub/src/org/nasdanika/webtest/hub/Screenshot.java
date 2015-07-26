@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getTimestamp <em>Timestamp</em>}</li>
@@ -23,7 +24,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getBeforeOperations <em>Before Operations</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Screenshot#getAfterOperations <em>After Operations</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getScreenshot()
  * @model

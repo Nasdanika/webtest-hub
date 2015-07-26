@@ -69,6 +69,7 @@ import org.nasdanika.webtest.hub.User;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getApplications <em>Applications</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getName <em>Name</em>}</li>
@@ -78,7 +79,6 @@ import org.nasdanika.webtest.hub.User;
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getSlideWidth <em>Slide Width</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.HubImpl#getEveryone <em>Everyone</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

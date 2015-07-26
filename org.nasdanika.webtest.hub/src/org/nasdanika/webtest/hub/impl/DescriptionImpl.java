@@ -18,12 +18,12 @@ import org.nasdanika.webtest.hub.HubPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.DescriptionImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.DescriptionImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.DescriptionImpl#isHtml <em>Html</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -34,11 +34,11 @@ import org.nasdanika.webtest.performance.TimingBase;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestMethodResultImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestMethodResultImpl#getNavigationTiming <em>Navigation Timing</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

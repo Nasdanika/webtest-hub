@@ -11,11 +11,11 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.Locator#getHow <em>How</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Locator#getUsing <em>Using</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getLocator()
  * @model

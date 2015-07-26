@@ -13,12 +13,12 @@ import org.nasdanika.core.JSONLoader;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.Description#getUrl <em>Url</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Description#getValue <em>Value</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Description#isHtml <em>Html</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getDescription()
  * @model superTypes="org.nasdanika.webtest.hub.JSONLoader"

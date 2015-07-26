@@ -20,6 +20,7 @@ import org.nasdanika.webtest.hub.Screenshot;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getTimestamp <em>Timestamp</em>}</li>
@@ -31,7 +32,6 @@ import org.nasdanika.webtest.hub.Screenshot;
  *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getBeforeOperations <em>Before Operations</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ScreenshotImpl#getAfterOperations <em>After Operations</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

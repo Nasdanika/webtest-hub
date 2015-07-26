@@ -15,11 +15,11 @@ import org.nasdanika.webtest.hub.HubPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.StatsEntryImpl#getTypedKey <em>Key</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.StatsEntryImpl#getTypedValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

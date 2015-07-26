@@ -42,11 +42,11 @@ import org.nasdanika.webtest.hub.TestMethodResult;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestClassResultImpl#getMethodResults <em>Method Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestClassResultImpl#getStats <em>Stats</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

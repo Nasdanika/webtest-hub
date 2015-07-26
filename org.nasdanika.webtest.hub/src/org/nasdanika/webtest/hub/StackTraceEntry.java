@@ -12,6 +12,7 @@ import org.nasdanika.core.JSONLoader;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.StackTraceEntry#getClassName <em>Class Name</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.StackTraceEntry#getFileName <em>File Name</em>}</li>
@@ -19,7 +20,6 @@ import org.nasdanika.core.JSONLoader;
  *   <li>{@link org.nasdanika.webtest.hub.StackTraceEntry#getLineNumber <em>Line Number</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.StackTraceEntry#isNative <em>Native</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getStackTraceEntry()
  * @model superTypes="org.nasdanika.webtest.hub.JSONLoader"

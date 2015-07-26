@@ -68,6 +68,7 @@ import org.nasdanika.webtest.performance.TimingBase;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.OperationResultImpl#getScreenshots <em>Screenshots</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.OperationResultImpl#getChildren <em>Children</em>}</li>
@@ -83,7 +84,6 @@ import org.nasdanika.webtest.performance.TimingBase;
  *   <li>{@link org.nasdanika.webtest.hub.impl.OperationResultImpl#getFinish <em>Finish</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.OperationResultImpl#getStatus <em>Status</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -10,10 +10,10 @@ package org.nasdanika.webtest.hub;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.PageMethodResult#getPageResult <em>Page Result</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getPageMethodResult()
  * @model

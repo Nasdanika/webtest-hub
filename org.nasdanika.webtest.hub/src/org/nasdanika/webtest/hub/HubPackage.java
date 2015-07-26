@@ -26,6 +26,7 @@ import org.nasdanika.cdo.security.SecurityPackage;
  * <!-- begin-model-doc -->
  * Nasdanika WebTest Hub is a web application for hosting [Nasdanika WebTest](https://github.com/Nasdanika/server/wiki/webtest) reports.
  * 
+ * 
  * <!-- end-model-doc -->
  * @see org.nasdanika.webtest.hub.HubFactory
  * @model kind="package"

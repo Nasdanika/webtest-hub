@@ -48,13 +48,13 @@ import org.nasdanika.webtest.hub.WebElement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.PageResultImpl#getResults <em>Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.PageResultImpl#getCoverage <em>Coverage</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.PageResultImpl#getWebElements <em>Web Elements</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.PageResultImpl#isProxy <em>Proxy</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -13,11 +13,11 @@ import org.eclipse.emf.common.util.EMap;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.TestClassResult#getMethodResults <em>Method Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.TestClassResult#getStats <em>Stats</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getTestClassResult()
  * @model

@@ -47,6 +47,7 @@ import org.nasdanika.webtest.hub.TestSession.Totals;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ApplicationImpl#getTestSessions <em>Test Sessions</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ApplicationImpl#getSecurityToken <em>Security Token</em>}</li>
@@ -54,7 +55,6 @@ import org.nasdanika.webtest.hub.TestSession.Totals;
  *   <li>{@link org.nasdanika.webtest.hub.impl.ApplicationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.ApplicationImpl#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

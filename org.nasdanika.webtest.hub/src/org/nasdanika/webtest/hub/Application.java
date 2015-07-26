@@ -15,6 +15,7 @@ import org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.Application#getTestSessions <em>Test Sessions</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Application#getSecurityToken <em>Security Token</em>}</li>
@@ -22,7 +23,6 @@ import org.nasdanika.cdo.web.SessionWebSocketServlet.WebSocketContext;
  *   <li>{@link org.nasdanika.webtest.hub.Application#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.Application#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getApplication()
  * @model superTypes="org.nasdanika.webtest.hub.BreadcrumbsProvider"

@@ -11,10 +11,10 @@ import org.nasdanika.cdo.security.LoginPasswordHashUser;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.User#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getUser()
  * @model

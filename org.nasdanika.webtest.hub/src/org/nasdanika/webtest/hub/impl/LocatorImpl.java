@@ -15,11 +15,11 @@ import org.nasdanika.webtest.hub.Locator;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.LocatorImpl#getHow <em>How</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.LocatorImpl#getUsing <em>Using</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

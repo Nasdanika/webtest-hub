@@ -18,10 +18,10 @@ import org.nasdanika.webtest.hub.WebElement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.WebElementImpl#getLocators <em>Locators</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

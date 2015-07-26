@@ -66,6 +66,7 @@ import org.nasdanika.webtest.hub.TestSession;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getTestResults <em>Test Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getPageResults <em>Page Results</em>}</li>
@@ -76,7 +77,6 @@ import org.nasdanika.webtest.hub.TestSession;
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestSessionImpl#getNode <em>Node</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

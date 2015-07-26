@@ -17,6 +17,7 @@ import org.nasdanika.webtest.performance.TimingBase;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getScreenshots <em>Screenshots</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getChildren <em>Children</em>}</li>
@@ -32,7 +33,6 @@ import org.nasdanika.webtest.performance.TimingBase;
  *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getFinish <em>Finish</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.OperationResult#getStatus <em>Status</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.nasdanika.webtest.hub.HubPackage#getOperationResult()
  * @model superTypes="org.nasdanika.webtest.hub.Descriptor org.nasdanika.webtest.hub.BreadcrumbsProvider"

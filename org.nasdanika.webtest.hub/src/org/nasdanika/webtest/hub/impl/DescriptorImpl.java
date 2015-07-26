@@ -17,12 +17,12 @@ import org.nasdanika.webtest.hub.HubPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.DescriptorImpl#getQualifiedName <em>Qualified Name</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.DescriptorImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.DescriptorImpl#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

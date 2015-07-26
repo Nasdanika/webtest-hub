@@ -34,11 +34,11 @@ import org.nasdanika.webtest.hub.TestResult;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestResultImpl#getPageResults <em>Page Results</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.TestResultImpl#getActorResults <em>Actor Results</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

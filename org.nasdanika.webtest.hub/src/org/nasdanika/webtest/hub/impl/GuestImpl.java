@@ -8,7 +8,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.eclipse.emf.cdo.CDOLock;
 import org.eclipse.emf.common.util.EList;
@@ -61,12 +60,12 @@ import org.nasdanika.webtest.hub.HubPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.nasdanika.webtest.hub.impl.GuestImpl#getMemberOf <em>Member Of</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.GuestImpl#getPermissions <em>Permissions</em>}</li>
  *   <li>{@link org.nasdanika.webtest.hub.impl.GuestImpl#getProtectionDomain <em>Protection Domain</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -136,6 +135,10 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 	 * @generated NOT
 	 */
 	public Object registrationForm(CDOTransactionHttpServletRequestContext<LoginPasswordCredentials> context) throws Exception {
+//		if (context.getPrincipal()!=this) {
+//			context.getResponse().sendRedirect(context.getObjectPath(context.getPrincipal()+".html"));
+//			return null;
+//		}
 		return renderApplication(context, new AbstractCommand<HttpServletRequestContext, ApplicationPanel, Void>() {
 
 			@Override
@@ -294,7 +297,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 	 * @generated NOT
 	 */
 	public Object register(
-			WebSocketContext<LoginPasswordCredentials> context, 
+			final WebSocketContext<LoginPasswordCredentials> context, 
 			final String login, 
 			String name, 
 			String eMail, 
@@ -344,7 +347,7 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 						}
 					}
 				}
-				org.nasdanika.webtest.hub.User newUser = HubFactory.eINSTANCE.createUser();
+				final org.nasdanika.webtest.hub.User newUser = HubFactory.eINSTANCE.createUser();
 				newUser.setLogin(login);
 				//newUser.setName(name); - later
 				hub.setPasswordHash(newUser, password);
@@ -376,8 +379,22 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				if (newUser!=authenticatedUser) {
 					throw new ServerException("Registration failed - server error");
 				}
+								
+				return new Action() {
+					
+					@Override
+					public void close() throws Exception {
+						// NOP
+						
+					}
+					
+					@Override
+					public Object execute() throws Exception {
+						return context.getObjectPath(newUser)+".html";
+					}
+				};
 				
-				return context.getObjectPath(hub)+".html"; 
+//				return context.getObjectPath(hub)+".html"; 
 			} finally {
 				writeLock.unlock();
 			}
@@ -404,7 +421,6 @@ public class GuestImpl extends CDOObjectImpl implements Guest {
 				.footer(htmlFactory.link("#", "Documentation"));		
 				
 		Navbar navBar = htmlFactory.navbar("Welcome!", objectPath+".html"); 	
-		
 		// TODO - Login form on the right using knockout form and login operation.
 		
 		if (context.getRequest().getUserPrincipal()==null) { // NFS authentication

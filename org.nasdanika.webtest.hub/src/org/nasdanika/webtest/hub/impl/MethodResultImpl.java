@@ -10,8 +10,6 @@ import org.nasdanika.webtest.hub.MethodResult;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Method Result</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */
